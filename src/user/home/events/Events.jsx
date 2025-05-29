@@ -7,34 +7,34 @@ import ParticlesConfig from "../../../shared/components/particles/particles-conf
 import classes from "./Events.module.css";
 import { BaseURL } from "../BaseData";
 
-const API_URL = BaseURL + "api/announcement/";
-
 const Events = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [announcements, setAnnouncements] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState("");
+  const [loading, setLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [seeMoreClicked, setSeeMoreClicked] = useState(false);
 
-  useEffect(() => {
-    // Fetching announcement data
-    const fetchAnnouncements = async () => {
-      try {
-        const response = await axios.get(API_URL);
-        const filteredAnnouncements = response.data
+  const fetchAnnouncements = () => {
+      setLoading(true);
+      axios
+        .get(BaseURL + "api/announcement/")
+        .then((response) => {
+          const sortedAnnouncements = response.data
           .filter(
-            (announcement) => new Date(announcement.finishing_time) > new Date() // Filter out finished announcements
+            (announcement) => new Date(announcement.finishing_time) > new Date()
           )
-          .sort((a, b) => (a.is_main === b.is_main ? 0 : a.is_main ? -1 : 1)); // Main announcements first
-
-        setAnnouncements(filteredAnnouncements);
-      } catch (error) {
-        console.error("Error fetching announcements:", error);
-      }
+          .sort((a, b) => new Date(b.finishing_time) - new Date(a.finishing_time));
+          setAnnouncements(sortedAnnouncements);
+          // calculateCategoryCounts(setAnnouncements);
+        })
+        .catch((error) => console.error("Error fetching data:", error))
+        .finally(() => setLoading(false));
     };
+    useEffect(() => {
+        fetchAnnouncements();
+      }, [i18n.language]);
 
-    fetchAnnouncements();
-  }, []);
 
   const onClickOpenModal = (eventName) => {
     setSelectedEvent(eventName);

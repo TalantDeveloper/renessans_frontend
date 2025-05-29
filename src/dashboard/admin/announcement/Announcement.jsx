@@ -12,9 +12,9 @@ import {
 import Modal from "react-modal";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-
+import { BaseURL } from "../../../user/home/BaseData";
 // API URL
-const API_URL = "https://sayt.renessans-edu.uz/api/announcement/";
+const API_URL = BaseURL + "api/announcement/";
 
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
