@@ -1,0 +1,21 @@
+.component-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+  padding: 20px 40px;
+  background-color: var(--bg-light-grey-color);
+}
+
+.animation {
+  width: 30vw;
+  margin: auto;
+}
+
+.text {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+  height: 40px;
+}

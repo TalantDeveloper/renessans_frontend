@@ -1,0 +1,87 @@
+.container {
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 40px 160px;
+  max-width: 1000px;
+  margin: 40px auto;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  color: #2c3e50;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  font-size: 40px;
+  color: #18a0fb;
+  display: none;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.button {
+  background-color: #18a0fb;
+  color: white;
+  padding: 15px 18px;
+  width: 300px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #0f7ac4;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    padding: 30px 20px;
+    width: 90%;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .button {
+    padding: 8px 14px;
+    font-size: 13px;
+    width: 100%;
+  }
+  .buttonGroup {
+    flex-direction: column;
+  }
+}

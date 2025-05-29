@@ -1,0 +1,187 @@
+.container {
+    width: 100%;
+    padding: 40px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.search_box {
+    height: 50px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    gap: 20px;
+    width: 350px;
+    background: var(--bg-light-grey-color);
+    border: 1px solid var(--light-grey, #eff2f7);
+}
+
+.search_input {
+    border: none;
+    outline: none;
+    width: 100%;
+    background: var(--bg-light-grey-color);
+    color: var(--txt-grey-color);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.search_icon {
+    font-size: 30px;
+    color: var(--primary-color);
+}
+
+.add_icon {
+    font-size: 45px;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.add_icon:active {
+    transform: scale(0.98);
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.card {
+    width: 340px;
+    height: auto;
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 12px;
+
+}
+
+.classTitle {
+    padding: 25px 30px;
+    border-bottom: 1px solid #EFF2F7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.classTitle h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.new {
+    width: 55px;
+    height: 26px;
+    border-radius: 40px;
+    background-color: #F4FFF4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new p {
+    text-align: center;
+    font-size: 12px;
+    color: #70C63B;
+}
+
+
+.cardSection {
+    padding: 15px 30px;
+}
+
+.date {
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dateQuestion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dateQuestion p {
+    color: #8A90A5;
+}
+
+.radius {
+    width: 8px;
+    height: 8px;
+    background-color: #70C63B;
+    border-radius: 100px;
+}
+
+.dateBtn {
+    width: auto;
+    height: auto;
+    padding: 8px 20px;
+    background-color: #EFF2F7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+
+.dateBtn p{
+    font-size: 14px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    gap: 15px;
+}
+
+.editBtn {
+    padding: 5px 14px;
+    font-size: 12px;
+    border-radius: 12px;
+    border: none;
+    background-color: #dcea40;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: .3s ease;
+    color: white;
+}
+
+.deleteBtn {
+    padding: 5px 10px;
+    font-size: 12px;
+    border: none;
+    background-color: #ea4040;
+    border-radius: 12px;
+    transition: .3s ease;
+    color: white;
+}
+
+.editBtn:hover {
+    box-shadow: rgba(255, 85, 85, 0.25) 0px 50px 100px -20px, rgba(255, 0, 0, 0.3) 0px 30px 60px -30px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.deleteBtn:hover {
+    box-shadow: rgba(255, 85, 85, 0.25) 0px 50px 100px -20px, rgba(255, 0, 0, 0.3) 0px 30px 60px -30px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.iconsBtn {
+    width: 20px;
+    color: white;
+    height: 20px;
+}

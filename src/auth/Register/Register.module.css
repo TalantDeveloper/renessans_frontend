@@ -1,0 +1,303 @@
+.logIn {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.container {
+  max-width: 1300px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.logInSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.leftSection form {
+  width: 459px;
+  border-radius: 8px;
+  border: 1px solid #eff2f7;
+  background: #fff;
+  box-shadow: 0px 10px 16px 0px rgba(32, 81, 137, 0.06);
+  height: auto;
+  padding: 40px;
+}
+
+.leftSection h3 {
+  text-align: center;
+}
+
+.inputSection {
+  padding-top: 30px;
+}
+
+.inputEye {
+  position: relative;
+}
+
+.input {
+  height: 56px;
+  font-size: 16px;
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid #eff2f7;
+  background: #f8fafc;
+  margin-bottom: 20px;
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+.eye {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  cursor: pointer;
+  bottom: 0px;
+  transition: 0.2s ease;
+}
+
+.eye:active {
+  transform: scale(1.1);
+}
+
+.forgotPass {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.passParag {
+  color: #8894a0;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.forgotButton {
+  background: none;
+  color: #8894a0;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  border: none;
+}
+
+.send {
+  margin-top: 30px;
+  width: 100%;
+  padding: 16px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background: #1d72d2;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.send:active {
+  transform: scale(0.9);
+}
+
+.forRegister {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.newUser {
+  color: #8894a0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.registerButton {
+  background: none;
+  border: none;
+  color: #1d72d2;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.box1 {
+  border-radius: 10px 10px 10px 10px;
+  width: 771px;
+  height: 586px;
+}
+
+@media screen and (max-width: 1290px) {
+  .container {
+    width: 100%;
+  }
+
+  .box1 {
+    flex: 1;
+    width: 586px;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .container {
+    width: 100%;
+  }
+
+  .box1 {
+    flex: 1;
+    width: 486px;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .container {
+    width: 100%;
+  }
+
+  .box1 {
+    flex: 1;
+    width: auto;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .container {
+    width: 100%;
+  }
+
+  .logInSection {
+    display: block;
+  }
+
+  form {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .box1 {
+    width: 600px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .container {
+    width: 100%;
+  }
+
+  .box1 {
+    width: 100%;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+
+  .leftSection form {
+    width: 400px;
+  }
+
+  .box1 {
+    width: 100%;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .leftSection form {
+    width: 350px;
+  }
+
+  .passParag {
+    font-size: 12px;
+  }
+
+  .forgotButton {
+    font-size: 12px;
+  }
+
+  .checkBox {
+    align-items: center;
+  }
+
+  .box1 {
+    width: 100%;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .container {
+    width: 100%;
+  }
+
+  .leftSection form {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .forRegister {
+    margin-top: 36px;
+  }
+
+  .inputEye {
+    padding-top: 20px;
+  }
+
+  .box1 {
+    height: 300px;
+  }
+
+  .eye {
+    top: 36px;
+  }
+
+  .passParag {
+    font-size: 10px;
+  }
+
+  .forgotButton {
+    font-size: 10px;
+  }
+}

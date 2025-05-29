@@ -1,0 +1,39 @@
+.language_change_button {
+  width: 70px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--bg-light-grey-color);
+  cursor: pointer;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+.language_menu {
+  border-radius: 12px;
+}
+
+.language_item {
+  gap: 5px;
+  width: 90%;
+  padding: 8px 10px !important;
+  margin: auto !important;
+  border-radius: 12px !important;
+  background-color: var(--white-color) !important;
+}
+
+.active_language {
+  background-color: var(--primary-color) !important;
+  color: var(--txt-white-color) !important;
+}
+
+.language_name {
+  margin-left: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

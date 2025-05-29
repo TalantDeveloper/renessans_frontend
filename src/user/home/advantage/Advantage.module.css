@@ -1,0 +1,134 @@
+.containers {
+  background-color: var(--bg-white-color);
+  padding: 70px 0;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.start {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: rgba(50, 58, 86, 1);
+  margin-bottom: 60px;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 65px;
+  letter-spacing: 0em;
+  margin-top: 60px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+.service {
+  width: 400px;
+  padding: 40px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  background: transparent;
+  transition: 1s !important;
+  border-radius: 12px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--bg-white-color);
+}
+
+.service i {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.service h2 {
+  color: var(--txt-dark-grey-color);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 21px 0px 10px 0px;
+}
+
+.service p {
+  color: var(--txt-grey-color);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+}
+
+.service:hover {
+  color: var(--txt-white-color);
+  transform: scale(1.01) !important;
+  background: var(--primary-color);
+  box-shadow: 0px 10px 16px 0px rgba(32, 81, 137, 0.06);
+}
+
+.service:hover h2 {
+  color: var(--txt-white-color);
+}
+
+.service:hover p {
+  color: var(--txt-white-color);
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eff2f7;
+}
+
+.icon {
+  font-size: 28px;
+  color: var(--primary-color);
+}
+
+/* responsive */
+@media (max-width: 1200px) {
+  .containers {
+    padding: 0px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .start {
+    font-size: 28px;
+    line-height: 30px;
+  }
+  .containers {
+    padding: 0px 10px;
+  }
+  .service {
+    background-color: var(--primary-color);
+    color: var(--txt-white-color);
+    width: 80%;
+    padding: 30px;
+  }
+  .service:hover {
+    transform: scale(1);
+  }
+  .service p {
+    color: var(--txt-white-color);
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .service h2 {
+    color: var(--txt-white-color);
+    font-size: 18px;
+    line-height: normal;
+    margin: 16px 0px 8px 0px;
+  }
+}
+
+@media (max-width: 420px) {
+  .service {
+    width: 100%;
+  }
+}

@@ -1,0 +1,95 @@
+/* Modal container */
+.telegram-subscribe-container {
+  position: fixed;
+  top: 57px;
+  right: 31.5%;
+  background: linear-gradient(135deg, #133654, #4b79a1);
+  border: none;
+  padding: 35px 45px 85px 45px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Higher z-index than the overlay */
+  max-width: 550px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Add a slight scaling effect */
+.telegram-subscribe-container:hover {
+  transform: scale(1.02);
+}
+
+/* Telegram subscribe content */
+.telegram-subscribe {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white; /* Make text white for contrast */
+}
+
+/* Telegram logo */
+.telegram-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+/* Telegram link */
+.telegram-link {
+  text-decoration: none;
+  color: #ffffff;
+  background: #00b0ff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin-top: 20px;
+  box-shadow: 0 8px 15px rgba(0, 176, 255, 0.2);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.1rem;
+  position: absolute;
+  bottom: -67px;
+  right: -25px;
+}
+
+/* Hover effect for the button */
+.telegram-link:hover {
+  background: #007bbd;
+  box-shadow: 0 8px 15px rgba(0, 123, 189, 0.4);
+}
+
+/* "X" close button */
+.close-btn {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  background: #00b0ff;
+  border: none;
+  font-size: 22px;
+  color: white;
+  border-radius: 50%;
+  padding: 1px 9px 6px 9px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #d32f2f;
+}
+
+/* Soft shadow for a subtle effect */
+.telegram-subscribe-container {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.collected p {
+  font-size: 20px;
+  letter-spacing: 1.1px;
+}
+
+.collected a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,156 @@
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.btnAdd {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnAdd:hover {
+  background-color: #45a049;
+}
+
+.tableContainer {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.btnEdit {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.btnEdit:hover {
+  background-color: #0056b3;
+}
+
+.btnDelete {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+}
+
+.btnDelete:hover {
+  background-color: #c82333;
+}
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  max-height: 80vh; /* Adjust this as needed */
+  overflow-y: auto; /* Enable scrolling */
+  margin: auto;
+  position: relative;
+  width: 100%;
+  z-index: 9999;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btnSubmit {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnSubmit:hover {
+  background-color: #45a049;
+}
+
+.btnCancel {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnCancel:hover {
+  background-color: #c82333;
+}

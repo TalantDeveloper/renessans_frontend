@@ -1,0 +1,58 @@
+.drag-and-drop-area {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.drag-and-drop-area:hover {
+  border-color: #007bff;
+}
+
+.drag-and-drop-area p {
+  font-size: 14px;
+  color: #666;
+}
+
+.drag-and-drop-area input {
+  display: none; /* Hide the default file input */
+}
+
+.previews {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-container {
+  margin-top: 10px;
+}
+
+.select-input {
+  width: 100%;
+  margin-top: 5px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 16px;
+  color: #8894a0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 30px;
+  outline: none;
+  background: var(--button-bg, #f8fafc);
+}
+
+.select-input:focus {
+  outline: none;
+  border-color: #075634;
+}
+
+.imprt {
+  width: 100%;
+  padding: 20px;
+}

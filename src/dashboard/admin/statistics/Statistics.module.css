@@ -1,0 +1,191 @@
+.container {
+  padding: 30px;
+  background-color: #f4f7fb;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 28px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.addButton {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.addButton:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.statList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.statCard {
+  padding: 20px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.statCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.iconContainer {
+  margin-bottom: 15px;
+}
+
+.icon {
+  font-size: 40px;
+  color: #007bff;
+}
+
+.statName {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.statNumber {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  margin-top: 10px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.actionButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editButton {
+  background-color: #007bff;
+  color: white;
+}
+
+.editButton:hover {
+  background-color: #0056b3;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.modalContent {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modalTitle {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.modalLabel {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.modalInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.saveButton,
+.cancelButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.saveButton {
+  background-color: #4caf50;
+  color: white;
+}
+
+.saveButton:hover {
+  background-color: #45a049;
+}
+
+.cancelButton {
+  background-color: #ccc;
+}
+
+.cancelButton:hover {
+  background-color: #bbb;
+}

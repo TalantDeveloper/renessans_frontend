@@ -1,0 +1,148 @@
+.card_container {
+  border-radius: 6px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--bg-white-color);
+  box-shadow: 0px 10px 16px 0px rgba(32, 81, 137, 0.06);
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card_img {
+  width: 100%;
+  height: auto;
+
+  border-radius: 6px 6px 0px 0px;
+}
+
+.wrap {
+  padding: 40px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.text {
+  color: var(--txt-grey-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.title {
+  color: var(--txt-dark-grey-color);
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 30px 0px 20px 0px;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.descr {
+  color: var(--txt-grey-color);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  border-radius: 8px;
+  background: var(--primary-color);
+  padding: 10px 20px;
+  border: none;
+  color: var(--txt-white-color);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn .icon {
+  transition: all 0.3s;
+}
+
+.btn:hover .icon {
+  transform: translateX(4px);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .wrap {
+    padding: 20px;
+  }
+  .flex {
+    flex-wrap: wrap;
+    justify-content: stretch;
+    gap: 16px;
+  }
+  .box {
+    gap: 6px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 20px 0px 10px 0px;
+  }
+
+  .descr {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .stars {
+    flex-direction: column;
+    gap: 20px;
+    flex-flow: wrap-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.descr .more {
+  color: rgb(57, 93, 202);
+  cursor: pointer;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 17px;
+  margin-left: 10px;
+  transition: 300ms;
+}
+
+.descr .more:hover {
+  text-decoration: underline;
+}

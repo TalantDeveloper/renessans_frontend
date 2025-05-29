@@ -1,0 +1,174 @@
+:root {
+  --primary-color: #4e73df;
+  --accent-color: #f8f9fc;
+  --text-color: #333;
+  --hover-color: #5a5c69;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --light-shadow: rgba(255, 255, 255, 0.6);
+}
+
+/* Main table container with neomorphism effect */
+.table-container {
+  margin: 40px auto;
+  padding: 25px;
+  max-width: 1200px;
+  background-color: var(--accent-color);
+  border-radius: 30px;
+  box-shadow: 10px 10px 30px var(--shadow-color),
+    -10px -10px 30px var(--light-shadow);
+  animation: slideIn 0.8s ease-out;
+}
+
+/* New fade-in animation */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Calendar container styling */
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.react-calendar {
+  max-width: 400px;
+  background: var(--accent-color);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2),
+    -6px -6px 20px rgba(255, 255, 255, 0.5);
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.react-calendar:hover {
+  transform: scale(1.05);
+  box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.3),
+    -8px -8px 25px rgba(255, 255, 255, 0.7);
+}
+
+/* Calendar navigation buttons */
+.react-calendar__navigation button {
+  background: var(--primary-color);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.react-calendar__navigation button:hover {
+  background: #3e59c5;
+}
+
+/* Header section */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h2 {
+  font-size: 36px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #4e73df 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+/* Glowing text animation */
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+      0 0 30px rgba(78, 115, 223, 0.7);
+  }
+}
+
+/* Schedule columns */
+.schedule-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  transform: translateY(20px);
+}
+
+.column {
+  width: 48%;
+  background-color: var(--accent-color);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.15),
+    -8px -8px 20px rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+.column:hover {
+  transform: scale(1.03) translateY(-10px);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2),
+    -10px -10px 30px rgba(255, 255, 255, 0.8);
+}
+
+/* Day header with gradient background */
+.day-header {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #4e73df 0%, #6b9bff 100%);
+  color: white;
+  border-radius: 12px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Class item styles with 3D hover effect */
+.class-item {
+  font-size: 18px;
+  color: var(--text-color);
+  background-color: var(--accent-color);
+  padding: 18px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15),
+    -5px -5px 15px rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.class-item:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.25),
+    -8px -8px 25px rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .table-container {
+    padding: 20px;
+  }
+
+  .schedule-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .column {
+    width: 100%;
+  }
+}

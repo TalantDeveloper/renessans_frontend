@@ -1,0 +1,105 @@
+.schoolAbout {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 0px 30px 50px 0;
+}
+
+.container {
+  max-width: 1300px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.about {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 6px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--white, #fff);
+  padding: 20px;
+}
+
+.schoolLeft img {
+  width: 510px;
+  height: 700px;
+  border-radius: 6px;
+  margin-left: auto;
+  object-fit: cover;
+}
+
+.schoolRight {
+  padding: 50px 60px;
+}
+
+.schoolRight h4 {
+  padding-top: 10px;
+  color: var(--greey, #8a90a5);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.schoolRight p {
+  color: var(--greey, #8a90a5);
+  font-size: 20px;
+  font-weight: 400;
+  padding-top: 30px;
+  line-height: 32px;
+}
+
+.map {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 1160px) {
+  .container {
+    width: 100%;
+  }
+
+  .schoolRight h1 {
+    font-size: 26px;
+  }
+
+  .schoolRight h4 {
+    font-size: 17px;
+  }
+
+  .schoolRight p {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .container {
+    width: 100%;
+  }
+
+  .about {
+    display: block;
+  }
+
+  .schoolLeft img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .container {
+    width: 100%;
+  }
+
+  .schoolRight h1 {
+    font-size: 22px;
+  }
+
+  .schoolRight {
+    padding: 30px 35px;
+  }
+}

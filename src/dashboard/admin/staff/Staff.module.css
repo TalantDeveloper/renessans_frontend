@@ -1,0 +1,219 @@
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #f7f8fa, #eaeef3);
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+}
+
+.icon {
+  color: #007bff;
+}
+
+.addButton {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.addButton:hover {
+  background-color: #0056b3;
+}
+
+.staffList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.staffCard {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.staffCard:hover {
+  transform: translateY(-5px);
+}
+
+.cardHeader {
+  margin-bottom: 15px;
+}
+
+.cardHeader h3 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.staffCard p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+}
+
+.staffImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.placeholderImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: #007bff;
+  margin: 0 auto 10px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.editButton,
+.deleteButton {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background-color 0.3s;
+}
+
+.editButton:hover {
+  background-color: #0056b3;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+}
+
+.deleteButton:hover {
+  background-color: #a71d2a;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto; /* Allow scrolling within the modal */
+}
+
+.modalContent {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 500px;
+  max-height: 90%; /* Limit the height of the modal */
+  overflow-y: auto; /* Add vertical scroll if content exceeds modal height */
+  position: relative;
+}
+
+.modalContent h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+.modalContent label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.modalContent input,
+.modalContent textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.modalContent input:focus,
+.modalContent textarea:focus {
+  border-color: #007bff;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.saveButton {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.saveButton:hover {
+  background-color: #0056b3;
+}
+
+.cancelButton {
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancelButton:hover {
+  background-color: #4e555b;
+}

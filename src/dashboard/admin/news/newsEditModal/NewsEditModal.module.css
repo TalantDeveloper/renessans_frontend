@@ -1,0 +1,33 @@
+/* Image preview style */
+.img-preview {
+  display: block;
+  width: 100px;
+  height: auto;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+/* Category dropdown style */
+.modal-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  appearance: none;
+  background-size: 16px;
+}
+
+.modal-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+.is_main {
+  display: flex;
+  align-items: center;
+}

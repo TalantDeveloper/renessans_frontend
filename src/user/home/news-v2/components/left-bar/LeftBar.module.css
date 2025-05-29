@@ -1,0 +1,125 @@
+.wrapper {
+  flex: 1;
+  position: sticky;
+  top: 10px;
+  height: fit-content;
+}
+
+.section {
+  padding: 30px;
+  border-radius: 6px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--bg-white-color);
+  margin-bottom: 40px;
+}
+
+.title {
+  color: var(--dark-grey, #323a56);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 30px;
+}
+
+.box {
+  border-radius: 6px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--bg-white-color);
+  box-shadow: 0px 4px 8px 0px rgba(32, 81, 137, 0.05);
+  gap: 8px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0px;
+}
+
+/* category */
+
+.category_box {
+  border-radius: 4px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--bg-light-grey-color);
+  gap: 8px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.category_box:hover {
+  border-radius: 4px;
+  color: #1d72d2;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--bg-white-color);
+  box-shadow: 0px 4px 8px 0px rgba(32, 81, 137, 0.05);
+}
+
+.input {
+  color: var(--txt-grey-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+/* social_media */
+.social_media_box {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  background-color: var(--white);
+  border: 1px solid var(--light-grey, #eff2f7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  transition: 0.2s;
+}
+
+.icon path {
+  transition: 0.2s;
+}
+
+.circle:hover {
+  background-color: var(--primary-color);
+}
+
+.circle:hover .icon path {
+  fill: var(--txt-white-color);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .wrapper {
+    position: static;
+  }
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}

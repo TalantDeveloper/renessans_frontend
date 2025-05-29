@@ -1,0 +1,133 @@
+.container {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.content {
+  max-width: 72rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4f46e5;
+  margin-top: 20px;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #374966;
+  margin-top: -40px;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+
+  .subtitle {
+    font-size: 13px;
+    margin-top: 0;
+  }
+}
+
+.gridItem {
+  background-color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gridItemLarge {
+  grid-row: span 2;
+}
+
+.innerContent {
+  text-align: left;
+  width: 100%;
+  max-width: 20rem;
+  margin: auto;
+}
+
+.itemTitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #1e293b;
+  text-align: center;
+}
+
+.itemText {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 20rem;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer img {
+  max-width: 100%;
+  border-radius: 1rem;
+}
+
+.codeExample {
+  background-color: #1f2937;
+  color: #e5e7eb;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+.fileTabs {
+  display: flex;
+}
+
+.tab {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 2px solid transparent;
+  color: #9ca3af;
+}
+
+.active {
+  color: white;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom-color: #1e293b;
+}
+
+.codeContent {
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 524px) {
+  .subtitle {
+    font-size: 23px;
+    margin-top: 0;
+  }
+}

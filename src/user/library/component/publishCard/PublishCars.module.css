@@ -1,0 +1,95 @@
+.card-box {
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border-primary-color);
+  box-shadow: 0px 10px 16px 0px rgba(32, 81, 137, 0.06);
+  position: relative;
+  transition: 300ms;
+  background: var(--bg-white-color);
+  display: flex;
+  gap: 20px;
+}
+
+.img {
+  width: 120px;
+  height: 180px;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+.title {
+  color: var(--txt-dark-grey-color);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.text {
+  color: var(--txt-grey-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.flex {
+  display: flex;
+}
+
+.icon {
+  font-size: 25px;
+  color: yellow;
+  margin-right: 10px;
+  margin-top: -5px;
+}
+
+.btn {
+  border-radius: 8px;
+  background: var(--primary-color);
+  padding: 12px 32px;
+  box-shadow: 0px 7px 12px 0px rgba(32, 81, 137, 0.24);
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn p {
+  position: relative;
+  display: inline-block;
+  font-size: 12px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: 0.3s;
+  color: var(--txt-white-color);
+  transition: 0.2s;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  border-radius: 8px;
+  background-color: #4692e9;
+  transition: 0.5s ease-out;
+}
+.btn:hover::before {
+  width: 100%;
+}

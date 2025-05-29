@@ -1,0 +1,78 @@
+.mySwiper {
+  width: 400px;
+  height: 100%;
+}
+
+.card {
+  border-radius: 6px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--white, #fff);
+  box-shadow: 0px 10px 16px 0px rgba(32, 81, 137, 0.06);
+  width: 320px;
+  height: 380px;
+  padding: 20px;
+}
+
+.card_img {
+  height: 180px;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--light-grey, #eff2f7);
+}
+
+.card_title {
+  color: var(--dark-grey, #323a56);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 8px 0px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.icons {
+  font-size: 50px;
+}
+
+.team_text {
+  font-size: 20px;
+  color: #313647;
+  margin: 10px 0px;
+}
+
+.card_descr {
+  color: #313647;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.card_attributes_box {
+  color: var(--bluee, #1d72d2);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: fit-content;
+  margin-left: auto;
+  margin-top: 40px;
+}
+
+/* responsive */
+@media (max-width: 420px) {
+  .card {
+    width: 90%;
+    height: 100%;
+    padding: 10px;
+  }
+  .card_attributes_box {
+    margin-top: 10px;
+  }
+}

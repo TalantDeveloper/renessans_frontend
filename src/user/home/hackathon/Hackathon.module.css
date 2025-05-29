@@ -1,0 +1,198 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #133654;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.allInContainer {
+  position: relative;
+}
+
+/* Title with gradient text and shadow */
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(135deg, #133654, #007fbf);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 1px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtitle for a clean and approachable look */
+.subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+/* Grid layout */
+.aboutGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-in-out;
+  animation: fadeIn 1s ease forwards;
+  animation: continuousBounce 3s ease-in-out infinite;
+}
+
+@keyframes continuousBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade-in animation for smoother appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.iconContainer {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #133654, #007fbf);
+  color: #ffffff;
+  border-radius: 50%;
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  color: #133654;
+  font-weight: bold;
+  margin-top: 1rem;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* "More About Us" button with a modern look */
+.moreButton {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background-color: #005f8a;
+  font-size: 1rem;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 127, 191, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.moreButton:hover {
+  background-color: #007fbf;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .aboutGrid {
+    grid-template-columns: 1fr;
+  }
+  .iconContainer {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+}
+
+/* Styles for decorative icons outside the container */
+.iconDecor {
+  position: absolute;
+  opacity: 0.2;
+  font-size: 3rem;
+  color: #133654;
+  transform-origin: center;
+  z-index: 9;
+}
+
+/* Individual positions for each icon */
+.iconDecor1 {
+  top: 100px;
+  left: 26px;
+  transform: rotate(20deg);
+}
+
+.iconDecor2 {
+  top: 50%;
+  right: -20px;
+  transform: rotate(-30deg);
+}
+
+.iconDecor3 {
+  bottom: 30px;
+  left: 60px;
+  transform: rotate(15deg);
+}
+
+.iconDecor4 {
+  bottom: 100px;
+  right: 56px;
+  transform: rotate(13deg);
+}
+
+.iconDecor5 {
+  top: 18px;
+  right: 5%;
+  transform: rotate(-20deg);
+}
+
+.iconDecor7 {
+  bottom: 290px;
+  left: 5%;
+  transform: rotate(-20deg);
+}
+
+.iconDecor8 {
+  bottom: 215px;
+  right: 21%;
+  transform: rotate(-20deg);
+  display: none;
+}

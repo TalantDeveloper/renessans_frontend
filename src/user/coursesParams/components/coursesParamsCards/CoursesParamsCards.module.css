@@ -1,0 +1,147 @@
+.card_box {
+  border-radius: 10px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--bg-white-color);
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  color: var(--primary-color);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.descr {
+  color: var(--txt-grey-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  width: 60%;
+  margin: 18px 0px;
+}
+
+.number {
+  border-radius: 53px;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translate(0%, -50%);
+  -webkit-text-stroke: 2px var(--primary-color);
+  -webkit-text-fill-color: transparent;
+  opacity: 0.3;
+  line-height: 1;
+  transition: all 0.5s ease-out 0s;
+  color: var(--button-bg, #f8fafc);
+  font-size: 138px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0px;
+}
+
+.text {
+  color: var(--txt-grey-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.duration {
+  width: 70%;
+}
+
+.icons {
+  font-size: 25px;
+  color: var(--primary-color);
+  font-weight: 900;
+}
+
+.btn {
+  border-radius: 8px;
+  background: var(--primary-color);
+  padding: 15px 30px;
+  box-shadow: 0px 7px 12px 0px rgba(32, 81, 137, 0.24);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  margin-top: 10px;
+}
+
+.btn p {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: 0.3s;
+  color: var(--txt-white-color);
+  transition: 0.2s;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  border-radius: 8px;
+  background-color: #4692e9;
+  transition: 0.5s ease-out;
+}
+.btn:hover::before {
+  width: 100%;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+  .number {
+    font-size: 70px;
+    top: 15%;
+  }
+  .descr {
+    width: 100%;
+  }
+  .duration {
+    width: 90%;
+  }
+}
+
+@media (max-width: 420px) {
+  .card_box {
+    padding: 25px;
+  }
+  .number {
+    top: 0px;
+    transform: translate(0%);
+  }
+  .descr {
+    margin-top: 30px;
+  }
+}

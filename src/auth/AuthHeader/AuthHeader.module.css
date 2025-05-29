@@ -1,0 +1,39 @@
+.top-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 180px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 13px 20px;
+  background-color: #eff2f6;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.back-button:active {
+  transform: scale(0.98);
+}
+
+.back-button:hover {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 470px) {
+  .logo {
+    width: 120px;
+  }
+  .back-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

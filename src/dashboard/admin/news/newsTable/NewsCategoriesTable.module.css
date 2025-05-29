@@ -1,0 +1,148 @@
+.container {
+  padding: 20px;
+  margin: 0 auto;
+  background: linear-gradient(120deg, #ffffff, #f1f6ff);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(75, 75, 75, 0.1);
+}
+
+.h2miz {
+  text-align: center;
+  color: #333;
+  font-size: 15px;
+}
+
+.formGroup {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.addButton {
+  background: linear-gradient(120deg, #dde3ef, #09433d);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.addButton:hover {
+  background: linear-gradient(120deg, #9ab8eb, #7acbd7);
+}
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.integrated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+/* .integrated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+} */
+
+.table th,
+.table td {
+  padding: 5px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f3f4f6;
+  color: #555;
+}
+
+.editButton,
+.deleteButton,
+.saveButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.editButton:hover,
+.deleteButton:hover,
+.saveButton:hover {
+  color: #007bff;
+}
+
+.deleteButton {
+  color: #dc3545;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modalButton,
+.modalButtonDanger,
+.modalButtonCancel {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modalButtonDanger {
+  background: #dc3545;
+}
+
+.modalButtonCancel {
+  background: #6c757d;
+}
+
+.modalButton:hover,
+.modalButtonDanger:hover,
+.modalButtonCancel:hover {
+  background: #0056b3;
+}

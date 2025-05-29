@@ -1,0 +1,177 @@
+/* Overall container and layout */
+.container {
+  width: 85%;
+  margin: 0 auto;
+  padding: 80px 0;
+  text-align: center;
+  background: linear-gradient(135deg, #f7f7f7, #f0f0f0);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 3rem;
+  color: #222;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #777;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+}
+
+.swiper-container {
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* Card styles */
+.card {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(0.95);
+  padding: 20px;
+  position: relative;
+  overflow: hidden; /* To ensure the quote icon is clipped inside the card */
+}
+
+.card:hover {
+  transform: scale(1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(238, 249, 255, 0.5),
+    rgba(212, 220, 230, 0.5),
+    rgba(238, 249, 254, 0.5),
+    rgba(0, 0, 0, 0.1),
+    rgba(51, 12, 149, 0.1)
+  );
+  z-index: -1;
+  filter: blur(10px);
+}
+
+.quoteIcon {
+  font-size: 20rem;
+  color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: -250px;
+  right: 50px;
+  transform: rotate(180deg);
+  z-index: 1;
+}
+
+.left {
+  width: 40%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fcfcfc;
+  border-radius: 15px;
+  position: relative;
+}
+
+.imageContainer {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.imageContainer:hover .image {
+  transform: scale(1.05);
+}
+
+.name {
+  font-size: 1.6rem;
+  color: #092f42;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.occupation {
+  font-size: 1.1rem;
+  color: #092f42;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.icon {
+  font-size: 1.6rem;
+  color: #092f42;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #0073b1; /* LinkedIn blue color */
+}
+
+.right {
+  width: 55%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fcfcfc;
+  border-radius: 15px;
+}
+
+.fullText {
+  font-size: 1.2rem;
+  color: #0c4562;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.trophyIcon {
+  font-size: 2.5rem;
+  color: #ffcc00;
+  align-self: flex-start;
+  margin-top: 15px;
+  transition: transform 0.3s ease;
+}
+
+.trophyIcon:hover {
+  transform: scale(1.2);
+}

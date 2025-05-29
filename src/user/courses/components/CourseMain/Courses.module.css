@@ -1,0 +1,218 @@
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* course satrts */
+.courses {
+  padding: 110px 0 40px 0;
+  background: var(--bg-light-grey-color);
+}
+
+.courseTitle {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.courseTitle h1 {
+  color: var(--dark-grey, #323a56);
+  font-size: 62px;
+}
+
+.courseTitle h1 b {
+  color: var(--primary-color);
+  font-size: 62px;
+}
+
+.courseTitle p {
+  color: var(--txt-grey-color);
+  text-align: center;
+  font-size: 20px;
+  line-height: 29px;
+  margin-top: 16px;
+  width: 634px;
+}
+.saralsh {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.saralsh select {
+  border-radius: 4px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  padding: 14px 26px;
+}
+
+.courseCards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 45px;
+  gap: 40px;
+}
+
+.cardSub {
+  width: 400px;
+  padding: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  box-shadow: 0px 10px 16px 0px rgba(32, 81, 137, 0.06);
+  position: relative;
+  border-top: 5px solid var(--txt-white-color);
+  transition: 300ms;
+  background: var(--bg-white-color);
+}
+
+.doubleP {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.doubleP a {
+  color: #1d72d2;
+  font-size: 16px;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--txt-white-color);
+  transition: 300ms;
+}
+
+.cardSub:hover {
+  border-top: 5px solid #1d72d2;
+  transform: scale(1.03) !important;
+}
+
+.courseLogo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.cardSub h1 {
+  color: var(--dark-grey, #323a56);
+  font-size: 24px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.cardSub:hover a {
+  border-bottom: 1px solid #1d72d2;
+  padding-bottom: 1px;
+}
+
+.cardSub p {
+  color: var(--txt-grey-color);
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.status {
+  position: absolute;
+  border-radius: 32px;
+  background: #e8f9de;
+  top: 40px;
+  right: 30px;
+}
+
+.status p {
+  color: #70c63b;
+  font-size: 14px;
+  padding: 0 15px 6px 15px;
+}
+
+.status2 {
+  position: absolute;
+  border-radius: 32px;
+  background: #ffffdb;
+  top: 40px;
+  right: 30px;
+}
+
+.status2 p {
+  color: #ecc744;
+  font-size: 14px;
+  padding: 0 15px 6px 15px;
+}
+
+@media (max-width: 1200px) and (min-width: 992px) {
+  .container {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 765px) {
+  .container {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .cardSub {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 765px) and (min-width: 576px) {
+  .container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .cardSub {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+  .courseTitle p {
+    width: 100%;
+  }
+  .cardSub p {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 576px) and (min-width: 280px) {
+  .container {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .courseCards {
+    flex-direction: column;
+  }
+  .cardSub {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .cardSub:hover {
+    transform: scale(1) !important;
+  }
+
+  .cardSub h1 {
+    font-size: 19px;
+  }
+  .cardSub p {
+    font-size: 12px;
+  }
+  .courseTitle p {
+    width: 100%;
+    line-height: 24px;
+  }
+  .courseTitle h1 {
+    font-size: 28px;
+  }
+  .courseTitle p {
+    font-size: 16px;
+  }
+  .saralsh {
+    margin-top: 20px;
+  }
+  .saralsh select {
+    padding: 10px;
+  }
+  .courses {
+    padding: 50px 0 10px 0;
+  }
+}
+/* course ends */

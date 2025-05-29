@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  margin-bottom: 5px;
+}
+
+.input {
+  border-radius: 6px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--button-bg, #f8fafc);
+  padding: 16px;
+  color: #8894a0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 30px;
+  outline: none;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .input {
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}

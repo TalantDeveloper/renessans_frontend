@@ -1,0 +1,86 @@
+.category {
+  box-sizing: border-box;
+  width: 24%;
+  padding: 30px 10px;
+  cursor: pointer;
+  border: 1px solid #b6c7db;
+  margin: 5px;
+  text-align: center;
+  transition: 300ms;
+  color: var(--primary-color);
+  border-radius: 10px;
+  box-shadow: #dfe0e1 0px 2px 8px 0px;
+}
+
+.category:hover {
+  background-color: var(--primary-color);
+  color: var(--txt-white-color);
+  border-radius: 7px;
+}
+
+.app-container h1 {
+  width: 100%;
+  text-align: center;
+  margin: 50px 0;
+  font-size: 54px;
+}
+
+.appSpan {
+  color: var(--primary-color);
+}
+
+.videoFor {
+  width: 100%;
+  text-align: center;
+  margin: 30px 0;
+  font-size: 34px;
+}
+
+.categryH2 {
+  font-size: 18px;
+}
+
+.another {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.categoriesContainer {
+  display: flex;
+  flex-flow: wrap;
+}
+
+@media (max-width: 1200px) {
+  .category {
+    width: 48%;
+  }
+}
+
+@media (max-width: 992px) {
+  .category {
+    width: 47%;
+  }
+}
+
+@media (max-width: 765px) {
+  .category {
+    width: 100%;
+  }
+  .app-container h1 {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .category {
+    width: 100%;
+  }
+  .app-container h1 {
+    font-size: 32px;
+  }
+}
+
+.category.active {
+  background-color: var(--primary-color);
+  color: var(--txt-white-color);
+}

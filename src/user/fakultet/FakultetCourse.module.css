@@ -1,0 +1,340 @@
+/* Container */
+.appContainer {
+  font-family: Arial, sans-serif;
+  color: #333;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #fdfdfe, #f3f5f9);
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  padding: 20px;
+  margin-right: 250px;
+}
+.content h1 {
+  font-size: 25px;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  right: 20px;
+  top: 30%;
+  width: 260px;
+  padding: 50px 20px 20px 10px;
+  background: #eef1f5;
+  color: #333;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.sidebar h3 {
+  margin-top: -10px;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 35px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+.sidebar li:hover {
+  background: #d0dae4;
+  transform: scaleX(1.02);
+}
+
+.sidebar li.active {
+  background-color: #d0dae4;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Cards Section */
+.cardsSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+  margin: 20px auto;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 50px;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.cardsSection {
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+/* Card Styles */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cardHeader h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+  font-weight: bold;
+}
+
+.cardHeader p {
+  font-size: 14px;
+  color: #777;
+}
+
+.cardContent {
+  background: #f7faff;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.cardContent div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 8px 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.cardContent div:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Card Colors */
+.cardColor0 {
+  background: linear-gradient(135deg, #d7dfe8, #f9ffba);
+}
+.cardColor1 {
+  background: linear-gradient(135deg, #e0f4ff, #527388);
+}
+.cardColor2 {
+  background: linear-gradient(135deg, #bebebe, #89b4ea94);
+}
+.cardColor3 {
+  background: linear-gradient(135deg, #4828792e, #baffc37d);
+}
+.cardColor4 {
+  background: linear-gradient(135deg, #ffffff97, #9ea6cdab);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .content {
+    margin-right: 0;
+  }
+  .sidebar {
+    position: relative;
+    width: 100%;
+    margin: 20px 0 20px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardHeader h3 {
+    font-size: 16px;
+  }
+  .sidebar h3 {
+    font-size: 16px;
+  }
+  .cardsSection h1 {
+    font-size: 20px;
+  }
+  .cardsSection {
+    grid-template-columns: repeat(auto-fit, minmax(280px));
+  }
+}
+
+.cardsSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+  margin: 20px auto;
+  padding-bottom: 40px;
+  padding-top: 20px;
+  text-align: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 100px;
+}
+
+.cardsSection::-webkit-scrollbar {
+  display: none; /* Hide scrollbar on mobile for a cleaner look */
+}
+
+.card {
+  min-width: 280px; /* Ensures each card has enough space */
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .cardsSection {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+}
+
+/* Apply button styling */
+.applyButton {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.applyButton:hover {
+  background-color: #45a049;
+  color: #fff;
+  border: none;
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  top: 100px;
+  right: 35%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 20px 35px;
+  border-radius: 8px;
+  font-size: 16px;
+  z-index: 1000;
+  opacity: 0.9;
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Modal overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal */
+.modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.modal label {
+  display: block;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.submitButton {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.closeButton {
+  background-color: #d9534f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}

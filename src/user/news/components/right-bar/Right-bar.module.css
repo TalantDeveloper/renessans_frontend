@@ -1,0 +1,9 @@
+.box1 {
+  flex: 2;
+}
+
+.center_div {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}

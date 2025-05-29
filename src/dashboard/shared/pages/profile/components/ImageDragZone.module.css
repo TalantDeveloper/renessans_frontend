@@ -1,0 +1,14 @@
+.image-drag-zone {
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 30px;
+  text-align: center;
+  transition: border 0.3s;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.image-drag-zone.dragging {
+  border-color: #666;
+  background-color: #f4f4f4;
+}

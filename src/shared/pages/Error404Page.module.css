@@ -1,0 +1,85 @@
+.error-page {
+  margin: 20px 0 50px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.animation {
+  width: 400px;
+}
+
+.title {
+  color: var(--txt-dark-grey-color);
+  text-align: center;
+  font-size: 54px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.title span {
+  color: var(--primary-color);
+}
+
+.description {
+  color: var(--txt-grey-color);
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+  margin: 10px 0 20px 0;
+}
+
+.button {
+  padding: 20px 40px;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  color: var(--txt-white-color);
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 40px;
+  }
+  .description {
+    font-size: 17px;
+  }
+  .button {
+    padding: 15px 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .error-page {
+    margin-top: 0;
+  }
+  .animation {
+    width: 300px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+  .description {
+    font-size: 14px;
+    margin: 5px 0 15px 0;
+  }
+  .button {
+    padding: 10px 25px;
+    font-size: 15px;
+  }
+}

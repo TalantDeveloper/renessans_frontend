@@ -1,0 +1,167 @@
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.questions {
+  padding: 100px 0;
+}
+.question {
+  width: 100%;
+  background: var(--bg-white-color);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--txt-dark-grey-color);
+  font-size: 24px;
+  border-radius: 6px;
+}
+
+.mainQuest {
+  border-radius: 6px;
+  width: 100%;
+  border: 1px solid #eff2f7;
+  cursor: pointer;
+  box-shadow: 0px 16px 20px 0px rgba(32, 81, 137, 0.08);
+  margin-bottom: 4px;
+  background: none;
+}
+
+.questions button {
+  background: #eff2f7;
+  color: #1d72d2;
+  border-radius: 50px;
+  padding: 5px 14px 8px;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  width: 45px;
+  transition: transform 0.4s;
+}
+
+.questions .questionsTitle {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.questions .questionsTitle h1 {
+  color: var(--txt-dark-grey-color);
+  font-size: 54px;
+}
+
+.questions .questionsTitle h1 b {
+  color: var(--primary-color);
+  font-size: 54px;
+}
+
+.questions .questionsTitle p {
+  color: var(--txt-grey-color);
+  font-size: 20px;
+  line-height: 29px;
+  margin-top: 16px;
+}
+
+.questions .classification {
+  display: flex;
+  background-color: red;
+  align-items: center;
+  gap: 20px;
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.4s;
+}
+
+.questions .classification p {
+  color: var(--txt-grey-color);
+  font-size: 22px;
+  line-height: 34px;
+}
+
+.classification-box {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.questP {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.questP p {
+  color: var(--bluee, #1d72d2);
+  font-size: 20px;
+  background: #eff2f7;
+  border-radius: 50%;
+  padding: 10px 15px;
+}
+
+@media (max-width: 1200px) and (min-width: 992px) {
+  .container {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 765px) {
+  .container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .questions {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 765px) and (min-width: 576px) {
+  .container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .questions {
+    padding: 60px 0;
+  }
+}
+
+@media only screen and (max-width: 576px) and (min-width: 320px) {
+  .container {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .questions .questionsTitle h1 {
+    font-size: 36px;
+  }
+  .questions .questionsTitle p {
+    font-size: 16px;
+  }
+  .question {
+    font-size: 16px;
+  }
+  .questP p {
+    font-size: 15px;
+    padding: 7px 12px;
+  }
+
+  .questions .classification p {
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .questions .classification img {
+    width: 40px;
+    height: 40px;
+  }
+  .questions button {
+    border-radius: 25px;
+    padding: 0px 7px 5px;
+    font-size: 25px;
+    width: 37px;
+  }
+  .questions {
+    padding: 50px 0;
+  }
+}

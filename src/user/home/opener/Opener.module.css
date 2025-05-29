@@ -1,0 +1,252 @@
+.wrapper {
+  background: var(--bg-light-grey-color);
+  width: 100%;
+  display: flex;
+  padding: 110px 0px;
+  position: relative;
+  z-index: 1;
+  background-image: url("/public/video/main_video.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 100px;
+  justify-content: center;
+  max-width: 1300px;
+  z-index: 1;
+  padding: 250px 100px 0px 100px;
+}
+
+.bg-img1 {
+  position: absolute;
+  bottom: 5%;
+  left: 1%;
+  width: 26vw;
+  z-index: -1;
+  transform: rotate(20deg);
+}
+
+.bg-img2 {
+  position: absolute;
+  bottom: 5%;
+  right: -12%;
+  width: 36vw;
+  z-index: -1;
+  transform: rotate(20deg);
+}
+
+.title {
+  color: #fff;
+  font-size: 62px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  width: 80%;
+  text-align: left;
+}
+
+.earth_icon {
+  color: var(--txt-dark-grey-color);
+  font-size: 25px;
+}
+
+.descr {
+  color: #cbcbcb;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+  margin: 28px 0;
+  width: 60%;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.flex a {
+  width: 100%;
+}
+
+.btn1 {
+  border-radius: 8px;
+  background: var(--primary-color);
+  padding: 20px 40px;
+  box-shadow: 0px 7px 12px 0px rgba(32, 81, 137, 0.24);
+  color: var(--txt-white-color);
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border: 1px solid #fff;
+}
+
+.btn1:active {
+  transform: scale(0.98);
+}
+
+.btn2 {
+  border-radius: 8px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--light-grey, #eff2f7);
+  padding: 20px 40px;
+  color: var(--txt-dark-grey-color);
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.btn2:active {
+  transform: scale(0.98);
+}
+
+.status_flex {
+  height: 160px;
+  width: 290px;
+}
+
+.status_text1 {
+  color: var(--txt-dark-grey-color);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-left: 12px;
+}
+
+.status_text2 {
+  color: var(--green, #70c63b);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 6px;
+  margin-left: 12px;
+  width: 75%;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+  .title {
+    width: 100%;
+  }
+  .bg-img1 {
+    display: none;
+  }
+  .bg-img2 {
+    display: none;
+  }
+}
+
+@media (max-width: 750px) {
+  .title {
+    font-size: 50px;
+    margin: 0px 20px;
+  }
+  .container {
+    padding: 117px 30px;
+  }
+  .descr {
+    font-size: 18px;
+    width: 80%;
+    margin-bottom: 40px;
+  }
+
+  .btn1 {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+  .btn2 {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .wrapper {
+    padding: 54px 20px;
+  }
+  .title {
+    font-size: 30px;
+    margin: 0px;
+  }
+
+  .container {
+    padding: 117px 30px;
+  }
+
+  .descr {
+    font-size: 16px;
+    margin-bottom: 40px;
+    margin-top: 16px;
+    line-height: 24px;
+    width: 100%;
+  }
+
+  .flex {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn1 {
+    width: 100%;
+    font-size: 16px;
+    justify-content: center;
+  }
+  .btn2 {
+    width: 100%;
+    font-size: 16px;
+    justify-content: center;
+  }
+
+  .status_flex {
+    width: fit-content;
+    height: 80px;
+    padding: 14px 25px;
+    margin-top: 40px;
+  }
+
+  .status_text2 {
+    font-size: 16px;
+    width: 100%;
+  }
+}
+
+/* .video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1;
+} */
