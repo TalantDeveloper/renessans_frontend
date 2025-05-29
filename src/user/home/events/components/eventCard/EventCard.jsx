@@ -22,6 +22,8 @@ const EventCard = ({ extraCurricular, index, onClickOpenModal }) => {
     return text;
   };
 
+  
+
   const title =
     extraCurricular[`title_${i18n.language}`] || extraCurricular.title_uz;
   const fullAnnouncement =
