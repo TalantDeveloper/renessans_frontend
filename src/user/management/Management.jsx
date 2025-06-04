@@ -7,6 +7,7 @@ import {
   FaChevronDown,
   FaChevronUp,
 } from "react-icons/fa";
+import { BaseURL } from "../home/BaseData";
 import { useTranslation } from "react-i18next";
 import classes from "./Management.module.css";
 import Rektor from "./Rektor.png"; // Default image for empty or missing image
@@ -20,7 +21,7 @@ const Rahbariyat = () => {
   useEffect(() => {
     // Fetch data from API
     axios
-      .get("https://sayt.renessans-edu.uz/api/staff/")
+      .get(BaseURL + "api/staff/")
       .then((response) => {
         setLeadersData(response.data); // Store API data in state
       })

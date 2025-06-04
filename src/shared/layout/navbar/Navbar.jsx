@@ -29,6 +29,7 @@ const Navbar = () => {
     { path: "/structure", text: t("Tuzilma") },
     { path: "/faculty-kafedra", text: t("Kafedra va fakultetlar") },
     { path: "/science-counsil", text: t("Ilmiy kengash") },
+    { path: "/departments", text: t('center') },
   ];
 
   const staticItemsColumn1 = [

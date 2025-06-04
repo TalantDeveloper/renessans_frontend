@@ -2,31 +2,33 @@ import About from "../../../user/about/About";
 import { Contact } from "../../../user/contact";
 import CoursesPage from "../../../user/courses";
 import CoursesParams from "../../../user/coursesParams/CoursesParams";
-import ExamResults from "../../../user/examResults/ExamResults";
+// import ExamResults from "../../../user/examResults/ExamResults";
 import { Home } from "../../../user/home";
 import { Home2 } from "../../../user/home/index2";
-import Table from "../../../user/table/ClassTable";
+// import Table from "../../../user/table/ClassTable";
 import LibraryPage from "../../../user/library/LibraryPage";
-import LibraryPage2 from "../../../user/home/library/LibraryPage";
+// import LibraryPage2 from "../../../user/home/library/LibraryPage";
 import { NewsPage } from "../../../user/news";
 import { OneCourseRoadmap } from "../../../user/oneCourseRoadmap/OneCourseRoadmap";
 import SchoolParams from "../../../user/schoolParams/SchoolsParams";
 import AnnounceParams from "../../../user/announceParams/AnnounceParams";
 import Error404Page from "../../pages/Error404Page";
-import ClassTable from "../../../user/table/ClassTable";
+// import ClassTable from "../../../user/table/ClassTable";
 import Counsil from "../../../user/counsil/Counsil";
 import Management from "../../../user/management/Management";
 import Tuzilma from "../../../user/tuzilma/Tuzilma";
 import International from "../../../user/international/International";
 import InternationalParent from "../../../user/international/InternationalParent";
 import Faculty from "../../../user/faculty/Faculty";
-import Statistics from "../../../user/statistics/Statistics";
+// import Statistics from "../../../user/statistics/Statistics";
 import { Statistic } from "../../../user/home/statistic/Statistic";
 import FakultetCourse from "../../../user/fakultet/FakultetCourse";
+import Department from "../../../user/departments/Departments";
+import DepartmentDetails from "../../../user/departments/DepartmentDetail";
 import AboutUni from "../../../user/AboutUni/AboutUni";
 import Timeline from "../../../user/home/avloniy/Avloniy";
 import Syllabus from "../../../user/syllabus/Syllabus";
-import { NewsPage2 } from "../../../user/home/news-v2/News";
+// import { NewsPage2 } from "../../../user/home/news-v2/News";
 import ChampionsBoard from "../../../user/champions/Champions";
 import ExcellentBoard from "../../../user/preference/Preference";
 import UniversityUnion from "../../../user/union/UniversityUnion";
@@ -300,6 +302,20 @@ export const mainRoutes = [
     exact: true,
     visibleInNavbar: false,
     element: <FakultetKafedraSlug />,
+  },
+  {
+    text: "Bo'lim va markazlar",
+    path: "/departments",
+    exact: true,
+    visibleInNavbar: false,
+    element: <Department />,
+  },
+  {
+    text: "Bo'lim va markazlar",
+    path: "/department/:short_id",
+    exact: true,
+    visibleInNavbar: false,
+    element: <DepartmentDetails />,
   },
   {
     text: "pagelar",
