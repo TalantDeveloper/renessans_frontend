@@ -9,17 +9,17 @@ import Head from "../../shared/layout/head/Head";
 import Team from "./components/Team/Team";
 
 const CoursesPage = () => {
-  return (
-    <div>
-      <Head title={"Courses"} />
-      <Courses />
-      {/* <Observation /> */}
-      {/* <Team /> */}
-      <Manner />
-      {/* <Question /> */}
-      {/* <About /> */}
-    </div>
-  );
+    return (
+        <div>
+            <Head title={"Courses"}/>
+            <Courses/>
+            {/* <Observation /> */}
+            {/* <Team /> */}
+            <Manner/>
+            {/* <Question /> */}
+            {/* <About /> */}
+        </div>
+    );
 };
 
 export default CoursesPage;

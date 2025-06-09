@@ -1,13 +1,13 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import {Helmet} from "react-helmet";
 
-const Head = ({ ...props }) => {
-  return (
-    <Helmet>
-      <title>
-        {props.title ? props.title + " | " : null} Renessan ta'lim universiteti
-      </title>
-    </Helmet>
-  );
+const Head = ({...props}) => {
+    return (
+        <Helmet>
+            <title>
+                {props.title ? props.title + " | " : null} Renessan ta'lim universiteti
+            </title>
+        </Helmet>
+    );
 };
 export default Head;

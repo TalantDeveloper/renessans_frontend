@@ -14,6 +14,7 @@ import AudioDictorButton from "../../utils/my/AudioDictorButton";
 import DarkMode from "../../utils/my/DarkMode";
 
 import { FaEye } from "react-icons/fa";
+import { BaseURL } from "../../../user/home/BaseData";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
@@ -76,10 +77,10 @@ const Navbar = () => {
     const fetchMenus = async () => {
       try {
         const menuResponse = await axios.get(
-          "https://sayt.renessans-edu.uz/api/pagecreate/menus/"
+          BaseURL + "api/pagecreate/menus/"
         );
         const dropdownResponse = await axios.get(
-          "https://sayt.renessans-edu.uz/api/pagecreate/dropdowns/"
+          BaseURL + "api/pagecreate/dropdowns/"
         );
         setMenus(menuResponse.data);
         setDropdowns(dropdownResponse.data);
