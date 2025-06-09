@@ -8,30 +8,34 @@ import "slick-carousel/slick/slick.css"; // Slick carousel styles
 import "slick-carousel/slick/slick-theme.css"; // Slick carousel theme styles
 import styles from "./Departments.module.css";
 import {BaseURL} from "../home/BaseData";
-
+console.log(BaseURL);
 const DepartmentDetails = () => {
     const {short_id} = useParams();
     const {i18n} = useTranslation(); // Access i18n instance
     const [data, setData] = useState(null);
     const [employees, setEmployees] = useState(null);
+    const [boss, setBoss] = useState(null);
+    
+    console.log("Hodimlar", employees);
+    console.log("Boss" , boss);
     const [openAccordion, setOpenAccordion] = useState("activity");
-
     useEffect(() => {
 
         axios
             .get(
-                "http://127.0.0.1:8000/api/department/department/" + short_id
+                "http://10.10.7.83:8000/api/department/department/" + short_id
             )
             .then((response) => {
                 setData(response.data.department);
                 setEmployees(response.data.employees);
+                setBoss(response.data.boss);
             })
             .catch((error) =>
                 console.error("Error fetching departments data: ", error)
             );
 
     }, [i18n.language]);
-    console.log(data);
+    
     const handleAccordionToggle = (accordionId) => {
         setOpenAccordion(openAccordion === accordionId ? null : accordionId);
     };
@@ -59,58 +63,40 @@ const DepartmentDetails = () => {
             </div>
 
             <div className={styles.details}>
-                {data.statistics && (
                     <div className={styles.section}>
-                        {firstStaff && (
+                        {boss && (
                             <div className={styles.staff}>
                                 <div className={styles.staffInfo}>
-                                    {firstStaff.image && (
+                                    {boss.image && (
                                         <img
-                                            src={firstStaff.image}
-                                            alt={firstStaff[`full_name_${i18n.language}`]}
+                                            src={boss.image}
+                                            alt={boss[`full_name_${i18n.language}`]}
                                             className={styles.staffImage}
                                         />
                                     )}
                                     <div className={styles.staffText}>
                                         <p className={styles.staffName}>
-                                            {firstStaff[`full_name_${i18n.language}`]}
+                                            {boss[`full_name_${i18n.language}`]}
                                         </p>
                                         <p className={styles.staffOccupation}>
-                                            {firstStaff[`occupation_${i18n.language}`]}
+                                            {boss[`occupation_${i18n.language}`]}
                                         </p>
                                         <div className={styles.contact}>
                                             <div className={styles.contactItem}>
                                                 <FaPhoneAlt className={styles.iconimiz}/>
-                                                <span>{firstStaff.phone}</span>
+                                                <span>{boss.phone}</span>
                                             </div>
                                             <div className={styles.contactItem}>
                                                 <FaEnvelope className={styles.icon2}/>
-                                                <span>{firstStaff.email}</span>
+                                                <span>{boss.email}</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         )}
-
-                        <h3 className={styles.statisticsTitle}>
-                            {i18n.t("statisticsHeader")}
-                        </h3>
-
-                        <div className={styles.statisticsContent}>
-                            {data.statistics.map((stat) => (
-                                <div key={stat.id} className={styles.statisticCard}>
-                                    <div className={styles.statisticCardNumber}>
-                                        {Math.floor(stat.number)}
-                                    </div>
-                                    <div className={styles.statisticCardTitle}>
-                                        {stat[`name_${i18n.language}`]}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
                     </div>
-                )}
+                
 
                 {/* Toolbar / Accordion Section */}
                 <div className={styles.section}>
@@ -274,6 +260,17 @@ const DepartmentDetails = () => {
                         </Slider>
                     </div>
                 )}
+                {/* Employees Section */}
+            {/* {employees && employees.length > 0 && (
+                <div className={styles.section}>
+                    <h2 className={styles.sectionTitle}>{i18n.t('employeesSection.title', 'Xodimlar')}</h2>
+                    <div className={styles.employeeList}>
+                        {employees.map((employee) => (
+                            <EmployeeCard employee={employee} />
+                        ))}
+                    </div>
+                </div>
+            )} */}
             </div>
         </div>
     );

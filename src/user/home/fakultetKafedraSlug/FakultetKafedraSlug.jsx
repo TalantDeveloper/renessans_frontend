@@ -83,7 +83,7 @@ const FakultetKafedraSlug = () => {
                                     {firstStaff.image && (
                                         <img
                                             src={firstStaff.image}
-                                            alt={firstStaff[`full_name_${i18n.language}`]}
+                                            alt={firstStaff[`name_uz${i18n.language}`]}
                                             className={styles.staffImage}
                                         />
                                     )}
@@ -291,6 +291,8 @@ const FakultetKafedraSlug = () => {
                     </div>
                 )}
             </div>
+
+            
         </div>
     );
 };

@@ -5,17 +5,17 @@ import {FaArrowRight} from "react-icons/fa";
 import {useTranslation} from "react-i18next";
 import styles from "./Departments.module.css";
 import {BaseURL} from "../home/BaseData";
+console.log(BaseURL);
 
 const Department = () => {
     const {t, i18n} = useTranslation();
     const [departments, setDepartments] = useState([]);
-    const [department, setDepartment] = useState([]);
 // BaseURL + "api/kafedra/kafedra-cards"
     useEffect(() => {
 
         axios
             .get(
-                "http://127.0.0.1:8000/api/department/departments/list/"
+                "http://10.10.7.83:8000/api/department/departments/list/"
             )
             .then((response) => {
                 setDepartments(response.data);
