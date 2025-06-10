@@ -29,7 +29,7 @@ export const Advantage = () => {
                             <p>{value[currentLang].descr}</p>
                         </div>
                     );
-                })}
+                })}                            
             </div>
         </div>
     );

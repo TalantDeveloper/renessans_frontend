@@ -5,20 +5,24 @@ import {
     FaPhoneAlt,
     FaEnvelope,
     FaChevronDown,
-    FaChevronUp,
+    FaChevronUp, FaCalendarDay
 } from "react-icons/fa";
 import {useTranslation} from "react-i18next";
 import "slick-carousel/slick/slick.css"; // Slick carousel styles
 import "slick-carousel/slick/slick-theme.css"; // Slick carousel theme styles
 import classes from "./departmentsDetail.module.css";
+import classerror from "../../shared/pages/Error404Page.module.css";
+import Error404Animation from "../../shared/assets/animated-placeholders/Error404.json";
+import {useNavigate} from "react-router-dom";
+import LottieView from "lottie-react";
 import {BaseURL, testUrl} from "../home/BaseData";
-
 const DepartmentDetails = () => {
     const {short_id} = useParams();
+    const navigate = useNavigate();
     console.log(short_id);
     const {t, i18n} = useTranslation(); // Access i18n instance
     const [data, setData] = useState(null);
-    const [employees, setEmployees] = useState(null);
+    const [employees, setEmployees] = useState([]);
     const [boss, setBoss] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -36,13 +40,11 @@ const DepartmentDetails = () => {
         );
         Promise.all([fetchDepartment])
             .then(([departmentResponse]) => {
-                const department = departmentResponse.data?.department;
-                const boss_s = departmentResponse.data?.boss;
-                const hodimlar = departmentResponse.data?.employees;
-                if (department && boss_s && hodimlar) {
-                    setData(department);
-                    setBoss(boss_s);
-                    setEmployees(hodimlar);
+                const responseData = departmentResponse.data;
+                if (responseData?.department) {
+                    setData(responseData.department);
+                    setBoss(responseData.boss?.[0] || null);
+                    setEmployees(responseData.employees || []);
                 } else {
                     setError("Ma'lumotlar topilmadi");
                 }
@@ -63,10 +65,29 @@ const DepartmentDetails = () => {
             },
         }));
     };
-    // Get the rest of the staff members
+ 
+
+    if (loading) return <p>Yuklanmoqda...</p>;
+    if (error) return (
+        <div className={classerror["error-page"]}>
+            <LottieView className={classerror["animation"]}
+            animationData={Error404Animation}
+            loop={true}
+            />
+            <p className={classerror["title"]}>
+                {t("sorry")}
+            </p>
+            <p className={classerror["description"]}>
+                {t("back_main")}
+            </p>
+            <div onClick={() => navigate("/")} className={classerror["button"]}>
+                {t("main_menu")}
+            </div>
+        </div>
+    )  
+    if (!data) return <p> </p>;
 
     return (
-
         <div className={classes.mainContainer}>
             <div data-aos="fade-up" className={classes["rahbariyat-container"]}>
 
@@ -81,7 +102,7 @@ const DepartmentDetails = () => {
                     __html: data[`about_${i18n.language}`],
                 }}/>
 
-                <div className={`${classes.card}`} key={boss?.id}>
+                {boss && <div className={`${classes.card}`} key={boss?.id}>
                     <div className={classes.headerRight}>
                         <div className={classes.info}>
                             <h2>
@@ -100,15 +121,17 @@ const DepartmentDetails = () => {
                                     <span>{boss?.email}</span>
                                 </div>
                                 <div className={classes.contactItem}>
-                                    <FaEnvelope className={classes.icon2}/>
-                                    <span>{boss?.email}</span>
+                                    <FaCalendarDay className={classes.icon}/>
+                                    <span>
+                                        Ish tajribasi: {boss[`work_experience_${i18n.language}`]}
+                                    </span>
                                 </div>
                             </div>
                             <div className={classes.buttons}>
                                 <button
                                     className={classes.button}
                                     onClick={() => toggleDropdown(boss?.id, "activities")}>
-                                    {t("work_experience")}{" "}
+                                    Hodim haqida
                                     {openDropdown[boss?.id]?.activities ? (
                                         <FaChevronUp/>
                                     ) : (
@@ -120,7 +143,7 @@ const DepartmentDetails = () => {
                                     onClick={() =>
                                         toggleDropdown(boss?.id, "responsibilities")
                                     }>
-                                    {t("tasks")}{" "}
+                                    Mutaxassisligi
                                     {openDropdown[boss?.id]?.responsibilities ? (
                                         <FaChevronUp/>
                                     ) : (
@@ -143,7 +166,7 @@ const DepartmentDetails = () => {
                                     ? classes.show
                                     : ""}`}>
                                 <div dangerouslySetInnerHTML={{
-                                    __html: boss[`specialization_${18n.language}`],
+                                    __html: boss[`specialization_${i18n.language}`],
                                 }}/>
                             </div>
                         </div>
@@ -154,7 +177,7 @@ const DepartmentDetails = () => {
                                  className={classes.logo}/>
                         </div>
                     </div>
-                </div>
+                </div>}
 
                 {employees.map((employee, index) => (
                     <div
