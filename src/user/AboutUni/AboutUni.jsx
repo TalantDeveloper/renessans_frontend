@@ -76,8 +76,7 @@ const TalabaHayoti = () => {
                 {/* Ilmiy Tadqiqotlar Bo'limi */}
                 <div className={`${styles.section} ${styles.hexagonSection}`}>
                     <div className={styles.imageWrapper}>
-                        <img
-                            src={image3}
+                        <img src={image3}
                             alt="Ilmiy Tadqiqotlar"
                             className={styles.image}
                         />

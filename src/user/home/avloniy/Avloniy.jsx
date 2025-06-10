@@ -17,9 +17,7 @@ const Timeline = () => {
     useEffect(() => {
         // Fetch the events data from the API
         axios
-            .get(
-                BaseURL + "api/events/"
-            )
+            .get(BaseURL + "api/events/")
             .then((response) => {
                 setEvents(response.data);
             })
@@ -29,44 +27,41 @@ const Timeline = () => {
     return (
         <div className={styles["mainContainer"]}>
             <div data-aos="fade-up" className={styles.container}>
-                <div className={styles.timelineLine}></div>
+                <div className={styles.timelineLine}>
+                </div>
                 {events.length === 0 ? (
-                    <p>{t("noEventsAvailable")}</p> // Use translation for no events
-                ) : (
-                    events.map((event) => {
-                        const whenItBeginsDate = moment(event.when_it_begins).locale(
-                            "uz-latn"
-                        ); // Use moment with locale
+                    <p>
+                        {t("noEventsAvailable")}
+                    </p> // Use translation for no events
+                    ) : (events.map((event) => {
+                        const whenItBeginsDate = moment(event.when_it_begins).locale("uz-latn"); // Use moment with locale
                         return (
                             <div key={event.id} className={styles.eventCard}>
                                 <div className={styles.dateBox}>
-                  <span className={styles.day}>
-                    {whenItBeginsDate.format("DD")}
-                  </span>
+                                    <span className={styles.day}>
+                                        {whenItBeginsDate.format("DD")}
+                                    </span>
                                     <span className={styles.month}>
-                    {whenItBeginsDate.format("MMMM")}
-                  </span>
+                                        {whenItBeginsDate.format("MMMM")}
+                                    </span>
                                     <span className={styles.year}>
-                    {whenItBeginsDate.format("YYYY")}
-                  </span>
+                                        {whenItBeginsDate.format("YYYY")}
+                                    </span>
                                 </div>
                                 <div className={styles.contentBox}>
                                     <h3 className={styles.title}>
                                         {t(`events.title_${i18n.language}`, {
-                                            defaultValue:
-                                                event[`title_${i18n.language}`] || event.title_en,
+                                            defaultValue: event[`title_${i18n.language}`] || event.title_en,
                                         })}
                                     </h3>
                                     <div className={styles.info}>
                                         <div className={styles.location}>
                                             <FaMapMarkerAlt/>{" "}
                                             <span>
-                        {t(`events.location_${i18n.language}`, {
-                            defaultValue:
-                                event[`location_${i18n.language}`] ||
-                                event.location_en,
-                        })}
-                      </span>
+                                                {t(`events.location_${i18n.language}`, {
+                                                    defaultValue: event[`location_${i18n.language}`] || event.location_en,
+                                                })}
+                                            </span>
                                         </div>
                                         <div className={styles.time}>
                                             <FaClock/>{" "}
@@ -76,35 +71,41 @@ const Timeline = () => {
                                 </div>
                             </div>
                         );
-                    })
-                )}
+                    }))
+                }
             </div>
             <div className={classes.sidebar}>
-                <h3>{t("university")}</h3>
+                <h3>
+                    {t("university")}
+                </h3>
                 <ul>
-                    <li onClick={() => navigate("/about")}>{t("universityAbout")}</li>
-                    <li onClick={() => navigate("/management")}>{t("management")}</li>
+                    <li onClick={() => navigate("/about")}>
+                        {t("universityAbout")}
+                    </li>
+                    <li onClick={() => navigate("/management")}>
+                        {t("management")}
+                    </li>
                     <li onClick={() => navigate("/structure")}>
                         {t("universityStructure")}
                     </li>
                     <li onClick={() => navigate("/international-cooperation")}>
                         {t("internationalCooperation")}
                     </li>
-                    <li onClick={() => navigate("/faculty-kafedra")}>{t("faculties")}</li>
+                    <li onClick={() => navigate("/faculty-kafedra")}>
+                        {t("faculties")}
+                    </li>
                     <li className={classes.active} onClick={() => navigate("/anons")}>
-                        <span className={classes.icon}>▶</span>
+                        <span className={classes.icon}>
+                            ▶
+                        </span>
                         {t("events")}
                     </li>
-                    <li
-                        onClick={() => navigate("/statistics")}
-                        className={classes.dropdownToggle}
-                    >
+                    <li onClick={() => navigate("/statistics")} className={classes.dropdownToggle}>
                         {t("statistics")}
                     </li>
                 </ul>
             </div>
-        </div>
-    );
+        </div>);
 };
 
 export default Timeline;

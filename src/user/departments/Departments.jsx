@@ -4,18 +4,19 @@ import axios from "axios";
 import {FaArrowRight} from "react-icons/fa";
 import {useTranslation} from "react-i18next";
 import styles from "./Departments.module.css";
-import {BaseURL} from "../home/BaseData";
+import {BaseURL, testUrl} from "../home/BaseData";
+
 console.log(BaseURL);
 
 const Department = () => {
     const {t, i18n} = useTranslation();
     const [departments, setDepartments] = useState([]);
-// BaseURL + "api/kafedra/kafedra-cards"
+
     useEffect(() => {
 
         axios
             .get(
-                "http://10.10.7.83:8000/api/department/departments/list/"
+                testUrl + "/api/department/departments/list/"
             )
             .then((response) => {
                 setDepartments(response.data);
@@ -44,11 +45,9 @@ const Department = () => {
                     <div className={styles.facultyList}>
                         {departments.length > 0 ? (
                             departments.map((department, index) => (
-                                <Link
-                                    key={department.id}
-                                    to={`/department/${department.short_id}`}
-                                    className={styles.facultyCard}
-                                >
+                                <Link key={department.id}
+                                      to={`/departments/${department.short_id}`}
+                                      className={styles.facultyCard}>
                                     <div className={styles.facultyInfo}>
                                         <h3>{index + 1}. {getDepartmentName(department)}</h3>
                                         <FaArrowRight className={styles.icon}/>
@@ -56,7 +55,9 @@ const Department = () => {
                                 </Link>
                             ))
                         ) : (
-                            <div>{t("no_departments_found")}</div>
+                            <div>
+                                {t("no_departments_found")}
+                            </div>
                         )}
                     </div>
                 </div>

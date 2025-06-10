@@ -46,10 +46,7 @@ const TashkiliyTuzilma = () => {
                     </li>
                     <li onClick={() => navigate("/faculty-kafedra")}>{t("faculties")}</li>
                     <li onClick={() => navigate("/anons")}>{t("events")}</li>
-                    <li
-                        onClick={() => navigate("/statistics")}
-                        className={classes.dropdownToggle}
-                    >
+                    <li onClick={() => navigate("/statistics")} className={classes.dropdownToggle}>
                         {t("statistics")}
                     </li>
                 </ul>

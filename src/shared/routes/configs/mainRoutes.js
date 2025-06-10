@@ -312,7 +312,7 @@ export const mainRoutes = [
     },
     {
         text: "Bo'lim va markazlar",
-        path: "/department/:short_id",
+        path: "/departments/:short_id",
         exact: true,
         visibleInNavbar: false,
         element: <DepartmentDetails/>,
