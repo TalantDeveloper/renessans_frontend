@@ -119,9 +119,9 @@ const Navbar = () => {
 
   return (
     <div>
-      {/* <div className={classes["testRejim"]}>
+      <div className={classes["testRejim"]}>
         <p>▴ Sayt test rejimida ishlamoqda ▴</p>
-      </div> */}
+      </div>
       <div className={classes["aboweHeader"]}>
         <a href="https://student.renessans-edu.uz/dashboard/login">{t("hemis")}</a>
         <a href="#">{t("syllabus")}</a>
@@ -318,8 +318,8 @@ const Navbar = () => {
               <FaEye className={classes["accessibility-icon"]} />
               <div className={classes["accessibility-buttons"]}>
                 <ZoomSelector />
-                <AudioDictorButton />
-                <DarkMode />
+                {/* <AudioDictorButton /> */}
+                {/* <DarkMode /> */}
               </div>
             </div>
             <HamburgerMenu />

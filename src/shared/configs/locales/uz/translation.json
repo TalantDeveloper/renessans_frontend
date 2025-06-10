@@ -58,6 +58,7 @@
   "sorry": "Uzr, xatolik ro‘y berdi!",
   "back_main": "Asosiy menuga qaytish uchun tugmani bosing.",
   "main_menu": "Asosiy menu",
+  
 
   "footer_subscribe": "Obuna bo'ling",
   "footer_followNews": "Yangiliklarni kuzatib boring",
@@ -206,7 +207,10 @@
   "joiningBtn": "Qo'shilish",
   "joiningName": "Ismingiz",
 
+  "ish_staj": "Ish tajribasi: ",
   "about_employee": "Xodim haqida",
+  "specialization": "Mutaxassisligi",
+  "position": "Lavozimi: ",
 
   "Ilmiy faoliyat": "Ilmiy faoliyat",
   "Madaniy-ma'rifiy faoliyat": "Madaniy-ma'rifiy faoliyat",

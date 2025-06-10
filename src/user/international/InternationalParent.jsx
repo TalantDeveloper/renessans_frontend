@@ -105,7 +105,9 @@ const CooperationDetail = () => {
   return (
     <div className={classes["detail-container"]}>
       <div className={classes["related-articles"]}>
-        <h3 className={classes["sidebar-title"]}>Aloqador</h3>
+        <h3 className={classes["sidebar-title"]}>
+          Aloqador
+          </h3>
         <ul>
           {cooperationItem.related.map((relatedItem) => (
             <li key={relatedItem.id}>

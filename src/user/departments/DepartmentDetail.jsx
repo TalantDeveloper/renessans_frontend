@@ -16,6 +16,7 @@ import Error404Animation from "../../shared/assets/animated-placeholders/Error40
 import {useNavigate} from "react-router-dom";
 import LottieView from "lottie-react";
 import {BaseURL, testUrl} from "../home/BaseData";
+import { color } from "framer-motion";
 const DepartmentDetails = () => {
     const {short_id} = useParams();
     const navigate = useNavigate();
@@ -101,7 +102,9 @@ const DepartmentDetails = () => {
                 <div dangerouslySetInnerHTML={{
                     __html: data[`about_${i18n.language}`],
                 }}/>
-
+                <h1 className={classes["page-title"]}>
+                    XODIMLAR
+                </h1>
                 {boss && <div className={`${classes.card}`} key={boss?.id}>
                     <div className={classes.headerRight}>
                         <div className={classes.info}>
@@ -109,7 +112,8 @@ const DepartmentDetails = () => {
                                 {boss[`name_${i18n.language}`]}
                             </h2>
                             <p>
-                                {boss[`position_${i18n.language}`]}
+                                {t("position")}
+                                    {boss[`position_${i18n.language}`]}
                             </p>
                             <div className={classes.contact}>
                                 <div className={classes.contactItem}>
@@ -123,7 +127,8 @@ const DepartmentDetails = () => {
                                 <div className={classes.contactItem}>
                                     <FaCalendarDay className={classes.icon}/>
                                     <span>
-                                        Ish tajribasi: {boss[`work_experience_${i18n.language}`]}
+                                    {t("ish_staj")} 
+                                    {boss[`work_experience_${i18n.language}`]}
                                     </span>
                                 </div>
                             </div>
@@ -131,7 +136,7 @@ const DepartmentDetails = () => {
                                 <button
                                     className={classes.button}
                                     onClick={() => toggleDropdown(boss?.id, "activities")}>
-                                    Hodim haqida
+                                    {t("about_employee")}
                                     {openDropdown[boss?.id]?.activities ? (
                                         <FaChevronUp/>
                                     ) : (
@@ -143,7 +148,7 @@ const DepartmentDetails = () => {
                                     onClick={() =>
                                         toggleDropdown(boss?.id, "responsibilities")
                                     }>
-                                    Mutaxassisligi
+                                    {t("specialization")}
                                     {openDropdown[boss?.id]?.responsibilities ? (
                                         <FaChevronUp/>
                                     ) : (
@@ -188,7 +193,9 @@ const DepartmentDetails = () => {
                         <div className={classes.headerLeft}>
                             <div className={classes.info}>
                                 <h2>{employee[`name_${i18n.language}`]}</h2>
-                                <p>{employee[`position_${i18n.language}`]}</p>
+                                <p>
+                                {t("position")} 
+                                    {employee[`position_${i18n.language}`]}</p>
                                 <div className={classes.contact}>
                                     <div className={classes.contactItem}>
                                         <FaPhoneAlt className={classes.icon}/>
@@ -198,11 +205,20 @@ const DepartmentDetails = () => {
                                         <FaEnvelope className={classes.icon2}/>
                                         <span>{employee.email}</span>
                                     </div>
+                                    {employee[`work_experience_${i18n.language}`] && (
+                                        <div className={classes.contactItem}>
+                                            <FaCalendarDay className={classes.icon}/>
+                                            <span>
+                                            {t("ish_staj")} 
+                                            {employee[`work_experience_${i18n.language}`]}
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
                                 <div className={classes.buttons}>
                                     <button className={classes.button}
                                             onClick={() => toggleDropdown(employee.id, "activities")}>
-                                        {t("work_experience")}{" "}
+                                        {t("about_employee")}
                                         {openDropdown[employee.id]?.activities ? (
                                             <FaChevronUp/>
                                         ) : (
@@ -213,7 +229,7 @@ const DepartmentDetails = () => {
                                             onClick={() =>
                                                 toggleDropdown(employee.id, "responsibilities")
                                             }>
-                                        {t("tasks")}{" "}
+                                        {t("specialization")}
                                         {openDropdown[employee.id]?.responsibilities ? (
                                             <FaChevronUp/>
                                         ) : (

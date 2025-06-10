@@ -55,7 +55,9 @@ const FakultetKafedraSlug = () => {
         return data[key + `_${i18n.language}`];
     };
 
-    if (loading) return <div className={styles.loading}>{i18n.t("loading")}</div>;
+    if (loading) return <div className={styles.loading}>
+        {i18n.t("loading")}
+        </div>;
     if (error) return <div className={styles.error}>{i18n.t("error")}</div>;
 
     if (!data) return <div className={styles.error}>{i18n.t("noData")}</div>;

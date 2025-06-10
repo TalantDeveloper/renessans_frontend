@@ -72,7 +72,10 @@
   "Tadbirlar": "Events",
   "joiningName": "Name",
 
+  "ish_staj": "Work experience: ",
   "about_employee": "About the employee",
+  "specialization": "Specialization",
+  "position": "Position: ",
 
   "Ilmiy faoliyat": "Scientific Activity",
   "Madaniy-ma'rifiy faoliyat": "Cultural and Educational Activity",
@@ -199,6 +202,7 @@
   "sorry": "Sorry, an error occurred!",
   "back_main": "Click to return to the main menu.",
   "main_menu": "Main menu",
+  
 
   "footer_subscribe": "Subscribe",
   "Faylni shu yerga tashlang yoki qurilmangizdan tanlang": "Drag & drop a file here or select from your device",
