@@ -199,4 +199,93 @@
 .viewMore span {
     margin-right: 5px;
 }
-  
+/* Responsive design starts here */
+@media (max-width: 1200px) {
+    .facultyCard {
+        width: 90%;
+    }
+
+    .facultyInfo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .facultyImage {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.2rem;
+    }
+
+    .facultyCard {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .facultyList {
+        gap: 20px;
+    }
+
+    .viewMore {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .facultyInfo h3 {
+        font-size: 15px;
+    }
+
+    .staffCard {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title, .sectionTitle {
+        font-size: 1.2rem;
+    }
+
+    .facultyInfo h3 {
+        font-size: 14px;
+    }
+
+    .icon {
+        font-size: 1.2rem;
+    }
+
+    .facultyImage {
+        height: 150px;
+    }
+
+    .viewMore {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .staffCard h4 {
+        font-size: 1rem;
+    }
+
+    .staffCard p {
+        font-size: 0.85rem;
+    }
+}
+

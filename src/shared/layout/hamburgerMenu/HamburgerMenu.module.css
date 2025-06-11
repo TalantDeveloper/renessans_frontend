@@ -69,14 +69,16 @@
 .dropdown {
   display: flex;
   flex-direction: column;
-  padding: 10px 15px;
-  gap: 8px;
+  padding: 15px 20px;
+  gap: 10px;
   background-color: var(--bg-white-color);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   transition: all 0.3s ease;
   transform-origin: top;
   animation: fadeInDropdown 0.3s ease forwards;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 @keyframes fadeInDropdown {

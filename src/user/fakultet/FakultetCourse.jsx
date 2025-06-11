@@ -8,7 +8,7 @@ import {
 import styles from "./FakultetCourse.module.css";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
-
+import { BaseURL } from "../home/BaseData";
 function App() {
     const [faculties, setFaculties] = useState([]);
     const [activeSection, setActiveSection] = useState(null);
@@ -30,7 +30,7 @@ function App() {
     };
 
     useEffect(() => {
-        fetch("https://sayt.renessans-edu.uz/api/faculty/faculties/")
+        fetch(BaseURL + "/api/faculty/faculties/")
             .then((response) => response.json())
             .then((data) => setFaculties(data))
             .catch((error) => console.error("Error fetching faculties:", error));

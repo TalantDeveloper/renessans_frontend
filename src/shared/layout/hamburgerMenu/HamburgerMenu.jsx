@@ -7,13 +7,15 @@ import classes from "./HamburgerMenu.module.css";
 // Define the dropdown items here (or import them if they are available globally)
 const dropdownItems = {
   universitet: [
+    { path: "/statistics", text: "RTU raqamlarda"},
     { path: "/about", text: "Universitet haqida" },
     { path: "/management", text: "Rahbariyat" },
     { path: "/structure", text: "Universitet tuzilmasi" },
     { path: "/international-cooperation", text: "Xalqaro hamkorlik" },
-    { path: "/faculty", text: "Fakultetlar" },
-    { path: "/statistics", text: "Statistika" },
-    { path: "/departments", text: "center"},
+    { path: "/faculty-kafedra", text: "Kafedra va Fakultetlar" },
+    { path: "/departments", text: "Bo'lim va Markazlar"},
+    { path: "/dropdown/oquv-binolari", text: "O'quv binolar" },
+    { path: "/dropdown/green-renessans", text: "Green Renessans" },
   ],
   ilmiyFaoliyat: [
     { path: "/library", text: "Ilmiy maqolalar" },
@@ -36,7 +38,7 @@ const mainRoutes = [
   { text: "Universitet", dropdown: "universitet" },
   { text: "Ilmiy faoliyat", dropdown: "ilmiyFaoliyat" },
   { text: "Talabalarga", dropdown: "talabalar" },
-  { path: "/", text: "Bizning faoliyat", dropdown: "bizningFaoliyat" },
+  { text: "Bizning faoliyat", dropdown: "bizningFaoliyat" },
   { path: "/contact", text: "Bog'lanish" },
 ];
 
