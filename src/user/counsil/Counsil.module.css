@@ -93,7 +93,6 @@
   transition: all 0.4s ease;
 }
 
-/* Responsive table */
 /* Responsive container */
 @media (max-width: 992px) {
   .scientific-council {
@@ -114,9 +113,13 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 300px) {
   .scientific-council h1 {
     font-size: 22px;
+  }
+
+  .table th, .table td {
+    padding: 0px;
   }
 
   .table-responsive {
@@ -126,32 +129,28 @@
   }
 
   .table {
+    min-width: 300px;
+    width: 100%;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+  }
+  .table {
     min-width: 600px;
     width: 100%;
     display: block;
   }
-
   .table th,
   .table td {
     white-space: nowrap;
   }
 }
-
-@media (max-width: 480px) {
-  .scientific-council h1 {
-    font-size: 20px;
-  }
-
-  .table {
-    font-size: 13px;
-  }
-
-  .table th,
-  .table td {
-    padding: 8px;
-  }
-}
-
 
 /* Animations */
 @keyframes fadeIn {
@@ -183,4 +182,8 @@
   100% {
     width: 50px;
   }
+}
+
+.grayscale-mode {
+  filter: grayscale(1) !important;
 }

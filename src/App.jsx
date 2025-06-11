@@ -55,7 +55,7 @@ const TelegramSubscribe = ({ onClose }) => (
               rel="noopener noreferrer"
               className="telegram-link"
             >
-              A'zo bo‘lish  
+              A'zo bo'lish  
               <IoSendOutline />
             </a>
           </div>
@@ -112,7 +112,7 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <div id="zoom-root" className="App">
       {handleDisplayLayouts()}
       {/* {!pathname.includes("admin") && showTelegramPrompt && (
         <TelegramSubscribe onClose={handleCloseTelegramPrompt} />

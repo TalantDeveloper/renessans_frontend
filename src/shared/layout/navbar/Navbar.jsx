@@ -12,6 +12,7 @@ import axios from "axios";
 import ZoomSelector from "../../utils/my/ZoomSelector";
 import AudioDictorButton from "../../utils/my/AudioDictorButton";
 import DarkMode from "../../utils/my/DarkMode";
+import ToggleSwitches from "../../../ToggleSwitches";
 
 import { FaEye } from "react-icons/fa";
 import { BaseURL } from "../../../user/home/BaseData";
@@ -315,12 +316,7 @@ const Navbar = () => {
               </div>
             </Link>
             <div className={classes["accessibility-wrapper"]}>
-              <FaEye className={classes["accessibility-icon"]} />
-              <div className={classes["accessibility-buttons"]}>
-                <ZoomSelector />
-                {/* <AudioDictorButton /> */}
-                {/* <DarkMode /> */}
-              </div>
+              <ToggleSwitches />
             </div>
             <HamburgerMenu />
           </div>
