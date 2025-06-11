@@ -13,6 +13,7 @@ const dropdownItems = {
     { path: "/international-cooperation", text: "Xalqaro hamkorlik" },
     { path: "/faculty", text: "Fakultetlar" },
     { path: "/statistics", text: "Statistika" },
+    { path: "/departments", text: "center"},
   ],
   ilmiyFaoliyat: [
     { path: "/library", text: "Ilmiy maqolalar" },
