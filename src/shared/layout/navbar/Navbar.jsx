@@ -42,7 +42,7 @@ const Navbar = () => {
   const staticItemsColumn2 = [
     { path: "/about-uni", text: t("Talabalar hayoti") },
     { path: "/anons", text: t("Tadbirlar") },
-    { path: "/union-union", text: t("universityUnion") },
+    { path: "/university-union", text: t("universityUnion") },
   ];
 
   const staticItemsColumn3 = [];
@@ -299,7 +299,7 @@ const Navbar = () => {
                           to={`/dropdown/${dropdown.slug}`}
                           className={classes["dropdown-item"]}
                         >
-                          {dropdown.site_title_uz}
+                          {dropdown[`site_title_${i18n.language}`]}
                         </NavLink>
                       ))}
                   </div>

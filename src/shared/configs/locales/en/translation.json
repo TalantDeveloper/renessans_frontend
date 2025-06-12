@@ -76,7 +76,6 @@
   "about_employee": "About the employee",
   "specialization": "Specialization",
   "position": "Position: ",
-
   "Ilmiy faoliyat": "Scientific Activity",
   "Madaniy-ma'rifiy faoliyat": "Cultural and Educational Activity",
   "Moliyaviy faoliyat": "Financial Activity",
@@ -366,5 +365,7 @@
   "family_name": "Family Name",
   "phone_number": "Phone Number",
   "submit": "Submit",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "O'quv binolari": "Educational Buildings",
+  "Green Renessans": "Green Renaissance"
 }

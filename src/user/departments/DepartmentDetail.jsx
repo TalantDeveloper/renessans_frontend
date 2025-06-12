@@ -5,7 +5,9 @@ import {
     FaPhoneAlt,
     FaEnvelope,
     FaChevronDown,
-    FaChevronUp, FaCalendarDay
+    FaChevronUp, FaCalendarDay, FaArrowRight,
+    FaChevronLeft,
+    FaChevronCircleRight
 } from "react-icons/fa";
 import {useTranslation} from "react-i18next";
 import "slick-carousel/slick/slick.css"; // Slick carousel styles
@@ -20,18 +22,16 @@ import { color } from "framer-motion";
 const DepartmentDetails = () => {
     const {short_id} = useParams();
     const navigate = useNavigate();
-    console.log(short_id);
     const {t, i18n} = useTranslation(); // Access i18n instance
     const [data, setData] = useState(null);
     const [employees, setEmployees] = useState([]);
+    const [departments, setDepartments] = useState([]);
     const [boss, setBoss] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [openDropdown, setOpenDropdown] = useState({});
+    console.log(departments);
 
-
-    console.log("data", data);
-    console.log(employees);
 
     useEffect(() => {
         setError(null);
@@ -44,6 +44,7 @@ const DepartmentDetails = () => {
                 const responseData = departmentResponse.data;
                 if (responseData?.department) {
                     setData(responseData.department);
+                    setDepartments(responseData.departments || []);
                     setBoss(responseData.boss?.[0] || null);
                     setEmployees(responseData.employees || []);
                 } else {
@@ -54,6 +55,18 @@ const DepartmentDetails = () => {
             .finally(() => setLoading(false));
     }, [short_id, i18n.language]);
 
+    useEffect(() => {
+        axios
+            .get(
+                testUrl + "/api/department/departments/list/"
+            )
+            .then((response) => {
+                setDepartments(response.data);
+            })
+            .catch((error) =>
+                console.error("Error fetching departments data: ", error)
+            );
+    }, [short_id, i18n.language]);
 
     // Get the first staff member
     const toggleDropdown = (id, type) => {
@@ -67,6 +80,10 @@ const DepartmentDetails = () => {
         }));
     };
  
+    const getDepartmentName = (department) => {
+        const title = department[`name_${i18n.language}`];
+        return title || department.name_uz || t("no_name_available");
+    };
 
     if (loading) return <p>Yuklanmoqda...</p>;
     if (error) return (
@@ -94,10 +111,6 @@ const DepartmentDetails = () => {
 
                 <h1 className={classes["page-title"]}>
                     {data[`name_${i18n.language}`]}
-                </h1>
-                <h1>
-                    {data[`name_${i18n.language}`]}
-
                 </h1>
                 <div dangerouslySetInnerHTML={{
                     __html: data[`about_${i18n.language}`],
@@ -264,6 +277,30 @@ const DepartmentDetails = () => {
                     </div>
                 ))
                 }
+            </div>
+            <div className={classes.sidebar} style={{marginLeft: 0, marginRight: "40px"}}>
+                <h3>{t("center")}</h3>
+                <ul style={{listStyle: 'none', padding: 0}}>
+                    {departments.length > 0 ? (
+                        departments.map((department, index) => (
+                            <li
+                                onClick={() => navigate(`/departments/${department.short_id}`)}
+                                key={department.id}
+                                style={{marginBottom: '10px'}}
+                                className={department.short_id === short_id ? classes.active : ''}
+                            >
+                                <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
+                                <span
+                                    style={{cursor: 'pointer', color: '#133654'}}
+                                >
+                                    {getDepartmentName(department)}
+                                </span>
+                            </li>
+                        ))
+                    ) : (
+                        <li>{t("no_departments_found")}</li>
+                    )}
+                </ul>
             </div>
         </div>
     );
