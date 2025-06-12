@@ -4,17 +4,17 @@ import axios from "axios";
 import {FaUniversity, FaArrowRight} from "react-icons/fa";
 import {useTranslation} from "react-i18next";
 import styles from "./FakultetKafedra.module.css";
-import {BaseURL} from "../BaseData";
+import {BaseURL, testUrl} from "../BaseData";
 
 const FakultetKafedra = () => {
     const {t, i18n} = useTranslation();
     const [faculties, setFaculties] = useState([]);
-    const [departments, setDepartments] = useState([]);
+    console.log(faculties);
 
     useEffect(() => {
         axios
             .get(
-                BaseURL + "api/fakultet/fakultet-cards/"
+                testUrl + "/api/fakultetlar/"
             )
             .then((response) => {
                 setFaculties(response.data);
@@ -23,27 +23,24 @@ const FakultetKafedra = () => {
                 console.error("Error fetching faculties data: ", error)
             );
 
-        axios
-            .get(
-                BaseURL + "api/kafedra/kafedra-cards/"
-            )
-            .then((response) => {
-                setDepartments(response.data);
-            })
-            .catch((error) =>
-                console.error("Error fetching departments data: ", error)
-            );
+        // axios
+        //     .get(
+        //         BaseURL + "api/kafedra/kafedra-cards/"
+        //     )
+        //     .then((response) => {
+        //         setDepartments(response.data);
+        //     })
+        //     .catch((error) =>
+        //         console.error("Error fetching departments data: ", error)
+        //     );
     }, [i18n.language]);
 
     const getFacultyName = (faculty) => {
-        const name = faculty[`title_${i18n.language}`];
-        return name || faculty.title_uz || t("no_name_available");
+        const name = faculty[`name_${i18n.language}`];
+        return name || faculty.name_uz || t("no_name_available");
     };
 
-    const getDepartmentName = (department) => {
-        const title = department[`title_${i18n.language}`];
-        return title || department.title_uz || t("no_name_available");
-    };
+    
 
     return (
         <div className={styles.mainContainer}>
@@ -55,11 +52,11 @@ const FakultetKafedra = () => {
                             faculties.map((faculty) => (
                                 <Link
                                     key={faculty.id}
-                                    to={`/faculty-kafedra/${faculty.slug}`}
+                                    to={`/faculty-kafedra/${faculty?.short_name}`}
                                     className={styles.facultyCard}
                                 >
                                     <img
-                                        src={faculty.faculty?.image || "/default-image.jpg"}
+                                        src={faculty?.image || "/default-image.jpg"}
                                         alt={getFacultyName(faculty) || t("no_name_available")}
                                         className={styles.facultyImage}
                                     />
@@ -80,7 +77,7 @@ const FakultetKafedra = () => {
                 </div>
 
                 {/* Departments Section */}
-                <div className={styles.section}>
+                {/* <div className={styles.section}>
                     <h3 className={styles.title}>{t("departments")}</h3>
                     <div className={styles.facultyList}>
                         {departments.length > 0 ? (
@@ -111,7 +108,7 @@ const FakultetKafedra = () => {
                             <div>{t("no_departments_found")}</div>
                         )}
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

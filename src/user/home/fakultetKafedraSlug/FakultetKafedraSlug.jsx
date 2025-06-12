@@ -7,13 +7,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./FakultetKafedraSlug.module.css";
-import { BaseURL } from "../BaseData";
+import { BaseURL, testUrl } from "../BaseData";
 
 const FakultetKafedraSlug = () => {
     const navigate = useNavigate();
-    const { slug } = useParams();
+    const { short_name } = useParams();
+    console.log(short_name);
     const { i18n } = useTranslation();
     const [data, setData] = useState(null);
+    const [fakultet, setFakultet] = useState(null);
+    console.log(fakultet);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [openAccordion, setOpenAccordion] = useState("activity");
@@ -23,30 +26,21 @@ const FakultetKafedraSlug = () => {
         setError(null);
 
         const fetchFacultyData = axios.get(
-            BaseURL + "api/fakultet/fakultet-cards/"
+            testUrl + "/api/fakultet/" + short_name
         );
-        const fetchDepartmentData = axios.get(
-            BaseURL + "api/kafedra/kafedra-cards/"
-        );
-
-        Promise.all([fetchFacultyData, fetchDepartmentData])
-            .then(([facultyResponse, departmentResponse]) => {
-                const faculty = facultyResponse.data.find((item) => item.slug === slug);
-                const department = departmentResponse.data.find(
-                    (item) => item.slug === slug
-                );
-
+        
+        Promise.all([fetchFacultyData])
+            .then(([facultyResponse]) => {
+                const faculty = facultyResponse.data.fakultet;
                 if (faculty) {
-                    setData(faculty);
-                } else if (department) {
-                    setData(department);
+                    setFakultet(faculty);
                 } else {
                     setError("Ma'lumotlar topilmadi");
                 }
             })
             .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
             .finally(() => setLoading(false));
-    }, [slug, i18n.language]);
+    }, [short_name, i18n.language]);
 
     const handleAccordionToggle = (accordionId) => {
         setOpenAccordion(openAccordion === accordionId ? null : accordionId);
@@ -68,7 +62,7 @@ const FakultetKafedraSlug = () => {
             <div className={styles.container}>
                 <div className={styles.header}>
                     <h1 className={styles.title}>
-                        {data[`title_${i18n.language}`] || i18n.t("noTitleAvailable")}
+                        {fakultet[`name_${i18n.language}`] || i18n.t("noTitleAvailable")}
                     </h1>
                 </div>
 

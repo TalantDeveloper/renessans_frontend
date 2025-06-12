@@ -19,7 +19,7 @@ const Department = () => {
     const navigate = useNavigate();
 
     const departments = [
-        {
+        /* {
             name: t("financeAndFinancialTechnologies"), // "Iqtisodiyot"
             icon: <FaUniversity color="rgb(18 77 141)"/>,
             count: 2216,
@@ -40,7 +40,7 @@ const Department = () => {
             count: 972,
         },
         {
-            name: t("earlyEducation"), // "Boshlang‘ich taʼlim"
+            name: t("earlyEducation"), // "Boshlang'ich ta'lim"
             icon: <FaChalkboardTeacher color="rgb(18 77 141)"/>,
             count: 957,
         },
@@ -58,7 +58,7 @@ const Department = () => {
             name: t("philologyAndLanguageTeaching"), // "Filologiya (rus tili)"
             icon: <FaLanguage color="rgb(18 77 141)"/>,
             count: 690,
-        },
+        }, */
     ];
 
     return (

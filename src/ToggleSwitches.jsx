@@ -34,91 +34,130 @@ export default function ToggleSwitches() {
 
   // Toggle for "eye" (visibility)
   const handleVisibilityToggle = () => {
-    setIsVisible((prev) => !prev);
-    const zoomRoot = document.getElementById("zoom-root");
-    if (zoomRoot) {
-      if (!isVisible) {
-        zoomRoot.classList.add("grayscale-mode");
+    setIsVisible((prev) => {
+      const newState = !prev;
+      if (newState) {
+        document.body.classList.add("grayscale-mode");
       } else {
-        zoomRoot.classList.remove("grayscale-mode");
+        document.body.classList.remove("grayscale-mode");
       }
-    }
+      return newState;
+    });
   };
 
   return (
-    <div style={{ display: "flex", gap: "24px", position: "relative" }}>
-      {/* Text Mode Toggle */}
-      <button
-        onClick={handleTextModeToggle}
-        style={{
-          background: showZoom ? "#e5e9f2" : "#f5f6fa",
-          borderRadius: "999px",
-          border: "none",
-          width: "56px",
-          height: "32px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontWeight: "bold",
-          fontSize: "18px",
-          color: "#6b7280",
-          cursor: "pointer",
-          position: "relative",
-        }}
-      >
-        Aa
-      </button>
-      {showZoom && (
-        <div
+    <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+      {/* Aa Button */}
+      <div style={{ position: "relative" }}>
+        <button
+          onClick={handleTextModeToggle}
           style={{
-            position: "absolute",
-            top: "40px",
-            left: 0,
-            background: "#fff",
-            border: "1px solid #e5e9f2",
-            borderRadius: "8px",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-            zIndex: 100,
-            minWidth: "120px",
+            background: "#f3f4f6",
+            borderRadius: "50%",
+            border: "none",
+            width: "40px",
+            height: "40px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontWeight: "bold",
+            fontSize: "18px",
+            color: "#6b7280",
+            cursor: "pointer",
+            position: "relative",
+            boxShadow: showZoom ? "0 0 0 2px #f59e42" : "none",
+            outline: "none",
+            transition: "box-shadow 0.2s, background 0.2s",
           }}
         >
-          {zoomOptions.map((option) => (
-            <div
-              key={option.value}
-              onClick={() => handleZoomChange(option.value)}
+          Aa
+          {showZoom && (
+            <span
               style={{
-                padding: "8px 16px",
-                cursor: "pointer",
-                background: zoom === option.value ? "#22c55e" : "transparent",
-                color: zoom === option.value ? "#fff" : "#222",
-                fontWeight: zoom === option.value ? "bold" : "normal",
+                position: "absolute",
+                top: "7px",
+                right: "7px",
+                width: "8px",
+                height: "8px",
+                background: "#f59e42", // orange
+                borderRadius: "50%",
+                boxShadow: "0 0 2px #fff",
               }}
-            >
-              {option.label}
-            </div>
-          ))}
-        </div>
-      )}
+            />
+          )}
+        </button>
+        {showZoom && (
+          <div
+            style={{
+              position: "absolute",
+              top: "48px",
+              left: 0,
+              background: "#fff",
+              border: "1px solid #e5e9f2",
+              borderRadius: "8px",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+              zIndex: 100,
+              minWidth: "120px",
+            }}
+          >
+            {zoomOptions.map((option) => (
+              <div
+                key={option.value}
+                onClick={() => handleZoomChange(option.value)}
+                style={{
+                  padding: "8px 16px",
+                  cursor: "pointer",
+                  background: zoom === option.value ? "#22c55e" : "transparent",
+                  color: zoom === option.value ? "#fff" : "#222",
+                  fontWeight: zoom === option.value ? "bold" : "normal",
+                }}
+              >
+                {option.label}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
-      {/* Visibility Toggle */}
-      <button
-        onClick={handleVisibilityToggle}
-        style={{
-          background: isVisible ? "#e5e9f2" : "#f5f6fa",
-          borderRadius: "999px",
-          border: "none",
-          width: "56px",
-          height: "32px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: "18px",
-          color: "#6b7280",
-          cursor: "pointer",
-        }}
-      >
-        <FaEye />
-      </button>
+      {/* Eye Button */}
+      <div style={{ position: "relative" }}>
+        <button
+          onClick={handleVisibilityToggle}
+          style={{
+            background: "#f3f4f6",
+            borderRadius: "50%",
+            border: "none",
+            width: "40px",
+            height: "40px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "18px",
+            color: "#6b7280",
+            cursor: "pointer",
+            position: "relative",
+            boxShadow: isVisible ? "0 0 0 2px #3b82f6" : "none",
+            outline: "none",
+            transition: "box-shadow 0.2s, background 0.2s",
+          }}
+        >
+          <FaEye />
+          {isVisible && (
+            <span
+              style={{
+                position: "absolute",
+                top: "7px",
+                right: "7px",
+                width: "8px",
+                height: "8px",
+                background: "#3b82f6", // blue
+                borderRadius: "50%",
+                boxShadow: "0 0 2px #fff",
+              }}
+            />
+          )}
+        </button>
+      </div>
     </div>
   );
 } 

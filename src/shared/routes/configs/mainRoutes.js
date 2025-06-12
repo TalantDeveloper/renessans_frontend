@@ -298,7 +298,7 @@ export const mainRoutes = [
     },
     {
         text: "Kafedra va Fakultetlar",
-        path: "/faculty-kafedra/:slug",
+        path: "/faculty-kafedra/:short_name",
         exact: true,
         visibleInNavbar: false,
         element: <FakultetKafedraSlug/>,
