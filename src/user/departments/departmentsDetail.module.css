@@ -259,6 +259,7 @@
   transition: box-shadow 0.3s ease;
   margin-left: auto;
   margin-right: 40px;
+  margin-bottom: 30px;
 }
 
 /* Enhanced Page Title Styling */
@@ -507,4 +508,19 @@
     padding: 10px;
     gap: 5px;
   }
+}
+
+.department-info-container {
+  background-color: #f8f9fa; /* Light grey background */
+  padding: 30px; /* Add some padding */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 30px; /* Space between this and the staff section */
+}
+
+.staff-list-container {
+  background-color: #f8f9fa; /* Light grey background */
+  padding: 30px; /* Add some padding */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }

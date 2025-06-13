@@ -185,13 +185,25 @@ const Navbar = () => {
                               {columnIndex === 3 && t("O'quv-uslubiy ta'minot")}
                             </div>
                             {staticItems.map((item, index) => (
-                              <NavLink
-                                key={index}
-                                to={item.path}
-                                className={classes["dropdown-item"]}
-                              >
-                                {t(item.text)}
-                              </NavLink>
+                              item.path.startsWith('http') ? (
+                                <a
+                                  key={index}
+                                  href={item.path}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className={classes["dropdown-item"]}
+                                >
+                                  {t(item.text)}
+                                </a>
+                              ) : (
+                                <NavLink
+                                  key={index}
+                                  to={item.path}
+                                  className={classes["dropdown-item"]}
+                                >
+                                  {t(item.text)}
+                                </NavLink>
+                              )
                             ))}
                             {dropdowns
                               .filter(
@@ -243,13 +255,25 @@ const Navbar = () => {
                                 {columnIndex === 1 && t("Mahalliy hamkorlik")}
                               </div>
                               {staticItems.map((item, index) => (
-                                <NavLink
-                                  key={index}
-                                  to={item.path}
-                                  className={classes["dropdown-item"]}
-                                >
-                                  {t(item.text)}
-                                </NavLink>
+                                item.path.startsWith('http') ? (
+                                  <a
+                                    key={index}
+                                    href={item.path}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={classes["dropdown-item"]}
+                                  >
+                                    {t(item.text)}
+                                  </a>
+                                ) : (
+                                  <NavLink
+                                    key={index}
+                                    to={item.path}
+                                    className={classes["dropdown-item"]}
+                                  >
+                                    {t(item.text)}
+                                  </NavLink>
+                                )
                               ))}
                               {/* Distribute API dropdowns sequentially across columns */}
                               {dropdowns

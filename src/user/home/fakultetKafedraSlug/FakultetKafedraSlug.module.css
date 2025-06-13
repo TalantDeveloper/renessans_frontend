@@ -81,14 +81,15 @@
 }
 
 .sidebar {
-  position: sticky; /* or use fixed */
+  position: sticky;
   width: 485px;
-  height: 380px;
   background: #f9fbfc;
   padding: 20px;
   border-radius: 12px;
   transition: all 0.3s ease-in-out;
   margin: 20px;
+  margin-bottom: 50px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .sidebar h3 {
@@ -427,12 +428,12 @@
 .sidebar {
   position: sticky;
   width: 485px;
-  height: 320px;
-  background: #f9fbfc;
-  padding: 20px;
+  background: #ffffff;
+  padding: 0px;
   border-radius: 12px;
   transition: all 0.3s ease-in-out;
   margin: 20px;
+  margin-bottom: 50px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -507,4 +508,17 @@
     padding: 10px;
     gap: 5px;
   }
+}
+
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Space between the two sidebars */
+}
+
+/* Main Container for Flex Layout */
+.mainContainer {
+  display: flex;
+  gap: 30px;
+  padding: 50px 0;
 }

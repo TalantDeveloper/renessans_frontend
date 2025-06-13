@@ -20,7 +20,8 @@ const FakultetKafedraSlug = () => {
     const [boss, setBoss] = useState(null);
     const [employees, setEmployees] = useState([]);
     const [fakultetlar, setFakultetlar] = useState([]);
-    console.log(fakultet);
+    const [kafedralar, setKafedralar] = useState([]);
+    console.log(kafedralar);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [openDropdown, setOpenDropdown] = useState({});
@@ -41,6 +42,7 @@ const FakultetKafedraSlug = () => {
                     setFakultetlar(faculty.fakultetlar || []);
                     setBoss(faculty.boss?.[0] || null);
                     setEmployees(faculty.employees || []);
+                    setKafedralar(faculty.kafedralar || [])
                 } else {
                     setError("Ma'lumotlar topilmadi");
                 }
@@ -260,29 +262,57 @@ const FakultetKafedraSlug = () => {
                 ))
                 }
             </div>
-            <div className={classes.sidebar} style={{marginLeft: 0, marginRight: "40px"}}>
-                <h3>{t("Kafedra va fakultetlar")}</h3>
-                <ul style={{listStyle: 'none', padding: 0}}>
-                    {fakultetlar.length > 0 ? (
-                        fakultetlar.map((fakultet, index) => (
-                            <li
-                                onClick={() => navigate(`/faculty-kafedra/${fakultet.short_name}`)}
-                                key={fakultet.id}
-                                style={{marginBottom: '10px'}}
-                                className={fakultet.short_name === short_name ? classes.active : ''}
-                            >
-                                <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
-                                <span
-                                    style={{cursor: 'pointer', color: '#133654'}}
+
+            <div className={classes["sidebar-wrapper"]}>
+                <div className={classes.sidebar}>
+                    <h3>{t("Fakultet kafedralari")}</h3>
+                    <ul style={{listStyle: 'none', padding: 0}}>
+                        {kafedralar.length > 0 ? (
+                            kafedralar.map((kafedra, index) => (
+                                <li
+                                    onClick={() => navigate(`/faculty-kafedra/${kafedra.short_name}`)}
+                                    key={kafedra.id}
+                                    style={{marginBottom: '10px'}}
+                                    className={kafedra.short_name === short_name ? classes.active : ''}
                                 >
-                                    {getDepartmentName(fakultet)}
-                                </span>
-                            </li>
-                        ))
-                    ) : (
-                        <li>{t("no_departments_found")}</li>
-                    )}
-                </ul>
+                                    <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
+                                    <span
+                                        style={{cursor: 'pointer', color: '#133654'}}
+                                    >
+                                        {getDepartmentName(kafedra)}
+                                    </span>
+                                </li>
+                            ))
+                        ) : (
+                            <li>{t("no_departments_found")}</li>
+                        )}
+                    </ul>
+                </div>
+
+                <div className={classes.sidebar}>
+                    <h3>{t("Fakultetlar")}</h3>
+                    <ul style={{listStyle: 'none', padding: 0}}>
+                        {fakultetlar.length > 0 ? (
+                            fakultetlar.map((fakultet, index) => (
+                                <li
+                                    onClick={() => navigate(`/faculty-kafedra/${fakultet.short_name}`)}
+                                    key={fakultet.id}
+                                    style={{marginBottom: '10px'}}
+                                    className={fakultet.short_name === short_name ? classes.active : ''}
+                                >
+                                    <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
+                                    <span
+                                        style={{cursor: 'pointer', color: '#133654'}}
+                                    >
+                                        {getDepartmentName(fakultet)}
+                                    </span>
+                                </li>
+                            ))
+                        ) : (
+                            <li>{t("no_faculties_found")}</li>
+                        )}
+                    </ul>
+                </div>
             </div>
         </div>
 

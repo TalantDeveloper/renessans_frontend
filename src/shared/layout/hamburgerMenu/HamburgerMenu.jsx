@@ -22,7 +22,7 @@ const dropdownItems = {
       text: "Ilmiy faoliyat",
       children: [
         { path: "/journal", text: "Ilmiy jurnal" },
-        { path: "/conference", text: "Konferensiyalar" },
+        { path: "https://conference.renessans-edu.uz/", text: "Konferensiyalar" },
         { path: "/dropdown/ilmiy-loyihalar", text: "Ilmiy loyihalar" },
         { path: "/dropdown/oquv-rejalari", text: "O'quv rejalari" },
         { path: "/dropdown/ilmiy-maktablar", text: "Ilmiy maktablar" },
@@ -226,7 +226,7 @@ const HamburgerMenu = () => {
           ))}
           <NavLink onClick={() => setOpen(false)} to={"/auth"}>
             <div className={classes["login-button"]}>
-              {t("Rektorga murojaat")}
+              {t("rektorgamurojat")}
             </div>
           </NavLink>
         </div>

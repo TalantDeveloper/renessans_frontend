@@ -13,6 +13,8 @@ export default function ToggleSwitches() {
   const [isVisible, setIsVisible] = useState(false);
   const [showZoom, setShowZoom] = useState(false);
   const [zoom, setZoom] = useState(1);
+  const [isAaHovered, setIsAaHovered] = useState(false);
+  const [isEyeHovered, setIsEyeHovered] = useState(false);
 
   // Handle zoom change
   const handleZoomChange = (value) => {
@@ -51,8 +53,10 @@ export default function ToggleSwitches() {
       <div style={{ position: "relative" }}>
         <button
           onClick={handleTextModeToggle}
+          onMouseEnter={() => setIsAaHovered(true)}
+          onMouseLeave={() => setIsAaHovered(false)}
           style={{
-            background: "#f3f4f6",
+            background: isAaHovered ? "#133654" : "#f3f4f6",
             borderRadius: "50%",
             border: "none",
             width: "40px",
@@ -62,29 +66,15 @@ export default function ToggleSwitches() {
             justifyContent: "center",
             fontWeight: "bold",
             fontSize: "18px",
-            color: "#6b7280",
+            color: isAaHovered ? "#ffffff" : "#6b7280",
             cursor: "pointer",
             position: "relative",
-            boxShadow: showZoom ? "0 0 0 2px #f59e42" : "none",
+            boxShadow: showZoom ? "0 0 0 2px #133654" : "none",
             outline: "none",
             transition: "box-shadow 0.2s, background 0.2s",
           }}
         >
           Aa
-          {showZoom && (
-            <span
-              style={{
-                position: "absolute",
-                top: "7px",
-                right: "7px",
-                width: "8px",
-                height: "8px",
-                background: "#f59e42", // orange
-                borderRadius: "50%",
-                boxShadow: "0 0 2px #fff",
-              }}
-            />
-          )}
         </button>
         {showZoom && (
           <div
@@ -98,6 +88,7 @@ export default function ToggleSwitches() {
               boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
               zIndex: 100,
               minWidth: "120px",
+              zIndex: 100,
             }}
           >
             {zoomOptions.map((option) => (
@@ -123,8 +114,10 @@ export default function ToggleSwitches() {
       <div style={{ position: "relative" }}>
         <button
           onClick={handleVisibilityToggle}
+          onMouseEnter={() => setIsEyeHovered(true)}
+          onMouseLeave={() => setIsEyeHovered(false)}
           style={{
-            background: "#f3f4f6",
+            background: isEyeHovered ? "#133654" : "#f3f4f6",
             borderRadius: "50%",
             border: "none",
             width: "40px",
@@ -133,7 +126,7 @@ export default function ToggleSwitches() {
             alignItems: "center",
             justifyContent: "center",
             fontSize: "18px",
-            color: "#6b7280",
+            color: isEyeHovered ? "#ffffff" : "#6b7280",
             cursor: "pointer",
             position: "relative",
             boxShadow: isVisible ? "0 0 0 2px #3b82f6" : "none",
@@ -142,20 +135,6 @@ export default function ToggleSwitches() {
           }}
         >
           <FaEye />
-          {isVisible && (
-            <span
-              style={{
-                position: "absolute",
-                top: "7px",
-                right: "7px",
-                width: "8px",
-                height: "8px",
-                background: "#3b82f6", // blue
-                borderRadius: "50%",
-                boxShadow: "0 0 2px #fff",
-              }}
-            />
-          )}
         </button>
       </div>
     </div>
