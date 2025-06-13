@@ -5,9 +5,7 @@ import {
     FaPhoneAlt,
     FaEnvelope,
     FaChevronDown,
-    FaChevronUp, FaCalendarDay, FaArrowRight,
-    FaChevronLeft,
-    FaChevronCircleRight
+    FaChevronUp, FaCalendarDay
 } from "react-icons/fa";
 import {useTranslation} from "react-i18next";
 import "slick-carousel/slick/slick.css"; // Slick carousel styles
@@ -37,7 +35,7 @@ const DepartmentDetails = () => {
         setError(null);
         setLoading(true);
         const fetchDepartment = axios.get(
-            testUrl + "/api/department/department/" + short_id
+            testUrl + "/api/departments/" + short_id
         );
         Promise.all([fetchDepartment])
             .then(([departmentResponse]) => {
@@ -55,18 +53,7 @@ const DepartmentDetails = () => {
             .finally(() => setLoading(false));
     }, [short_id, i18n.language]);
 
-    useEffect(() => {
-        axios
-            .get(
-                testUrl + "/api/department/departments/list/"
-            )
-            .then((response) => {
-                setDepartments(response.data);
-            })
-            .catch((error) =>
-                console.error("Error fetching departments data: ", error)
-            );
-    }, [short_id, i18n.language]);
+   
 
     // Get the first staff member
     const toggleDropdown = (id, type) => {
@@ -118,11 +105,11 @@ const DepartmentDetails = () => {
                 <h1 className={classes["page-title"]}>
                     XODIMLAR
                 </h1>
-                {boss && <div className={`${classes.card}`} key={boss?.id}>
-                    <div className={classes.headerRight}>
+                {boss && <div className={`${classes.card}`} key={boss.employee?.id}>
+                    <div className={classes.headerLeft}>
                         <div className={classes.info}>
                             <h2>
-                                {boss[`name_${i18n.language}`]}
+                                {boss.employee[`name_${i18n.language}`]}
                             </h2>
                             <p>
                                 {t("position")}
@@ -131,26 +118,26 @@ const DepartmentDetails = () => {
                             <div className={classes.contact}>
                                 <div className={classes.contactItem}>
                                     <FaPhoneAlt className={classes.icon}/>
-                                    <span>{boss?.phone}</span>
+                                    <span>{boss.employee?.phone}</span>
                                 </div>
                                 <div className={classes.contactItem}>
                                     <FaEnvelope className={classes.icon2}/>
-                                    <span>{boss?.email}</span>
+                                    <span>{boss.employee?.email}</span>
                                 </div>
                                 <div className={classes.contactItem}>
                                     <FaCalendarDay className={classes.icon}/>
                                     <span>
                                     {t("ish_staj")} 
-                                    {boss[`work_experience_${i18n.language}`]}
+                                    {boss.employee[`work_experience_${i18n.language}`]}
                                     </span>
                                 </div>
                             </div>
                             <div className={classes.buttons}>
                                 <button
                                     className={classes.button}
-                                    onClick={() => toggleDropdown(boss?.id, "activities")}>
+                                    onClick={() => toggleDropdown(boss.employee?.id, "activities")}>
                                     {t("about_employee")}
-                                    {openDropdown[boss?.id]?.activities ? (
+                                    {openDropdown[boss.employee?.id]?.activities ? (
                                         <FaChevronUp/>
                                     ) : (
                                         <FaChevronDown/>
@@ -159,10 +146,10 @@ const DepartmentDetails = () => {
                                 <button
                                     className={classes.button}
                                     onClick={() =>
-                                        toggleDropdown(boss?.id, "responsibilities")
+                                        toggleDropdown(boss.employee?.id, "responsibilities")
                                     }>
                                     {t("specialization")}
-                                    {openDropdown[boss?.id]?.responsibilities ? (
+                                    {openDropdown[boss.employee?.id]?.responsibilities ? (
                                         <FaChevronUp/>
                                     ) : (
                                         <FaChevronDown/>
@@ -171,27 +158,27 @@ const DepartmentDetails = () => {
                             </div>
                             <div
                                 className={`${classes.dropdownContent} ${
-                                    openDropdown[boss?.id]?.activities ? classes.show : ""
+                                    openDropdown[boss.employee?.id]?.activities ? classes.show : ""
                                 }`}>
                                 <div
                                     dangerouslySetInnerHTML={{
-                                        __html: boss[`about_${i18n.language}`],
+                                        __html: boss.employee[`about_${i18n.language}`],
                                     }}
                                 />
                             </div>
                             <div className={`${classes.dropdownContent} ${
-                                openDropdown[boss?.id]?.responsibilities
+                                openDropdown[boss.employee?.id]?.responsibilities
                                     ? classes.show
                                     : ""}`}>
                                 <div dangerouslySetInnerHTML={{
-                                    __html: boss[`specialization_${i18n.language}`],
+                                    __html: boss.employee[`specialization_${i18n.language}`],
                                 }}/>
                             </div>
                         </div>
                 
                         <div className={classes.imageWrapper}>
-                            <img src={testUrl + boss?.image} // Fallback to default image if not available
-                                 alt={boss[`name_${i18n.language}`]}
+                            <img src={testUrl + boss.employee?.image} // Fallback to default image if not available
+                                 alt={boss.employee[`name_${i18n.language}`]}
                                  className={classes.logo}/>
                         </div>
                     </div>
@@ -205,34 +192,34 @@ const DepartmentDetails = () => {
                         key={employee.id}>
                         <div className={classes.headerLeft}>
                             <div className={classes.info}>
-                                <h2>{employee[`name_${i18n.language}`]}</h2>
+                                <h2>{employee.employee[`name_${i18n.language}`]}</h2>
                                 <p>
                                 {t("position")} 
                                     {employee[`position_${i18n.language}`]}</p>
                                 <div className={classes.contact}>
                                     <div className={classes.contactItem}>
                                         <FaPhoneAlt className={classes.icon}/>
-                                        <span>{employee.phone}</span>
+                                        <span>{employee.employee?.phone}</span>
                                     </div>
                                     <div className={classes.contactItem}>
                                         <FaEnvelope className={classes.icon2}/>
-                                        <span>{employee.email}</span>
+                                        <span>{employee.employee?.email}</span>
                                     </div>
-                                    {employee[`work_experience_${i18n.language}`] && (
+                                    {employee.employee[`work_experience_${i18n.language}`] && (
                                         <div className={classes.contactItem}>
                                             <FaCalendarDay className={classes.icon}/>
                                             <span>
                                             {t("ish_staj")} 
-                                            {employee[`work_experience_${i18n.language}`]}
+                                            {employee.employee[`work_experience_${i18n.language}`]}
                                             </span>
                                         </div>
                                     )}
                                 </div>
                                 <div className={classes.buttons}>
                                     <button className={classes.button}
-                                            onClick={() => toggleDropdown(employee.id, "activities")}>
+                                            onClick={() => toggleDropdown(employee.employee.id, "activities")}>
                                         {t("about_employee")}
-                                        {openDropdown[employee.id]?.activities ? (
+                                        {openDropdown[employee.employee.id]?.activities ? (
                                             <FaChevronUp/>
                                         ) : (
                                             <FaChevronDown/>
@@ -240,10 +227,10 @@ const DepartmentDetails = () => {
                                     </button>
                                     <button className={classes.button}
                                             onClick={() =>
-                                                toggleDropdown(employee.id, "responsibilities")
+                                                toggleDropdown(employee.employee.id, "responsibilities")
                                             }>
                                         {t("specialization")}
-                                        {openDropdown[employee.id]?.responsibilities ? (
+                                        {openDropdown[employee.employee.id]?.responsibilities ? (
                                             <FaChevronUp/>
                                         ) : (
                                             <FaChevronDown/>
@@ -251,26 +238,26 @@ const DepartmentDetails = () => {
                                     </button>
                                 </div>
                                 <div className={`${classes.dropdownContent} ${
-                                    openDropdown[employee.id]?.activities ? classes.show : ""
+                                    openDropdown[employee.employee.id]?.activities ? classes.show : ""
                                 }`}>
                                     <div dangerouslySetInnerHTML={{
-                                        __html: employee[`about_${i18n.language}`],
+                                        __html: employee.employee[`about_${i18n.language}`],
                                     }}/>
                                 </div>
                                 <div className={`${classes.dropdownContent} ${
-                                    openDropdown[employee.id]?.responsibilities
+                                    openDropdown[employee.employee.id]?.responsibilities
                                         ? classes.show
                                         : ""
                                 }`}>
                                     <div dangerouslySetInnerHTML={{
-                                        __html: employee[`about_${i18n.language}`],
+                                        __html: employee.employee[`about_${i18n.language}`],
                                     }}/>
                                 </div>
                             </div>
 
                             <div className={classes.imageWrapper}>
-                                <img src={testUrl + employee.image} // Fallback to default image if not available
-                                     alt={employee[`name_${i18n.language}`]}
+                                <img src={testUrl + employee.employee.image} // Fallback to default image if not available
+                                     alt={employee.employee[`name_${i18n.language}`]}
                                      className={classes.logo}/>
                             </div>
                         </div>

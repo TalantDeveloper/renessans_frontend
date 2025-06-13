@@ -16,7 +16,7 @@ const Department = () => {
 
         axios
             .get(
-                testUrl + "/api/department/departments/list/"
+                testUrl + "/api/departments"
             )
             .then((response) => {
                 setDepartments(response.data);

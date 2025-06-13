@@ -28,7 +28,7 @@ const Navbar = () => {
     { path: "/statistics", text: t("RTU raqamlarda") },
     { path: "/about", text: t("Universitet haqida") },
     { path: "/management", text: t("Rahbariyat") },
-    { path: "/structure", text: t("Tuzilma") },
+    { path: "/structure", text: t("Universitet tuzilmasi") },
     { path: "/faculty-kafedra", text: t("Kafedra va fakultetlar") },
     { path: "/science-counsil", text: t("Ilmiy kengash") },
     { path: "/departments", text: t('center') },
@@ -55,7 +55,7 @@ const Navbar = () => {
     { path: "/scholarship", text: t("Stipendiantlar") },
     { path: "/university-union", text: t("universityUnion") },
     { path: "/about-uni", text: t("Talabalar hayoti") },
-    { href: "https://lib.renessans-edu.uz/", text: t("Kutubxona") },
+    { href: "/library", text: t("Kutubxona") },
   ];
 
   const newsStaticItems = [
@@ -181,7 +181,7 @@ const Navbar = () => {
                               {columnIndex === 0 && t("Ilmiy faoliyat")}
                               {columnIndex === 1 &&
                                 t("Madaniy-ma'rifiy faoliyat")}
-                              {columnIndex === 2 && t("Moliyaviy faoliyat")}
+                              {columnIndex === 2 && t("O'quv faoliyat")}
                               {columnIndex === 3 && t("O'quv-uslubiy ta'minot")}
                             </div>
                             {staticItems.map((item, index) => (

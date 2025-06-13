@@ -10,6 +10,7 @@
   "national_professor": "Foreign Professors and Teachers",
 
   "center": "Departments and Centers",
+  "Hamkorlik": "Partnership",
   "Universitet a'lochilari": "dfds fffdf",
   "Axborot xizmati": "Information Service",
   "startbutton": "Apply",
@@ -58,7 +59,7 @@
   "RTU raqamlarda": "RTU in Numbers",
   "Universitet haqida": "About the University",
   "Rahbariyat": "Management",
-  "Tuzilma": "Structure",
+  "Universitet tuzilmasi": "University structure",
   "Kafedra va fakultetlar": "Faculties",
   "Konferensiyalar": "Conferences",
   "Ilmiy jurnal": "Scientific Journal",
@@ -78,7 +79,7 @@
   "position": "Position: ",
   "Ilmiy faoliyat": "Scientific Activity",
   "Madaniy-ma'rifiy faoliyat": "Cultural and Educational Activity",
-  "Moliyaviy faoliyat": "Financial Activity",
+  "O'quv faoliyat": "Educational activity",
   "O'quv-uslubiy ta'minot": "Educational and Methodological Support",
   "Xalqaro hamkorlik": "International Cooperation",
   "Mahalliy hamkorlik": "Local Cooperation",
@@ -367,5 +368,9 @@
   "submit": "Submit",
   "cancel": "Cancel",
   "O'quv binolari": "Educational Buildings",
-  "Green Renessans": "Green Renaissance"
+  "Green Renessans": "Green Renaissance",
+  "Universitet iqtidorlari": "University Talents",
+  "Universitet stipendiantlari": "University Scholars",
+  "Imtiyozlar": "Privileges",
+  "Universitet chempionlari": "University Champions"
 }

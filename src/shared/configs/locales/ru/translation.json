@@ -12,6 +12,7 @@
 
 
   "center": "Департаменты и центры",
+  "Hamkorlik": "Сотрудничество",
 
   "interactive_services_title": "Интерактивные услуги",
   "bachelor_title": "Бакалавриат",
@@ -176,7 +177,7 @@
   "advantageCardTitle2": " Система контроля",
   "Ilmiy faoliyat": "Научная деятельность",
   "Madaniy-ma'rifiy faoliyat": "Культурно-просветительская деятельность",
-  "Moliyaviy faoliyat": "Финансовая деятельность",
+  "O'quv faoliyat": "Образовательная деятельность",
   "O'quv-uslubiy ta'minot": "Учебно-методическое обеспечение",
   "Xalqaro hamkorlik": "Международное сотрудничество",
   "Mahalliy hamkorlik": "Местное сотрудничество",
@@ -195,7 +196,7 @@
   "errorEmail": "Электронная почта обязательна",
   "errorEvent": "Пожалуйста, выберите секцию",
   "errorSubmission": "Ошибка при отправке заявки",
-  "Tuzilma": "Структура",
+  "Universitet tuzilmasi": "Структура университета",
   "Kafedra va fakultetlar": "Факультеты",
   "Konferensiyalar": "Конференции",
   "Ilmiy jurnal": "Научный журнал",
@@ -389,5 +390,9 @@
   "register": "Участвовать",
   "courseDescription": "С помощью наших онлайн курсов вы освоите основные знания по выбранному вами направлению и получите необходимые навыки для создания портфолио!",
   "O'quv binolari": "Учебные здания",
-  "Green Renessans": "Зеленый Ренессанс"
+  "Green Renessans": "Зеленый Ренессанс",
+  "Universitet iqtidorlari": "Таланты Университета",
+  "Universitet stipendiantlari": "Стипендиаты Университета",
+  "Imtiyozlar": "Привилегии",
+  "Universitet chempionlari": "Чемпионы Университета"
 }

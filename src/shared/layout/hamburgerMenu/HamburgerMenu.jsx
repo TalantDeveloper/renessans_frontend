@@ -12,36 +12,93 @@ const dropdownItems = {
     { path: "/management", text: "Rahbariyat" },
     { path: "/structure", text: "Universitet tuzilmasi" },
     { path: "/international-cooperation", text: "Xalqaro hamkorlik" },
-    { path: "/faculty-kafedra", text: "Kafedra va Fakultetlar" },
-    { path: "/departments", text: "Bo'lim va Markazlar"},
-    { path: "/dropdown/oquv-binolari", text: "O'quv binolar" },
+    { path: "/faculty-kafedra", text: "Kafedra va fakultetlar" },
+    { path: "/departments", text: "center"},
+    { path: "/dropdown/oquv-binolari", text: "O'quv binolari" },
     { path: "/dropdown/green-renessans", text: "Green Renessans" },
   ],
   ilmiyFaoliyat: [
-    { path: "/library", text: "Ilmiy faoliyat" },
-    { path: "/science-counsil", text: "Madaniy-ma'rifiy faoliyat" },
-    { path: "/science-counsil", text: "O'quv faoliyat" },
-    { path: "/science-counsil", text: "O'quv-uslubiy ta'minot" },
+    {
+      text: "Ilmiy faoliyat",
+      children: [
+        { path: "/journal", text: "Ilmiy jurnal" },
+        { path: "/conference", text: "Konferensiyalar" },
+        { path: "/dropdown/ilmiy-loyihalar", text: "Ilmiy loyihalar" },
+        { path: "/dropdown/oquv-rejalari", text: "O'quv rejalari" },
+        { path: "/dropdown/ilmiy-maktablar", text: "Ilmiy maktablar" },
+        { path: "/dropdown/murabbiylik-faoliyati", text: "Murabbiylik faoliyati" },
+      ]
+    },
+    {
+      text: "Madaniy-ma'rifiy faoliyat",
+      children: [
+        { path: "/about-uni", text: "Talabalar hayoti" },
+        { path: "/anons", text: "Muhim sanalar" },
+        { path: "/university-union", text: "University union" },
+        { path: "/dropdown/ilmiy-konferensiyalar", text: "Ilmiy konferensiyalar" },
+        { path: "/dropdown/nazorat-sinovlari", text: "Nazorat sinovlari" },
+        { path: "/ilmiy-jurnal", text: "Ilmiy jurnal" },
+        { path: "/dropdown/axborot-resurs-markazi", text: "Axborot resurs markazi" },
+      ]
+    },
+    {
+      text: "O'quv faoliyat",
+      children: [
+        { path: "/dropdown/madaniy-marifiy-tadbirlar", text: "Madaniy-ma'rifiy tadbirlar" },
+        { path: "/dropdown/sport-klubi", text: "Sport klubi" },
+        { path: "/dropdown/odob-axloq-qoidalari", text: "Odob axloq qoidalari" },
+        { path: "/dropdown/zakovat-klubi", text: "Zakovat klubi" },
+      ]
+    },
+    {
+      text: "O'quv-uslubiy ta'minot",
+      children: [
+        { path: "/dropdown/yosh-akademiklar", text: "Yosh akademiklar" },
+        { path: "/dropdown/talabalar-turar-joyi", text: "Talabalar turar joyi" },
+        { path: "/dropdown/bmi-mavzulari", text: "BMI mavzulari" },
+      ]
+    },
   ],
-  talabalar: [
+  talabalarga: [
+    { path: "/good-st", text: "Universitet iqtidorlari" },
+    { path: "/scholarship", text: "Universitet stipendiantlari" },
+    { path: "about-uni", text: "Talabalar hayoti" },
+    { path: "/dropdown/imtiyozlar", text: "Imtiyozlar" },
+    { path: "/our-campions", text: "Universitet chempionlari" },
+    { path: "/university-union", text: "University union" },
     { path: "/library", text: "Kutubxona" },
-    { path: "/courses", text: "Onlayn darslar" },
-    { path: "/class-table", text: "Dars jadvali" },
+  ],
+  hamkorlik: [
+    {
+      text: "Xalqaro hamkorlik",
+      children: [
+        { path: "/international-cooperation", text: "Xalqaro aloqalar" },
+        { path: "/dropdown/xalqaro-hamkor-tashkilotlar", text: "Xalqaro hamkor tashkilotlar" },
+      ]
+    },
+    {
+      text: "Mahalliy hamkorlik",
+      children: [
+        { path: "/international-cooperation/2", text: "Mahalliy hamkorlik" },
+        { path: "/dropdown/xalqaro-malaka-oshirish-va-talim", text: "Xorijda ta'lim" },
+      ]
+    },
   ],
   bizningFaoliyat: [
-    { path: "/about-uni", text: "Talabalar hayoti" },
-    { path: "/our-campions", text: "Bizning chempionlar" },
-    { path: "/good-st", text: "Universitet a'lochilari" },
-    { path: "/university-union", text: "University Union" },
+    { path: "/news", text: "Yangiliklar" },
+    { path: "/anons", text: "Muhim sanalar" },
+    { path: "/confession", text: "Xalqaro ekspertlarning fikrlari" },
+    { path: "/announce", text: "E'lonlar" },
+    { path: "/contact", text: "Bog'lanishlar" }
   ],
 };
 
 const mainRoutes = [
   { text: "Universitet", dropdown: "universitet" },
   { text: "Faoliyat", dropdown: "ilmiyFaoliyat" },
-  { text: "Talabalarga", dropdown: "talabalar" },
-  { text: "Bizning faoliyat", dropdown: "bizningFaoliyat" },
-  { path: "/contact", text: "Bog'lanish" },
+  { text: "Hamkorlik", dropdown: "hamkorlik" },
+  { text: "Talabalarga", dropdown: "talabalarga" },
+  { text: "Axborot xizmati", dropdown: "bizningFaoliyat" }
 ];
 
 const HamburgerMenu = () => {
@@ -50,6 +107,10 @@ const HamburgerMenu = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [openIlmiy, setOpenIlmiy] = useState(false);
   const [openMadaniy, setOpenMadaniy] = useState(false);
+  const [openOquv, setOpenOquv] = useState(false);
+  const [openOquvUslubiy, setOpenOquvUslubiy] = useState(false);
+  const [openXalqaroHamkorlik, setOpenXalqaroHamkorlik] = useState(false);
+  const [openMahalliyHamkorlik, setOpenMahalliyHamkorlik] = useState(false);
 
   if (open) {
     document.body.style.overflow = "hidden";
@@ -88,47 +149,59 @@ const HamburgerMenu = () => {
               {item.dropdown && activeDropdown === item.dropdown && (
                 <div className={classes["dropdown"]}>
                   {dropdownItems[item.dropdown].map((subItem, subIndex) => {
-                    if (item.dropdown === "ilmiyFaoliyat" && subItem.text === "Ilmiy faoliyat") {
+                    if (subItem.children) { // Check if it's a nested dropdown
+                      let openState, setOpenState;
+                      switch (subItem.text) {
+                        case "Ilmiy faoliyat":
+                          openState = openIlmiy;
+                          setOpenState = setOpenIlmiy;
+                          break;
+                        case "Madaniy-ma'rifiy faoliyat":
+                          openState = openMadaniy;
+                          setOpenState = setOpenMadaniy;
+                          break;
+                        case "O'quv faoliyat":
+                          openState = openOquv;
+                          setOpenState = setOpenOquv;
+                          break;
+                        case "O'quv-uslubiy ta'minot":
+                          openState = openOquvUslubiy;
+                          setOpenState = setOpenOquvUslubiy;
+                          break;
+                        case "Xalqaro hamkorlik":
+                          openState = openXalqaroHamkorlik;
+                          setOpenState = setOpenXalqaroHamkorlik;
+                          break;
+                        case "Mahalliy hamkorlik":
+                          openState = openMahalliyHamkorlik;
+                          setOpenState = setOpenMahalliyHamkorlik;
+                          break;
+                        default:
+                          openState = false;
+                          setOpenState = () => {}; // No-op for safety
+                      }
                       return (
                         <div key={subIndex}>
                           <div
                             className={classes["dropdown-item"]}
                             style={{ cursor: "pointer" }}
-                            onClick={() => setOpenIlmiy((prev) => !prev)}
+                            onClick={() => setOpenState((prev) => !prev)}
                           >
-                            {t("Ilmiy faoliyat")}
+                            {t(subItem.text)}
                           </div>
-                          {openIlmiy && (
+                          {openState && (
                             <div style={{ paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: '0' }}>
-                              <NavLink to="/journal" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("Ilmiy jurnal")}</NavLink>
-                              <NavLink to="/conference" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("Konferensiyalar")}</NavLink>
-                              <NavLink to="/dropdown/ilmiy-loyihalar" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("Ilmiy loyihalar")}</NavLink>
-                              <NavLink to="/dropdown/oquv-rejalari" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("O'quv rejalari")}</NavLink>
-                              <NavLink to="/dropdown/ilmiy-maktablar" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("Ilmiy maktablar")}</NavLink>
-                              <NavLink to="/dropdown/murabbiylik-faoliyati" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("Murabbiylik faoliyati")}</NavLink>
-                            </div>
-                          )}
-                        </div>
-                      );
-                    } else if (item.dropdown === "ilmiyFaoliyat" && subItem.text === "Madaniy-ma'rifiy faoliyat") {
-                      return (
-                        <div key={subIndex}>
-                          <div
-                            className={classes["dropdown-item"]}
-                            style={{ cursor: "pointer" }}
-                            onClick={() => setOpenMadaniy((prev) => !prev)}
-                          >
-                            {t("Madaniy-ma'rifiy faoliyat")}
-                          </div>
-                          {openMadaniy && (
-                            <div style={{ paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: '0' }}>
-                              <NavLink to="/about-uni" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("Talabalar hayoti")}</NavLink>
-                              <NavLink to="/anons" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("Muhim sanalar")}</NavLink>
-                              <NavLink to="/university-union" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("University union")}</NavLink>
-                              <NavLink to="/dropdown/ilmiy-konferensiyalar" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("Ilmiy konferensiyalar")}</NavLink>
-                              <NavLink to="/dropdown/nazorat-sinovlari" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("Nazorat sinovlari")}</NavLink>
-                              <NavLink to="/journal" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("Ilmiy jurnal")}</NavLink>
-                              <NavLink to="/dropdown/axborot-resurs-markazi" className={classes["dropdown-item"]} style={active} onClick={() => setOpen(false)}>{t("Axborot resurs markazi")}</NavLink>
+                              {subItem.children.map((childItem, childIndex) => (
+                                <NavLink
+                                  key={childIndex}
+                                  to={childItem.path}
+                                  className={classes["dropdown-item"]}
+                                  style={active}
+                                  onClick={() => setOpen(false)}
+                                >
+                                  {t(childItem.text)}
+                                </NavLink>
+                              ))}
                             </div>
                           )}
                         </div>
