@@ -3,29 +3,51 @@ import { useNavigate, useParams } from "react-router-dom";
 import LottieView from "lottie-react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import {FaPhoneAlt, FaEnvelope, FaChevronDown, FaChevronUp, FaCalendarDay,
-} from "react-icons/fa";
+import {FaPhoneAlt, FaEnvelope, FaChevronDown, FaChevronUp, FaCalendarDay, FaChartBar, FaChalkboardTeacher, FaGraduationCap, FaUserGraduate, FaUsers, FaBook, FaGlobe, FaFileAlt } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import classes from "./kafedraSlug.module.css";
 // import classerror from "../../../Error404Page.module.css";
 // import Error404Animation from "../../../Error404.json";
 import { BaseURL, testUrl } from "../BaseData";
+import EmployeeCard from "../../employees/EmployeeCard";
+import IlmiySalohiyat from "./IlmiySalohiyat.png";
+import ProfessorOqituvchilar from "./ProfessorOqituvchilar.png";
+import TalabalarSoni from "./TalabalarSoni.png";
+import OquvQollanmaVaDarsliklar from "./OquvQollanmaVaDarsliklar.png";
+import FanDoktori from "./FanDoktori.png";
+import FalsafaDoktori from "./FalsafaDoktori.png";
+import XalqaroHamkorliklar from "./XalqaroHamkorliklar.png";
+import Maqolalar from "./Maqolalar.png";
+const IconNames = {
+    "IlmiySalohiyat": IlmiySalohiyat,
+    "ProfessorOqituvchilar": ProfessorOqituvchilar,
+    "TalabalarSoni": TalabalarSoni,
+    "OquvQollanmaVaDarsliklar": OquvQollanmaVaDarsliklar,
+    "FanDoktori": FanDoktori,
+    "FalsafaDoktori": FalsafaDoktori,
+    "XalqaroHamkorliklar": XalqaroHamkorliklar,
+    "Maqolalar": Maqolalar
+}
+console.log(IconNames['XalqaroHamkorliklar']);
 
 const KafedraSlug = () => {
     const navigate = useNavigate();
     const { short_name } = useParams();
+    console.log(short_name);
     const {t, i18n } = useTranslation();
     const [kafedra, setKafedra] = useState(null);
     const [fakultet, setFakultet] = useState(null);
-    // const [boss, setBoss] = useState(null);
-    // const [employees, setEmployees] = useState([]);
+    const [boss, setBoss] = useState(null);
+    const [employees, setEmployees] = useState([]);
     // const [fakultetlar, setFakultetlar] = useState([]);
     const [kafedralar, setKafedralar] = useState([]);
-    // console.log(kafedralar);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    console.log(error);
     const [openDropdown, setOpenDropdown] = useState({});
+    const [results, setResults] = useState([]);
+    console.log(results);
 
     useEffect(() => {
         setLoading(true);
@@ -35,15 +57,29 @@ const KafedraSlug = () => {
             testUrl + "/api/kafedra/" + short_name
         );
         
+        // const fetchStatistics = async () => {
+        //     try {
+        //         const response = await fetch(
+        //             BaseURL + "api/ourStatistics/"
+        //         );
+        //         const data = await response.json();
+        //         setStatistics(data);
+        //     } catch (error) {
+        //         console.error("Error fetching statistics:", error);
+        //     }
+        // };
+
         Promise.all([fetchKafedraData])
             .then(([kafedraResponse]) => {
                 const kafedra = kafedraResponse.data;
                 if (kafedra) {
+                    console.log(kafedra);
                     setKafedra(kafedra.kafedra);
                     setKafedralar(kafedra.kafedralar || []);
-                    setFakultet(kafedra.fakultet?.[0] || null)
-                    // setBoss(kafedra.boss?.[0] || null);
-                    // setEmployees(kafedra.employees || []);
+                    setFakultet(kafedra.fakultet?.[0] || null);
+                    setResults(kafedra.results || []);
+                    setBoss(kafedra.boss?.[0] || null);
+                    setEmployees(kafedra.employees || []);
                     // setKafedralar(faculty.kafedralar || [])
                 } else {
                     setError("Ma'lumotlar topilmadi");
@@ -51,6 +87,7 @@ const KafedraSlug = () => {
             })
             .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
             .finally(() => setLoading(false));
+        
     }, [short_name, i18n.language]);
 
     const toggleDropdown = (id, type) => {
@@ -70,10 +107,6 @@ const KafedraSlug = () => {
         return title || kafedra.name_uz || t("no_name_available");
     };
 
-    const getCleanedFacultyName = (faculty) => {
-        const title = faculty[`name_${i18n.language}`];
-        return title || faculty.name_uz || t("no_name_available");
-    };
 
     if (loading) return <p>Yuklanmoqda...</p>;
     // if (error) return (
@@ -110,7 +143,7 @@ const KafedraSlug = () => {
                 <h1 className={classes["page-title"]}>
                     XODIMLAR
                 </h1>
-                {/* {boss && <div className={`${classes.card}`} key={boss.employee?.id}>
+                {boss && <div className={`${classes.card}`} key={boss.employee?.id}>
                     <div className={classes.headerLeft}>
                         <div className={classes.info}>
                             <h2>
@@ -187,9 +220,9 @@ const KafedraSlug = () => {
                                  className={classes.logo}/>
                         </div>
                     </div>
-                </div>} */}
+                </div>}
 
-                {/* {employees.map((employee, index) => (
+                {employees.map((employee, index) => (
                     <div
                         className={`${classes.card} ${
                             index === 0 ? classes.highlightedCard : ""
@@ -268,7 +301,7 @@ const KafedraSlug = () => {
                         </div>
                     </div>
                 ))
-                } */}
+                }
             </div>
 
             <div className={classes["sidebar-wrapper"]}>
@@ -284,14 +317,33 @@ const KafedraSlug = () => {
                     <div className={`${classes.dropdownContent} ${
                         openDropdown["statistics"]?.statistics ? classes.show : ""
                     }`}>
-                        <p>{t("No statistics available.")}</p>
+                        {results.length > 0 ? (
+                            <div>
+                                {results.map((result, index) => (
+                                    <div key={index+1}>
+                                        <div>
+                                            <img 
+                                            src={IconNames[`${result.statistical?.icon_name}`]} 
+                                            alt="" 
+                                            width={70}
+                                            />
+                                            {result?.result}
+                                            {result.statistical[`name_${i18n.language}`]}
+                                        </div>
+                                        
+                                    </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <p>{t("No statistics available.")}</p>
+                        )}
                     </div>
                 </div>
 
                 <div className={classes.sidebar}>
                     
                     <h3 className={classes["sidebar-title"]}>
-                        {kafedra && kafedra.fakultet ? `${getCleanedFacultyName(kafedra.fakultet)} ${t("kafedralari")}` : t("Kafedralar")}
+                        {fakultet[`name_${i18n.language}`]}
                     </h3>
                     <ul style={{listStyle: 'none', padding: 0}}>
                         {kafedralar.length > 0 ? (
@@ -318,7 +370,6 @@ const KafedraSlug = () => {
 
                 
                 <div className={classes.sidebar}>
-                    <h3></h3>
                     <ul style={{listStyle: 'none', padding: 0}}>
                         {/* {kafedralar.length > 0 ? (
                             kafedralar.map((kafedra, index) => (
