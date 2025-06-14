@@ -7,21 +7,22 @@ import {FaPhoneAlt, FaEnvelope, FaChevronDown, FaChevronUp, FaCalendarDay,
 } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import classes from "./FakultetKafedraSlug.module.css";
-import classerror from "../../../shared/pages/Error404Page.module.css";
-import Error404Animation from "../../../shared/assets/animated-placeholders/Error404.json";
+import classes from "./kafedraSlug.module.css";
+// import classerror from "../../../Error404Page.module.css";
+// import Error404Animation from "../../../Error404.json";
 import { BaseURL, testUrl } from "../BaseData";
 
-const FakultetKafedraSlug = () => {
+const KafedraSlug = () => {
     const navigate = useNavigate();
     const { short_name } = useParams();
     const {t, i18n } = useTranslation();
+    const [kafedra, setKafedra] = useState(null);
     const [fakultet, setFakultet] = useState(null);
-    const [boss, setBoss] = useState(null);
-    const [employees, setEmployees] = useState([]);
-    const [fakultetlar, setFakultetlar] = useState([]);
+    // const [boss, setBoss] = useState(null);
+    // const [employees, setEmployees] = useState([]);
+    // const [fakultetlar, setFakultetlar] = useState([]);
     const [kafedralar, setKafedralar] = useState([]);
-    console.log(kafedralar);
+    // console.log(kafedralar);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [openDropdown, setOpenDropdown] = useState({});
@@ -30,19 +31,20 @@ const FakultetKafedraSlug = () => {
         setLoading(true);
         setError(null);
 
-        const fetchFacultyData = axios.get(
-            testUrl + "/api/fakultet/" + short_name
+        const fetchKafedraData = axios.get(
+            testUrl + "/api/kafedra/" + short_name
         );
         
-        Promise.all([fetchFacultyData])
-            .then(([facultyResponse]) => {
-                const faculty = facultyResponse.data;
-                if (faculty) {
-                    setFakultet(faculty.fakultet);
-                    setFakultetlar(faculty.fakultetlar || []);
-                    setBoss(faculty.boss?.[0] || null);
-                    setEmployees(faculty.employees || []);
-                    setKafedralar(faculty.kafedralar || [])
+        Promise.all([fetchKafedraData])
+            .then(([kafedraResponse]) => {
+                const kafedra = kafedraResponse.data;
+                if (kafedra) {
+                    setKafedra(kafedra.kafedra);
+                    setKafedralar(kafedra.kafedralar || []);
+                    setFakultet(kafedra.fakultet?.[0] || null)
+                    // setBoss(kafedra.boss?.[0] || null);
+                    // setEmployees(kafedra.employees || []);
+                    // setKafedralar(faculty.kafedralar || [])
                 } else {
                     setError("Ma'lumotlar topilmadi");
                 }
@@ -58,33 +60,39 @@ const FakultetKafedraSlug = () => {
                 activities: type === "activities" ? !prev[id]?.activities : false,
                 responsibilities:
                     type === "responsibilities" ? !prev[id]?.responsibilities : false,
+                statistics: type === "statistics" ? !prev[id]?.statistics : false,
             },
         }));
     };
 
-    const getDepartmentName = (fakultet) => {
-        const title = fakultet[`name_${i18n.language}`];
-        return title || fakultet.name_uz || t("no_name_available");
+    const getDepartmentName = (kafedra) => {
+        const title = kafedra[`name_${i18n.language}`];
+        return title || kafedra.name_uz || t("no_name_available");
+    };
+
+    const getCleanedFacultyName = (faculty) => {
+        const title = faculty[`name_${i18n.language}`];
+        return title || faculty.name_uz || t("no_name_available");
     };
 
     if (loading) return <p>Yuklanmoqda...</p>;
-    if (error) return (
-        <div className={classerror["error-page"]}>
-            <LottieView className={classerror["animation"]}
-            animationData={Error404Animation}
-            loop={true}
-            />
-            <p className={classerror["title"]}>
-                {t("sorry")}
-            </p>
-            <p className={classerror["description"]}>
-                {t("back_main")}
-            </p>
-            <div onClick={() => navigate("/")} className={classerror["button"]}>
-                {t("main_menu")}
-            </div>
-        </div>
-    )  
+    // if (error) return (
+    //     <div className={classerror["error-page"]}>
+    //         <LottieView className={classerror["animation"]}
+    //         animationData={Error404Animation}
+    //         loop={true}
+    //         />
+    //         <p className={classerror["title"]}>
+    //             {t("sorry")}
+    //         </p>
+    //         <p className={classerror["description"]}>
+    //             {t("back_main")}
+    //         </p>
+    //         <div onClick={() => navigate("/")} className={classerror["button"]}>
+    //             {t("main_menu")}
+    //         </div>
+    //     </div>
+    // )  
 
 
     return (
@@ -93,16 +101,16 @@ const FakultetKafedraSlug = () => {
             <div data-aos="fade-up" className={classes["rahbariyat-container"]}>
             
                 <h1 className={classes["page-title"]}>
-                    {fakultet[`name_${i18n.language}`]}
+                    {kafedra[`name_${i18n.language}`]}
                 </h1>
                 {/* <img src={fakultet?.image} alt="" /> */}
                 <div dangerouslySetInnerHTML={{
-                    __html: fakultet[`content_${i18n.language}`],
+                    __html: kafedra[`content_${i18n.language}`],
                 }}/>
                 <h1 className={classes["page-title"]}>
                     XODIMLAR
                 </h1>
-                {boss && <div className={`${classes.card}`} key={boss.employee?.id}>
+                {/* {boss && <div className={`${classes.card}`} key={boss.employee?.id}>
                     <div className={classes.headerLeft}>
                         <div className={classes.info}>
                             <h2>
@@ -179,9 +187,9 @@ const FakultetKafedraSlug = () => {
                                  className={classes.logo}/>
                         </div>
                     </div>
-                </div>}
+                </div>} */}
 
-                {employees.map((employee, index) => (
+                {/* {employees.map((employee, index) => (
                     <div
                         className={`${classes.card} ${
                             index === 0 ? classes.highlightedCard : ""
@@ -260,14 +268,30 @@ const FakultetKafedraSlug = () => {
                         </div>
                     </div>
                 ))
-                }
+                } */}
             </div>
 
             <div className={classes["sidebar-wrapper"]}>
+            <div className={classes.sidebar}>
+                    <div className={classes.buttons}>
+                        <button
+                            className={classes.button}
+                            onClick={() => toggleDropdown("statistics", "statistics")}>
+                            {t("Statistik ko'rsatgichlar")}
+                            {openDropdown["statistics"]?.statistics ? <FaChevronUp/> : <FaChevronDown/>}
+                        </button>
+                    </div>
+                    <div className={`${classes.dropdownContent} ${
+                        openDropdown["statistics"]?.statistics ? classes.show : ""
+                    }`}>
+                        <p>{t("No statistics available.")}</p>
+                    </div>
+                </div>
+
                 <div className={classes.sidebar}>
-                    <h3>
-                        {fakultet && getDepartmentName(fakultet)}
-                        {` ${t("kafedralari")}`}
+                    
+                    <h3 className={classes["sidebar-title"]}>
+                        {kafedra && kafedra.fakultet ? `${getCleanedFacultyName(kafedra.fakultet)} ${t("kafedralari")}` : t("Kafedralar")}
                     </h3>
                     <ul style={{listStyle: 'none', padding: 0}}>
                         {kafedralar.length > 0 ? (
@@ -287,33 +311,34 @@ const FakultetKafedraSlug = () => {
                                 </li>
                             ))
                         ) : (
-                            <li>{t("no_departments_found")}</li>
+                            <li>{t("no_kafedra_found")}</li>
                         )}
                     </ul>
                 </div>
 
+                
                 <div className={classes.sidebar}>
-                    <h3>{t("Fakultetlar")}</h3>
+                    <h3></h3>
                     <ul style={{listStyle: 'none', padding: 0}}>
-                        {fakultetlar.length > 0 ? (
-                            fakultetlar.map((fakultet, index) => (
+                        {/* {kafedralar.length > 0 ? (
+                            kafedralar.map((kafedra, index) => (
                                 <li
-                                    onClick={() => navigate(`/faculty-kafedra/${fakultet.short_name}`)}
-                                    key={fakultet.id}
+                                    onClick={() => navigate(`/faculty-kafedra/${kafedra.short_name}`)}
+                                    key={kafedra.id}
                                     style={{marginBottom: '10px'}}
-                                    className={fakultet.short_name === short_name ? classes.active : ''}
+                                    className={kafedra.short_name === short_name ? classes.active : ''}
                                 >
                                     <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
                                     <span
                                         style={{cursor: 'pointer', color: '#133654'}}
                                     >
-                                        {getDepartmentName(fakultet)}
+                                        {getDepartmentName(kafedra)}
                                     </span>
                                 </li>
                             ))
                         ) : (
-                            <li>{t("no_faculties_found")}</li>
-                        )}
+                            <li>{t("no_kafedras_found")}</li>
+                        )} */}
                     </ul>
                 </div>
             </div>
@@ -549,5 +574,5 @@ const FakultetKafedraSlug = () => {
     );
 };
 
-export default FakultetKafedraSlug;
+export default KafedraSlug;
 

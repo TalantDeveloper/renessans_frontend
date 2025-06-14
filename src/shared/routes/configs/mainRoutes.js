@@ -41,6 +41,8 @@ import DropdownDetails from "../../../user/home/dropdowns/DropdownDetails";
 import FakultetKafedra from "../../../user/home/fakultetKafedra/FakultetKafedra";
 import FakultetKafedraSlug from "../../../user/home/fakultetKafedraSlug/FakultetKafedraSlug";
 import Etirof from "../../../user/etirof/Etirof";
+import Kafedra from "../../../user/home/kafedralar/Kafedra";
+import KafedraSlug from "../../../user/home/kafedralar/kafedraSlug";
 
 export const mainRoutes = [
     {
@@ -198,6 +200,7 @@ export const mainRoutes = [
         visibleInNavbar: false,
         element: <Faculty/>,
     },
+    
     {
         text: "Statistika",
         path: "/statistics",
@@ -302,6 +305,20 @@ export const mainRoutes = [
         exact: true,
         visibleInNavbar: false,
         element: <FakultetKafedraSlug/>,
+    },
+    {
+        text: "Kafedralar",
+        path: "/kafedra",
+        exact: true,
+        visibleInNavbar: false,
+        element: <Kafedra/>,
+    },
+    {
+        text: "KafedraSlug",
+        path: "/kafedra/:short_name",
+        exact: true,
+        visibleInNavbar: false,
+        element: <KafedraSlug/>,
     },
     {
         text: "Bo'lim va markazlar",
