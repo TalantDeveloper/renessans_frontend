@@ -89,7 +89,7 @@ const DirectionDetails = () => {
             <div data-aos="fade-up" className={classes["rahbariyat-container"]}>
             
                 <h1 className={classes["page-title"]}>
-                    {direction[`name_${i18n.language}`]}
+                    {direction[`name_${i18n.language}`]} 
                 </h1>
                 {/* <img src={fakultet?.image} alt="" /> */}
                 <div dangerouslySetInnerHTML={{
@@ -103,7 +103,7 @@ const DirectionDetails = () => {
                 <div className={classes.sidebar}>
                     
                     <h3 className={classes["sidebar-title"]}>
-                        {kafedra[`name_${i18n.language}`]}
+                        {kafedra[`name_${i18n.language}`]} yo'nalishlari
                     </h3>
                     <ul style={{listStyle: 'none', padding: 0}}>
                         {directions.length > 0 ? (

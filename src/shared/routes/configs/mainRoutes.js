@@ -339,14 +339,14 @@ export const mainRoutes = [
     },
     {
         text: "Bo'lim va markazlar",
-        path: "/departments",
+        path: "/centers",
         exact: true,
         visibleInNavbar: false,
         element: <Department/>,
     },
     {
         text: "Bo'lim va markazlar",
-        path: "/departments/:short_id",
+        path: "/centers/:short_id",
         exact: true,
         visibleInNavbar: false,
         element: <DepartmentDetails/>,

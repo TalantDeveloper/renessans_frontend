@@ -16,7 +16,7 @@ const Department = () => {
 
         axios
             .get(
-                testUrl + "/api/departments"
+                testUrl + "/api/centers"
             )
             .then((response) => {
                 setDepartments(response.data);
@@ -46,7 +46,7 @@ const Department = () => {
                         {departments.length > 0 ? (
                             departments.map((department, index) => (
                                 <Link key={department.id}
-                                      to={`/departments/${department.short_id}`}
+                                      to={`/centers/${department.short_id}`}
                                       className={styles.facultyCard}>
                                     <div className={styles.facultyInfo}>
                                         <h3>{index + 1}. {getDepartmentName(department)}</h3>

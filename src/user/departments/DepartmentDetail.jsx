@@ -15,8 +15,7 @@ import classerror from "../../shared/pages/Error404Page.module.css";
 import Error404Animation from "../../shared/assets/animated-placeholders/Error404.json";
 import {useNavigate} from "react-router-dom";
 import LottieView from "lottie-react";
-import {BaseURL, testUrl} from "../home/BaseData";
-import { color } from "framer-motion";
+import { testUrl} from "../home/BaseData";
 const DepartmentDetails = () => {
     const {short_id} = useParams();
     const navigate = useNavigate();
@@ -35,7 +34,7 @@ const DepartmentDetails = () => {
         setError(null);
         setLoading(true);
         const fetchDepartment = axios.get(
-            testUrl + "/api/departments/" + short_id
+            testUrl + "/api/centers/" + short_id
         );
         Promise.all([fetchDepartment])
             .then(([departmentResponse]) => {
@@ -271,7 +270,7 @@ const DepartmentDetails = () => {
                     {departments.length > 0 ? (
                         departments.map((department, index) => (
                             <li
-                                onClick={() => navigate(`/departments/${department.short_id}`)}
+                                onClick={() => navigate(`/centers/${department.short_id}`)}
                                 key={department.id}
                                 style={{marginBottom: '10px'}}
                                 className={department.short_id === short_id ? classes.active : ''}

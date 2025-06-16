@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageDropDownComponent from "../../components/languageDropdown/LanguageDropDownComponent";
 import HamburgerMenu from "../hamburgerMenu/HamburgerMenu";
@@ -9,12 +9,12 @@ import navbarLogoEng from "./logo eng.svg";
 import navbarLogoRu from "./logo rus.svg";
 import axios from "axios";
 
-import ZoomSelector from "../../utils/my/ZoomSelector";
-import AudioDictorButton from "../../utils/my/AudioDictorButton";
-import DarkMode from "../../utils/my/DarkMode";
+// import ZoomSelector from "../../utils/my/ZoomSelector";
+// import AudioDictorButton from "../../utils/my/AudioDictorButton";
+// import DarkMode from "../../utils/my/DarkMode";
 import ToggleSwitches from "../../../ToggleSwitches";
 
-import { FaEye } from "react-icons/fa";
+// import { FaEye } from "react-icons/fa";
 import { BaseURL } from "../../../user/home/BaseData";
 
 const Navbar = () => {
@@ -22,16 +22,16 @@ const Navbar = () => {
   const [menus, setMenus] = useState([]);
   const [dropdowns, setDropdowns] = useState([]);
   const [showDropdown, setShowDropdown] = useState(null);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const staticDropdownItems = [
     { path: "/statistics", text: t("RTU raqamlarda") },
     { path: "/about", text: t("Universitet haqida") },
     { path: "/management", text: t("Rahbariyat") },
     { path: "/structure", text: t("Universitet tuzilmasi") },
-    { path: "/faculty-kafedra", text: t("Kafedra va fakultetlar") },
+    { path: "/faculties", text: t("Kafedra va fakultetlar") },
     { path: "/science-counsil", text: t("Ilmiy kengash") },
-    { path: "/departments", text: t('center') },
+    { path: "/centers", text: t('center') },
   ];
 
   const staticItemsColumn1 = [
@@ -125,11 +125,11 @@ const Navbar = () => {
       </div>
       <div className={classes["aboweHeader"]}>
         <a href="https://student.renessans-edu.uz/dashboard/login">{t("hemis")}</a>
-        <a href="#">{t("syllabus")}</a>
-        <a href="#">{t("timetable")}</a>
+        <a href="syllabus.renessans-edu.uz">{t("syllabus")}</a>
+        <a href="timetable.renessans-edu.uz">{t("timetable")}</a>
         <a href="https://conference.renessans-edu.uz/">{t("conference")}</a>
         <a href="/journal">{t("journal")}</a>
-        <a href="#">{t("acceptance")}</a>
+        <a href="/">{t("acceptance")}</a>
       </div>
       <div className={classes["navbar-wrapper"]}>
         <div className={classes["navbar"]}>
