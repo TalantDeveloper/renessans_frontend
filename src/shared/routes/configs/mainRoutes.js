@@ -43,6 +43,9 @@ import FakultetKafedraSlug from "../../../user/home/fakultetKafedraSlug/Fakultet
 import Etirof from "../../../user/etirof/Etirof";
 import Kafedra from "../../../user/home/kafedralar/Kafedra";
 import KafedraSlug from "../../../user/home/kafedralar/kafedraSlug";
+import DirectionDetails from "../../../user/home/directions/directionDetails";
+import Direction from "../../../user/home/directions/Directions";
+
 
 export const mainRoutes = [
     {
@@ -294,31 +297,45 @@ export const mainRoutes = [
     },
     {
         text: "Kafedra va Fakultetlar",
-        path: "/faculty-kafedra",
+        path: "/faculties",
         exact: true,
         visibleInNavbar: false,
         element: <FakultetKafedra/>,
     },
     {
         text: "Kafedra va Fakultetlar",
-        path: "/faculty-kafedra/:short_name",
+        path: "/faculties/:short_name",
         exact: true,
         visibleInNavbar: false,
         element: <FakultetKafedraSlug/>,
     },
     {
         text: "Kafedralar",
-        path: "/kafedra",
+        path: "/departments",
         exact: true,
         visibleInNavbar: false,
         element: <Kafedra/>,
     },
     {
         text: "KafedraSlug",
-        path: "/kafedra/:short_name",
+        path: "/departments/:short_name",
         exact: true,
         visibleInNavbar: false,
         element: <KafedraSlug/>,
+    },
+    {
+        text: "Yo'nalish",
+        path: "/directions/:short_name/",
+        exact: true,
+        visibleInNavbar: false,
+        element: <DirectionDetails />,
+    },
+    {
+        text: "Yo'nalishlar",
+        path: "/directions",
+        exact: true,
+        visibleInNavbar: false,
+        element: <Direction />,
     },
     {
         text: "Bo'lim va markazlar",

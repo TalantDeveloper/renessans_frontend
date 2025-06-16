@@ -3,24 +3,23 @@ import {Link} from "react-router-dom";
 import axios from "axios";
 import {FaUniversity, FaArrowRight} from "react-icons/fa";
 import {useTranslation} from "react-i18next";
-import styles from "./FakultetKafedra.module.css";
-import {BaseURL, testUrl} from "../BaseData";
+import styles from "./Directions.module.css";
+import {testUrl} from "../BaseData";
 
-const FakultetKafedra = () => {
+const Direction = () => {
     const {t, i18n} = useTranslation();
-    const [faculties, setFaculties] = useState([]);
-    console.log(faculties);
+    const [directions, setDirection] = useState([]);
 
     useEffect(() => {
         axios
             .get(
-                testUrl + "/api/faculties/"
+                testUrl + "/api/directions/"
             )
             .then((response) => {
-                setFaculties(response.data);
+                setDirection(response.data);
             })
             .catch((error) =>
-                console.error("Error fetching faculties data: ", error)
+                console.error("Error fetching kafedra data: ", error)
             );
 
         // axios
@@ -35,33 +34,33 @@ const FakultetKafedra = () => {
         //     );
     }, [i18n.language]);
 
-    const getFacultyName = (faculty) => {
-        const name = faculty[`name_${i18n.language}`];
-        return name || faculty.name_uz || t("no_name_available");
+    const getDirectionName = (direction) => {
+        const name = direction[`name_${i18n.language}`];
+        return name || direction.name_uz || t("no_name_available");
     };
-
-    
 
     return (
         <div className={styles.mainContainer}>
             <div className={styles.container}>
                 <div className={styles.section}>
-                    <h3 className={styles.title}>{t("faculties")}</h3>
+                    <h3 className={styles.title}>
+                        {t("directions")}
+                    </h3>
                     <div className={styles.facultyList}>
-                        {faculties.length > 0 ? (
-                            faculties.map((faculty) => (
+                        {directions.length > 0 ? (
+                            directions.map((direction) => (
                                 <Link
-                                    key={faculty.id}
-                                    to={`/faculties/${faculty?.short_name}`}
+                                    key={direction.id}
+                                    to={`/directions/${direction?.short_name}`}
                                     className={styles.facultyCard}
                                 >
                                     <img
-                                        src={faculty?.image || "/default-image.jpg"}
-                                        alt={getFacultyName(faculty) || t("no_name_available")}
+                                        src={direction?.image || "/default-image.jpg"}
+                                        alt={getDirectionName(direction) || t("no_name_available")}
                                         className={styles.facultyImage}
                                     />
                                     <div className={styles.facultyInfo}>
-                                        <h3>{getFacultyName(faculty)}</h3>
+                                        <h3>{getDirectionName(direction)}</h3>
                                         <FaUniversity className={styles.icon}/>
                                     </div>
                                     <div className={styles.viewMore}>
@@ -71,7 +70,7 @@ const FakultetKafedra = () => {
                                 </Link>
                             ))
                         ) : (
-                            <div>{t("no_faculties_found")}</div>
+                            <div>{t("no_direction_found")}</div>
                         )}
                     </div>
                 </div>
@@ -114,4 +113,4 @@ const FakultetKafedra = () => {
     );
 };
 
-export default FakultetKafedra;
+export default Direction;

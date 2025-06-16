@@ -7,7 +7,7 @@ import {
   FaChevronDown,
   FaChevronUp,
 } from "react-icons/fa";
-import { BaseURL } from "../home/BaseData";
+import { BaseURL, testUrl } from "../home/BaseData";
 import { useTranslation } from "react-i18next";
 import classes from "./Management.module.css";
 import Rektor from "./Rektor.png"; // Default image for empty or missing image
@@ -21,7 +21,7 @@ const Rahbariyat = () => {
   useEffect(() => {
     // Fetch data from API
     axios
-      .get(BaseURL + "api/staff/")
+      .get(testUrl + "/api/rectors/")
       .then((response) => {
         setLeadersData(response.data); // Store API data in state
       })
@@ -60,16 +60,16 @@ const Rahbariyat = () => {
                 }
               >
                 <div className={classes.info}>
-                  <h2>{leader[`full_name_${i18n.language}`]}</h2>
-                  <p>{leader[`occupation_${i18n.language}`]}</p>
+                  <h2>{leader.employee[`name_${i18n.language}`]}</h2>
+                  <p>{leader[`position_${i18n.language}`]}</p>
                   <div className={classes.contact}>
                     <div className={classes.contactItem}>
                       <FaPhoneAlt className={classes.icon} />
-                      <span>{leader.phone}</span>
+                      <span>{leader.employee.phone}</span>
                     </div>
                     <div className={classes.contactItem}>
                       <FaEnvelope className={classes.icon2} />
-                      <span>{leader.email}</span>
+                      <span>{leader.employee.email}</span>
                     </div>
                   </div>
                   <div className={classes.buttons}>
@@ -105,7 +105,7 @@ const Rahbariyat = () => {
                   >
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: leader[`about_work_${i18n.language}`],
+                        __html: leader.employee[`about_${i18n.language}`],
                       }}
                     />
                   </div>
@@ -118,7 +118,7 @@ const Rahbariyat = () => {
                   >
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: leader[`tasks_${i18n.language}`],
+                        __html: leader.employee[`specialization_${i18n.language}`],
                       }}
                     />
                   </div>
@@ -127,8 +127,8 @@ const Rahbariyat = () => {
                 {/* Image Section */}
                 <div className={classes.imageWrapper}>
                   <img
-                    src={leader.image || Rektor} // Fallback to default image if not available
-                    alt={leader[`full_name_${i18n.language}`]}
+                    src={leader.employee.image || Rektor} // Fallback to default image if not available
+                    alt={leader.employee[`name_${i18n.language}`]}
                     className={classes.logo}
                   />
                 </div>

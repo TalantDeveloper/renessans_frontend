@@ -73,6 +73,8 @@
   "footer_allNews": "Все новости",
   "footer_contact": "Контакт",
   "footer_aboutUs": "О нас",
+  "Yo'nalishlar": "Направления",
+  "directions": "Направления",
 
   "sorry": "Извините, произошла ошибка!",
   "back_main": "Нажмите кнопку, чтобы вернуться в главное меню.",
@@ -98,6 +100,7 @@
   "University union": "Университетский союз",
   "kafedra": "Кафедры",
   "no_kafedras_found": "нет_кафедр_найденных",
+  "Statistik ko'rsatgichlar": "Статистические показатели",
 
   "departments": "Отделы",
   "see_more": "Подробнее",

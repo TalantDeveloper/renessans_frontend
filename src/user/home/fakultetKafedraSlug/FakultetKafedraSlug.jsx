@@ -31,7 +31,7 @@ const FakultetKafedraSlug = () => {
         setError(null);
 
         const fetchFacultyData = axios.get(
-            testUrl + "/api/fakultet/" + short_name
+            testUrl + "/api/faculties/" + short_name
         );
         
         Promise.all([fetchFacultyData])
@@ -273,7 +273,7 @@ const FakultetKafedraSlug = () => {
                         {kafedralar.length > 0 ? (
                             kafedralar.map((kafedra, index) => (
                                 <li
-                                    onClick={() => navigate(`/kafedra/${kafedra.short_name}`)}
+                                    onClick={() => navigate(`/departments/${kafedra.short_name}`)}
                                     key={kafedra.id}
                                     style={{marginBottom: '10px'}}
                                     className={kafedra.short_name === short_name ? classes.active : ''}
@@ -298,7 +298,7 @@ const FakultetKafedraSlug = () => {
                         {fakultetlar.length > 0 ? (
                             fakultetlar.map((fakultet, index) => (
                                 <li
-                                    onClick={() => navigate(`/faculty-kafedra/${fakultet.short_name}`)}
+                                    onClick={() => navigate(`/faculties/${fakultet.short_name}`)}
                                     key={fakultet.id}
                                     style={{marginBottom: '10px'}}
                                     className={fakultet.short_name === short_name ? classes.active : ''}

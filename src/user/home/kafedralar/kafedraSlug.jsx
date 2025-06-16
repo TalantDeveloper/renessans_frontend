@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import LottieView from "lottie-react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import {FaPhoneAlt, FaEnvelope, FaChevronDown, FaChevronUp, FaCalendarDay, FaChartBar, FaChalkboardTeacher, FaGraduationCap, FaUserGraduate, FaUsers, FaBook, FaGlobe, FaFileAlt } from "react-icons/fa";
+import {FaPhoneAlt, FaEnvelope, FaChevronDown, FaChevronUp, FaCalendarDay} from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import classes from "./kafedraSlug.module.css";
 // import classerror from "../../../Error404Page.module.css";
 // import Error404Animation from "../../../Error404.json";
-import { BaseURL, testUrl } from "../BaseData";
-import EmployeeCard from "../../employees/EmployeeCard";
+import { testUrl } from "../BaseData";
+
 import IlmiySalohiyat from "./IlmiySalohiyat.png";
 import ProfessorOqituvchilar from "./ProfessorOqituvchilar.png";
 import TalabalarSoni from "./TalabalarSoni.png";
@@ -48,13 +47,14 @@ const KafedraSlug = () => {
     const [openDropdown, setOpenDropdown] = useState({});
     const [results, setResults] = useState([]);
     console.log(results);
+    const [directionsData, setDirectionsData] = useState([]);
 
     useEffect(() => {
         setLoading(true);
         setError(null);
 
         const fetchKafedraData = axios.get(
-            testUrl + "/api/kafedra/" + short_name
+            testUrl + "/api/departments/" + short_name
         );
         
         // const fetchStatistics = async () => {
@@ -80,6 +80,7 @@ const KafedraSlug = () => {
                     setResults(kafedra.results || []);
                     setBoss(kafedra.boss?.[0] || null);
                     setEmployees(kafedra.employees || []);
+                    setDirectionsData(kafedra.directions || []);
                     // setKafedralar(faculty.kafedralar || [])
                 } else {
                     setError("Ma'lumotlar topilmadi");
@@ -98,6 +99,7 @@ const KafedraSlug = () => {
                 responsibilities:
                     type === "responsibilities" ? !prev[id]?.responsibilities : false,
                 statistics: type === "statistics" ? !prev[id]?.statistics : false,
+                directions: type === "directions" ? !prev[id]?.directions : false,
             },
         }));
     };
@@ -320,25 +322,70 @@ const KafedraSlug = () => {
                         {results.length > 0 ? (
                             <div>
                                 {results.map((result, index) => (
-                                    <div key={index+1}>
-                                        <div>
-                                            <img 
-                                            src={IconNames[`${result.statistical?.icon_name}`]} 
-                                            alt="" 
-                                            width={70}
+                                    <div key={index + 1} className={classes.statItem}>
+                                        <div className={classes.statIconContainer}>
+                                            <img
+                                                src={IconNames[`${result.statistical?.icon_name}`]}
+                                                alt=""
+                                                className={classes.statIcon}
                                             />
-                                            {result?.result}
-                                            {result.statistical[`name_${i18n.language}`]}
                                         </div>
-                                        
+                                        <div className={classes.statContent}>
+                                            <div className={classes.statNumber}>
+                                                {result?.result}
+                                            </div>
+                                            <div className={classes.statLabel}>
+                                                {result.statistical[`name_${i18n.language}`]}
+                                            </div>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
                         ) : (
-                            <p>{t("No statistics available.")}</p>
+                            <p style={{textAlign: 'center'}}>{t("No statistics available.")}</p>
                         )}
                     </div>
                 </div>
+
+                <div className={classes.sidebar}>
+                    <div className={classes.buttons}>
+                        <button
+                            className={classes.button}
+                            onClick={() => toggleDropdown("directions", "directions")}>
+                            {t("Yo'nalishlar")}
+                            {openDropdown["directions"]?.directions ? <FaChevronUp/> : <FaChevronDown/>}
+                        </button>
+                    </div>
+                    <div className={`${classes.dropdownContent} ${
+                        openDropdown["directions"]?.directions ? classes.show : ""
+                    }`}>
+                        <div>
+                        {directionsData.length > 0 ? (
+                                directionsData.map((direction, index) => (
+                                <li
+                                    onClick={() => navigate(`/directions/${direction.short_name}`)}
+                                    key={direction.id}
+                                    style={{marginBottom: '10px'}}
+                                >
+                                    <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
+                                    <span
+                                        style={{cursor: 'pointer', color: '#133654', fontWeight: "bold"}}
+                                    >
+                                        {getDepartmentName(direction)}
+                                    </span>
+                                </li>
+                            ))
+                        
+                            
+                            
+                        ) : (
+                            <p style={{textAlign: 'center'}}>{t("No directions available.")}</p>
+                        )}
+                        </div>
+                    </div>
+                </div>
+                
+                
 
                 <div className={classes.sidebar}>
                     
@@ -349,7 +396,7 @@ const KafedraSlug = () => {
                         {kafedralar.length > 0 ? (
                             kafedralar.map((kafedra, index) => (
                                 <li
-                                    onClick={() => navigate(`/kafedra/${kafedra.short_name}`)}
+                                    onClick={() => navigate(`/departments/${kafedra.short_name}`)}
                                     key={kafedra.id}
                                     style={{marginBottom: '10px'}}
                                     className={kafedra.short_name === short_name ? classes.active : ''}
@@ -393,6 +440,7 @@ const KafedraSlug = () => {
                     </ul>
                 </div>
             </div>
+            
         </div>
 
         // <div className={styles.mainContainer}>

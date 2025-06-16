@@ -14,7 +14,7 @@ const Kafedra = () => {
     useEffect(() => {
         axios
             .get(
-                testUrl + "/api/kafedralar/"
+                testUrl + "/api/departments/"
             )
             .then((response) => {
                 setKafedra(response.data);
@@ -46,13 +46,15 @@ const Kafedra = () => {
         <div className={styles.mainContainer}>
             <div className={styles.container}>
                 <div className={styles.section}>
-                    <h3 className={styles.title}>{t("kafedra")}</h3>
+                    <h3 className={styles.title}>
+                        {t("kafedra")}
+                        </h3>
                     <div className={styles.facultyList}>
                         {kafedralar.length > 0 ? (
                             kafedralar.map((kafedra) => (
                                 <Link
                                     key={kafedra.id}
-                                    to={`/kafedra/${kafedra?.short_name}`}
+                                    to={`/departments/${kafedra?.short_name}`}
                                     className={styles.facultyCard}
                                 >
                                     <img
