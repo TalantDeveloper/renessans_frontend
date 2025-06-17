@@ -45,6 +45,7 @@ const FakultetKafedra = () => {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.container}>
+                
                 <div className={styles.section}>
                     <h3 className={styles.title}>{t("faculties")}</h3>
                     <div className={styles.facultyList}>

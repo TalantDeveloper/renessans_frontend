@@ -28,7 +28,7 @@ import DepartmentDetails from "../../../user/departments/DepartmentDetail";
 import AboutUni from "../../../user/AboutUni/AboutUni";
 import Timeline from "../../../user/home/avloniy/Avloniy";
 import Syllabus from "../../../user/syllabus/Syllabus";
-// import { NewsPage2 } from "../../../user/home/news-v2/News";
+import { NewsPage2 } from "../../../user/home/news-v2/News";
 import ChampionsBoard from "../../../user/champions/Champions";
 import ExcellentBoard from "../../../user/preference/Preference";
 import UniversityUnion from "../../../user/union/UniversityUnion";
@@ -45,6 +45,7 @@ import Kafedra from "../../../user/home/kafedralar/Kafedra";
 import KafedraSlug from "../../../user/home/kafedralar/kafedraSlug";
 import DirectionDetails from "../../../user/home/directions/directionDetails";
 import Direction from "../../../user/home/directions/Directions";
+import News from "../../../user/home/new/News";
 
 
 export const mainRoutes = [
@@ -62,13 +63,13 @@ export const mainRoutes = [
         visibleInNavbar: true,
         element: <Home2/>,
     },
-    // {
-    //   text: "News2",
-    //   path: "/version-2/news",
-    //   exact: true,
-    //   visibleInNavbar: false,
-    //   element: <NewsPage2 />,
-    // },
+    {
+      text: "News2",
+      path: "/version-2/news",
+      exact: true,
+      visibleInNavbar: false,
+      element: <NewsPage2 />,
+    },
     // {
     //   text: "Dars jadval",
     //   path: "/class-table",
@@ -336,6 +337,13 @@ export const mainRoutes = [
         exact: true,
         visibleInNavbar: false,
         element: <Direction />,
+    },
+    {
+        text: "Yangiliklar",
+        path: "/news_1",
+        exact: true,
+        visibleInNavbar: false,
+        element: <News />,
     },
     {
         text: "Bo'lim va markazlar",

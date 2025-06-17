@@ -15,8 +15,12 @@ export const NewsPage2 = () => {
     <div className={classes["wrapper"]}>
       <Head title={"News"} />
       <div className={classes["container"]}>
-        <h1 className={classes["title"]}>{t("newsPart")}</h1>
-        <p className={classes["text"]}>{t("newsPartDescr")}</p>
+        <h1 className={classes["title"]}>
+          {t("newsPart")}
+          </h1>
+        <p className={classes["text"]}>
+          {t("newsPartDescr")}
+          </p>
         <div className={classes["main_section"]}>
           <RightBar
             selectedCategory={selectedCategory}

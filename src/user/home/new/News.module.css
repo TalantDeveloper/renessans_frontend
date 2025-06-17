@@ -67,28 +67,34 @@
   overflow: hidden;
   transition: max-height 0.3s ease-out, opacity 0.3s ease;
   opacity: 0;
+  padding: 0px;
+  width: 100%;
+  background-color: inherit;
 }
 
 .dropdownContent p {
   margin: 10px 0;
   font-size: 16px;
+  text-align: left;
   color: #555;
 }
 
 .dropdownContent.show {
-  max-height: 100px; /* Adjust based on content */
+  max-height: 1000px; /* Adjusted based on content */
   opacity: 1;
+  border-top: 1px dotted #000;
 }
 
 .sidebar {
-  position: sticky; /* or use fixed */
+  position: sticky;
   width: 485px;
-  height: 380px;
-  background: #f9fbfc;
-  padding: 20px;
+  background: #ffffff;
+  padding: 0px;
   border-radius: 12px;
   transition: all 0.3s ease-in-out;
   margin: 20px;
+  margin-bottom: 50px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .sidebar h3 {
@@ -222,8 +228,9 @@
 /* Main Container for Flex Layout */
 .mainContainer {
   display: flex;
-  gap: 30px;
-  padding: 50px 0;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
 }
 
 /* Responsive Adjustments */
@@ -255,11 +262,10 @@
   border-radius: 16px;
   color: #333;
   width: 100%;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+
   transition: box-shadow 0.3s ease;
   margin-left: auto;
   margin-right: 40px;
-  margin-bottom: 30px;
 }
 
 /* Enhanced Page Title Styling */
@@ -375,65 +381,45 @@
 .buttons {
   display: flex;
   gap: 20px;
+  width: 100%;
+
 }
 
 /* Button Effects */
 .buttons .button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 25px;
-  background-color: #eef1f5;
-  color: #2a497b;
+  background-color: white;
+  color: #002e5b;
+  padding: 15px 25px;
+  border-radius: 10px;
   border: none;
-  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Arial", sans-serif;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  margin: 5px 0;
-  gap: 15px;
-  border: 1px solid #c6c5c5;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .buttons .button:hover {
   background-color: #d6e4f0;
   color: #1a3758;
-  box-shadow: 0px 4px 10px rgba(0, 90, 180, 0.2);
-}
-
-/* Dropdown Content */
-.dropdownContent {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out, opacity 0.3s ease;
-  opacity: 0;
-  padding: 0 20px;
-}
-
-.dropdownContent p {
-  margin: 10px 0;
-  font-size: 16px;
-  text-align: left;
-  color: #555;
-}
-
-.dropdownContent.show {
-  max-height: 1000px; /* Adjusted based on content */
-  opacity: 1;
-  border-top: 1px dotted #000;
 }
 
 /* Sidebar Styling */
 .sidebar {
   position: sticky;
   width: 485px;
-  height: 320px;
-  background: #f9fbfc;
-  padding: 20px;
+  background: #ffffff;
+  padding: 0px;
   border-radius: 12px;
   transition: all 0.3s ease-in-out;
-  margin: 20px;
+  margin: 10px;
+  margin-bottom: 10px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -510,19 +496,73 @@
   }
 }
 
-.department-info-container {
-  background-color: #f8f9fa; /* Light grey background */
-  padding: 30px; /* Add some padding */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  margin-bottom: 30px; /* Space between this and the staff section */
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between the two sidebars */
 }
 
-.staff-list-container {
-  background-color: #f8f9fa; /* Light grey background */
-  padding: 30px; /* Add some padding */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+/* Main Container for Flex Layout */
+.mainContainer {
+  display: flex;
+  gap: 30px;
+  padding: 50px 0;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+  width: 100%; /* Ensure it takes full width of its container */
+}
+
+.statItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.statIconContainer {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #002e5b; /* Dark blue background for the icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.statIcon {
+  width: 60px; /* Adjust size as needed */
+  height: 60px; /* Adjust size as needed */
+  /* filter: brightness(0) invert(1); */ /* Makes the icon white - Removed */
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.statNumber {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: -5px; /* Dark color for the number */
+}
+
+.statLabel {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555555; /* Slightly lighter color for the label */
+  text-transform: uppercase;
 }
 
 .employeeButtons {
@@ -551,21 +591,158 @@
   box-shadow: 0px 4px 10px rgba(0, 90, 180, 0.2);
 }
 
-/* Button Effects */
-.buttons .button {
-  background-color: white;
-  color: #002e5b;
-  padding: 15px 25px;
-  border-radius: 10px;
-  font-size: 18px;
+.facultyList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.newsSection {
+  flex: 3;
+}
+
+.sidebarSection {
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .mainContainer {
+    flex-direction: column;
+  }
+
+  .newsSection,
+  .sidebarSection {
+    flex: none;
+    width: 100%;
+  }
+}
+
+.wrapper {
+  flex: 1;
+  position: sticky;
+  top: 10px;
+  height: fit-content;
+  width: 100%;
+  margin: 0 100px 0 0;
+  padding: 0;
+}
+
+.section {
+  padding: 30px;
+  border-radius: 6px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--bg-white-color);
+  margin-bottom: 40px;
+}
+
+.title {
+  color: var(--dark-grey, #323a56);
+  font-size: 24px;
+  font-style: normal;
   font-weight: 600;
-  font-family: "Arial", sans-serif;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  line-height: normal;
+  margin-bottom: 30px;
+}
+
+.box {
+  border-radius: 6px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--bg-white-color);
+  box-shadow: 0px 4px 8px 0px rgba(32, 81, 137, 0.05);
+  gap: 8px;
+  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 5px 0px;
+}
+
+/* category */
+
+.category_box {
+  border-radius: 4px;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--bg-light-grey-color);
+  gap: 8px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.category_box:hover {
+  border-radius: 4px;
+  color: #1d72d2;
+  border: 1px solid var(--light-grey, #eff2f7);
+  background: var(--bg-white-color);
+  box-shadow: 0px 4px 8px 0px rgba(32, 81, 137, 0.05);
+}
+
+.input {
+  color: var(--txt-grey-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  outline: none;
+  border: none;
   width: 100%;
-  text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* social_media */
+.social_media_box {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  background-color: var(--white);
+  border: 1px solid var(--light-grey, #eff2f7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  transition: 0.2s;
+}
+
+.icon path {
+  transition: 0.2s;
+}
+
+.circle:hover {
+  background-color: var(--primary-color);
+}
+
+.circle:hover .icon path {
+  fill: var(--txt-white-color);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .wrapper {
+    position: static;
+  }
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
 }

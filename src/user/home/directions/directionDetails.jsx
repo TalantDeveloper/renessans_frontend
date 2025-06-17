@@ -7,8 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import classes from "./directionDetails.module.css";
 // import classerror from "../../../Error404Page.module.css";
 // import Error404Animation from "../../../Error404.json";
-import { BaseURL, testUrl } from "../BaseData";
-console.log(BaseURL);
+import { testUrl } from "../BaseData";
 
 const DirectionDetails = () => {
     const navigate = useNavigate();

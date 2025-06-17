@@ -6,7 +6,7 @@ import axios from "axios";
 import moment from "moment";
 import "moment/locale/uz-latn";
 import classes from "./Right-bar.module.css";
-
+import { BaseURL } from "../../../BaseData";
 export const RightBar = ({
   selectedCategory,
   searchTerm,
@@ -20,7 +20,7 @@ export const RightBar = ({
   const fetchData = () => {
     setLoading(true);
     axios
-      .get("https://sayt.renessans-edu.uz/api/news/")
+      .get(BaseURL + "api/news/")
       .then((response) => {
         setData(response.data);
         calculateCategoryCounts(response.data);
@@ -51,7 +51,7 @@ export const RightBar = ({
     viewedItems.current.add(id);
 
     axios
-      .patch(`https://sayt.renessans-edu.uz/api/news/${id}/increment_views`)
+      .patch(BaseURL + `api/news/${id}/increment_views`)
       .catch((error) => {
         console.error("Error incrementing views:", error);
       });

@@ -46,11 +46,15 @@ export const NewsCard = ({
         <div className={classes["flex"]}>
           <div className={classes["box"]}>
             <BiCategory style={{ color: "#007aff", fontSize: "23px" }} />
-            <p className={classes["text"]}>{name}</p>
+            <p className={classes["text"]}>
+              {name}
+            </p>
           </div>
           <div className={classes["box"]}>
             <img src={calendar} alt="calendar" />
-            <p className={classes["text"]}>{date}</p>
+            <p className={classes["text"]}>
+              {date}
+              </p>
           </div>
           <div className={classes["box"]}>
             <img src={comment} alt="comment" />
@@ -60,7 +64,9 @@ export const NewsCard = ({
           </div>
           <div className={classes["box"]}>
             <img src={user} alt="views" />
-            <p className={classes["text"]}>{views}</p>
+            <p className={classes["text"]}>
+              {views}
+            </p>
           </div>
         </div>
         <div

@@ -131,9 +131,9 @@ const DepartmentDetails = () => {
                                     </span>
                                 </div>
                             </div>
-                            <div className={classes.buttons}>
+                            <div className={classes.employeeButtons}>
                                 <button
-                                    className={classes.button}
+                                    className={classes.employeeButton}
                                     onClick={() => toggleDropdown(boss.employee?.id, "activities")}>
                                     {t("about_employee")}
                                     {openDropdown[boss.employee?.id]?.activities ? (
@@ -143,7 +143,7 @@ const DepartmentDetails = () => {
                                     )}
                                 </button>
                                 <button
-                                    className={classes.button}
+                                    className={classes.employeeButton}
                                     onClick={() =>
                                         toggleDropdown(boss.employee?.id, "responsibilities")
                                     }>
@@ -214,8 +214,8 @@ const DepartmentDetails = () => {
                                         </div>
                                     )}
                                 </div>
-                                <div className={classes.buttons}>
-                                    <button className={classes.button}
+                                <div className={classes.employeeButtons}>
+                                    <button className={classes.employeeButton}
                                             onClick={() => toggleDropdown(employee.employee.id, "activities")}>
                                         {t("about_employee")}
                                         {openDropdown[employee.employee.id]?.activities ? (
@@ -224,7 +224,7 @@ const DepartmentDetails = () => {
                                             <FaChevronDown/>
                                         )}
                                     </button>
-                                    <button className={classes.button}
+                                    <button className={classes.employeeButton}
                                             onClick={() =>
                                                 toggleDropdown(employee.employee.id, "responsibilities")
                                             }>

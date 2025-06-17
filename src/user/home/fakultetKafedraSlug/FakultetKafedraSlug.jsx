@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import classes from "./FakultetKafedraSlug.module.css";
 import classerror from "../../../shared/pages/Error404Page.module.css";
 import Error404Animation from "../../../shared/assets/animated-placeholders/Error404.json";
-import { BaseURL, testUrl } from "../BaseData";
+import { testUrl } from "../BaseData";
 
 const FakultetKafedraSlug = () => {
     const navigate = useNavigate();
@@ -90,6 +90,35 @@ const FakultetKafedraSlug = () => {
     return (
         
         <div className={classes.mainContainer}>
+            <div className={classes["sidebar-wrapper"]}>
+                <div className={classes.sidebar}>
+                    <h3>
+                        {t("Fakultetlar")}
+                    </h3>
+                    <ul style={{listStyle: 'none', padding: 0}}>
+                        {fakultetlar.length > 0 ? (
+                            fakultetlar.map((fakultet, index) => (
+                                <li
+                                    onClick={() => navigate(`/faculties/${fakultet.short_name}`)}
+                                    key={fakultet.id}
+                                    style={{marginBottom: '10px'}}
+                                    className={fakultet.short_name === short_name ? classes.active : ''}
+                                >
+                                    <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
+                                    <span
+                                        style={{cursor: 'pointer', color: '#133654'}}
+                                    >
+                                        {getDepartmentName(fakultet)}
+                                    </span>
+                                </li>
+                            ))
+                        ) : (
+                            <li>{t("no_faculties_found")}</li>
+                        )}
+                    </ul>
+                </div>
+            </div>
+            
             <div data-aos="fade-up" className={classes["rahbariyat-container"]}>
             
                 <h1 className={classes["page-title"]}>
@@ -129,9 +158,9 @@ const FakultetKafedraSlug = () => {
                                     </span>
                                 </div>
                             </div>
-                            <div className={classes.buttons}>
+                            <div className={classes.employeeButtons}>
                                 <button
-                                    className={classes.button}
+                                    className={classes.employeeButton}
                                     onClick={() => toggleDropdown(boss.employee?.id, "activities")}>
                                     {t("about_employee")}
                                     {openDropdown[boss.employee?.id]?.activities ? (
@@ -141,7 +170,7 @@ const FakultetKafedraSlug = () => {
                                     )}
                                 </button>
                                 <button
-                                    className={classes.button}
+                                    className={classes.employeeButton}
                                     onClick={() =>
                                         toggleDropdown(boss.employee?.id, "responsibilities")
                                     }>
@@ -212,8 +241,8 @@ const FakultetKafedraSlug = () => {
                                         </div>
                                     )}
                                 </div>
-                                <div className={classes.buttons}>
-                                    <button className={classes.button}
+                                <div className={classes.employeeButtons}>
+                                    <button className={classes.employeeButton}
                                             onClick={() => toggleDropdown(employee.employee.id, "activities")}>
                                         {t("about_employee")}
                                         {openDropdown[employee.employee.id]?.activities ? (
@@ -222,7 +251,7 @@ const FakultetKafedraSlug = () => {
                                             <FaChevronDown/>
                                         )}
                                     </button>
-                                    <button className={classes.button}
+                                    <button className={classes.employeeButton}
                                             onClick={() =>
                                                 toggleDropdown(employee.employee.id, "responsibilities")
                                             }>
@@ -253,7 +282,7 @@ const FakultetKafedraSlug = () => {
                             </div>
 
                             <div className={classes.imageWrapper}>
-                                <img src={testUrl + employee.employee.image} // Fallback to default image if not available
+                                <img src={testUrl + employee.employee?.image} // Fallback to default image if not available
                                      alt={employee.employee[`name_${i18n.language}`]}
                                      className={classes.logo}/>
                             </div>
@@ -292,30 +321,6 @@ const FakultetKafedraSlug = () => {
                     </ul>
                 </div>
 
-                <div className={classes.sidebar}>
-                    <h3>{t("Fakultetlar")}</h3>
-                    <ul style={{listStyle: 'none', padding: 0}}>
-                        {fakultetlar.length > 0 ? (
-                            fakultetlar.map((fakultet, index) => (
-                                <li
-                                    onClick={() => navigate(`/faculties/${fakultet.short_name}`)}
-                                    key={fakultet.id}
-                                    style={{marginBottom: '10px'}}
-                                    className={fakultet.short_name === short_name ? classes.active : ''}
-                                >
-                                    <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
-                                    <span
-                                        style={{cursor: 'pointer', color: '#133654'}}
-                                    >
-                                        {getDepartmentName(fakultet)}
-                                    </span>
-                                </li>
-                            ))
-                        ) : (
-                            <li>{t("no_faculties_found")}</li>
-                        )}
-                    </ul>
-                </div>
             </div>
         </div>
 

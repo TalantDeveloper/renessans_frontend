@@ -4,9 +4,8 @@ import axios from "axios";
 import {FaArrowRight} from "react-icons/fa";
 import {useTranslation} from "react-i18next";
 import styles from "./Departments.module.css";
-import {BaseURL, testUrl} from "../home/BaseData";
+import {testUrl} from "../home/BaseData";
 
-console.log(BaseURL);
 
 const Department = () => {
     const {t, i18n} = useTranslation();

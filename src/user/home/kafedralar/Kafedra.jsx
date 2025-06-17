@@ -48,7 +48,7 @@ const Kafedra = () => {
                 <div className={styles.section}>
                     <h3 className={styles.title}>
                         {t("kafedra")}
-                        </h3>
+                    </h3>
                     <div className={styles.facultyList}>
                         {kafedralar.length > 0 ? (
                             kafedralar.map((kafedra) => (

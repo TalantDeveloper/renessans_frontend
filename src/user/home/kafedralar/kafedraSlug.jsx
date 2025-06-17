@@ -28,7 +28,6 @@ const IconNames = {
     "XalqaroHamkorliklar": XalqaroHamkorliklar,
     "Maqolalar": Maqolalar
 }
-console.log(IconNames['XalqaroHamkorliklar']);
 
 const KafedraSlug = () => {
     const navigate = useNavigate();
@@ -172,9 +171,9 @@ const KafedraSlug = () => {
                                     </span>
                                 </div>
                             </div>
-                            <div className={classes.buttons}>
+                            <div className={classes.employeeButtons}>
                                 <button
-                                    className={classes.button}
+                                    className={classes.employeeButton}
                                     onClick={() => toggleDropdown(boss.employee?.id, "activities")}>
                                     {t("about_employee")}
                                     {openDropdown[boss.employee?.id]?.activities ? (
@@ -184,7 +183,7 @@ const KafedraSlug = () => {
                                     )}
                                 </button>
                                 <button
-                                    className={classes.button}
+                                    className={classes.employeeButton}
                                     onClick={() =>
                                         toggleDropdown(boss.employee?.id, "responsibilities")
                                     }>
@@ -255,8 +254,8 @@ const KafedraSlug = () => {
                                         </div>
                                     )}
                                 </div>
-                                <div className={classes.buttons}>
-                                    <button className={classes.button}
+                                <div className={classes.employeeButtons}>
+                                    <button className={classes.employeeButton}
                                             onClick={() => toggleDropdown(employee.employee.id, "activities")}>
                                         {t("about_employee")}
                                         {openDropdown[employee.employee.id]?.activities ? (
@@ -265,7 +264,7 @@ const KafedraSlug = () => {
                                             <FaChevronDown/>
                                         )}
                                     </button>
-                                    <button className={classes.button}
+                                    <button className={classes.employeeButton}
                                             onClick={() =>
                                                 toggleDropdown(employee.employee.id, "responsibilities")
                                             }>
@@ -307,7 +306,7 @@ const KafedraSlug = () => {
             </div>
 
             <div className={classes["sidebar-wrapper"]}>
-            <div className={classes.sidebar}>
+                <div className={classes.sidebar}>
                     <div className={classes.buttons}>
                         <button
                             className={classes.button}

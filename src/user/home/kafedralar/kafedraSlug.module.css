@@ -564,3 +564,29 @@
     text-transform: uppercase;
   }
   
+  .employeeButtons {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .employeeButton {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Reduced font size */
+    color: #333;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  
+  .employeeButton:hover {
+    background-color: #d6e4f0;
+    color: #1a3758;
+    box-shadow: 0px 4px 10px rgba(0, 90, 180, 0.2);
+  }
+  
