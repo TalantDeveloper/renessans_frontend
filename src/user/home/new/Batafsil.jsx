@@ -24,20 +24,26 @@ const NewsDetails = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [openDropdown, setOpenDropdown] = useState({});
+    console.log(categories);
 
 
     useEffect(() => {
         setError(null);
         setLoading(true);
         const fetchNew = axios.get(
-            testUrl + "/api/news2/" + new_id
+            testUrl + "/api/news/" + new_id
         );
-        Promise.all([fetchNew])
-            .then(([newResponse]) => {
+        const fetchCategoriesData = axios.get(
+            testUrl + "/api/categories"
+        );
+
+        Promise.all([fetchNew, fetchCategoriesData])
+            .then(([newResponse, categoriesResponse]) => {
                 const responseData = newResponse.data;
-                if (responseData?.news) {
-                    setNew(responseData?.news);
-                    setCategories(responseData?.categories || []);
+                const responceCategories = categoriesResponse.data;
+                if (responseData && responceCategories) {
+                    setNew(responseData);
+                    setCategories(responceCategories);
                 } else {
                     setError("Ma'lumotlar topilmadi");
                 }
@@ -102,7 +108,8 @@ const NewsDetails = () => {
                             .locale(i18n.language)
                             .format("DD-MMMM, HH:mm")}
                     </span>
-                    <span className={styles.newsViews}>
+                    <span className={styles.newsViews} style={{display: 'flex', alignItems: 'center', gap: '4px'}}>
+                        <InlineIcon icon="mdi:eye" width="18" height="18" color="#495057"/>
                         {new_data.view_count} views
                     </span>
                 </div>
@@ -118,7 +125,7 @@ const NewsDetails = () => {
                     {categories.length > 0 ? (
                         categories.map((category, index) => (
                             <li
-                                onClick={() => navigate(`#`)}
+                                onClick={() => navigate(`/news/categories/${category.id}`)}
                                 key={category.id}
                                 style={{marginBottom: '10px'}}
                                 className={category.id === new_data.category.id ? classes.active : ''}

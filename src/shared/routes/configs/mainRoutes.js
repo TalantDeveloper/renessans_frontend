@@ -106,20 +106,7 @@ export const mainRoutes = [
         visibleInNavbar: false,
         element: <EventsAnnounce/>,
     },
-    {
-        text: "Yangiliklar",
-        path: "/news",
-        exact: true,
-        visibleInNavbar: true,
-        element: <News/>,
-    },
-    {
-        text: "Yangiliklar Kategoriya",
-        path: "/news/categories/:id/",
-        exact: true,
-        visibleInNavbar: true,
-        element: <NewsCategories/>,
-    },
+    
     {
         text: `Bog'lanish`,
         path: "/contact",
@@ -178,13 +165,6 @@ export const mainRoutes = [
         element: <Counsil/>,
     },
     {
-        text: "Rahbariyat",
-        path: "/management",
-        exact: true,
-        visibleInNavbar: false,
-        element: <Management/>,
-    },
-    {
         text: "Tuzilma",
         path: "/structure",
         exact: true,
@@ -205,13 +185,13 @@ export const mainRoutes = [
         visibleInNavbar: false,
         element: <InternationalParent/>,
     },
-    {
-        text: "Fakultetlar",
-        path: "/faculty",
-        exact: true,
-        visibleInNavbar: false,
-        element: <Faculty/>,
-    },
+    // {
+    //     text: "Fakultetlar",
+    //     path: "/faculty",
+    //     exact: true,
+    //     visibleInNavbar: false,
+    //     element: <Faculty/>,
+    // },
     
     {
         text: "Statistika",
@@ -298,6 +278,13 @@ export const mainRoutes = [
         element: <Journal/>,
     },
     {
+        text: "Rahbariyat",
+        path: "/management",
+        exact: true,
+        visibleInNavbar: false,
+        element: <Management/>,
+    },
+    {
         text: "Xalqaro e'tirof",
         path: "/confession",
         exact: true,
@@ -333,13 +320,6 @@ export const mainRoutes = [
         element: <KafedraSlug/>,
     },
     {
-        text: "Yo'nalish",
-        path: "/directions/:short_name/",
-        exact: true,
-        visibleInNavbar: false,
-        element: <DirectionDetails />,
-    },
-    {
         text: "Yo'nalishlar",
         path: "/directions",
         exact: true,
@@ -347,19 +327,41 @@ export const mainRoutes = [
         element: <Direction />,
     },
     {
-        text: "Yangiliklar",
-        path: "/news_1",
+        text: "Yo'nalish",
+        path: "/directions/:short_name/",
         exact: true,
         visibleInNavbar: false,
-        element: <News />,
+        element: <DirectionDetails />,
+    },
+    // {
+    //     text: "Yangiliklar",
+    //     path: "/news_1",
+    //     exact: true,
+    //     visibleInNavbar: false,
+    //     element: <News />,
+    // },
+    {
+        text: "Yangiliklar",
+        path: "/news",
+        exact: true,
+        visibleInNavbar: true,
+        element: <News/>,
     },
     {
         text: "Batafsil",
-        path: "/batafsil/:new_id",
+        path: "/news/:new_id",
         exact: true,
         visibleInNavbar: false,
         element: <NewsDetails />,
     },
+    {
+        text: "Yangiliklar Kategoriya",
+        path: "/newscategories/:id/",
+        exact: true,
+        visibleInNavbar: true,
+        element: <NewsCategories/>,
+    },
+    
     {
         text: "Bo'lim va markazlar",
         path: "/centers",

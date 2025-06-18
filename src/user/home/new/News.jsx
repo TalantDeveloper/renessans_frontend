@@ -12,6 +12,8 @@ import search from "../../news/assets/icons/search.svg";
 import SocialMedias from "../../../shared/components/socialMedias/SocialMedias";
 import "moment/locale/uz-latn";
 import moment from "moment";
+import { InlineIcon } from "@iconify/react/dist/iconify.js";
+
 const NewsPage = () => {
     const navigate = useNavigate();
     const {t, i18n } = useTranslation();
@@ -36,7 +38,7 @@ const NewsPage = () => {
         setError(null);
 
         const fetchNewsData = axios.get(
-            testUrl + "/api/news2"
+            testUrl + "/api/news"
         );
         
         const fetchCategoriesData = axios.get(
@@ -49,32 +51,18 @@ const NewsPage = () => {
                 const categorie = categoriesResponse.data;
                 
                 if (news && categorie) {
-                    setNews(news?.results || []);
+                    setNews(news || []);
                     setCategories(categorie);
                     calculateCategoryCounts(news);
                     console.log(news);
                 } else {
                     setError("Ma'lumotlar topilmadi");
-                }
-                
-                
+                }       
             })
             .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
             .finally(() => setLoading(false));
         
     }, [ i18n.language]);
-    
-    const filteredNews = news ? news.filter((item) => {
-        const isCategoryMatch =
-            !selectedCategory ||
-            item.category[`name_${i18n.language}`] === selectedCategory;
-        const isSearchMatch =
-            !searchTerm ||
-            item[`title_${i18n.language}`]
-                ?.toLowerCase()
-                .includes(searchTerm.toLowerCase());
-        return isCategoryMatch && isSearchMatch;
-    }) : [];
 
     if (loading) return <p>Yuklanmoqda...</p>;
     
@@ -82,28 +70,24 @@ const NewsPage = () => {
         
         <div className={classes.mainContainer}>
             <div data-aos="fade-up" className={classes["newsSection"]}>
-            
                 <h1 className={classes["page-title"]}>
+                    Yangiliklar
                 </h1>
-                
-                
-                    <div className={styles.facultyList}>
-                        {filteredNews.length > 0 ? (
-                            filteredNews.map((new_data) => (
-                                <Link
-                                    key={new_data.id}
-                                    to={`/batafsil/${new_data.id}`}
-                                    className={styles.facultyCard}
-                                >
+                <div className={styles.facultyList}>
+                    {news.length > 0 ? (
+                        news.map((new_data) => (
+                            <Link
+                                key={new_data.id}
+                                to={`/news/${new_data.id}`}
+                                className={styles.facultyCard}>
                                     <img
                                         src={new_data?.image || "/default-image.jpg"}
                                         alt=" "
-                                        className={styles.facultyImage}
-                                    />
+                                        className={styles.facultyImage}/>
                                     <div className={styles.facultyInfo}>
                                         <h3>
                                             {new_data?.title_uz}
-                                            </h3>
+                                        </h3>
                                     </div>
                                     <div className={styles.newsMeta}>
                                         <span className={styles.newsDate}>
@@ -112,58 +96,83 @@ const NewsPage = () => {
                                                 .format("DD-MMMM, HH:mm")}
                                         </span>
                                         <span className={styles.newsViews}>
+                                            <InlineIcon icon="mdi:eye"/>
                                             {new_data.view_count} views
                                         </span>
                                     </div>
                                     <div className={styles.viewMore}>
                                         <span>{t("see_more")}</span>
                                     </div>
-                                </Link>
-                            ))
+                            </Link>
+                        ))
                         ) : (
                             <div>{t("no_kafedra_found")}</div>
                         )}
+                </div>
+            </div>
+            <div className={classes.sidebar} style={{marginLeft: 0, marginRight: "40px"}}>
+                <h3>
+                    {t("center")}
+                </h3>
+                <ul style={{listStyle: 'none', padding: 0}}>
+                    {categories.length > 0 ? (
+                        categories.map((category, index) => (
+                            <li
+                                onClick={() => navigate(`/news/categories/${category.id}`)}
+                                key={category.id}
+                                style={{marginBottom: '10px'}}
+                            >
+                                <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
+                                <span
+                                    style={{cursor: 'pointer', color: '#133654'}}
+                                >
+                                    {category[`name_${i18n.language}`]}
+                                </span>
+                            </li>
+                        ))
+                    ) : (
+                        <li>{t("no_departments_found")}</li>
+                    )}
+                </ul>
+            </div>
+            {/* <div className={classes["wrapper"]}> */}
+                {/* <div className={classes["section"]}>
+                    <h3 className={classes["title"]}>{t("searchLeftBar")}</h3>
+                    <div className={classes["box"]}>
+                        <input
+                            placeholder={t("whatSearch")}
+                            className={classes["input"]}
+                            type="text"
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                        <img className={classes["img"]} src={search} alt="search"/>
                     </div>
-                </div>
-                <div className={classes["wrapper"]}>
-            <div className={classes["section"]}>
-                <h3 className={classes["title"]}>{t("searchLeftBar")}</h3>
-                <div className={classes["box"]}>
-                    <input
-                        placeholder={t("whatSearch")}
-                        className={classes["input"]}
-                        type="text"
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                    <img className={classes["img"]} src={search} alt="search"/>
-                </div>
-            </div>
-            <div className={classes["section"]}>
-                <h3 className={classes["title"]}>{t("partsLeftBar")}</h3>
-                {loading ? (
-                    <p>{t("loading")}</p>
-                ) : categories ? (
-                    categories.map((category) => (
-                        <div
-                            key={category.id}
-                            className={classes["category_box"]}
-                            onClick={() => navigate(`/news/categories/${category?.id}`)}
-                        >
-                            <p className={classes["category_name"]}>
-                                {category[`name_${i18n.language}`]}
-                            </p>
-                            
-                        </div>
-                    ))
-                ) : (
-                    <p>{t("no_categories_found")}</p>
-                )}
-            </div>
-            <div className={classes["section"]}>
-                <h3 className={classes["title"]}>{t("socialMedias")}</h3>
-                <SocialMedias/>
-            </div>
-        </div>
+                </div> */}
+                {/* <div className={classes["section"]}>
+                    <h3 className={classes["title"]}>
+                        {t("partsLeftBar")}
+                    </h3>
+                    {loading ? (
+                        <p>{t("loading")}</p>
+                    ) : categories ? (
+                        categories.map((category, index) => (
+                            <Link key={categories.id}
+                                to={`/news/categories/${category.id}`}
+                                className={styles.facultyCard}>
+                                <div className={styles.facultyInfo}>
+                                    <h3>{index + 1}. {category[`name_${i18n.language}`]}</h3>
+                                </div>
+                            </Link>
+                        ))
+                    ) : (
+                        <p>{t("no_categories_found")}</p>
+                    )}
+                </div> */}
+                {/* <div className={classes["section"]}>
+                    <h3 className={classes["title"]}>{t("socialMedias")}</h3>
+                    <SocialMedias/>
+                </div> */}
+            {/* </div> */}
         </div>
 
     );

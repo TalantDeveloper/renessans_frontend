@@ -156,7 +156,7 @@
 
 .facultyInfo h3 {
   font-family: "Arial", sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   color: #333;
   line-height: 1.5;
   font-weight: bold;
@@ -180,7 +180,7 @@
   border-radius: 20px;
   border: 1px solid #080e42;
   margin-top: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .viewMore:hover {
@@ -196,7 +196,7 @@
   display: flex;
   justify-content: space-around;
   width: 90%;
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 0.9rem;
   color: #555;
 }
@@ -209,27 +209,28 @@
 
 .newsMeta {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 12px 0 0 0;
-  padding: 0 10px;
-  font-size: 0.95rem;
-  color: #6c757d;
+  justify-content: space-between;
+  margin-top: 12px;
+  gap: 16px;
 }
 
 .newsDate {
-  font-weight: 500;
-  color: #495057;
-  font-size: 0.97rem;
-  margin-right: 160px;
-  margin-top: 10px;
-}
-
-.newsViews {
+  color: var(--txt-grey-color);
+  font-size: 16px;
   font-weight: 400;
-  color: #495057;
-  font-size: 0.95rem;
   display: flex;
   align-items: center;
-  gap: 4px;
+  margin-right: 120px;
+}
+.newsViews{
+  color: var(--txt-grey-color);
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.newsViews svg {
+  margin-right: 5px;
 }
