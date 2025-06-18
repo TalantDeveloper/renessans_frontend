@@ -8,30 +8,19 @@ import classes from "./News.module.css";
 import styles from "./newsClasses.module.css";
 import { testUrl } from "../BaseData";
 import {Link} from "react-router-dom";
-import search from "../../news/assets/icons/search.svg";
-import SocialMedias from "../../../shared/components/socialMedias/SocialMedias";
 import "moment/locale/uz-latn";
 import moment from "moment";
 import { InlineIcon } from "@iconify/react/dist/iconify.js";
+import Pagination from "@mui/material/Pagination";
 
 const NewsPage = () => {
+    const [pageApi, setPageApi] = useState(1);
     const navigate = useNavigate();
     const {t, i18n } = useTranslation();
-    const [news, setNews] = useState(null);
+    const [news_data, setNews] = useState(null);
     const [categories, setCategories] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState(null);
-    const [searchTerm, setSearchTerm] = useState("");
-    console.log(error);
-
-    const calculateCategoryCounts = (data) => {
-        const counts = data.reduce((acc, item) => {
-            const category = item.category[`name_${i18n.language}`];
-            acc[category] = (acc[category] || 0) + 1;
-            return acc;
-        }, {});
-    };
 
     useEffect(() => {
         setLoading(true);
@@ -53,8 +42,6 @@ const NewsPage = () => {
                 if (news && categorie) {
                     setNews(news || []);
                     setCategories(categorie);
-                    calculateCategoryCounts(news);
-                    console.log(news);
                 } else {
                     setError("Ma'lumotlar topilmadi");
                 }       
@@ -63,19 +50,28 @@ const NewsPage = () => {
             .finally(() => setLoading(false));
         
     }, [ i18n.language]);
+    console.log(news_data);
+    console.log(news_data?.length || 0);
+    
+    const length = news_data?.length || 0;
+    console.log(length);
+  
 
     if (loading) return <p>Yuklanmoqda...</p>;
+
+    const itemsPerPage = 1;
+    const indexOfLastItem = pageApi * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     
     return (
-        
         <div className={classes.mainContainer}>
             <div data-aos="fade-up" className={classes["newsSection"]}>
                 <h1 className={classes["page-title"]}>
                     Yangiliklar
                 </h1>
                 <div className={styles.facultyList}>
-                    {news.length > 0 ? (
-                        news.map((new_data) => (
+                    {news_data.length > 0 ? (
+                        news_data.map((new_data) => (
                             <Link
                                 key={new_data.id}
                                 to={`/news/${new_data.id}`}
@@ -109,16 +105,24 @@ const NewsPage = () => {
                             <div>{t("no_kafedra_found")}</div>
                         )}
                 </div>
+                <div className={classes["center_div"]}>
+                    <Pagination
+                        onChange={(e, value) => setPageApi(value)}
+                        count={Math.ceil(news_data.length / itemsPerPage)}
+                        variant="outlined"
+                        shape="rounded"
+                    />
+            </div>
             </div>
             <div className={classes.sidebar} style={{marginLeft: 0, marginRight: "40px"}}>
                 <h3>
-                    {t("center")}
+                    {t("categories")}
                 </h3>
                 <ul style={{listStyle: 'none', padding: 0}}>
                     {categories.length > 0 ? (
                         categories.map((category, index) => (
                             <li
-                                onClick={() => navigate(`/news/categories/${category.id}`)}
+                                onClick={() => navigate(`/newscategories/${category.id}`)}
                                 key={category.id}
                                 style={{marginBottom: '10px'}}
                             >
@@ -135,6 +139,7 @@ const NewsPage = () => {
                     )}
                 </ul>
             </div>
+
             {/* <div className={classes["wrapper"]}> */}
                 {/* <div className={classes["section"]}>
                     <h3 className={classes["title"]}>{t("searchLeftBar")}</h3>

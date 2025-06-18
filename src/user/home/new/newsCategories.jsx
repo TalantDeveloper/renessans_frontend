@@ -55,7 +55,7 @@ const NewsCategories = () => {
             .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
             .finally(() => setLoading(false));
         
-    }, [ i18n.language]);
+    }, [id, i18n.language]);
     
     
 

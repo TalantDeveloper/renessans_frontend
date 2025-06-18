@@ -125,7 +125,7 @@ const NewsDetails = () => {
                     {categories.length > 0 ? (
                         categories.map((category, index) => (
                             <li
-                                onClick={() => navigate(`/news/categories/${category.id}`)}
+                                onClick={() => navigate(`/newscategories/${category.id}`)}
                                 key={category.id}
                                 style={{marginBottom: '10px'}}
                                 className={category.id === new_data.category.id ? classes.active : ''}

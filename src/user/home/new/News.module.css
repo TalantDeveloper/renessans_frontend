@@ -746,3 +746,9 @@
     margin-bottom: 20px;
   }
 }
+
+.center_div {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
