@@ -46,7 +46,8 @@ import KafedraSlug from "../../../user/home/kafedralar/kafedraSlug";
 import DirectionDetails from "../../../user/home/directions/directionDetails";
 import Direction from "../../../user/home/directions/Directions";
 import News from "../../../user/home/new/News";
-
+import NewsCategories from "../../../user/home/new/newsCategories";
+import NewsDetails from "../../../user/home/new/Batafsil";
 
 export const mainRoutes = [
     {
@@ -68,7 +69,7 @@ export const mainRoutes = [
       path: "/version-2/news",
       exact: true,
       visibleInNavbar: false,
-      element: <NewsPage2 />,
+      element: <NewsPage />,
     },
     // {
     //   text: "Dars jadval",
@@ -110,7 +111,14 @@ export const mainRoutes = [
         path: "/news",
         exact: true,
         visibleInNavbar: true,
-        element: <NewsPage/>,
+        element: <News/>,
+    },
+    {
+        text: "Yangiliklar Kategoriya",
+        path: "/news/categories/:id/",
+        exact: true,
+        visibleInNavbar: true,
+        element: <NewsCategories/>,
     },
     {
         text: `Bog'lanish`,
@@ -344,6 +352,13 @@ export const mainRoutes = [
         exact: true,
         visibleInNavbar: false,
         element: <News />,
+    },
+    {
+        text: "Batafsil",
+        path: "/batafsil/:new_id",
+        exact: true,
+        visibleInNavbar: false,
+        element: <NewsDetails />,
     },
     {
         text: "Bo'lim va markazlar",

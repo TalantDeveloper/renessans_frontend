@@ -63,7 +63,33 @@
   font-weight: 550;
   line-height: normal;
   position: relative;
+  transition: color 0.3s, background 0.3s;
 }
+.item:hover, .item:focus {
+  color: var(--primary-color);
+  background: var(--bg-light-grey-color);
+  border-radius: 4px;
+}
+
+/* Dropdown menu inherits background on parent hover */
+/* .item:hover .dropdown,
+.item:focus .dropdown,
+.item:hover .dropdown2,
+.item:focus .dropdown2,
+.item:hover .dropdown3,
+.item:focus .dropdown3 {
+  background: #e0e0e0;
+  padding: 5px, 10px;
+} */
+
+/* Dropdown items also inherit highlight on parent hover */
+/* .item:hover .dropdown-item,
+.item:focus .dropdown-item {
+  background: var(--bg-light-grey-color);
+  color: var(--primary-color);
+  border-radius: 5px;
+} */
+
 .dropdown {
   position: absolute;
   top: 19px;

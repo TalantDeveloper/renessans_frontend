@@ -133,7 +133,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 10px 0 20px 0;
+  padding: 10px 0 10px 0;
 }
 
 .facultyCard:hover {
@@ -180,6 +180,7 @@
   border-radius: 20px;
   border: 1px solid #080e42;
   margin-top: 25px;
+  margin-bottom: 10px;
 }
 
 .viewMore:hover {
@@ -190,21 +191,6 @@
 .viewMore span {
   margin-right: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .newsMetadata {
   display: flex;
@@ -219,4 +205,31 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.newsMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0 0 0;
+  padding: 0 10px;
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+.newsDate {
+  font-weight: 500;
+  color: #495057;
+  font-size: 0.97rem;
+  margin-right: 160px;
+  margin-top: 10px;
+}
+
+.newsViews {
+  font-weight: 400;
+  color: #495057;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }

@@ -132,6 +132,34 @@ const KafedraSlug = () => {
     return (
         
         <div className={classes.mainContainer}>
+            <div className={classes.sidebar}>
+                    
+                    <h3 className={classes["sidebar-title"]}>
+                        {fakultet[`name_${i18n.language}`]}
+                    </h3>
+                    <ul style={{listStyle: 'none', padding: 0}}>
+                        {kafedralar.length > 0 ? (
+                            kafedralar.map((kafedra, index) => (
+                                <li
+                                    onClick={() => navigate(`/departments/${kafedra.short_name}`)}
+                                    key={kafedra.id}
+                                    style={{marginBottom: '10px'}}
+                                    className={kafedra.short_name === short_name ? classes.active : ''}
+                                >
+                                    <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
+                                    <span
+                                        style={{cursor: 'pointer', color: '#133654'}}
+                                    >
+                                        {getDepartmentName(kafedra)}
+                                    </span>
+                                </li>
+                            ))
+                        ) : (
+                            <li>{t("no_kafedra_found")}</li>
+                        )}
+                    </ul>
+                </div>
+            
             <div data-aos="fade-up" className={classes["rahbariyat-container"]}>
             
                 <h1 className={classes["page-title"]}>
@@ -386,7 +414,7 @@ const KafedraSlug = () => {
                 
                 
 
-                <div className={classes.sidebar}>
+                {/* <div className={classes.sidebar}>
                     
                     <h3 className={classes["sidebar-title"]}>
                         {fakultet[`name_${i18n.language}`]}
@@ -412,7 +440,7 @@ const KafedraSlug = () => {
                             <li>{t("no_kafedra_found")}</li>
                         )}
                     </ul>
-                </div>
+                </div> */}
 
                 
                 <div className={classes.sidebar}>

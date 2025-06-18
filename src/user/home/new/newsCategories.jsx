@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import "slick-carousel/slick/slick.css";
@@ -12,7 +12,9 @@ import search from "../../news/assets/icons/search.svg";
 import SocialMedias from "../../../shared/components/socialMedias/SocialMedias";
 import "moment/locale/uz-latn";
 import moment from "moment";
-const NewsPage = () => {
+
+const NewsCategories = () => {
+    const {id} = useParams();
     const navigate = useNavigate();
     const {t, i18n } = useTranslation();
     const [news, setNews] = useState(null);
@@ -21,7 +23,6 @@ const NewsPage = () => {
     const [error, setError] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
-    console.log(error);
 
     const calculateCategoryCounts = (data) => {
         const counts = data.reduce((acc, item) => {
@@ -36,27 +37,22 @@ const NewsPage = () => {
         setError(null);
 
         const fetchNewsData = axios.get(
-            testUrl + "/api/news2"
+            testUrl + "/api/categories/" + id
         );
         
-        const fetchCategoriesData = axios.get(
-            testUrl + "/api/categories"
-        );
         
-        Promise.all([fetchNewsData, fetchCategoriesData])
-            .then(([newsResponse, categoriesResponse]) => {
+        Promise.all([fetchNewsData])
+            .then(([newsResponse]) => {
                 const news = newsResponse.data;
-                const categorie = categoriesResponse.data;
                 
-                if (news && categorie) {
-                    setNews(news?.results || []);
-                    setCategories(categorie);
+                if (news) {
+                    setNews(news?.news || []);
+                    setCategories(news?.categories);
                     calculateCategoryCounts(news);
                     console.log(news);
                 } else {
                     setError("Ma'lumotlar topilmadi");
                 }
-                
                 
             })
             .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
@@ -92,7 +88,7 @@ const NewsPage = () => {
                             filteredNews.map((new_data) => (
                                 <Link
                                     key={new_data.id}
-                                    to={`/batafsil/${new_data.id}`}
+                                    to="#"
                                     className={styles.facultyCard}
                                 >
                                     <img
@@ -105,15 +101,13 @@ const NewsPage = () => {
                                             {new_data?.title_uz}
                                             </h3>
                                     </div>
-                                    <div className={styles.newsMeta}>
-                                        <span className={styles.newsDate}>
-                                            {moment(new_data.posted_time)
-                                                .locale(i18n.language)
-                                                .format("DD-MMMM, HH:mm")}
+                                    <div className={styles.newsMetadata}>
+                                        <span>
+                                        {moment(new_data.posted_time)
+                                            .locale(i18n.language)
+                                            .format("DD-MMMM, HH:mm")}
                                         </span>
-                                        <span className={styles.newsViews}>
-                                            {new_data.view_count} views
-                                        </span>
+                                        <span>{new_data.view_count} views</span>
                                     </div>
                                     <div className={styles.viewMore}>
                                         <span>{t("see_more")}</span>
@@ -169,4 +163,4 @@ const NewsPage = () => {
     );
 };
 
-export default NewsPage;
+export default NewsCategories;

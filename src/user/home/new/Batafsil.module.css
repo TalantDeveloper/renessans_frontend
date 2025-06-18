@@ -67,34 +67,28 @@
     overflow: hidden;
     transition: max-height 0.3s ease-out, opacity 0.3s ease;
     opacity: 0;
-    padding: 0px;
-    width: 100%;
-    background-color: inherit;
   }
   
   .dropdownContent p {
     margin: 10px 0;
     font-size: 16px;
-    text-align: left;
     color: #555;
   }
   
   .dropdownContent.show {
-    max-height: 1000px; /* Adjusted based on content */
+    max-height: 100px; /* Adjust based on content */
     opacity: 1;
-    border-top: 1px dotted #000;
   }
   
   .sidebar {
-    position: sticky;
+    position: sticky; /* or use fixed */
     width: 485px;
-    background: #ffffff;
-    padding: 0px;
+    height: 380px;
+    background: #f9fbfc;
+    padding: 20px;
     border-radius: 12px;
     transition: all 0.3s ease-in-out;
     margin: 20px;
-    margin-bottom: 50px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   }
   
   .sidebar h3 {
@@ -254,9 +248,9 @@
   }
   /* Main Rahbariyat Container */
   .rahbariyat-container {
-    padding: 10px;
+    padding: 30px;
     margin: 0 auto;
-    max-width: 1150px;
+    max-width: 1100px;
     background-color: #fff;
     border-radius: 16px;
     color: #333;
@@ -264,6 +258,8 @@
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
     margin-left: auto;
+    margin-right: 40px;
+    margin-bottom: 30px;
   }
   
   /* Enhanced Page Title Styling */
@@ -379,45 +375,65 @@
   .buttons {
     display: flex;
     gap: 20px;
-    width: 100%;
-
   }
   
   /* Button Effects */
   .buttons .button {
-    background-color: white;
-    color: #002e5b;
-    padding: 15px 25px;
-    border-radius: 10px;
-    border: none;
-    font-size: 18px;
-    font-weight: 600;
-    font-family: "Arial", sans-serif;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    text-align: left;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    padding: 12px 25px;
+    background-color: #eef1f5;
+    color: #2a497b;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin: 5px 0;
+    gap: 15px;
+    border: 1px solid #c6c5c5;
   }
   
   .buttons .button:hover {
     background-color: #d6e4f0;
     color: #1a3758;
+    box-shadow: 0px 4px 10px rgba(0, 90, 180, 0.2);
+  }
+  
+  /* Dropdown Content */
+  .dropdownContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease;
+    opacity: 0;
+    padding: 0 20px;
+  }
+  
+  .dropdownContent p {
+    margin: 10px 0;
+    font-size: 16px;
+    text-align: left;
+    color: #555;
+  }
+  
+  .dropdownContent.show {
+    max-height: 1000px; /* Adjusted based on content */
+    opacity: 1;
+    border-top: 1px dotted #000;
   }
   
   /* Sidebar Styling */
   .sidebar {
     position: sticky;
-    width: 350px;
-    background: #ffffff;
-    padding: 0px;
+    width: 485px;
+    height: 320px;
+    background: #f9fbfc;
+    padding: 20px;
     border-radius: 12px;
     transition: all 0.3s ease-in-out;
-    margin: 10px;
-    margin-bottom: 10px;
+    margin: 20px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   }
   
@@ -494,73 +510,19 @@
     }
   }
   
-  .sidebar-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Space between the two sidebars */
+  .department-info-container {
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 30px; /* Add some padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 30px; /* Space between this and the staff section */
   }
   
-  /* Main Container for Flex Layout */
-  .mainContainer {
-    display: flex;
-    gap: 30px;
-    padding: 50px 0;
-  }
-  
-  .statItem {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 10px 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    margin-bottom: 5px;
-    transition: all 0.3s ease;
-    width: 100%; /* Ensure it takes full width of its container */
-  }
-  
-  .statItem:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .statIconContainer {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #002e5b; /* Dark blue background for the icon */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  
-  .statIcon {
-    width: 60px; /* Adjust size as needed */
-    height: 60px; /* Adjust size as needed */
-    /* filter: brightness(0) invert(1); */ /* Makes the icon white - Removed */
-  }
-  
-  .statContent {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-grow: 1;
-  }
-  
-  .statNumber {
-    font-size: 24px;
-    font-weight: bold;
-    color: #000;
-    margin-bottom: -5px; /* Dark color for the number */
-  }
-  
-  .statLabel {
-    font-size: 16px;
-    font-weight: bold;
-    color: #555555; /* Slightly lighter color for the label */
-    text-transform: uppercase;
+  .staff-list-container {
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 30px; /* Add some padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   }
   
   .employeeButtons {
@@ -587,5 +549,24 @@
     background-color: #d6e4f0;
     color: #1a3758;
     box-shadow: 0px 4px 10px rgba(0, 90, 180, 0.2);
+  }
+  
+  /* Button Effects */
+  .buttons .button {
+    background-color: white;
+    color: #002e5b;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Arial", sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
