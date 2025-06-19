@@ -130,7 +130,7 @@
   "studentsLife": "Talabalar Hayoti",
   "ourChampions": "Bizning Chempionlar",
   "universityExcellence": "Universitet A'lochiligi",
-  "universityUnion": "University Union",
+  "universityUnion": "Universitet birlashmasi",
   "ourScholarship": "Bizning Stipendiantlar",
   "introductionLiteratureReviewMethodology": "Kirish, Adabiyotlar sharhi, Metodologiya",
   "fontStyleTimesNewRoman": "Shrift: Times New Roman",
@@ -210,11 +210,14 @@
   "joiningEvent": "Tadbriga qo'shilish",
   "joiningBtn": "Qo'shilish",
   "joiningName": "Ismingiz",
+  "partners": "Hamkorlar",
+  "bizning stipendiantlar": "Bizning stipendiantlar",
 
   "ish_staj": "Ish tajribasi: ",
   "about_employee": "Xodim haqida",
   "specialization": "Mutaxassisligi",
   "position": "Lavozimi: ",
+  "universitet a'lochilari": "Universitet a'lochilari",
 
   "Ilmiy faoliyat": "Ilmiy faoliyat",
   "Madaniy-ma'rifiy faoliyat": "Madaniy-ma'rifiy faoliyat",

@@ -7,7 +7,7 @@ import moment from "moment";
 import "moment/locale/uz-latn"; // Import the locale
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next"; // Importing useTranslation
-import {BaseURL} from "../BaseData";
+import {BaseURL, testUrl} from "../BaseData";
 
 const Timeline = () => {
     const [events, setEvents] = useState([]);
@@ -17,7 +17,7 @@ const Timeline = () => {
     useEffect(() => {
         // Fetch the events data from the API
         axios
-            .get(BaseURL + "api/events/")
+            .get(testUrl + "api/events/")
             .then((response) => {
                 setEvents(response.data);
             })

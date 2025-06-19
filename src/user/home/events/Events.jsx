@@ -5,7 +5,7 @@ import EventCard from "./components/eventCard/EventCard"; // Assuming you have t
 import {EventModal} from "./components/eventModal/eventModal"; // Assuming you have this
 import ParticlesConfig from "../../../shared/components/particles/particles-config";
 import classes from "./Events.module.css";
-import {BaseURL} from "../BaseData";
+import {BaseURL, testUrl} from "../BaseData";
 
 const Events = () => {
     const {t, i18n} = useTranslation();
@@ -18,7 +18,7 @@ const Events = () => {
     const fetchAnnouncements = () => {
         setLoading(true);
         axios
-            .get(BaseURL + "api/announcement/")
+            .get(testUrl + "/api/announcements/")
             .then((response) => {
                 const sortedAnnouncements = response.data
                     .filter(

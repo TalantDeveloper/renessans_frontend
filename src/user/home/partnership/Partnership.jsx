@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {useTranslation} from "react-i18next";
 import {FaLink} from "react-icons/fa"; // Importing Link icon
-import {BaseURL} from "../BaseData";
+import {BaseURL, testUrl} from "../BaseData";
 
 // Import Swiper styles
 import "swiper/css";
@@ -39,7 +39,7 @@ export const Partnership = () => {
         const fetchPartners = async () => {
             try {
                 const response = await fetch(
-                    BaseURL + "api/partner/"
+                    testUrl + "api/partners/"
                 );
                 const data = await response.json();
                 setPartners(data);

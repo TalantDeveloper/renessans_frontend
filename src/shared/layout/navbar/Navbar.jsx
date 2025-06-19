@@ -72,6 +72,7 @@ const Navbar = () => {
 
   const xalqaro2 = [
     { path: "/international-cooperation", text: t("Xalqaro aloqalar") },
+    { path: "/partners", text: t("partners") },
   ];
 
   useEffect(() => {

@@ -9,7 +9,7 @@ import {useNavigate} from "react-router-dom";
 import arrow from "./assets/icons/arrow.svg";
 import announcementImg from "./assets/imgs/bg-img.png";
 import classes from "./Opener2.module.css";
-import {BaseURL} from "../BaseData";
+import {BaseURL, testUrl} from "../BaseData";
 
 export const Opener2 = () => {
     const {t, i18n} = useTranslation();
@@ -21,29 +21,27 @@ export const Opener2 = () => {
 
 
     useEffect(() => {
-        const fetchNews = async () => {
-            try {
-                const response = await axios.get(
-                    BaseURL + "api/news/"
-                );
-                const filteredNews = response.data
-                    .filter((item) => item.is_main)
-                    .sort((a, b) =>
-                        moment(b.posted_time).isAfter(moment(a.posted_time)) ? 1 : -1
-                    );
-                setNews(filteredNews.slice(0, 3));
-                setLoading(false);
-            } catch (err) {
-                console.error("Error fetching news:", err);
-                setError(t("errorFetchingNews"));
-                setLoading(false);
-            }
-        };
+        const fetchNewsData = axios.get(
+            testUrl + "/api/newsthree/"
+        ); 
+        
+        Promise.all([fetchNewsData])
+            .then(([newsResponse]) => {
+                const news_data = newsResponse.data;
+                
+                if (news_data) {
+                    setNews(news_data || []);
+                } else {
+                    setError("Ma'lumotlar topilmadi");
+                }
+            })
+            .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
+            .finally(() => setLoading(false));
 
         const fetchAnnouncements = async () => {
             try {
                 const response = await axios.get(
-                    BaseURL + "api/announcement/"
+                    testUrl + "/api/announcements/"
                 );
                 const filteredAnnouncements = response.data.filter(
                     (item) =>
@@ -56,7 +54,6 @@ export const Opener2 = () => {
             }
         };
 
-        fetchNews();
         fetchAnnouncements();
     }, [t]);
 
@@ -116,9 +113,13 @@ export const Opener2 = () => {
                 {/* Hero Section */}
                 <div data-aos="fade-up" className={classes.container}>
                     <h1 className={classes.title}>
-                        <span className="span_bluem">{t("openerTitleSpan")}</span>
+                        <span className="span_bluem">
+                            {t("openerTitleSpan")}
+                        </span>
                     </h1>
-                    <p className={classes.descr}>{t("openerDescr")}</p>
+                    <p className={classes.descr}>
+                        {t("openerDescr")}
+                        </p>
                     <div className={classes.flex}>
                         <a href="/contact">
                             <button className={classes.btn1}>
@@ -132,23 +133,29 @@ export const Opener2 = () => {
                 {/* News Section */}
                 <div className={classes.container2}>
 
-                    <h2 className={classes.newsTitle}>{t("newsTitles")}</h2>
+                    <h2 className={classes.newsTitle}>
+                        {t("newsTitles")}
+                    </h2>
 
                     <div className={classes.newsSection}>
                         {loading ? (
-                            <p>{t("loading")}</p>
+                            <p>
+                                {t("loading")}
+                            </p>
                         ) : error ? (
-                            <p>{error}</p>
+                            <p>
+                                {error}
+                            </p>
                         ) : (
                             <div
                                 onClick={() => navigate("/news")}
                                 className={classes.newsItems}>
-                                {news.slice(0, 5).map((item) => (
+                                {news.map((item) => (
                                     <div key={item.id} className={classes.newsItem}>
                                         <h3>
-                      <span className={classes.icon}>
-                        <Icon icon="mdi:newspaper"/>
-                      </span>
+                                            <span className={classes.icon}>
+                                                <Icon icon="mdi:newspaper"/>
+                                            </span>
                                             {item[`title_${i18n.language}`] || item.title_uz}
                                         </h3>
                                         <p

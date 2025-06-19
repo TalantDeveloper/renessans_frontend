@@ -48,6 +48,7 @@ import Direction from "../../../user/home/directions/Directions";
 import News from "../../../user/home/new/News";
 import NewsCategories from "../../../user/home/new/newsCategories";
 import NewsDetails from "../../../user/home/new/Batafsil";
+import Partners from "../../../user/home/partners/Partners";
 
 export const mainRoutes = [
     {
@@ -297,6 +298,13 @@ export const mainRoutes = [
         exact: true,
         visibleInNavbar: false,
         element: <FakultetKafedra/>,
+    },
+    {
+        text: "Partners",
+        path: "/partners",
+        exact: true,
+        visibleInNavbar: false,
+        element: <Partners/>,
     },
     {
         text: "Kafedra va Fakultetlar",

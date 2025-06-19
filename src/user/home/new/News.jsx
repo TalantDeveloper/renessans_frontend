@@ -59,19 +59,21 @@ const NewsPage = () => {
 
     if (loading) return <p>Yuklanmoqda...</p>;
 
-    const itemsPerPage = 1;
+    const itemsPerPage = 9;
     const indexOfLastItem = pageApi * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentNews = (news_data || []).slice(indexOfFirstItem, indexOfLastItem);
+
     
     return (
         <div className={classes.mainContainer}>
             <div data-aos="fade-up" className={classes["newsSection"]}>
                 <h1 className={classes["page-title"]}>
-                    Yangiliklar
+                    {t("Yangiliklar")}
                 </h1>
                 <div className={styles.facultyList}>
-                    {news_data.length > 0 ? (
-                        news_data.map((new_data) => (
+                    {currentNews.length > 0 ? (
+                        currentNews.map((new_data) => (
                             <Link
                                 key={new_data.id}
                                 to={`/news/${new_data.id}`}

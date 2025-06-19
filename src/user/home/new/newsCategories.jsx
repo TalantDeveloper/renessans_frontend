@@ -12,6 +12,7 @@ import search from "../../news/assets/icons/search.svg";
 import SocialMedias from "../../../shared/components/socialMedias/SocialMedias";
 import "moment/locale/uz-latn";
 import moment from "moment";
+import Pagination from "@mui/material/Pagination";
 
 const NewsCategories = () => {
     const {id} = useParams();
@@ -23,6 +24,11 @@ const NewsCategories = () => {
     const [error, setError] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
+    const [pageApi, setPageApi] = useState(1);
+    const itemsPerPage = 9;
+    const indexOfLastItem = pageApi * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentNews = (news_data || []).slice(indexOfFirstItem, indexOfLastItem);
     
 
     useEffect(() => {
@@ -70,8 +76,8 @@ const NewsCategories = () => {
                 </h1>
                 
                     <div className={styles.facultyList}>
-                        {news_data.length > 0 ? (
-                            news_data.map((new_data) => (
+                        {currentNews.length > 0 ? (
+                            currentNews.map((new_data) => (
                                 <Link
                                     key={new_data.id}
                                     to={`/news/${new_data.id}`}
@@ -103,8 +109,16 @@ const NewsCategories = () => {
                                 </Link>
                             ))
                         ) : (
-                            <div>{t("no_kafedra_found")}</div>
+                            <div>{t("no_news_found")}</div>
                         )}
+                    </div>
+                    <div className={classes["center_div"]}>
+                        <Pagination
+                            onChange={(e, value) => setPageApi(value)}
+                            count={Math.ceil((news_data?.length || 0) / itemsPerPage)}
+                            variant="outlined"
+                            shape="rounded"
+                        />
                     </div>
                 </div>
                 <div className={classes.sidebar} style={{marginLeft: 0, marginRight: "40px"}}>
@@ -128,7 +142,7 @@ const NewsCategories = () => {
                             </li>
                         ))
                     ) : (
-                        <li>{t("no_departments_found")}</li>
+                        <li>{t("no_news_found")}</li>
                     )}
                 </ul>
             </div>
