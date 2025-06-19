@@ -4,7 +4,8 @@ import {useTranslation} from "react-i18next";
 import {AiOutlineEye} from "react-icons/ai";
 import SocialMedias from "../../../shared/components/socialMedias/SocialMedias";
 import {FaLongArrowAltRight} from "react-icons/fa";
-import {BaseURL} from "../BaseData";
+import axios from "axios";
+import {BaseURL, testUrl} from "../BaseData";
 
 // assets
 import classes from "./NewsSection.module.css";
@@ -13,21 +14,29 @@ export const NewsSection = () => {
     const {t, i18n} = useTranslation(); // Access i18n for language management
     const navigate = useNavigate();
     const [news, setNews] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
+    console.log(news);
 
     // Fetch news data from the API
     useEffect(() => {
-        const fetchNews = async () => {
-            const response = await fetch(
-                BaseURL + "api/news/");
-            const data = await response.json();
-            // Filter and sort news by 'is_main' and 'posted_time'
-            const mainNews = data
-                .filter((item) => item.is_main)
-                .sort((a, b) => new Date(b.posted_time) - new Date(a.posted_time));
-            setNews(mainNews);
-        };
-        fetchNews();
-    }, []);
+        const fetchNewsData = axios.get(
+            testUrl + "/api/newsfour/"
+        ); 
+        
+        Promise.all([fetchNewsData])
+            .then(([newsResponse]) => {
+                const news_data = newsResponse.data;
+                
+                if (news_data) {
+                    setNews(news_data || []);
+                } else {
+                    setError("Ma'lumotlar topilmadi");
+                }
+            })
+            .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
+            .finally(() => setLoading(false)); 
+    }, [t]);
 
     // Function to get the title based on the current language
     const getNewsTitle = (item) => {
@@ -56,12 +65,14 @@ export const NewsSection = () => {
                     className={classes["right-side"]}>
                     {news.length > 0 && (
                         <div
-                            onClick={() => navigate("/news")}
+                            onClick={() => navigate("/news/" + news[0].id)}
                             className={classes["nmadur3"]}>
-                            <img className={classes["image3"]} src={news[0].image} alt=""/>
+                            <img className={classes["image3"]} src={testUrl + news[0].image} alt=""/>
                             <div className={classes["blanket"]}>
                                 <div className={classes["flex"]}>
-                                    <h1>{getNewsTitle(news[0])}</h1>{" "}
+                                    <h1>
+                                        {getNewsTitle(news[0])}
+                                    </h1>{" "}
                                     <p>
                                         <AiOutlineEye style={{marginRight: "5px"}}/>
                                         {news[0]?.view_count}
@@ -83,7 +94,7 @@ export const NewsSection = () => {
 
                         {news.slice(1, 4).map((item, index) => (
                             <div key={index} className={classes["category_box"]}>
-                                <img src={item.image} alt=""/>
+                                <img src={testUrl + item.image} alt=""/>
                                 <div className={classes["category_event"]}>
                                     <h2>{getNewsTitle(item)}</h2>{" "}
                                     {/* Use dynamic title based on language */}

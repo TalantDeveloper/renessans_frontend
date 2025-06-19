@@ -37,24 +37,24 @@ export const Opener2 = () => {
             })
             .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
             .finally(() => setLoading(false));
-
-        const fetchAnnouncements = async () => {
-            try {
-                const response = await axios.get(
-                    testUrl + "/api/announcements/"
-                );
-                const filteredAnnouncements = response.data.filter(
-                    (item) =>
-                        item.is_main && moment(item.finishing_time).isAfter(moment())
-                );
-                setAnnouncements(filteredAnnouncements);
-            } catch (err) {
-                console.error("Error fetching announcements:", err);
-                setError(t("errorFetchingAnnouncements"));
-            }
-        };
-
-        fetchAnnouncements();
+        
+        const fetchAnnouncementsData = axios.get(
+            testUrl + "/api/newsthree/"
+        );
+        
+        Promise.all([fetchAnnouncementsData])
+            .then(([AnnouncementsResponse]) => {
+                const accouncement_data = AnnouncementsResponse.data;
+                
+                if (accouncement_data) {
+                    setAnnouncements(accouncement_data || []);
+                } else {
+                    setError("Ma'lumotlar topilmadi");
+                }
+            })
+            .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
+            .finally(() => setLoading(false));
+        
     }, [t]);
 
     useEffect(() => {
@@ -188,7 +188,7 @@ export const Opener2 = () => {
                                     key={item.id}
                                     className={classes.announcementItem}
                                 >
-                                    <img src={item.image || announcementImg} alt={item.title}/>
+                                    <img src={testUrl + item.image || announcementImg} alt={item.title}/>
                                     <p>{item[`title_${i18n.language}`] || item.title_uz}</p>
                                 </div>
                             ))}
