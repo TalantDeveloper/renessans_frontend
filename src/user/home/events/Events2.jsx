@@ -4,21 +4,22 @@ import {useTranslation} from "react-i18next";
 import EventCard from "./components/eventCard/EventCard"; // Assuming you have this
 import {EventModal} from "./components/eventModal/eventModal"; // Assuming you have this
 import ParticlesConfig from "../../../shared/components/particles/particles-config";
-import classes from "./Events.module.css";
+import classes from "./Events2.module.css";
 import {BaseURL, testUrl} from "../BaseData";
+import { useNavigate } from "react-router-dom";
 
-const Events = () => {
+const Events2 = () => {
     const {t, i18n} = useTranslation();
+    const navigate = useNavigate();
     const [announcements, setAnnouncements] = useState([]);
     const [selectedEvent, setSelectedEvent] = useState("");
     const [loading, setLoading] = useState(true);
     const [openModal, setOpenModal] = useState(false);
-    const [seeMoreClicked, setSeeMoreClicked] = useState(false);
 
     const fetchAnnouncements = () => {
         setLoading(true);
         axios
-            .get(testUrl + "/api/announcements/")
+            .get(testUrl + "/api/announcementstwo/")
             .then((response) => {
                 const sortedAnnouncements = response.data
                     .filter(
@@ -61,9 +62,14 @@ const Events = () => {
                     openModal={openModal}
                     setOpenModal={setOpenModal}
                 />
+                <button
+                    onClick={() => navigate("/announce")}
+                    className={classes["btn"]}>
+                    {t(`eventsBtn`)}
+                </button>
             </div>
         </div>
     );
 };
 
-export default Events;
+export default Events2;

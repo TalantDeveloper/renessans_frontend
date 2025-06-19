@@ -16,7 +16,7 @@ const Partners = () => {
         setLoading(true);
         setError(null);
         axios
-            .get(testUrl + "api/partners/")
+            .get(testUrl + "/api/partners/")
             .then((response) => {
                 setPartners(response.data);
             })

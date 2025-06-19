@@ -158,13 +158,7 @@ export const Opener2 = () => {
                                             </span>
                                             {item[`title_${i18n.language}`] || item.title_uz}
                                         </h3>
-                                        <p
-                                            dangerouslySetInnerHTML={{
-                                                __html:
-                                                    item[`full_news_${i18n.language}`] ||
-                                                    item.full_news_uz,
-                                            }}
-                                        />
+                                        <img src={testUrl + item.image} alt="" />
                                     </div>
                                 ))}
                             </div>

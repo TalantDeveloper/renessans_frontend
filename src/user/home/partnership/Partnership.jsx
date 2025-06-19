@@ -39,7 +39,7 @@ export const Partnership = () => {
         const fetchPartners = async () => {
             try {
                 const response = await fetch(
-                    testUrl + "api/partners/"
+                    testUrl + "/api/partners/"
                 );
                 const data = await response.json();
                 setPartners(data);

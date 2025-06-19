@@ -6,7 +6,7 @@ import {Statistic} from "./statistic/Statistic";
 import {Partnership} from "./partnership/Partnership";
 import {NewsSection} from "./news-v2/NewsSection";
 import {Advantage} from "./advantage/Advantage";
-import Events from "./events/Events";
+import Events2 from "./events/Events2";
 import SchoolSlider from "./schools/Schools";
 import Interaktiv from "./interaktiv/Interaktiv";
 import SmCourses from "../home/smcourses/SmCourses";
@@ -21,7 +21,7 @@ export const Home2 = () => {
             {/* <Interaktiv /> */}
             <NewsSection/> {/* Universitet faoliyatidagi yangiliklar */}
             <div id="eventsSection">
-                <Events/> {/* E'lonlar */}
+                <Events2/> {/* E'lonlar */}
             </div>
             <Advantage/> {/* Bizning ustun jihatlarimiz */}
             <SchoolSlider/> { /*Renessans ta'lim universitetining litsenziyasi haqiqiy va chegaralanmagan */}

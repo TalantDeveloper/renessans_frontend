@@ -37,6 +37,7 @@ import Laboratory from "../../../user/laboratory/Laboratory";
 import Scholarship from "../../../user/scholarship/Scholarship";
 import Journal from "../../../user/journal/Journal";
 import EventsAnnounce from "../../../user/home/events/Events";
+import Events2 from "../../../user/home/events/Events2";
 import DropdownDetails from "../../../user/home/dropdowns/DropdownDetails";
 import FakultetKafedra from "../../../user/home/fakultetKafedra/FakultetKafedra";
 import FakultetKafedraSlug from "../../../user/home/fakultetKafedraSlug/FakultetKafedraSlug";
@@ -106,6 +107,13 @@ export const mainRoutes = [
         exact: true,
         visibleInNavbar: false,
         element: <EventsAnnounce/>,
+    },
+    {
+        text: "Announce",
+        path: "/announce2",
+        exact: true,
+        visibleInNavbar: false,
+        element: <Events2/>,
     },
     
     {

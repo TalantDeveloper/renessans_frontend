@@ -37,17 +37,31 @@ const Navbar = () => {
   const staticItemsColumn1 = [
     { path: "/journal", text: t("Ilmiy jurnal") },
     { path: "https://conference.renessans-edu.uz/", text: t("Konferensiyalar") },
+    { path: "/dropdown/ilmiy-loyihalar", text: t("Ilmiy loyihalar") },
+    { path: "/dropdown/ilmiy-maktablar", text: t("Ilmiy maktablar") },
   ];
 
   const staticItemsColumn2 = [
     { path: "/about-uni", text: t("Talabalar hayoti") },
-    { path: "/anons", text: t("Tadbirlar") },
     { path: "/university-union", text: t("universityUnion") },
+    { path: "/dropdown/murabbiylik-faoliyati", text: t("Murabbiylik faoliyati") },
+    { path: "/dropdown/madaniy-marifiy-tadbirlar", text: t("Madaniy-ma'rifiy tadbirlar") },
+    { path: "/dropdown/odob-axloq-qoidalari", text: t("Odob axloq qoidalari") },
   ];
 
-  const staticItemsColumn3 = [];
+  const staticItemsColumn3 = [
+    { path: "/dropdown/oquv-rejalari", text: t("O'quv rejalari") },
+    { path: "/dropdown/nazorat-sinovlari", text: t("Nazorat sinovlari") },
+    { path: "/dropdown/nazorat-sinovlari", text: t("BMI mavzulari") },
+  ];
 
-  const staticItemsColumn4 = [];
+  const staticItemsColumn4 = [
+    { path: "/dropdown/yosh-akademiklar", text: t("Yosh akademiklar") },
+    { path: "/dropdown/zakovat-klubi", text: t("Zakovat klubi") },
+    { path: "/dropdown/talabalar-turar-joyi", text: t("Talabalar turar joyi") },
+    { path: "/dropdown/sport-klubi", text: t("Sport klubi") },
+    { path: "/dropdown/axborot-resurs-markazi", text: t("Axborot resurs markazi") },
+  ];
 
   const studentStaticItems = [
     { path: "/good-st", text: t("Bizning a'lochilar") },
@@ -85,7 +99,7 @@ const Navbar = () => {
           BaseURL + "api/pagecreate/dropdowns/"
         );
         setMenus(menuResponse.data);
-        setDropdowns(dropdownResponse.data);
+        setDropdowns([]);
       } catch (error) {
         console.error("Error fetching menu and dropdown data:", error);
       }

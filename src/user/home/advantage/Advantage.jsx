@@ -21,7 +21,7 @@ export const Advantage = () => {
         setLoading(true);
         setError(null);
     
-        axios.get(testUrl + "api/advantage/")
+        axios.get(testUrl + "/api/advantage/")
             .then((response) => {
                 setAdvantages(response.data || []);
             })
