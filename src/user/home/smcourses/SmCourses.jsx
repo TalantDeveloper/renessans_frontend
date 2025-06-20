@@ -68,14 +68,14 @@ const Department = () => {
                     <h1>{t("topDepartments")}</h1>
                     <p>{t("popularCoursesMessage")}</p>
                 </div>
-                <a onClick={() => navigate("/all-courses")} className={styles.viewAll}>
+                <a onClick={() => navigate("/directions")} className={styles.viewAll}>
                     {t("viewAllCourses")} <span className={styles.arrow}>→</span>
                 </a>
             </div>
             <div className={styles.cards}>
                 {departments.map((dept, index) => (
                     <div
-                        onClick={() => navigate("/all-courses")}
+                        onClick={() => navigate("/directions")}
                         key={index}
                         className={styles.card}>
                         <div className={styles.icon}>{dept.icon}</div>

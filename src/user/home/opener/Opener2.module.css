@@ -221,7 +221,7 @@
   flex-direction: column;
   gap: 20px;
   height: 100%;
-  align-items: center;
+  text-align: justify;
   animation: scrollVertically 155s linear infinite;
   animation-play-state: running;
 }

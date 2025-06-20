@@ -4,18 +4,18 @@ import styles from "./Preference.module.css";
 import {useNavigate} from "react-router-dom";
 import {FaStar, FaTrophy, FaCrown, FaArrowRight} from "react-icons/fa";
 import {useTranslation} from "react-i18next";
-
+import { testUrl, BaseURL } from "../home/BaseData";
 const ChampionsBoard = () => {
     const [champions, setChampions] = useState([]);
     const navigate = useNavigate();
     const {i18n} = useTranslation(); // Use i18n to get the current language
-
+    console.log(champions);
     // Fetch data from API
     useEffect(() => {
         const fetchChampions = async () => {
             try {
                 const response = await axios.get(
-                    "https://sayt.renessans-edu.uz/api/students/excellent-students/"
+                    testUrl + "/api/excellent-students/"
                 );
                 const formattedData = response.data.map((champion) => ({
                     id: champion.id,

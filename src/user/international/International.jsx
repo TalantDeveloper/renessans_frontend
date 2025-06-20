@@ -1,64 +1,67 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import classes from "./International.module.css";
 import User from "./images.png";
-import Action from "./istockphoto-1373264972-612x612.jpg";
-import Action2 from "./how-to-start-coding-1.webp";
-import { Link, useNavigate } from "react-router-dom";
+// import Action from "./istockphoto-1373264972-612x612.jpg";
+// import Action2 from "./how-to-start-coding-1.webp";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
+import { testUrl } from "../home/BaseData";
+import Pagination from "@mui/material/Pagination";
 
-const cooperationData = [
-  {
-    id: 1,
-    image: Action2,
-    title:
-      "“Bir makon, bir yo‘l” loyihasi doirasida Pekin bilan kelishuvga erishildi",
-  },
-  {
-    id: 2,
-    image: Action,
-    title:
-      "Sun’y intellektni rivojlantirish bo'yicha Tayvan bilan kelishuvga erishildi",
-  },
-  {
-    id: 3,
-    image: Action2,
-    title:
-      "Startap loyihalarni rivojlantirish bo‘yicha Xitoy bilan memorandum imzolandi",
-  },
-  {
-    id: 4,
-    image: Action,
-    title:
-      "“Bir makon, bir yo‘l” loyihasi doirasida Pekin bilan kelishuvga erishildi",
-  },
-  {
-    id: 5,
-    image: Action,
-    title:
-      "Sun’y intellektni rivojlantirish bo'yicha Tayvan bilan kelishuvga erishildi",
-  },
-  {
-    id: 6,
-    image: Action2,
-    title:
-      "Startap loyihalarni rivojlantirish bo‘yicha Xitoy bilan memorandum imzolandi",
-  },
-  {
-    id: 7,
-    image: Action,
-    title:
-      "“Bir makon, bir yo‘l” loyihasi doirasida Pekin bilan kelishuvga erishildi",
-  },
-  {
-    id: 8,
-    image: Action2,
-    title:
-      "Sun’y intellektni rivojlantirish bo'yicha Tayvan bilan kelishuvga erishildi",
-  },
-];
+// const cooperationData = [
+//   {
+//     id: 1,
+//     image: Action2,
+//     title:
+//       "“Bir makon, bir yo‘l" loyihasi doirasida Pekin bilan kelishuvga erishildi",
+//   },
+//   {
+//     id: 2,
+//     image: Action,
+//     title:
+//       "Sun'y intellektni rivojlantirish bo'yicha Tayvan bilan kelishuvga erishildi",
+//   },
+//   {
+//     id: 3,
+//     image: Action2,
+//     title:
+//       "Startap loyihalarni rivojlantirish bo'yicha Xitoy bilan memorandum imzolandi",
+//   },
+//   {
+//     id: 4,
+//     image: Action,
+//     title:
+//       "“Bir makon, bir yo'l" loyihasi doirasida Pekin bilan kelishuvga erishildi",
+//   },
+//   {
+//     id: 5,
+//     image: Action,
+//     title:
+//       "Sun'y intellektni rivojlantirish bo'yicha Tayvan bilan kelishuvga erishildi",
+//   },
+//   {
+//     id: 6,
+//     image: Action2,
+//     title:
+//       "Startap loyihalarni rivojlantirish bo'yicha Xitoy bilan memorandum imzolandi",
+//   },
+//   {
+//     id: 7,
+//     image: Action,
+//     title:
+//       "“Bir makon, bir yo'l" loyihasi doirasida Pekin bilan kelishuvga erishildi",
+//   },
+//   {
+//     id: 8,
+//     image: Action2,
+//     title:
+//       "Sun'y intellektni rivojlantirish bo'yicha Tayvan bilan kelishuvga erishildi",
+//   },
+// ];
 
 const professorsData = [
   {
@@ -99,35 +102,93 @@ const professorsData = [
 ];
 
 const Xalqaro = () => {
+  const { short_name } = useParams();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
+  const [cooperationData, setCooperationData] = useState([]);
+  const [cooperationCategoriesData, setcooperationCategoriesData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const currentLang = i18n.language;
+  const [pageApi, setPageApi] = useState(1);
+  const itemsPerPage = 9;
+
+  useEffect(() => {
+    setLoading(true);
+    setError(null);
+    axios.get(testUrl + "/api/partnerships/" + short_name)
+      .then((response) => {
+        setCooperationData(response.data || []);
+      })
+      .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
+      .finally(() => setLoading(false));
+  }, [short_name, currentLang]);
+
+  useEffect(() => {
+    setLoading(true);
+    setError(null);
+    axios.get(testUrl + "/api/categoriespartnerships/")
+    .then((response) => {
+      setcooperationCategoriesData(response.data || []);
+    })
+    .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
+    .finally(() => setLoading(false));
+  }, [short_name, currentLang]);
+  console.log(cooperationCategoriesData);
+
+  // Calculate paginated data
+  const indexOfLastItem = pageApi * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentCooperation = cooperationData.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <div className={classes["mainContainer"]}>
       <div data-aos="fade-up" className={classes["container"]}>
         <h1 className={classes["page-title"]}>
-          Xalqaro
-          </h1>
+          {
+            (cooperationCategoriesData.find(cat => cat.short_name === short_name)?.[`name_${currentLang}`])
+            || t("Xalqaro")
+          }
+        </h1>
         <p className={classes["breadcrumb"]}>
-          Bosh sahifa - Xalqaro
-          </p>
-
-        <div className={classes["gallery"]}>
-          {cooperationData.map((item) => (
-            <div key={item.id} className={classes["gallery-item"]}>
-              <Link to={`/international-cooperation/${item.id}`}>
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className={classes["gallery-image"]}
-                />
-                <div className={classes["gallery-text"]}>{item.title}</div>
-              </Link>
+        {t("Bosh sahifa - ")}
+          {
+            (cooperationCategoriesData.find(cat => cat.short_name === short_name)?.[`name_${currentLang}`])
+            || t(" ")
+          }
+        </p>
+        {loading ? (
+          <div>Loading...</div>
+        ) : error ? (
+          <div>{error}</div>
+        ) : (
+          <>
+            <div className={classes["gallery"]}>
+              {currentCooperation.map((item) => (
+                <div key={item.id} className={classes["gallery-item"]}>
+                  <Link to={`/cooperation/${item.short_name}`}>
+                    <img
+                      src={item.image.startsWith('http') ? item.image : (testUrl + item.image)}
+                      alt={item[`name_${currentLang}`]}
+                      className={classes["gallery-image"]}
+                    />
+                    <div className={classes["gallery-text"]}>{item[`name_${currentLang}`]}</div>
+                  </Link>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-
-        <h2 className={classes["professors-title"]}>
+            <div style={{ display: 'flex', justifyContent: 'center', margin: '24px 0' }}>
+              <Pagination
+                onChange={(e, value) => setPageApi(value)}
+                count={Math.ceil(cooperationData.length / itemsPerPage)}
+                page={pageApi}
+                variant="outlined"
+                shape="rounded"
+              />
+            </div>
+          </>
+        )}
+        {/* <h2 className={classes["professors-title"]}>
           {t("national_professor")}
         </h2>
         <Swiper
@@ -162,45 +223,23 @@ const Xalqaro = () => {
                     className={classes["contact-button"]}
                   >
                     {t("about_employee")}
-                    
                   </a>
                 </button>
               </div>
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper> */}
       </div>
       <div className={classes.sidebar}>
         <h3>{t("university")}</h3>
         <ul>
-          <li onClick={() => navigate("/about")}>
-            {t("about")}
-            </li>
-          <li onClick={() => navigate("/management")}>
-            {t("management")}
-            </li>
-          <li onClick={() => navigate("/structure")}>
-            {t("structure")}
-            </li>
-          <li
-            className={classes.active}
-            onClick={() => navigate("/international-cooperation")}
-          >
-            <span className={classes.icon}>▶</span>
-            {t("internationalCooperation")}
-          </li>
-          <li onClick={() => navigate("/faculty-kafedra")}>
-            {t("faculties")}
-            </li>
-          <li onClick={() => navigate("/anons")}>
-            {t("events")}
-            </li>
-          <li
-            onClick={() => navigate("/statistics")}
-            className={classes.dropdownToggle}
-          >
-            {t("statistics")}
-          </li>
+          <li onClick={() => navigate("/about")}>{t("about")}</li>
+          <li onClick={() => navigate("/management")}>{t("management")}</li>
+          <li onClick={() => navigate("/structure")}>{t("structure")}</li>
+          <li className={classes.active} onClick={() => navigate("/cooperations/xalqaro-hamkorliklar")}> <span className={classes.icon}>▶</span> {t("internationalCooperation")} </li>
+          <li onClick={() => navigate("/faculties")}>{t("faculties")}</li>
+          <li onClick={() => navigate("/anons")}>{t("events")}</li>
+          <li onClick={() => navigate("/statistics")} className={classes.dropdownToggle}>{t("statistics")}</li>
         </ul>
       </div>
     </div>

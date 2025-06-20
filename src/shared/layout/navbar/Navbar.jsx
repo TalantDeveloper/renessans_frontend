@@ -30,15 +30,16 @@ const Navbar = () => {
     { path: "/management", text: t("Rahbariyat") },
     { path: "/structure", text: t("Universitet tuzilmasi") },
     { path: "/faculties", text: t("Kafedra va fakultetlar") },
-    { path: "/science-counsil", text: t("Ilmiy kengash") },
     { path: "/centers", text: t('center') },
+    { path: "/directions", text: t("Yo'nalishlar") },
   ];
 
   const staticItemsColumn1 = [
-    { path: "/journal", text: t("Ilmiy jurnal") },
-    { path: "https://conference.renessans-edu.uz/", text: t("Konferensiyalar") },
+    // { path: "/journal", text: t("Ilmiy jurnal") },
+    // { path: "https://conference.renessans-edu.uz/", text: t("Konferensiyalar") },
     { path: "/dropdown/ilmiy-loyihalar", text: t("Ilmiy loyihalar") },
     { path: "/dropdown/ilmiy-maktablar", text: t("Ilmiy maktablar") },
+    { path: "/science-counsil", text: t("Ilmiy kengash") },
   ];
 
   const staticItemsColumn2 = [
@@ -81,11 +82,11 @@ const Navbar = () => {
   ];
 
   const xalqaro1 = [
-    { path: "/international-cooperation/2", text: t("Mahalliy hamkorlik") },
+    { path: "/cooperations/mahalliy-hamkorliklar", text: t("Mahalliy hamkorlik") },
   ];
 
   const xalqaro2 = [
-    { path: "/international-cooperation", text: t("Xalqaro aloqalar") },
+    { path: "/cooperations/xalqaro-hamkorliklar", text: t("Xalqaro aloqalar") },
     { path: "/partners", text: t("partners") },
   ];
 

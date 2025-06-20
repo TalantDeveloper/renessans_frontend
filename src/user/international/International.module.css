@@ -201,13 +201,14 @@
 
 .sidebar {
   position: sticky; /* or use fixed */
-  width: 750px;
-  height: 380px;
+  width: 350px;
+  height: auto;
   background: #f9fbfc;
   padding: 20px;
   border-radius: 12px;
   transition: all 0.3s ease-in-out;
   margin: 20px;
+  margin-right: 100px;
 }
 
 .sidebar h3 {

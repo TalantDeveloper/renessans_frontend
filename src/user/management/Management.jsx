@@ -152,10 +152,10 @@ const Rahbariyat = () => {
             {t("management")}
           </li>
           <li onClick={() => navigate("/structure")}>{t("structure")}</li>
-          <li onClick={() => navigate("/international-cooperation")}>
+          <li onClick={() => navigate("/cooperations/xalqaro-hamkorliklar")}>
             {t("international_cooperation")}
           </li>
-          <li onClick={() => navigate("/faculty")}>{t("faculties")}</li>
+          <li onClick={() => navigate("/faculties")}>{t("faculties")}</li>
           <li onClick={() => navigate("/anons")}>{t("events")}</li>
           <li
             onClick={() => navigate("/statistics")}

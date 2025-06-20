@@ -16,6 +16,7 @@ const dropdownItems = {
     { path: "/centers", text: "center"},
     { path: "/dropdown/oquv-binolari", text: "O'quv binolari" },
     { path: "/dropdown/green-renessans", text: "Green Renessans" },
+    { path: "/directions", text: "Yo'nalishlar" },
   ],
   ilmiyFaoliyat: [
     {
@@ -24,38 +25,35 @@ const dropdownItems = {
         { path: "/journal", text: "Ilmiy jurnal" },
         { path: "https://conference.renessans-edu.uz/", text: "Konferensiyalar" },
         { path: "/dropdown/ilmiy-loyihalar", text: "Ilmiy loyihalar" },
-        { path: "/dropdown/oquv-rejalari", text: "O'quv rejalari" },
-        { path: "/dropdown/ilmiy-maktablar", text: "Ilmiy maktablar" },
-        { path: "/dropdown/murabbiylik-faoliyati", text: "Murabbiylik faoliyati" },
+        { path: "/dropdown/ilmiy-maktablar", text: "Ilmiy maktablar" }
       ]
     },
     {
       text: "Madaniy-ma'rifiy faoliyat",
       children: [
         { path: "/about-uni", text: "Talabalar hayoti" },
-        { path: "/anons", text: "Muhim sanalar" },
-        { path: "/university-union", text: "University union" },
-        { path: "/dropdown/ilmiy-konferensiyalar", text: "Ilmiy konferensiyalar" },
-        { path: "/dropdown/nazorat-sinovlari", text: "Nazorat sinovlari" },
-        { path: "/ilmiy-jurnal", text: "Ilmiy jurnal" },
-        { path: "/dropdown/axborot-resurs-markazi", text: "Axborot resurs markazi" },
+        { path: "/university-union", text: "universityUnion" },
+        { path: "/dropdown/murabbiylik-faoliyati", text: "Murabbiylik faoliyati" },
+        { path: "/dropdown/madaniy-marifiy-tadbirlar", text: "Madaniy-ma'rifiy tadbirlar" },
+        { path: "/dropdown/odob-axloq-qoidalari", text: "Odob axloq qoidalari" },
       ]
     },
     {
       text: "O'quv faoliyat",
       children: [
-        { path: "/dropdown/madaniy-marifiy-tadbirlar", text: "Madaniy-ma'rifiy tadbirlar" },
-        { path: "/dropdown/sport-klubi", text: "Sport klubi" },
-        { path: "/dropdown/odob-axloq-qoidalari", text: "Odob axloq qoidalari" },
-        { path: "/dropdown/zakovat-klubi", text: "Zakovat klubi" },
+        { path: "/dropdown/oquv-rejalari", text: "O'quv rejalari" },
+        { path: "/dropdown/nazorat-sinovlari", text: "Nazorat sinovlari" },
+        { path: "/dropdown/nazorat-sinovlari", text: "BMI mavzulari" },
       ]
     },
     {
       text: "O'quv-uslubiy ta'minot",
       children: [
         { path: "/dropdown/yosh-akademiklar", text: "Yosh akademiklar" },
+        { path: "/dropdown/zakovat-klubi", text: "Zakovat klubi" },
         { path: "/dropdown/talabalar-turar-joyi", text: "Talabalar turar joyi" },
-        { path: "/dropdown/bmi-mavzulari", text: "BMI mavzulari" },
+        { path: "/dropdown/sport-klubi", text: "Sport klubi" },
+        { path: "/dropdown/axborot-resurs-markazi", text: "Axborot resurs markazi" },
       ]
     },
   ],

@@ -41,10 +41,10 @@ const TashkiliyTuzilma = () => {
                         <span className={classes.icon}>▶</span>
                         {t("structure")}
                     </li>
-                    <li onClick={() => navigate("/international-cooperation")}>
+                    <li onClick={() => navigate("/cooperations/xalqaro-hamkorliklar")}>
                         {t("internationalCooperation")}
                     </li>
-                    <li onClick={() => navigate("/faculty-kafedra")}>{t("faculties")}</li>
+                    <li onClick={() => navigate("/faculties")}>{t("faculties")}</li>
                     <li onClick={() => navigate("/anons")}>{t("events")}</li>
                     <li onClick={() => navigate("/statistics")} className={classes.dropdownToggle}>
                         {t("statistics")}

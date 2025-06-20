@@ -422,15 +422,15 @@
 
 /* Sidebar Styling */
 .sidebar {
-  position: sticky;
-  width: 485px;
-  height: 380px;
+  position: sticky; /* or use fixed */
+  width: 350px;
+  height: auto;
   background: #f9fbfc;
   padding: 20px;
   border-radius: 12px;
   transition: all 0.3s ease-in-out;
   margin: 20px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  margin-right: 100px;
 }
 
 .sidebar h3 {

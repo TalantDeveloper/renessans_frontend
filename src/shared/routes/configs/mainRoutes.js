@@ -182,14 +182,14 @@ export const mainRoutes = [
     },
     {
         text: "Hamkorlik",
-        path: "/international-cooperation",
+        path: "/cooperations/:short_name",
         exact: true,
         visibleInNavbar: false,
         element: <International/>,
     },
     {
         text: "Hamkorlik",
-        path: "/international-cooperation/:id",
+        path: "/cooperation/:short_name",
         exact: true,
         visibleInNavbar: false,
         element: <InternationalParent/>,

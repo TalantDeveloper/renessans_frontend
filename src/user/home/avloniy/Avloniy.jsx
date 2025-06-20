@@ -17,7 +17,7 @@ const Timeline = () => {
     useEffect(() => {
         // Fetch the events data from the API
         axios
-            .get(testUrl + "api/events/")
+            .get(testUrl + "/api/events/")
             .then((response) => {
                 setEvents(response.data);
             })
@@ -88,10 +88,10 @@ const Timeline = () => {
                     <li onClick={() => navigate("/structure")}>
                         {t("universityStructure")}
                     </li>
-                    <li onClick={() => navigate("/international-cooperation")}>
+                    <li onClick={() => navigate("/cooperations/xalqaro-hamkorliklar")}>
                         {t("internationalCooperation")}
                     </li>
-                    <li onClick={() => navigate("/faculty-kafedra")}>
+                    <li onClick={() => navigate("/faculties")}>
                         {t("faculties")}
                     </li>
                     <li className={classes.active} onClick={() => navigate("/anons")}>
