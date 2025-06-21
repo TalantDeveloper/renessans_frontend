@@ -176,7 +176,7 @@ const DepartmentDetails = () => {
                         </div>
                 
                         <div className={classes.imageWrapper}>
-                            <img src={testUrl + boss.employee?.image} // Fallback to default image if not available
+                            <img src={boss.employee?.image} // Fallback to default image if not available
                                  alt={boss.employee[`name_${i18n.language}`]}
                                  className={classes.logo}/>
                         </div>
@@ -255,7 +255,7 @@ const DepartmentDetails = () => {
                             </div>
 
                             <div className={classes.imageWrapper}>
-                                <img src={testUrl + employee.employee.image} // Fallback to default image if not available
+                                <img src={employee.employee.image} // Fallback to default image if not available
                                      alt={employee.employee[`name_${i18n.language}`]}
                                      className={classes.logo}/>
                             </div>

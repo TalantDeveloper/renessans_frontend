@@ -39,7 +39,7 @@ export const Opener2 = () => {
             .finally(() => setLoading(false));
         
         const fetchAnnouncementsData = axios.get(
-            testUrl + "/api/newsthree/"
+            testUrl + "/api/announcementsthree/"
         );
         
         Promise.all([fetchAnnouncementsData])
@@ -158,7 +158,9 @@ export const Opener2 = () => {
                                             </span>
                                             {item[`title_${i18n.language}`] || item.title_uz}
                                         </h3>
-                                        <img src={testUrl + item.image} alt="" />
+                                        <div dangerouslySetInnerHTML={{
+                    __html: item[`full_news_${i18n.language}`],
+                }}/>
                                     </div>
                                 ))}
                             </div>
@@ -182,7 +184,7 @@ export const Opener2 = () => {
                                     key={item.id}
                                     className={classes.announcementItem}
                                 >
-                                    <img src={testUrl + item.image || announcementImg} alt={item.title}/>
+                                    <img src={item.image || announcementImg} alt={item.title}/>
                                     <p>{item[`title_${i18n.language}`] || item.title_uz}</p>
                                 </div>
                             ))}

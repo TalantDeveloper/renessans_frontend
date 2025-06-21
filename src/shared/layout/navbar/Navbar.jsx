@@ -32,6 +32,8 @@ const Navbar = () => {
     { path: "/faculties", text: t("Kafedra va fakultetlar") },
     { path: "/centers", text: t('center') },
     { path: "/directions", text: t("Yo'nalishlar") },
+    { path: "/dropdown/oquv-binolari", text: t("O'quv binolari") },
+    { path: "/dropdown/green-renessans", text: t("Green Renessans") },
   ];
 
   const staticItemsColumn1 = [
@@ -69,6 +71,7 @@ const Navbar = () => {
     { path: "/our-campions", text: t("Bizning chempionlar") },
     { path: "/scholarship", text: t("Stipendiantlar") },
     { path: "/university-union", text: t("universityUnion") },
+    { path: "/dropdown/imtiyozlar", text:t("Imtiyozlar") },
     { path: "/about-uni", text: t("Talabalar hayoti") },
     { href: "/library", text: t("Kutubxona") },
   ];

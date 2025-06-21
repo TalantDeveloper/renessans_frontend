@@ -76,7 +76,11 @@ const ChampionsBoard = () => {
                                     {champion.name} {champion.surname}{" "}
                                     <FaTrophy className={styles.trophyIcon}/>
                                 </h3>
-                                <p>{champion.description}</p>
+                                <div
+                                    dangerouslySetInnerHTML={{
+                                    __html: champion[`description`],
+                                  }}>
+                                  </div>
                                 <div className={styles.stars}>
                                     {[...Array(champion.rating)].map((_, i) => (
                                         <FaStar key={i} className={styles.star}/>

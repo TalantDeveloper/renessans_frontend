@@ -84,7 +84,7 @@ const NewsCategories = () => {
                                     className={styles.facultyCard}
                                 >
                                     <img
-                                        src={testUrl + new_data?.image || "/default-image.jpg"}
+                                        src={new_data?.image || "/default-image.jpg"}
                                         alt=" "
                                         className={styles.facultyImage}
                                     />

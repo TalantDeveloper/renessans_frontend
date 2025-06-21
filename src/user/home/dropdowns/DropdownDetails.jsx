@@ -9,7 +9,7 @@ import Slider from "react-slick";
 import {useTranslation} from "react-i18next";
 import moment from "moment";
 import SocialMedias from "../../../shared/components/socialMedias/SocialMedias";
-import {BaseURL} from "../BaseData";
+import {BaseURL, testUrl} from "../BaseData";
 
 const DetailsPage = () => {
     const {t, i18n} = useTranslation(); // Use the translation hook
@@ -18,41 +18,35 @@ const DetailsPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [dropdowns, setDropdowns] = useState([]);
-    const [news, setNews] = useState([]);
+
 
     useEffect(() => {
-        const fetchDetailsAndDropdowns = async () => {
-            try {
-                const detailsResponse = await axios.get(
-                    BaseURL + `api/pagecreate/dropdowns/?slug=${slug}`
-                );
-                const dropdownsResponse = await axios.get(
-                    BaseURL + `api/pagecreate/dropdowns/`
-                );
-                const newsResponse = await axios.get(
-                    BaseURL + "api/news/"
-                );
+        setError(null);
+        setLoading(true);
+        const fetchDropdown = axios.get(
+            testUrl + "/api/dropdowns/" + slug
+        );
+        const fetchDropdownsData = axios.get(
+            testUrl + "/api/dropdowns/"
+        );
 
-                const detailData = detailsResponse.data.find(
-                    (item) => item.slug === slug
-                );
-                if (detailData) {
-                    setDetails(detailData);
+        Promise.all([fetchDropdown, fetchDropdownsData])
+            .then(([dropdownResponse, dropdownsResponce]) => {
+                const responseData = dropdownResponse.data;
+                const responseDropdowns = dropdownsResponce.data;
+                console.log(responseDropdowns);
+                if (responseData && responseDropdowns) {
+                    setDetails(responseData);
+                    setDropdowns(responseDropdowns);
                 } else {
-                    setError(true);
+                    setError("Ma'lumotlar topilmadi");
                 }
+            })
+            .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
+            .finally(() => setLoading(false));
+    }, [slug  , i18n.language]);
 
-                setDropdowns(dropdownsResponse.data);
-                setNews(newsResponse.data);
-            } catch (err) {
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchDetailsAndDropdowns();
-    }, [slug]);
+    console.log(dropdowns);
 
     if (loading) {
         return (
@@ -76,25 +70,27 @@ const DetailsPage = () => {
     const siteTitle = details[`site_title_${i18n.language}`];
     const siteDetails = details[`site_details_${i18n.language}`];
 
-    const mainNews = news.filter((item) => item.is_main).slice(0, 2);
-    const latestNews = news.filter((item) => !item.is_main).slice(0, 4);
+    // const mainNews = news.filter((item) => item.is_main).slice(0, 2);
+    // const latestNews = news.filter((item) => !item.is_main).slice(0, 4);
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        arrows: false,
-        fade: true,
-    };
+    // const settings = {
+    //     dots: true,
+    //     infinite: true,
+    //     speed: 500,
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     autoplay: true,
+    //     autoplaySpeed: 3000,
+    //     arrows: false,
+    //     fade: true,
+    // };
 
     return (
         <div className={styles.pageContainer}>
             <div className={styles.contentContainer}>
-                <h1 className={styles.title}>{siteTitle}</h1>
+                <h1 className={styles.title}>
+                    {siteTitle}
+                    </h1>
                 <div
                     className={styles.content}
                     dangerouslySetInnerHTML={{
@@ -109,22 +105,17 @@ const DetailsPage = () => {
                         }),
                     }}
                 />
-                {details.image && (
-                    <img
-                        className={styles.image}
-                        src={details.image}
-                        alt="Detail Visual"
-                    />
-                )}
+                
             </div>
 
             <div className={styles.sidebar}>
-                <h3 className={styles.sidebarTitle}>{details.menu}</h3>
+                <h3 className={styles.sidebarTitle}>
+                    {details.menu?.[`name_${i18n.language}`]}
+                </h3>
                 <ul className={styles.menuList}>
-                    {dropdowns
-                        .filter((item) => item.menu === details.menu)
-                        .map((item) => (
-                            <li
+                    {dropdowns.length > 0 ? (
+                    dropdowns.map((item) => (
+                        <li
                                 key={item.id}
                                 className={`${styles.menuItem} ${
                                     item.slug === slug ? styles.active : ""
@@ -137,7 +128,12 @@ const DetailsPage = () => {
                                     {item[`site_title_${i18n.language}`]}
                                 </NavLink>
                             </li>
-                        ))}
+                        ))
+                    ) : (
+                        <li>{t("no_departments_found")}</li>
+                    )
+                    }
+
                 </ul>
                 <div className={styles.section}>
                     <h3>{t("socialMedias")}</h3>

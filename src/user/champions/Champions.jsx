@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {FaStar, FaTrophy, FaMedal, FaArrowRight} from "react-icons/fa";
 import {useTranslation} from "react-i18next";
-import {BaseURL} from "../home/BaseData";
+import {BaseURL, testUrl} from "../home/BaseData";
 
 const ChampionsBoard = () => {
     const [champions, setChampions] = useState([]);
@@ -14,7 +14,7 @@ const ChampionsBoard = () => {
     // Fetch data from API
     useEffect(() => {
         axios
-            .get(BaseURL + "api/students/champion-students/")
+            .get(testUrl + "/api/champion-students/")
             .then((response) => setChampions(response.data))
             .catch((error) => console.error("Error fetching champions data:", error));
     }, []);
@@ -69,10 +69,9 @@ const ChampionsBoard = () => {
                                     {champion[`surname_${i18n.language}`]}{" "}
                                     {/* Dynamically display name and surname */}
                                 </h3>
-                                <p className={styles.championPosition}>
-                                    {champion[`description_${i18n.language}`]}{" "}
-                                    {/* Dynamically display description */}
-                                </p>
+                                <div dangerouslySetInnerHTML={{
+                                     __html: champion[`description_${i18n.language}`],
+                }}/>
                                 <div className={styles.stars}>{renderStars(stars)}</div>
                             </div>);
                     })}

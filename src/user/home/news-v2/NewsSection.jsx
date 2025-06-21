@@ -67,7 +67,7 @@ export const NewsSection = () => {
                         <div
                             onClick={() => navigate("/news/" + news[0].id)}
                             className={classes["nmadur3"]}>
-                            <img className={classes["image3"]} src={testUrl + news[0].image} alt=""/>
+                            <img className={classes["image3"]} src={news[0].image} alt=""/>
                             <div className={classes["blanket"]}>
                                 <div className={classes["flex"]}>
                                     <h1>
@@ -94,7 +94,7 @@ export const NewsSection = () => {
 
                         {news.slice(1, 4).map((item, index) => (
                             <div key={index} className={classes["category_box"]}>
-                                <img src={testUrl + item.image} alt=""/>
+                                <img src={item.image} alt=""/>
                                 <div className={classes["category_event"]}>
                                     <h2>{getNewsTitle(item)}</h2>{" "}
                                     {/* Use dynamic title based on language */}

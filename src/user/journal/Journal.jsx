@@ -13,7 +13,7 @@ import {
     FaCheckCircle,
     FaPhone,
 } from "react-icons/fa";
-import {BaseURL} from "../home/BaseData";
+import {BaseURL, testUrl} from "../home/BaseData";
 import {Contacts} from "../contact/components/contact/Contact";
 import {useTranslation} from "react-i18next";
 
@@ -30,7 +30,7 @@ const Journal = () => {
     // Fetch journals
     useEffect(() => {
         fetch(
-            BaseURL + "api/journals/"
+            testUrl + "/api/journals/"
         )
             .then((res) => res.json())
             .then((data) => setJournals(data))

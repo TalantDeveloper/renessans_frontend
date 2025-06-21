@@ -9,7 +9,7 @@ import {
     FaArrowRight,
 } from "react-icons/fa";
 import {useTranslation} from "react-i18next";
-import {BaseURL} from "../home/BaseData";
+import {BaseURL, testUrl} from "../home/BaseData";
 
 const StudentsPage = () => {
     const [students, setStudents] = useState([]);
@@ -21,7 +21,7 @@ const StudentsPage = () => {
         const fetchStudents = async () => {
             try {
                 const response = await axios.get(
-                    BaseURL + "api/students/scholarship-holders/"
+                    testUrl + "/api/scholarship-holders/"
                 );
                 const formattedData = response.data.map((student) => ({
                     name: `${student[`name_${i18n.language}`]} ${
@@ -72,16 +72,19 @@ const StudentsPage = () => {
                                     <h3 className={styles.studentName}>
                                         <FaUserGraduate className={styles.icon}/> {student.name}
                                     </h3>
-                                    <p className={styles.scholarship}>
-                                        <FaAward className={styles.iconSmall}/>{" "}
-                                        {student.description}
-                                    </p>
-                                </div>
+                                    <div dangerouslySetInnerHTML={{
+                                    __html: student.description,
+                                      }}/>
+                                    </div>
                             </div>
 
                             <div className={styles.cardBack}>
                                 <p className={styles.description}>
-                                    {i18n.t("thisStudent")} <br/>"{student.description}"{" "}
+                                    {i18n.t("thisStudent")}
+                                    <div dangerouslySetInnerHTML={{
+                                        __html: student.description,
+                                    }}>
+                                    </div>
                                     {i18n.t("awardWinner")}
                                 </p>
                                 <p className={styles.year}>

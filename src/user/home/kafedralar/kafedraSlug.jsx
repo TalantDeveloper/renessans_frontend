@@ -47,6 +47,7 @@ const KafedraSlug = () => {
     const [results, setResults] = useState([]);
     console.log(results);
     const [directionsData, setDirectionsData] = useState([]);
+    const [backendSidebarData, setBackendSidebarData] = useState([]);
 
     useEffect(() => {
         setLoading(true);
@@ -54,6 +55,10 @@ const KafedraSlug = () => {
 
         const fetchKafedraData = axios.get(
             testUrl + "/api/departments/" + short_name
+        );
+        
+        const fetchBackendSidebarData = axios.get(
+            testUrl + "/api/activitiescategory" // Replace with your actual endpoint
         );
         
         // const fetchStatistics = async () => {
@@ -68,8 +73,8 @@ const KafedraSlug = () => {
         //     }
         // };
 
-        Promise.all([fetchKafedraData])
-            .then(([kafedraResponse]) => {
+        Promise.all([fetchKafedraData, fetchBackendSidebarData])
+            .then(([kafedraResponse, sidebarResponse]) => {
                 const kafedra = kafedraResponse.data;
                 if (kafedra) {
                     console.log(kafedra);
@@ -83,6 +88,11 @@ const KafedraSlug = () => {
                     // setKafedralar(faculty.kafedralar || [])
                 } else {
                     setError("Ma'lumotlar topilmadi");
+                }
+                
+                // Set backend sidebar data
+                if (sidebarResponse.data) {
+                    setBackendSidebarData(sidebarResponse.data);
                 }
             })
             .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
@@ -244,7 +254,8 @@ const KafedraSlug = () => {
                         </div>
                 
                         <div className={classes.imageWrapper}>
-                            <img src={testUrl + boss.employee?.image} // Fallback to default image if not available
+                            <img src={
+                                boss.employee?.image} // Fallback to default image if not available
                                  alt={boss.employee[`name_${i18n.language}`]}
                                  className={classes.logo}/>
                         </div>
@@ -323,7 +334,7 @@ const KafedraSlug = () => {
                             </div>
 
                             <div className={classes.imageWrapper}>
-                                <img src={testUrl + employee.employee.image} // Fallback to default image if not available
+                                <img src={employee.employee.image} // Fallback to default image if not available
                                      alt={employee.employee[`name_${i18n.language}`]}
                                      className={classes.logo}/>
                             </div>
@@ -410,6 +421,30 @@ const KafedraSlug = () => {
                         )}
                         </div>
                     </div>
+                </div>
+                
+                {/* Duplicate Sidebar - Inside sidebar-wrapper */}
+                <div className={classes.sidebar}>
+                    <ul style={{listStyle: 'none', padding: 0}}>
+                        {backendSidebarData.length > 0 ? (
+                            backendSidebarData.map((item, index) => (
+                                <li
+                                    onClick={() => navigate(`/activities/${short_name}/${item.short_name}/`)}
+                                    key={item.id}
+                                    style={{marginBottom: '10px'}}
+                                    className={item.short_name === short_name ? classes.active : ''}
+                                >
+                                    <span
+                                        style={{cursor: 'pointer', color: '#133654'}}
+                                    >
+                                        {getDepartmentName(item)}
+                                    </span>
+                                </li>
+                            ))
+                        ) : (
+                            <li>{t("no_kafedra_found")}</li>
+                        )}
+                    </ul>
                 </div>
                 
                 

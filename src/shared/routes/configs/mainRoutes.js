@@ -50,6 +50,7 @@ import News from "../../../user/home/new/News";
 import NewsCategories from "../../../user/home/new/newsCategories";
 import NewsDetails from "../../../user/home/new/Batafsil";
 import Partners from "../../../user/home/partners/Partners";
+import CategoryActivities from "../../../user/home/categoryActivities/CategoryActivities";
 
 export const mainRoutes = [
     {
@@ -348,6 +349,13 @@ export const mainRoutes = [
         exact: true,
         visibleInNavbar: false,
         element: <DirectionDetails />,
+    },
+    {
+        text: "Category Activities",
+        path: "/activities/:dep_name/:short_name/",
+        exact: true,
+        visibleInNavbar: false,
+        element: <CategoryActivities />,
     },
     // {
     //     text: "Yangiliklar",

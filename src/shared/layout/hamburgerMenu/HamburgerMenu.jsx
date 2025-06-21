@@ -11,21 +11,19 @@ const dropdownItems = {
     { path: "/about", text: "Universitet haqida" },
     { path: "/management", text: "Rahbariyat" },
     { path: "/structure", text: "Universitet tuzilmasi" },
-    { path: "/international-cooperation", text: "Xalqaro hamkorlik" },
     { path: "/faculties", text: "Kafedra va fakultetlar" },
+    { path: "/directions", text: "Yo'nalishlar" },
     { path: "/centers", text: "center"},
     { path: "/dropdown/oquv-binolari", text: "O'quv binolari" },
     { path: "/dropdown/green-renessans", text: "Green Renessans" },
-    { path: "/directions", text: "Yo'nalishlar" },
   ],
   ilmiyFaoliyat: [
     {
       text: "Ilmiy faoliyat",
       children: [
-        { path: "/journal", text: "Ilmiy jurnal" },
-        { path: "https://conference.renessans-edu.uz/", text: "Konferensiyalar" },
         { path: "/dropdown/ilmiy-loyihalar", text: "Ilmiy loyihalar" },
-        { path: "/dropdown/ilmiy-maktablar", text: "Ilmiy maktablar" }
+        { path: "/dropdown/ilmiy-maktablar", text: "Ilmiy maktablar" },
+        { path: "/science-counsil", text: "Ilmiy kengash" },
       ]
     },
     {
@@ -63,7 +61,7 @@ const dropdownItems = {
     { path: "about-uni", text: "Talabalar hayoti" },
     { path: "/dropdown/imtiyozlar", text: "Imtiyozlar" },
     { path: "/our-campions", text: "Universitet chempionlari" },
-    { path: "/university-union", text: "University union" },
+    { path: "/university-union", text: "universityUnion" },
     { path: "/library", text: "Kutubxona" },
   ],
   hamkorlik: [
@@ -71,23 +69,22 @@ const dropdownItems = {
       text: "Xalqaro hamkorlik",
       children: [
         { path: "/international-cooperation", text: "Xalqaro aloqalar" },
-        { path: "/dropdown/xalqaro-hamkor-tashkilotlar", text: "Xalqaro hamkor tashkilotlar" },
+        { path: "/partners", text: "partners" },
       ]
     },
     {
       text: "Mahalliy hamkorlik",
       children: [
-        { path: "/international-cooperation/2", text: "Mahalliy hamkorlik" },
-        { path: "/dropdown/xalqaro-malaka-oshirish-va-talim", text: "Xorijda ta'lim" },
+        { path: "/cooperations/mahalliy-hamkorliklar", text: "Mahalliy hamkorlik" },
       ]
     },
   ],
   bizningFaoliyat: [
     { path: "/news", text: "Yangiliklar" },
-    { path: "/anons", text: "Muhim sanalar" },
-    { path: "/confession", text: "Xalqaro ekspertlarning fikrlari" },
     { path: "/announce", text: "E'lonlar" },
-    { path: "/contact", text: "Bog'lanishlar" }
+    { path: "/anons", text: "Muhim sanalar" },
+    { path: "/contact", text: "Bog'lanishlar" },
+    { path: "/confession", text: "Xalqaro ekspertlarning fikrlari" }
   ],
 };
 

@@ -110,63 +110,63 @@ const Rahbariyat = () => {
                     />
                   </div>
                   <div
-                    className={`${classes.dropdownContent} ${
-                      openDropdown[leader.id]?.responsibilities
-                        ? classes.show
-                        : ""
-                    }`}
-                  >
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: leader.employee[`specialization_${i18n.language}`],
-                      }}
-                    />
-                  </div>
-                </div>
-
-                {/* Image Section */}
-                <div className={classes.imageWrapper}>
-                  <img
-                    src={leader.employee.image || Rektor} // Fallback to default image if not available
-                    alt={leader.employee[`name_${i18n.language}`]}
-                    className={classes.logo}
+                  className={`${classes.dropdownContent} ${
+                    openDropdown[leader.id]?.responsibilities
+                      ? classes.show
+                      : ""
+                  }`}
+                >
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: leader.employee[`specialization_${i18n.language}`],
+                    }}
                   />
                 </div>
               </div>
-            </div>
-          ))
-        ) : (
-          <p>{t("loading")}</p>
-        )}
-      </div>
 
-      <div className={classes.sidebar}>
-        <h3>{t("university")}</h3>
-        <ul>
-          <li onClick={() => navigate("/about")}>{t("about_university")}</li>
-          <li
-            className={classes.active}
-            onClick={() => navigate("/management")}
-          >
-            <span className={classes.icon}>▶</span>
-            {t("management")}
-          </li>
-          <li onClick={() => navigate("/structure")}>{t("structure")}</li>
-          <li onClick={() => navigate("/cooperations/xalqaro-hamkorliklar")}>
-            {t("international_cooperation")}
-          </li>
-          <li onClick={() => navigate("/faculties")}>{t("faculties")}</li>
-          <li onClick={() => navigate("/anons")}>{t("events")}</li>
-          <li
-            onClick={() => navigate("/statistics")}
-            className={classes.dropdownToggle}
-          >
-            {t("statistics")}
-          </li>
-        </ul>
-      </div>
+              {/* Image Section */}
+              <div className={classes.imageWrapper}>
+                <img
+                  src={leader.employee.image || Rektor} // Fallback to default image if not available
+                  alt={leader.employee[`name_${i18n.language}`]}
+                  className={classes.logo}
+                />
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p>{t("loading")}</p>
+      )}
     </div>
-  );
+
+    <div className={classes.sidebar}>
+      <h3>{t("university")}</h3>
+      <ul>
+        <li onClick={() => navigate("/about")}>{t("about_university")}</li>
+        <li
+          className={classes.active}
+          onClick={() => navigate("/management")}
+        >
+          <span className={classes.icon}>▶️</span>
+          {t("management")}
+        </li>
+        <li onClick={() => navigate("/structure")}>{t("structure")}</li>
+        <li onClick={() => navigate("/cooperations/xalqaro-hamkorliklar")}>
+          {t("international_cooperation")}
+        </li>
+        <li onClick={() => navigate("/faculties")}>{t("faculties")}</li>
+        <li onClick={() => navigate("/anons")}>{t("events")}</li>
+        <li
+          onClick={() => navigate("/statistics")}
+          className={classes.dropdownToggle}
+        >
+          {t("statistics")}
+        </li>
+      </ul>
+    </div>
+  </div>
+);
 };
 
 export default Rahbariyat;
