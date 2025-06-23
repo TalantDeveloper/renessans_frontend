@@ -94,12 +94,14 @@ const Navbar = () => {
 
   const xalqaro1 = [
     { path: "/cooperations/mahalliy-hamkorliklar", text: t("Mahalliy hamkorlik") },
-  ];
-
-  const xalqaro2 = [
     { path: "/cooperations/xalqaro-hamkorliklar", text: t("Xalqaro aloqalar") },
     { path: "/partners", text: t("partners") },
   ];
+
+  // const xalqaro2 = [
+  //   { path: "/cooperations/xalqaro-hamkorliklar", text: t("Xalqaro aloqalar") },
+  //   { path: "/partners", text: t("partners") },
+  // ];
 
   useEffect(() => {
     const fetchMenus = async () => {
@@ -167,11 +169,11 @@ const Navbar = () => {
           <button className={classes.elabButton}>E-LAB ▾</button>
           {showElabDropdown && (
             <div className={classes.elabDropdown}>
-              <a href="https://virtual-lab-link" className={classes["dropdown-item"]}rel="noopener noreferrer">
+              <a href="https://virtual-lab-link" className={classes["dropdown-item1"]}rel="noopener noreferrer">
                 {t("virtual labaratoriya")}
               </a>
-              <a href="https://t.me/your_telegram" className={classes["dropdown-item"]} rel="noopener noreferrer">
-                TELEGRAM
+              <a href="https://lib.renessans-edu.uz/uz/library/1" className={classes["dropdown-item1"]} rel="noopener noreferrer">
+                E-LIB
               </a>
             </div>
           )}
@@ -297,16 +299,12 @@ const Navbar = () => {
                       <div
                         className={`${classes["dropdown3"]} ${classes["open"]}`}
                       >
-                        {[xalqaro2, xalqaro1].map(
+                        {[ xalqaro1].map(
                           (staticItems, columnIndex) => (
                             <div
                               className={classes["dropdown-column"]}
                               key={columnIndex}
                             >
-                              <div className={classes["dropdown-category"]}>
-                                {columnIndex === 0 && t("Xalqaro hamkorlik")}
-                                {columnIndex === 1 && t("Mahalliy hamkorlik")}
-                              </div>
                               {staticItems.map((item, index) => (
                                 item.path.startsWith('http') ? (
                                   <a

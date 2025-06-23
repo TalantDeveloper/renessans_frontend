@@ -52,6 +52,8 @@ import NewsDetails from "../../../user/home/new/Batafsil";
 import Partners from "../../../user/home/partners/Partners";
 import CategoryActivities from "../../../user/home/categoryActivities/CategoryActivities";
 import Documents from "../../../user/home/documents/Documents";
+import Activities from "../../../user/home/activities/Activities";
+import ActivityDetail from "../../../user/home/activities/ActivityDetails";
 
 export const mainRoutes = [
     {
@@ -195,6 +197,20 @@ export const mainRoutes = [
         exact: true,
         visibleInNavbar: false,
         element: <InternationalParent/>,
+    },
+    {
+        text: "Faoliyatlar",
+        path: "/activities/:short_name",
+        exact: true,
+        visibleInNavbar: false,
+        element: <Activities/>,
+    },
+    {
+        text: "Faoliyatlar",
+        path: "/activity/:short_name",
+        exact: true,
+        visibleInNavbar: false,
+        element: <ActivityDetail/>,
     },
     // {
     //     text: "Fakultetlar",
