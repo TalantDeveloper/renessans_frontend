@@ -17,7 +17,9 @@ const CertificateVerification = () => {
                 <a
                     target="blank"
                     href="https://document.licenses.uz/certificate/uuid/4ce5addd-44f3-4079-95ea-9e7c9676a427/pdf?language=oz&download">
-                    <button className={styles.button}>{t("viewLicense")}</button>
+                    <button className={styles.button}>
+                        {t("viewLicense")}
+                    </button>
                 </a>
                 <a
                     target="blank"

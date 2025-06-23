@@ -8,6 +8,8 @@ import navbarLogo from "./main-logo.svg";
 import navbarLogoEng from "./logo eng.svg";
 import navbarLogoRu from "./logo rus.svg";
 import axios from "axios";
+import { testUrl } from "../../../user/home/BaseData";
+// import litsenziya from "./litsenziya.pdf"
 
 // import ZoomSelector from "../../utils/my/ZoomSelector";
 // import AudioDictorButton from "../../utils/my/AudioDictorButton";
@@ -22,18 +24,23 @@ const Navbar = () => {
   const [menus, setMenus] = useState([]);
   const [dropdowns, setDropdowns] = useState([]);
   const [showDropdown, setShowDropdown] = useState(null);
+  const [showElabDropdown, setShowElabDropdown] = useState(false);
   // const navigate = useNavigate();
 
   const staticDropdownItems = [
-    { path: "/statistics", text: t("RTU raqamlarda") },
     { path: "/about", text: t("Universitet haqida") },
-    { path: "/management", text: t("Rahbariyat") },
     { path: "/structure", text: t("Universitet tuzilmasi") },
-    { path: "/faculties", text: t("Kafedra va fakultetlar") },
+    
+    { path: "/statistics", text: t("RTU raqamlarda") },
     { path: "/centers", text: t('center') },
-    { path: "/directions", text: t("Yo'nalishlar") },
+    
+    { path: "/management", text: t("Rahbariyat") },
+    { path: "/faculties", text: t("Kafedra va fakultetlar") }, 
     { path: "/dropdown/oquv-binolari", text: t("O'quv binolari") },
-    { path: "/dropdown/green-renessans", text: t("Green Renessans") },
+    { path: "/directions", text: t("Yo'nalishlar") },
+    { path: "/documents", text: t("document") },
+    { path: "/dropdown/bosh-ish-orinlari/", text: t("free jobs") },
+    // { path: litsenziya, text: t("litsenziya")},
   ];
 
   const staticItemsColumn1 = [
@@ -42,6 +49,7 @@ const Navbar = () => {
     { path: "/dropdown/ilmiy-loyihalar", text: t("Ilmiy loyihalar") },
     { path: "/dropdown/ilmiy-maktablar", text: t("Ilmiy maktablar") },
     { path: "/science-counsil", text: t("Ilmiy kengash") },
+    { path: "/dropdown/green-renessans", text: t("Green Renessans") },
   ];
 
   const staticItemsColumn2 = [
@@ -149,6 +157,25 @@ const Navbar = () => {
         <a href="https://conference.renessans-edu.uz/">{t("conference")}</a>
         <a href="/journal">{t("journal")}</a>
         <a href="/">{t("acceptance")}</a>
+        
+        <div
+          className={classes.elabDropdownWrapper}
+          onMouseEnter={() => setShowElabDropdown(true)}
+          onMouseLeave={() => setShowElabDropdown(false)}
+          style={{ display: "inline-block", position: "relative" }}
+        >
+          <button className={classes.elabButton}>E-LAB ▾</button>
+          {showElabDropdown && (
+            <div className={classes.elabDropdown}>
+              <a href="https://virtual-lab-link" className={classes["dropdown-item"]}rel="noopener noreferrer">
+                {t("virtual labaratoriya")}
+              </a>
+              <a href="https://t.me/your_telegram" className={classes["dropdown-item"]} rel="noopener noreferrer">
+                TELEGRAM
+              </a>
+            </div>
+          )}
+        </div>
       </div>
       <div className={classes["navbar-wrapper"]}>
         <div className={classes["navbar"]}>
@@ -181,6 +208,13 @@ const Navbar = () => {
                           {t(item.text)}
                         </NavLink>
                       ))}
+                      <a href={testUrl + "/media/litsenziya.pdf"}
+                        onClick={testUrl + "/media/litsenziya.pdf"}
+                        className={classes["dropdown-item"]}
+                      >
+                        {t("Litsensiya")}
+                      </a>
+                      
 
                     {menu.id === 2 && (
                       <div

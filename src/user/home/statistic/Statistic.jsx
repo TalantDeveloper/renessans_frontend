@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 
 import classes from "./Statistic.module.css";
 import ParticlesConfig from "../../../shared/components/particles/particles-config";
-import {BaseURL} from "../BaseData";
+import {testUrl} from "../BaseData";
 
 export const Statistic = () => {
     const {t} = useTranslation();
@@ -16,7 +16,7 @@ export const Statistic = () => {
         const fetchData = async () => {
             try {
                 const response = await fetch(
-                    BaseURL + "api/ourStatistics/"
+                    testUrl + "/api/statistics/"
                 );
                 const data = await response.json();
                 setStatistics(data);

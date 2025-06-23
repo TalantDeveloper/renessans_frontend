@@ -51,6 +51,7 @@ import NewsCategories from "../../../user/home/new/newsCategories";
 import NewsDetails from "../../../user/home/new/Batafsil";
 import Partners from "../../../user/home/partners/Partners";
 import CategoryActivities from "../../../user/home/categoryActivities/CategoryActivities";
+import Documents from "../../../user/home/documents/Documents";
 
 export const mainRoutes = [
     {
@@ -392,6 +393,13 @@ export const mainRoutes = [
         exact: true,
         visibleInNavbar: false,
         element: <Department/>,
+    },
+    {
+        text: "Normativ-huquqiy hujjatlar",
+        path: "/documents",
+        exact: true,
+        visibleInNavbar: false,
+        element: <Documents/>,
     },
     {
         text: "Bo'lim va markazlar",
