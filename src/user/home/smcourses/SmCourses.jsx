@@ -65,8 +65,12 @@ const Department = () => {
         <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.headerLeft}>
-                    <h1>{t("topDepartments")}</h1>
-                    <p>{t("popularCoursesMessage")}</p>
+                    <h1>
+                        {t("topDepartments")}
+                    </h1>
+                    <p>
+                        {t("popularCoursesMessage")}
+                    </p>
                 </div>
                 <a onClick={() => navigate("/directions")} className={styles.viewAll}>
                     {t("viewAllCourses")} <span className={styles.arrow}>→</span>

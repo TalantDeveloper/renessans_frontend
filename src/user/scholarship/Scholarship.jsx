@@ -97,25 +97,27 @@ const StudentsPage = () => {
                 </div>
             </div>
             <div className={styles.sidebar}>
-                <h3>{i18n.t("university")}</h3>
+                <h3>{i18n.t("Talabalarga")}</h3>
                 <ul>
-                    <li onClick={() => navigate("/about-uni")}>
-                        {i18n.t("studentsLife")}
+                    <li onClick={() => navigate("/activity/talabalarga/bmi-mavzular")}>
+                        {i18n.t("BMI mavzular")}
                     </li>
-                    <li onClick={() => navigate("/our-campions")}>
-                        {i18n.t("ourChampions")}
+                    <li onClick={() => navigate("/activity/talabalarga/karyera")}>
+                        {i18n.t("Karyera")}
                     </li>
-                    <li onClick={() => navigate("/good-st")}>
-                        {i18n.t("universityExcellence")}
+                    <li onClick={() => navigate("/activity/talabalarga/talabalar-turar-joyi")}>
+                        {i18n.t("Talabalar turar joyi")}
                     </li>
+                    <li onClick={() => navigate("/activity/talabalarga/alochi-talabalar")}>
+                        {i18n.t("A'lochi talabalar")}
+                    </li>
+                    
                     <li onClick={() => navigate("/university-union")}>
                         {i18n.t("universityUnion")}
                     </li>
-                    <li
-                        className={styles.active}
-                        onClick={() => navigate("/scholarship")}
-                    >
-                        <FaArrowRight className={styles.sidebarIcon}/>
+                    <li 
+                            className={styles.active}
+                        >
                         {i18n.t("ourScholarship")}
                     </li>
                 </ul>

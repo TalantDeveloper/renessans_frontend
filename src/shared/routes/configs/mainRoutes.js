@@ -55,6 +55,7 @@ import Documents from "../../../user/home/documents/Documents";
 import Activities from "../../../user/home/activities/Activities";
 import ActivityDetail from "../../../user/home/activities/ActivityDetails";
 import CertificateVerification from "../../../user/home/schools/Schools";
+import BaseActivities from "../../../user/home/activities/baseActivities";
 
 export const mainRoutes = [
     {
@@ -201,10 +202,17 @@ export const mainRoutes = [
     },
     {
         text: "Faoliyatlar",
-        path: "/activities/:short_name",
+        path: "/activity/:cat_name/:short_name",
         exact: true,
         visibleInNavbar: false,
         element: <Activities/>,
+    },
+    {
+        text: "Faoliyatlar",
+        path: "/baseactivities/:short_name",
+        exact: true,
+        visibleInNavbar: false,
+        element: <BaseActivities/>,
     },
     {
         text: "Faoliyatlar",

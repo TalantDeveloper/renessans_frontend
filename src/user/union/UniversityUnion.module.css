@@ -193,7 +193,7 @@ input:focus {
 .sidebar {
   position: sticky;
   width: 400px;
-  height: 400px;
+  height: 500px;
   background: #ffffff;
   padding: 25px;
   border-radius: 15px;

@@ -12,27 +12,26 @@ import { testUrl } from "../BaseData";
 import Pagination from "@mui/material/Pagination";
 
 
-const Activities = () => {
-  const {cat_name, short_name} = useParams();
+const BaseActivities = () => {
+  const {short_name} = useParams();
   const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const currentLang = i18n.language;
   const [pageApi, setPageApi] = useState(1);
-  const [category, setCategory] = useState(null);
-  const [activitiesTypes, setActivitiesTypes] = useState([]);
-  const [activitiesPost, setActivitiesPost] = useState([]);
-  const [activity, setActivity] = useState([]);
   const itemsPerPage = 9;
-
+  const [activitiesCategories, setActivitiesCategories] = useState([]);
+  const [category, setCategory] = useState(null);
+  const [activityTypes, setActivityTypes] = useState([]);
+  const [activitiesPost, setActivitiesPost] = useState([]);
 
   useEffect(() => {
     setLoading(true);
     setError(null);
 
     const fetchFacultyData = axios.get(
-        testUrl + `/api/baseactivity/${cat_name}/${short_name}`
+        testUrl + "/api/baseactivity/" + short_name
     );
     
     Promise.all([fetchFacultyData])
@@ -40,10 +39,8 @@ const Activities = () => {
             const faculty = facultyResponse.data;
             if (faculty) {
                 setCategory(faculty?.category);
-                setActivitiesTypes(faculty?.activities_types);
-                setActivitiesPost(faculty?.activities_post);
-                setActivity(faculty?.activity);
-
+                setActivityTypes(faculty.activity_types || []);
+                setActivitiesPost(faculty.activities_post || []);
             } else {
                 setError("Ma'lumotlar topilmadi");
             }
@@ -52,6 +49,7 @@ const Activities = () => {
         .finally(() => setLoading(false));
 }, [short_name, i18n.language]);
 
+  
   // Pagination logic
   const indexOfLastItem = pageApi * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -60,9 +58,9 @@ const Activities = () => {
   return (
     <div className={classes["mainContainer"]}>
       <div data-aos="fade-up" className={classes["container"]}>
-        <h1 className={classes["page-title"]}>
-          {activity ? activity[`name_${i18n.language}`] : "Error page"}
-        </h1>
+        {/* <h1 className={classes["page-title"]}>
+            {t("Ilmiy maktablar faoliyati")}
+        </h1> */}
         {loading ? (
           <div>Loading...</div>
         ) : error ? (
@@ -100,13 +98,13 @@ const Activities = () => {
       </div>
       <div className={classes.sidebar}>
         <h3>
-          {category ? category[`name_${i18n.language}`] : "Error page"}
-          </h3>
+            {category ? category[`name_${i18n.language}`] : "Error page"}
+        </h3>
         <ul>
-          {activitiesTypes.map((cat) => (
+          {activityTypes.map((cat) => (
             <li
               key={cat.id}
-              className={cat.short_name === short_name ? classes.active : ''}
+              
               onClick={() => navigate(`/activity/${category.short_name}/${cat.short_name}`)}
             >
               {cat[`name_${currentLang}`]}
@@ -118,4 +116,4 @@ const Activities = () => {
   );
 };
 
-export default Activities;
+export default BaseActivities;

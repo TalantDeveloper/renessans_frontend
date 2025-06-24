@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next"; // Import the hook
 import styles from "./UniversityUnion.module.css";
 import DefaultImg4 from "./2023-07-13-14-11-45_6ab33211e536c0992de38e18309da348.jpeg";
+import { testUrl } from "../home/BaseData";
 
 const UniversityUnion = () => {
     const {t, i18n} = useTranslation();
@@ -25,39 +26,23 @@ const UniversityUnion = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [clubsRes, fieldsRes, categoriesRes] = await Promise.all([
-                    fetch("https://sayt.renessans-edu.uz/api/union/clubs/"),
-                    fetch("https://sayt.renessans-edu.uz/api/union/fields/"),
-                    fetch("https://sayt.renessans-edu.uz/api/union/categories/"),
+                const [clubsRes, ] = await Promise.all([
+                    fetch(testUrl + "/api/club-students/")
                 ]);
 
-                const [clubsData, fieldsData, categoriesData] = await Promise.all([
+                const [clubsData] = await Promise.all([
                     clubsRes.json(),
-                    fieldsRes.json(),
-                    categoriesRes.json(),
                 ]);
 
                 setClubs(clubsData);
-                setFields(fieldsData);
-                setCategories(categoriesData);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         };
-
         fetchData();
     }, []);
 
-    const getFieldNames = (fieldIds) =>
-        fieldIds.map(
-            (id) =>
-                fields.find((field) => field.id === id)?.[`name_${i18n.language}`] || ""
-        );
-
-    const getCategoryName = (categoryId) =>
-        categories.find((category) => category.id === categoryId)?.[
-            `name_${i18n.language}`
-            ] || "";
+    
 
     const defaultImages = [DefaultImg4];
 
@@ -149,24 +134,24 @@ const UniversityUnion = () => {
                                     alt={club[`title_${i18n.language}`]}
                                     className={styles.clubImage}
                                 />
-                                <p className={styles.clubGoal}>
-                                    <strong>{t("goal")}:</strong> {club[`goal_${i18n.language}`]}
-                                </p>
+                                <div dangerouslySetInnerHTML={{
+                                   __html: club[`goal_${i18n.language}`],
+                                     }}/>
                                 <p className={styles.clubTutor}>
                                     <strong>{t("tutor")}:</strong>{" "}
                                     {club[`tutor_${i18n.language}`]}
                                 </p>
                                 <p className={styles.clubCategory}>
                                     <strong>{t("category")}:</strong>{" "}
-                                    {getCategoryName(club.category)}
+                                    {club?.category[`name_${i18n.language}`]}
                                 </p>
                                 <p className={styles.clubFields}>
                                     <strong>{t("fields")}:</strong>
                                 </p>
                                 <ul className={styles.fieldsList}>
-                                    {getFieldNames(club.fields).map((field, index) => (
+                                    {club?.fields?.map((field, index) => (
                                         <li key={index} className={styles.field}>
-                                            {field}
+                                            {field[`name_${i18n.language}`]}
                                         </li>
                                     ))}
                                 </ul>
@@ -249,32 +234,30 @@ const UniversityUnion = () => {
             {/* Sidebar */}
             <div className={styles.sidebar}>
                 <h3>
-                    {t("Universitet")}
+                    {t("Talabalarga")}
                 </h3>
                 <ul>
-                    <li onClick={() => navigate("/about-uni")}>
-                        {t("studentsLife")}
-
+                    <li onClick={() => navigate("/activity/talabalarga/bmi-mavzular")}>
+                        {i18n.t("BMI mavzular")}
                     </li>
-                    <li onClick={() => navigate("/our-campions")}>
-                        {t("ourChampions")}
-
+                    <li onClick={() => navigate("/activity/talabalarga/karyera")}>
+                        {i18n.t("Karyera")}
                     </li>
-                    <li onClick={() => navigate("/good-st")}>
-                        {t("universityExcellence")}
-
+                    <li onClick={() => navigate("/activity/talabalarga/talabalar-turar-joyi")}>
+                        {i18n.t("Talabalar turar joyi")}
+                    </li>
+                    <li onClick={() => navigate("/activity/talabalarga/alochi-talabalar")}>
+                        {i18n.t("A'lochi talabalar")}
                     </li>
                     <li
-                        className={styles.active}
-                        onClick={() => navigate("/university-union")}
+                        onClick={() => navigate("/scholarship")}
                     >
-                        {t("universityUnion")}
-
+                        {i18n.t("ourScholarship")}
                     </li>
-                    <li onClick={() => navigate("/scholarship")}>
-                        {t("ourScholarship")}
-
+                    <li className={styles.active}>
+                        {i18n.t("universityUnion")}
                     </li>
+                    
                 </ul>
             </div>
         </div>

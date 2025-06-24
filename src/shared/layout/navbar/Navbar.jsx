@@ -47,20 +47,20 @@ const Navbar = () => {
   const staticItemsColumn1 = [
     // { path: "/journal", text: t("Ilmiy jurnal") },
     // { path: "https://conference.renessans-edu.uz/", text: t("Konferensiyalar") },
-    { path: "/dropdown/ilmiy-loyihalar", text: t("Ilmiy loyihalar") },
-    { path: "/activities/ilmiy-maktablar", text: t("Ilmiy maktablar") },
-    { path: "/science-counsil", text: t("Ilmiy kengash") },
-    { path: "/dropdown/green-renessans", text: t("Green Renessans") },
-    { path: "/activities/oquv-va-labaratoriya-bazalari", text: t("O‘quv va labaratoriya bazalari") },
+    { path: "/activity/ilmiy-faoliyat/ilmiy-loyihalar", text: t("Ilmiy loyihalar") },
+    { path: "/activity/ilmiy-faoliyat/ilmiy-maktablar", text: t("Ilmiy maktablar") },
+    { path: "/activity/ilmiy-faoliyat/ilmiy-kengash", text: t("Ilmiy kengash") },
+    { path: "/activity/ilmiy-faoliyat/green-renessans", text: t("Green Renessans") },
+    { path: "/activity/ilmiy-faoliyat/oquv-va-labaratoriya-bazalari", text: t("O‘quv va labaratoriya bazalari") },
   ];
 
   const staticItemsColumn2 = [
-    { path: "/activities/manaviyat-va-marifat-kengashi", text: t("Ma’naviyat va ma’rifat Kengashi") },
-    { path: "/activities/fan-va-jamoat-arboblari-bilan-muloqotlar", text: t("Fan va jamoat arboblari bilan muloqotlar") },
-    { path: "/activities/sport-klubi-hayoti", text: t("Sport klubi hayoti") },
-    { path: "/activities/manaviy-marifiy-tadbirlar", text: t("Ma’naviy-ma’rifiy tadbirlar") },
-    { path: "/activities/murabbiylar-faoliyati", text: t("Murabbiylar faoliyati") },
-    { path: "/activities/tanlovlar", text: t("Tanlovlar") },
+    { path: "/activity/manaviy-marifiy-faoliyat/manaviyat-va-marifat-kengashi", text: t("Ma’naviyat va ma’rifat Kengashi") },
+    { path: "/activity/manaviy-marifiy-faoliyat/fan-va-jamoat-arboblari-bilan-muloqotlar", text: t("Fan va jamoat arboblari bilan muloqotlar") },
+    { path: "/activity/manaviy-marifiy-faoliyat/sport-klubi-hayoti", text: t("Sport klubi hayoti") },
+    { path: "/activity/manaviy-marifiy-faoliyat/manaviy-marifiy-tadbirlar", text: t("Ma’naviy-ma’rifiy tadbirlar") },
+    { path: "/activity/manaviy-marifiy-faoliyat/murabbiylar-faoliyati", text: t("Murabbiylar faoliyati") },
+    { path: "/activity/manaviy-marifiy-faoliyat/tanlovlar", text: t("Tanlovlar") },
     // { path: "/about-uni", text: t("Talabalar hayoti") },
     // { path: "/university-union", text: t("universityUnion") },
     // { path: "/dropdown/murabbiylik-faoliyati", text: t("Murabbiylik faoliyati") },
@@ -69,31 +69,35 @@ const Navbar = () => {
   ];
 
   const staticItemsColumn3 = [
-    { path: "/activities/oquv-jarayoni", text: t("Oʻquv jarayoni") },
-    { path: "/activities/talim-jarayoni-meyoriy-hujjatlari", text: t("Ta'lim jarayoni me'yoriy hujjatlari") },
-    { path: "/activities/video-maruzalar", text: t("Video ma'ruzalar") },
-    { path: "/activities/amaliyot-shartnomalari", text: t("Amaliyot shartnomalari") },
-    { path: "/dropdown/oquv-rejalari", text: t("O'quv rejalari") },
-    { path: "/dropdown/nazorat-sinovlari", text: t("Nazorat sinovlari") },
-    { path: "/dropdown/nazorat-sinovlari", text: t("BMI mavzulari") },
+    { path: "/activity/oquv-faoliyat/oquv-jarayoni", text: t("Oʻquv jarayoni") },
+    { path: "/activity/oquv-faoliyat/talim-jarayoni-meyoriy-hujjatlari", text: t("Ta'lim jarayoni me'yoriy hujjatlari") },
+    { path: "/activity/oquv-faoliyat/video-maruzalar", text: t("Video ma'ruzalar") },
+    { path: "/activity/oquv-faoliyat/amaliyot-shartnomalari", text: t("Amaliyot shartnomalari") },
+    { path: "/activity/oquv-faoliyat/oquv-rejalari", text: t("O'quv rejalari") },
+    { path: "/activity/oquv-faoliyat/nazorat-sinovlari", text: t("Nazorat sinovlari") },
+    // { path: "/dropdown/nazorat-sinovlari", text: t("BMI mavzulari") },
   ];
 
-  const staticItemsColumn4 = [
-    { path: "/dropdown/yosh-akademiklar", text: t("Yosh akademiklar") },
-    { path: "/dropdown/zakovat-klubi", text: t("Zakovat klubi") },
-    { path: "/dropdown/talabalar-turar-joyi", text: t("Talabalar turar joyi") },
-    { path: "/dropdown/sport-klubi", text: t("Sport klubi") },
-    { path: "/dropdown/axborot-resurs-markazi", text: t("Axborot resurs markazi") },
-  ];
+  // const staticItemsColumn4 = [
+  //   { path: "/dropdown/yosh-akademiklar", text: t("Yosh akademiklar") },
+  //   { path: "/dropdown/zakovat-klubi", text: t("Zakovat klubi") },
+  //   { path: "/dropdown/talabalar-turar-joyi", text: t("Talabalar turar joyi") },
+  //   { path: "/dropdown/sport-klubi", text: t("Sport klubi") },
+  //   { path: "/dropdown/axborot-resurs-markazi", text: t("Axborot resurs markazi") },
+  // ];
 
   const studentStaticItems = [
-    { path: "/good-st", text: t("Bizning a'lochilar") },
-    { path: "/our-campions", text: t("Bizning chempionlar") },
-    { path: "/scholarship", text: t("Stipendiantlar") },
+    { path: "/baseactivities/talabalar-hayoti/", text: t("Talabalar hayoti") },
+    { path: "/activity/talabalarga/karyera/", text: t("Karyera") },
+    { path: "/activity/talabalarga/bmi-mavzular/", text: t("BMI mavzular") },
     { path: "/university-union", text: t("universityUnion") },
-    { path: "/dropdown/imtiyozlar", text:t("Imtiyozlar") },
-    { path: "/about-uni", text: t("Talabalar hayoti") },
-    { href: "/library", text: t("Kutubxona") },
+    { path: "/activity/talabalarga/talabalar-turar-joyi", text: t("Talabalar turar joyi") },
+    { path: "/activity/talabalarga/alochi-talabalar", text: t("A'lochi talabalar") },
+    
+    { path: "/scholarship", text: t("Stipendiantlar") },
+    // { path: "/dropdown/imtiyozlar", text:t("Imtiyozlar") },
+    // { path: "/about-uni", text: t("Talabalar hayoti") },
+    // { href: "/library", text: t("Kutubxona") },
   ];
 
   const newsStaticItems = [
@@ -105,8 +109,8 @@ const Navbar = () => {
 
   const xalqaro1 = [
     // { path: "/cooperations/mahalliy-hamkorliklar", text: t("Mahalliy hamkorlik") },
-    { path: "/cooperations/xalqaro-hamkorliklar", text: t("Xalqaro aloqalar") },
-    { path: "activities/xorijda-talim", text: t("Xorijda ta'lim") },
+    { path: "/activity/hamkorlik/xalqaro-aloqalar", text: t("Xalqaro aloqalar") },
+    { path: "/activity/hamkorlik/xorijda-talim", text: t("Xorijda ta'lim") },
   ];
 
   const xalqaro2 = [
@@ -237,7 +241,7 @@ const Navbar = () => {
                           staticItemsColumn1,
                           staticItemsColumn2,
                           staticItemsColumn3,
-                          staticItemsColumn4,
+                          // staticItemsColumn4,
                         ].map((staticItems, columnIndex) => (
                           <div
                             className={classes["dropdown-column"]}
