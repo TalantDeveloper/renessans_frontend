@@ -38,8 +38,9 @@ const Navbar = () => {
     { path: "/faculties", text: t("Kafedra va fakultetlar") }, 
     { path: "/dropdown/oquv-binolari", text: t("O'quv binolari") },
     { path: "/directions", text: t("Yo'nalishlar") },
-    { path: "/documents", text: t("document") },
+    { path: "/documents/normativ-huquqiy-hujjatlar", text: t("document") },
     { path: "/dropdown/bosh-ish-orinlari/", text: t("free jobs") },
+    { path: "/litsenziya", text: t("litsenziya") },
     // { path: litsenziya, text: t("litsenziya")},
   ];
 
@@ -47,20 +48,31 @@ const Navbar = () => {
     // { path: "/journal", text: t("Ilmiy jurnal") },
     // { path: "https://conference.renessans-edu.uz/", text: t("Konferensiyalar") },
     { path: "/dropdown/ilmiy-loyihalar", text: t("Ilmiy loyihalar") },
-    { path: "/dropdown/ilmiy-maktablar", text: t("Ilmiy maktablar") },
+    { path: "/activities/ilmiy-maktablar", text: t("Ilmiy maktablar") },
     { path: "/science-counsil", text: t("Ilmiy kengash") },
     { path: "/dropdown/green-renessans", text: t("Green Renessans") },
+    { path: "/activities/oquv-va-labaratoriya-bazalari", text: t("O‘quv va labaratoriya bazalari") },
   ];
 
   const staticItemsColumn2 = [
-    { path: "/about-uni", text: t("Talabalar hayoti") },
-    { path: "/university-union", text: t("universityUnion") },
-    { path: "/dropdown/murabbiylik-faoliyati", text: t("Murabbiylik faoliyati") },
-    { path: "/dropdown/madaniy-marifiy-tadbirlar", text: t("Madaniy-ma'rifiy tadbirlar") },
-    { path: "/dropdown/odob-axloq-qoidalari", text: t("Odob axloq qoidalari") },
+    { path: "/activities/manaviyat-va-marifat-kengashi", text: t("Ma’naviyat va ma’rifat Kengashi") },
+    { path: "/activities/fan-va-jamoat-arboblari-bilan-muloqotlar", text: t("Fan va jamoat arboblari bilan muloqotlar") },
+    { path: "/activities/sport-klubi-hayoti", text: t("Sport klubi hayoti") },
+    { path: "/activities/manaviy-marifiy-tadbirlar", text: t("Ma’naviy-ma’rifiy tadbirlar") },
+    { path: "/activities/murabbiylar-faoliyati", text: t("Murabbiylar faoliyati") },
+    { path: "/activities/tanlovlar", text: t("Tanlovlar") },
+    // { path: "/about-uni", text: t("Talabalar hayoti") },
+    // { path: "/university-union", text: t("universityUnion") },
+    // { path: "/dropdown/murabbiylik-faoliyati", text: t("Murabbiylik faoliyati") },
+    // { path: "/dropdown/madaniy-marifiy-tadbirlar", text: t("Madaniy-ma'rifiy tadbirlar") },
+    // { path: "/dropdown/odob-axloq-qoidalari", text: t("Odob axloq qoidalari") },
   ];
 
   const staticItemsColumn3 = [
+    { path: "/activities/oquv-jarayoni", text: t("Oʻquv jarayoni") },
+    { path: "/activities/talim-jarayoni-meyoriy-hujjatlari", text: t("Ta'lim jarayoni me'yoriy hujjatlari") },
+    { path: "/activities/video-maruzalar", text: t("Video ma'ruzalar") },
+    { path: "/activities/amaliyot-shartnomalari", text: t("Amaliyot shartnomalari") },
     { path: "/dropdown/oquv-rejalari", text: t("O'quv rejalari") },
     { path: "/dropdown/nazorat-sinovlari", text: t("Nazorat sinovlari") },
     { path: "/dropdown/nazorat-sinovlari", text: t("BMI mavzulari") },
@@ -89,19 +101,18 @@ const Navbar = () => {
     { path: "/announce", text: t("E'lonlar") },
     { path: "/anons", text: t("Tadbirlar") },
     { path: "/contact", text: t("Bog'lanish") },
-    { path: "/confession", text: t("Xalqaro ekspertlarning fikrlari") },
   ];
 
   const xalqaro1 = [
-    { path: "/cooperations/mahalliy-hamkorliklar", text: t("Mahalliy hamkorlik") },
+    // { path: "/cooperations/mahalliy-hamkorliklar", text: t("Mahalliy hamkorlik") },
     { path: "/cooperations/xalqaro-hamkorliklar", text: t("Xalqaro aloqalar") },
-    { path: "/partners", text: t("partners") },
+    { path: "activities/xorijda-talim", text: t("Xorijda ta'lim") },
   ];
 
-  // const xalqaro2 = [
-  //   { path: "/cooperations/xalqaro-hamkorliklar", text: t("Xalqaro aloqalar") },
-  //   { path: "/partners", text: t("partners") },
-  // ];
+  const xalqaro2 = [
+    { path: "/confession", text: t("Xalqaro e'tirof") },
+    { path: "/partners", text: t("partners") },
+  ];
 
   useEffect(() => {
     const fetchMenus = async () => {
@@ -210,12 +221,12 @@ const Navbar = () => {
                           {t(item.text)}
                         </NavLink>
                       ))}
-                      <a href={testUrl + "/media/litsenziya.pdf"}
+                      {/* <a href={testUrl + "/media/litsenziya.pdf"}
                         onClick={testUrl + "/media/litsenziya.pdf"}
                         className={classes["dropdown-item"]}
                       >
                         {t("Litsensiya")}
-                      </a>
+                      </a> */}
                       
 
                     {menu.id === 2 && (
@@ -299,7 +310,7 @@ const Navbar = () => {
                       <div
                         className={`${classes["dropdown3"]} ${classes["open"]}`}
                       >
-                        {[ xalqaro1].map(
+                        {[ xalqaro1, xalqaro2].map(
                           (staticItems, columnIndex) => (
                             <div
                               className={classes["dropdown-column"]}

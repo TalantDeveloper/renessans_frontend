@@ -183,7 +183,7 @@ const Activities = () => {
             <li
               key={cat.id}
               className={cat.short_name === short_name ? classes.active : ''}
-              onClick={() => navigate(`/activity/${cat.id}`)}
+              onClick={() => navigate(`/activities/${cat.short_name}`)}
             >
               {cat[`name_${currentLang}`]}
             </li>

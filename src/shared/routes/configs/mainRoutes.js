@@ -54,6 +54,7 @@ import CategoryActivities from "../../../user/home/categoryActivities/CategoryAc
 import Documents from "../../../user/home/documents/Documents";
 import Activities from "../../../user/home/activities/Activities";
 import ActivityDetail from "../../../user/home/activities/ActivityDetails";
+import CertificateVerification from "../../../user/home/schools/Schools";
 
 export const mainRoutes = [
     {
@@ -207,7 +208,7 @@ export const mainRoutes = [
     },
     {
         text: "Faoliyatlar",
-        path: "/activity/:short_name",
+        path: "/activity/:id",
         exact: true,
         visibleInNavbar: false,
         element: <ActivityDetail/>,
@@ -226,6 +227,13 @@ export const mainRoutes = [
         exact: true,
         visibleInNavbar: false,
         element: <Statistic/>,
+    },
+    {
+        text: "Litsenziya",
+        path: "/litsenziya",
+        exact: true,
+        visibleInNavbar: false,
+        element: <CertificateVerification/>,
     },
     {
         text: "Fakultet Kurslari",
@@ -412,7 +420,7 @@ export const mainRoutes = [
     },
     {
         text: "Normativ-huquqiy hujjatlar",
-        path: "/documents",
+        path: "/documents/:short_name/",
         exact: true,
         visibleInNavbar: false,
         element: <Documents/>,

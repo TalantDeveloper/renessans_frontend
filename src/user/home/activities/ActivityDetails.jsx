@@ -13,6 +13,7 @@ const ActivityDetail = () => {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);
+  const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const currentLang = i18n.language;
@@ -20,27 +21,56 @@ const ActivityDetail = () => {
   useEffect(() => {
     setLoading(true);
     setError(null);
-    axios.get(testUrl + "/api/activity/1")
+    axios.get(testUrl + "/api/activity/" + id)
       .then((response) => {
-        setData(response.data);
+        setData(response.data.activity);
+        setActivities(response.data.activities);
       })
       .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
       .finally(() => setLoading(false));
+      console.log(activities);
   }, [id, currentLang]);
+
+  console.log(activities)
+
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!data) return <div>Maqola topilmadi</div>;
 
   return (
-    <div className={classes["detail-container"]}>
+    <div className={classes["detail-container"]}>           
+            <div className={classes["related-articles"]}>
+          <h3 className={classes["sidebar-title"]}>
+            {t("Aloqador")}
+          </h3>
+          <ul> 
+           {activities.map((relatedItem) => (
+             <li key={relatedItem.id}>
+               <Link
+                 to={`/activity/${relatedItem.id}`}
+                 className={classes["related-link"]}
+               >
+                 <div className={classes["related-card"]}>
+                   <img
+                     src={relatedItem.image}
+                     alt={relatedItem[`name_${i18n.language}`]}
+                     className={classes["related-image"]}
+                   />
+                   <div>{relatedItem[`name_${i18n.language}`]}</div>
+                 </div>
+               </Link>
+             </li>
+           ))}
+          </ul>
+      </div>
       <div className={classes["article-content"]}>
+      <h1 className={classes["article-title"]}>{data[`name_${currentLang}`]}</h1>
         <img
           src={data.image && data.image.startsWith('http') ? data.image : (data.image ? testUrl + data.image : '')}
           alt={data[`name_${currentLang}`]}
           className={classes["article-image"]}
         />
-        <h1 className={classes["article-title"]}>{data[`name_${currentLang}`]}</h1>
         <div className={classes["article-body"]} dangerouslySetInnerHTML={{ __html: data[`content_${currentLang}`] }} />
       </div>
     </div>

@@ -5,7 +5,7 @@
   "Universitet": "Universitet",
   "Faoliyat": "Faoliyat",
   "Talabalarga": "Talabalarga",
-  "Xalqaro aloqalar": "Xalqaro hamkorliklar",
+  "Xalqaro aloqalar": "Xalqaro aloqalar",
 
   "national_professor": "Xorijiy Professor-o'qituvchilar",
 
@@ -63,7 +63,7 @@
   "back_main": "Asosiy menuga qaytish uchun tugmani bosing.",
   "main_menu": "Asosiy menu",
   "Bosh sahifa - ": "Bosh sahifa - ",
-  "Xalqaro": "Xalqaro",
+  "Xalqaro": "Xalqaro aloqalar",
   "Aloqador": "Aloqador",
   
 
@@ -113,6 +113,7 @@
   "description": "Universitetimizning eng yaxshi talabalari. Biz ularning muvaffaqiyatlarini qadrlaymiz va ularga erishish yo'lidagi yutuqlarini nishonlaymiz!",
   "highestScores": "Eng Yuqori Baholar",
   "awardedToOurExcellence": "Bizning a'lochi talabalarga berilgan.",
+  "litsenziya": "Litsenziya",
 
   "awards": "50+ Mukofotlar",
   "awardedToStudents": "Universitet talabalari tomonidan qo'lga kiritilgan.",
