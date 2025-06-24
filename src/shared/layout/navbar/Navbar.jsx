@@ -57,7 +57,7 @@ const Navbar = () => {
   const staticItemsColumn2 = [
     { path: "/activity/manaviy-marifiy-faoliyat/manaviyat-va-marifat-kengashi", text: t("Ma’naviyat va ma’rifat Kengashi") },
     { path: "/activity/manaviy-marifiy-faoliyat/fan-va-jamoat-arboblari-bilan-muloqotlar", text: t("Fan va jamoat arboblari bilan muloqotlar") },
-    { path: "/activity/manaviy-marifiy-faoliyat/sport-klubi-hayoti", text: t("Sport klubi hayoti") },
+    { path: "/activity/manaviy-marifiy-faoliyat/axborot-resurslar", text: t("Axborot resurslar") },
     { path: "/activity/manaviy-marifiy-faoliyat/manaviy-marifiy-tadbirlar", text: t("Ma’naviy-ma’rifiy tadbirlar") },
     { path: "/activity/manaviy-marifiy-faoliyat/murabbiylar-faoliyati", text: t("Murabbiylar faoliyati") },
     { path: "/activity/manaviy-marifiy-faoliyat/tanlovlar", text: t("Tanlovlar") },
@@ -75,6 +75,7 @@ const Navbar = () => {
     { path: "/activity/oquv-faoliyat/amaliyot-shartnomalari", text: t("Amaliyot shartnomalari") },
     { path: "/activity/oquv-faoliyat/oquv-rejalari", text: t("O'quv rejalari") },
     { path: "/activity/oquv-faoliyat/nazorat-sinovlari", text: t("Nazorat sinovlari") },
+    { path: "/activity/oquv-faoliyat/bmi-mavzular/", text: t("BMI mavzular") },
     // { path: "/dropdown/nazorat-sinovlari", text: t("BMI mavzulari") },
   ];
 
@@ -89,7 +90,7 @@ const Navbar = () => {
   const studentStaticItems = [
     { path: "/baseactivities/talabalar-hayoti/", text: t("Talabalar hayoti") },
     { path: "/activity/talabalarga/karyera/", text: t("Karyera") },
-    { path: "/activity/talabalarga/bmi-mavzular/", text: t("BMI mavzular") },
+    
     { path: "/university-union", text: t("universityUnion") },
     { path: "/activity/talabalarga/talabalar-turar-joyi", text: t("Talabalar turar joyi") },
     { path: "/activity/talabalarga/alochi-talabalar", text: t("A'lochi talabalar") },
