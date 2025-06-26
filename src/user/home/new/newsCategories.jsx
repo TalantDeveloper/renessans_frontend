@@ -71,8 +71,9 @@ const NewsCategories = () => {
         
         <div className={classes.mainContainer}>
             <div data-aos="fade-up" className={classes["newsSection"]}>
-            
+                
                 <h1 className={classes["page-title"]}>
+                    {t("Yangiliklar")}
                 </h1>
                 
                     <div className={styles.facultyList}>
@@ -109,7 +110,7 @@ const NewsCategories = () => {
                                 </Link>
                             ))
                         ) : (
-                            <div>{t("no_news_found")}</div>
+                            <div></div>
                         )}
                     </div>
                     <div className={classes["center_div"]}>
