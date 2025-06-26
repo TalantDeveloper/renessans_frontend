@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -16,7 +16,7 @@ const Rahbariyat = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [openDropdown, setOpenDropdown] = useState({});
-  const [leadersData, setLeadersData] = useState([]); // State to hold API data
+  const [leadersData, setLeadersData] = useState([]);// State to hold API data
 
   useEffect(() => {
     // Fetch data from API
@@ -40,6 +40,17 @@ const Rahbariyat = () => {
       },
     }));
   };
+
+  const Sidebar = [
+    { path: "/about", text: t("Universitet haqida") },
+    { path: "/management", text: t("Rahbariyat") },
+    { path: "/structure", text: t("Universitet tuzilmasi") },
+    { path: "/cooperations/xalqaro-hamkorliklar", text: t("Xalqaro hamkorlik") },
+    { path: "/activity/talabalarga/alochi-talabalar", text: t("Iqtidorlilar va chempionlar") },
+    { path: "/faculties", text: t("Fakultetlar") },
+    { path: "/anons", text: t("Tadbirlar") },
+    { path: "//statistics", text: t("Statistika") },
+  ];
 
   return (
     <div className={classes.mainContainer}>
@@ -139,8 +150,11 @@ const Rahbariyat = () => {
         <p>{t("loading")}</p>
       )}
     </div>
-
+    
     <div className={classes.sidebar}>
+      {Sidebar.map((path, text) => (
+        <NavLink/>
+      ))}
       <h3>{t("university")}</h3>
       <ul>
         <li onClick={() => navigate("/about")}>{t("about_university")}</li>

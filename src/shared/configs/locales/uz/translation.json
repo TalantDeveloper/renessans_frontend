@@ -58,6 +58,8 @@
   "directions": "Yo'nalishlar",
   "news": "Yangiliklar",
   "categories": "Bo'limlar",
+  "Iqtidorlilar va chempionlar": "Iqtidorlilar va chempionlar",
+  "Xalqaro e'tirof": "Xalqaro e'tirof",
 
   "sorry": "Uzr, xatolik ro'y berdi!",
   "back_main": "Asosiy menuga qaytish uchun tugmani bosing.",
@@ -65,8 +67,24 @@
   "Bosh sahifa - ": "Bosh sahifa - ",
   "Xalqaro": "Xalqaro aloqalar",
   "Aloqador": "Aloqador",
+  "Ma’naviyat va ma’rifat Kengashi": "Ma’naviyat va ma’rifat Kengashi",
+  "Fan va jamoat arboblari bilan muloqotlar": "Fan va jamoat arboblari bilan muloqotlar",
+  "Axborot resurslar": "Axborot resurslar",
+  "Ma’naviy-ma’rifiy tadbirlar": "Ma’naviy-ma’rifiy tadbirlar",
+  "Murabbiylar faoliyati": "Murabbiylar faoliyati",
+  "Tanlovlar": "Tanlovlar",
+  "Oʻquv jarayoni": "Oʻquv jarayoni",
+  "Ta'lim jarayoni me'yoriy hujjatlari": "Ta'lim jarayoni me'yoriy hujjatlari",
+  "Elektron kontentlar": "Elektron kontentlar",
+  "Amaliyot shartnomalari": "Amaliyot shartnomalari",
+  "O'quv reja va Syllabus": "O'quv reja va Syllabus",
+  "Nazorat sinovi va namunalari": "Nazorat sinovi va namunalari",
+  "BMI mavzular": "BMI mavzular",
+  "O‘quv va labaratoriya bazalari": "O‘quv va labaratoriya bazalari",
+  "Axborotlashtirish jarayonlari": "Axborotlashtirish jarayonlari",
+  "Avtoreferat va dissertatsiya": "Avtoreferat va dissertatsiya",
+  "Ilmiy jarayonlar": "Ilmiy jarayonlar",
   
-
   "footer_subscribe": "Obuna bo'ling",
   "footer_followNews": "Yangiliklarni kuzatib boring",
   "daytime": "Kunduzgi",
@@ -219,6 +237,7 @@
   "document": "Normativ-huquqiy hujjatlar",
   "free jobs": "Bo'sh ish o'rinlari",
 
+
   "ish_staj": "Ish tajribasi: ",
   "about_employee": "Xodim haqida",
   "specialization": "Mutaxassisligi",
@@ -253,6 +272,7 @@
   "kafedra": "Kafedralar",
   "no_kafedras_found": "kafedralar toplimadi",
   "Statistik ko'rsatgichlar": "Statistik ko'rsatgichlar",
+  "Karyera": "Karyera",
 
   "RTU raqamlarda": "RTU raqamlarda",
   "Universitet haqida": "Universitet haqida",
