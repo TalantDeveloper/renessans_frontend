@@ -49,13 +49,17 @@ export const Statistic = () => {
                 <h1 className={classes["descr"]}>{t(`numbersDescr`)}</h1>
                 <div className={classes["flex"]}>
                     {statistics.map((item) => {
+                        const isPlus = item.number.includes("+") ||
+                        getLocalizedName(item).toLowerCase().includes("ilmiy salohiyat");
                         const isPercentage =
                             item.number.includes("%") ||
                             getLocalizedName(item).toLowerCase().includes("ilmiy salohiyat");
                         const displayNumber = isPercentage
+                            ?item.number.includes("+")
                             ? item.number.includes("%")
                                 ? item.number
                                 : `${item.number}%`
+                                : `${item.number}`
                             : `${item.number}`;
 
                         return (
@@ -67,7 +71,7 @@ export const Statistic = () => {
                                     <CountUp
                                         end={parseInt(item.number)}
                                         duration={parseInt(item.number) > 500 ? 5 : 15}/>
-                                    {isPercentage ? "%" : " "}
+                                    {item.number.includes("+") ? "+" : item.number.includes("%") ? "%" : ""}
                                 </h3>
                                 <p className={classes["text"]}>{getLocalizedName(item)}</p>
                             </div>
