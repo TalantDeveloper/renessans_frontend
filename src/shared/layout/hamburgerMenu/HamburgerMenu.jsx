@@ -7,84 +7,88 @@ import classes from "./HamburgerMenu.module.css";
 // Define the dropdown items here (or import them if they are available globally)
 const dropdownItems = {
   universitet: [
-    { path: "/statistics", text: "RTU raqamlarda"},
-    { path: "/about", text: "Universitet haqida" },
-    { path: "/management", text: "Rahbariyat" },
-    { path: "/structure", text: "Universitet tuzilmasi" },
-    { path: "/faculties", text: "Kafedra va fakultetlar" },
-    { path: "/directions", text: "Yo'nalishlar" },
-    { path: "/centers", text: "center"},
-    { path: "/dropdown/oquv-binolari", text: "O'quv binolari" },
-    { path: "/dropdown/green-renessans", text: "Green Renessans" },
+        { path: "/about", text: "Universitet haqida" },
+        { path: "/structure", text: "Universitet tuzilmasi" },
+        
+        { path: "/statistics", text: "RTU raqamlarda" },
+        { path: "/centers", text: 'center' },
+        
+        { path: "/management", text: "Rahbariyat" },
+        { path: "/faculties", text: "Kafedra va fakultetlar" }, 
+        { path: "/dropdown/oquv-binolari", text: "O'quv binolari" },
+        { path: "/directions", text: "Yo'nalishlar" },
+        { path: "/documents/normativ-huquqiy-hujjatlar", text: "document" },
+        { path: "/dropdown/bosh-ish-orinlari/", text: "free jobs" },
   ],
   ilmiyFaoliyat: [
     {
       text: "Ilmiy faoliyat",
       children: [
-        { path: "/dropdown/ilmiy-loyihalar", text: "Ilmiy loyihalar" },
-        { path: "/dropdown/ilmiy-maktablar", text: "Ilmiy maktablar" },
-        { path: "/science-counsil", text: "Ilmiy kengash" },
+        { path: "/newscategories/3", text: "Ilmiy jarayonlar" },
+        { path: "https://conference.renessans-edu.uz/", text: "Ilmiy konferensiyalar" },
+        { path: "/journal", text: "journal" },
+        { path: "/activity/ilmiy-faoliyat/ilmiy-maktablar", text: "Ilmiy maktablar" },
+        { path: "/activity/ilmiy-faoliyat/ilmiy-kengash", text: "Ilmiy kengash" },
+        { path: "/activity/ilmiy-faoliyat/green-renessans", text: "Green Renessans" },
+        { path: "/activity/ilmiy-faoliyat/oquv-va-labaratoriya-bazalari", text: "O‘quv va labaratoriya bazalari" },
+        { path: "/activity/ilmiy-faoliyat/axborotlashtirish-jarayonlari", text: "Axborotlashtirish jarayonlari" },
+        { path: "/activity/ilmiy-faoliyat/yosh-akademiklar", text: "Yosh akademiklar" },
+        { path: "/activity/ilmiy-faoliyat/avtorefereat-dissertatsiya", text: "Avtoreferat va dissertatsiya" },
       ]
     },
     {
       text: "Madaniy-ma'rifiy faoliyat",
       children: [
-        { path: "/about-uni", text: "Talabalar hayoti" },
-        { path: "/university-union", text: "universityUnion" },
-        { path: "/dropdown/murabbiylik-faoliyati", text: "Murabbiylik faoliyati" },
-        { path: "/dropdown/madaniy-marifiy-tadbirlar", text: "Madaniy-ma'rifiy tadbirlar" },
-        { path: "/dropdown/odob-axloq-qoidalari", text: "Odob axloq qoidalari" },
+        { path: "/activity/manaviy-marifiy-faoliyat/manaviyat-va-marifat-kengashi", text: "Ma’naviyat va ma’rifat Kengashi" },
+        { path: "/newscategories/4", text: "Fan va jamoat arboblari bilan muloqotlar" },
+        { path: "/activity/manaviy-marifiy-faoliyat/axborot-resurslar", text: "Axborot resurslar" },
+        { path: "/newscategories/5", text: "Ma’naviy-ma’rifiy tadbirlar" },
+        { path: "/newscategories/6", text: "Murabbiylar faoliyati" },
+        { path: "/activity/manaviy-marifiy-faoliyat/tanlovlar", text: "Tanlovlar" },
       ]
     },
     {
       text: "O'quv faoliyat",
       children: [
-        { path: "/dropdown/oquv-rejalari", text: "O'quv rejalari" },
-        { path: "/dropdown/nazorat-sinovlari", text: "Nazorat sinovlari" },
-        { path: "/dropdown/nazorat-sinovlari", text: "BMI mavzulari" },
+        { path: "/newscategories/7", text: "Oʻquv jarayoni" },
+        { path: "/activity/oquv-faoliyat/talim-jarayoni-meyoriy-hujjatlari", text: "Ta'lim jarayoni me'yoriy hujjatlari" },
+        { path: "/activity/oquv-faoliyat/video-maruzalar", text: "Elektron kontentlar" },
+        { path: "/activity/oquv-faoliyat/amaliyot-shartnomalari", text: "Amaliyot shartnomalari" },
+        { path: "/activity/oquv-faoliyat/oquv-rejalari", text: "O'quv reja va Syllabus" },
+        { path: "/activity/oquv-faoliyat/nazorat-sinovlari", text: "Nazorat sinovi va namunalari" },
+        { path: "/activity/oquv-faoliyat/bmi-mavzular/", text: "BMI mavzular" },
       ]
     },
-    {
-      text: "O'quv-uslubiy ta'minot",
-      children: [
-        { path: "/dropdown/yosh-akademiklar", text: "Yosh akademiklar" },
-        { path: "/dropdown/zakovat-klubi", text: "Zakovat klubi" },
-        { path: "/dropdown/talabalar-turar-joyi", text: "Talabalar turar joyi" },
-        { path: "/dropdown/sport-klubi", text: "Sport klubi" },
-        { path: "/dropdown/axborot-resurs-markazi", text: "Axborot resurs markazi" },
-      ]
-    },
+    // {
+      // text: "O'quv-uslubiy ta'minot",
+      // children: [
+      //   { path: "/dropdown/yosh-akademiklar", text: "Yosh akademiklar" },
+      //   { path: "/dropdown/zakovat-klubi", text: "Zakovat klubi" },
+      //   { path: "/dropdown/talabalar-turar-joyi", text: "Talabalar turar joyi" },
+      //   { path: "/dropdown/sport-klubi", text: "Sport klubi" },
+      //   { path: "/dropdown/axborot-resurs-markazi", text: "Axborot resurs markazi" },
+      // ]
+    // },
   ],
   talabalarga: [
-    { path: "/good-st", text: "Universitet iqtidorlari" },
-    { path: "/scholarship", text: "Universitet stipendiantlari" },
-    { path: "about-uni", text: "Talabalar hayoti" },
-    { path: "/dropdown/imtiyozlar", text: "Imtiyozlar" },
-    { path: "/our-campions", text: "Universitet chempionlari" },
+    { path: "/baseactivities/talabalar-hayoti/", text: "Talabalar hayoti" },
+    { path: "/activity/talabalarga/karyera/", text: "Karyera" },
     { path: "/university-union", text: "universityUnion" },
-    { path: "/library", text: "Kutubxona" },
+    { path: "/activity/talabalarga/talabalar-turar-joyi", text: "Talabalar turar joyi" },
+    { path: "/activity/talabalarga/alochi-talabalar", text: "Iqtidorlilar va chempionlar" },
+    { path: "/scholarship", text: "Stipendiantlar" },
   ],
   hamkorlik: [
-    {
-      text: "Xalqaro hamkorlik",
-      children: [
-        { path: "/international-cooperation", text: "Xalqaro aloqalar" },
-        { path: "/partners", text: "partners" },
-      ]
-    },
-    {
-      text: "Mahalliy hamkorlik",
-      children: [
-        { path: "/cooperations/mahalliy-hamkorliklar", text: "Mahalliy hamkorlik" },
-      ]
-    },
+    { path: "/activity/hamkorlik/xalqaro-aloqalar", text: "Xalqaro aloqalar" },
+    { path: "/confession", text: "Xalqaro e'tirof" },
+    { path: "/activity/hamkorlik/xorijda-talim", text: "Xorijda ta'lim" },
+    { path: "/partners", text: "partners" },
   ],
   bizningFaoliyat: [
     { path: "/news", text: "Yangiliklar" },
     { path: "/announce", text: "E'lonlar" },
-    { path: "/anons", text: "Muhim sanalar" },
-    { path: "/contact", text: "Bog'lanishlar" },
-    { path: "/confession", text: "Xalqaro ekspertlarning fikrlari" }
+    // { path: "/anons", text: t("Tadbirlar") },
+    { path: "/contact", text: "Bog'lanish" },
   ],
 };
 
