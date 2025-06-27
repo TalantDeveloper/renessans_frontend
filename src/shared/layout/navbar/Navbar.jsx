@@ -182,7 +182,7 @@ const Navbar = () => {
       <div className={classes["aboweHeader"]}>
         <a href="https://student.renessans-edu.uz/dashboard/login">{t("hemis")}</a>
         {/* <a href="https://syllabus.renessans-edu.uz">{t("syllabus")}</a> */}
-        <a href="https://timetable.renessans-edu.uz">{t("timetable")}</a>
+        <a href="#">{t("timetable")}</a>
         <a href="https://conference.renessans-edu.uz/">{t("conference")}</a>
         <a href="/journal">{t("journal")}</a>
         <a href="/">{t("acceptance")}</a>
