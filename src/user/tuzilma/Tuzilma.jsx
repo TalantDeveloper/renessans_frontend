@@ -5,10 +5,12 @@ import classes from "./Tuzilma.module.css";
 import Tuzilma from "./image_2024-11-08_10-02-49.png";
 import TuzilmaEng from "./structu_en.svg";
 import TuzilmaRu from "./structu_ru.svg";
+import {universities} from "../home/BaseData";
 
 const TashkiliyTuzilma = () => {
     const navigate = useNavigate();
     const {t, i18n} = useTranslation();
+    const page_id_test = 2;
 
     const getImage = () => {
         switch (i18n.language) {
@@ -35,20 +37,20 @@ const TashkiliyTuzilma = () => {
             <div className={classes.sidebar}>
                 <h3>{t("university")}</h3>
                 <ul>
-                    <li onClick={() => navigate("/about")}>{t("about")}</li>
-                    <li onClick={() => navigate("/management")}>{t("management")}</li>
-                    <li className={classes.active} onClick={() => navigate("/structure")}>
-                        <span className={classes.icon}>▶</span>
-                        {t("structure")}
-                    </li>
-                    <li onClick={() => navigate("/cooperations/xalqaro-hamkorliklar")}>
-                        {t("internationalCooperation")}
-                    </li>
-                    <li onClick={() => navigate("/faculties")}>{t("faculties")}</li>
-                    <li onClick={() => navigate("/anons")}>{t("events")}</li>
-                    <li onClick={() => navigate("/statistics")} className={classes.dropdownToggle}>
-                        {t("statistics")}
-                    </li>
+                    {universities.map((item, index) => (
+                        (index === page_id_test ? (
+                            <li className={classes.active} onClick={() => navigate(item.path)}>
+                                <span className={classes.icon}>
+                                    ▶
+                                </span>
+                                {t(item.text)}
+                            </li>
+                        ) : (
+                            <li onClick={() => navigate(item.path)}>
+                                {t(item.text)}
+                            </li>
+                        ))
+                    ))}
                 </ul>
             </div>
         </div>

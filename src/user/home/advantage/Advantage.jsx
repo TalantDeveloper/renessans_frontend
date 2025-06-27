@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import {Icon} from "@iconify/react";
 import {useTranslation} from "react-i18next";
 // import {advantageCard} from "./utils/advantageData";
-import { testUrl } from "../BaseData";
+import {testUrl} from "../BaseData";
 import classes from "./Advantage.module.css";
 import axios from "axios";
-import { useEffect} from "react";
-
-
+import {useEffect} from "react";
 
 export const Advantage = () => {
     const {t} = useTranslation();
@@ -15,12 +13,12 @@ export const Advantage = () => {
     const [advantages, setAdvantages] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const {i18n } = useTranslation();
+    const {i18n} = useTranslation();
 
     useEffect(() => {
         setLoading(true);
         setError(null);
-    
+
         axios.get(testUrl + "/api/advantage/")
             .then((response) => {
                 setAdvantages(response.data || []);

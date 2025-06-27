@@ -15,7 +15,8 @@ import classerror from "../../shared/pages/Error404Page.module.css";
 import Error404Animation from "../../shared/assets/animated-placeholders/Error404.json";
 import {useNavigate} from "react-router-dom";
 import LottieView from "lottie-react";
-import { testUrl} from "../home/BaseData";
+import {testUrl} from "../home/BaseData";
+
 const DepartmentDetails = () => {
     const {short_id} = useParams();
     const navigate = useNavigate();
@@ -52,7 +53,6 @@ const DepartmentDetails = () => {
             .finally(() => setLoading(false));
     }, [short_id, i18n.language]);
 
-   
 
     // Get the first staff member
     const toggleDropdown = (id, type) => {
@@ -65,7 +65,7 @@ const DepartmentDetails = () => {
             },
         }));
     };
- 
+
     const getDepartmentName = (department) => {
         const title = department[`name_${i18n.language}`];
         return title || department.name_uz || t("no_name_available");
@@ -75,8 +75,8 @@ const DepartmentDetails = () => {
     if (error) return (
         <div className={classerror["error-page"]}>
             <LottieView className={classerror["animation"]}
-            animationData={Error404Animation}
-            loop={true}
+                        animationData={Error404Animation}
+                        loop={true}
             />
             <p className={classerror["title"]}>
                 {t("sorry")}
@@ -88,8 +88,8 @@ const DepartmentDetails = () => {
                 {t("main_menu")}
             </div>
         </div>
-    )  
-    if (!data) return <p> </p>;
+    )
+    if (!data) return <p></p>;
 
     return (
         <div className={classes.mainContainer}>
@@ -112,7 +112,7 @@ const DepartmentDetails = () => {
                             </h2>
                             <p>
                                 {t("position")}
-                                    {boss[`position_${i18n.language}`]}
+                                {boss[`position_${i18n.language}`]}
                             </p>
                             <div className={classes.contact}>
                                 <div className={classes.contactItem}>
@@ -126,8 +126,8 @@ const DepartmentDetails = () => {
                                 <div className={classes.contactItem}>
                                     <FaCalendarDay className={classes.icon}/>
                                     <span>
-                                    {t("ish_staj")} 
-                                    {boss.employee[`work_experience_${i18n.language}`]}
+                                    {t("ish_staj")}
+                                        {boss.employee[`work_experience_${i18n.language}`]}
                                     </span>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@ const DepartmentDetails = () => {
                                 }}/>
                             </div>
                         </div>
-                
+
                         <div className={classes.imageWrapper}>
                             <img src={boss.employee?.image} // Fallback to default image if not available
                                  alt={boss.employee[`name_${i18n.language}`]}
@@ -193,7 +193,7 @@ const DepartmentDetails = () => {
                             <div className={classes.info}>
                                 <h2>{employee.employee[`name_${i18n.language}`]}</h2>
                                 <p>
-                                {t("position")} 
+                                    {t("position")}
                                     {employee[`position_${i18n.language}`]}</p>
                                 <div className={classes.contact}>
                                     <div className={classes.contactItem}>
@@ -208,8 +208,8 @@ const DepartmentDetails = () => {
                                         <div className={classes.contactItem}>
                                             <FaCalendarDay className={classes.icon}/>
                                             <span>
-                                            {t("ish_staj")} 
-                                            {employee.employee[`work_experience_${i18n.language}`]}
+                                            {t("ish_staj")}
+                                                {employee.employee[`work_experience_${i18n.language}`]}
                                             </span>
                                         </div>
                                     )}
@@ -275,7 +275,11 @@ const DepartmentDetails = () => {
                                 style={{marginBottom: '10px'}}
                                 className={department.short_id === short_id ? classes.active : ''}
                             >
-                                <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
+                                <span style={{
+                                    marginRight: '8px',
+                                    color: '#133654',
+                                    fontWeight: 'bold'
+                                }}>{index + 1}.</span>
                                 <span
                                     style={{cursor: 'pointer', color: '#133654'}}
                                 >

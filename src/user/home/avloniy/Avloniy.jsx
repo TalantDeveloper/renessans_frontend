@@ -7,12 +7,13 @@ import moment from "moment";
 import "moment/locale/uz-latn"; // Import the locale
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next"; // Importing useTranslation
-import {BaseURL, testUrl} from "../BaseData";
+import {testUrl, universities} from "../BaseData";
 
 const Timeline = () => {
     const [events, setEvents] = useState([]);
     const {t, i18n} = useTranslation(); // Destructure t and i18n for translations
     const navigate = useNavigate();
+    const page_id_test = 0;
 
     useEffect(() => {
         // Fetch the events data from the API
@@ -33,45 +34,45 @@ const Timeline = () => {
                     <p>
                         {t("noEventsAvailable")}
                     </p> // Use translation for no events
-                    ) : (events.map((event) => {
-                        const whenItBeginsDate = moment(event.when_it_begins).locale("uz-latn"); // Use moment with locale
-                        return (
-                            <div key={event.id} className={styles.eventCard}>
-                                <div className={styles.dateBox}>
+                ) : (events.map((event) => {
+                    const whenItBeginsDate = moment(event.when_it_begins).locale("uz-latn"); // Use moment with locale
+                    return (
+                        <div key={event.id} className={styles.eventCard}>
+                            <div className={styles.dateBox}>
                                     <span className={styles.day}>
                                         {whenItBeginsDate.format("DD")}
                                     </span>
-                                    <span className={styles.month}>
+                                <span className={styles.month}>
                                         {whenItBeginsDate.format("MMMM")}
                                     </span>
-                                    <span className={styles.year}>
+                                <span className={styles.year}>
                                         {whenItBeginsDate.format("YYYY")}
                                     </span>
-                                </div>
-                                <div className={styles.contentBox}>
-                                    <h3 className={styles.title}>
-                                        {t(`events.title_${i18n.language}`, {
-                                            defaultValue: event[`title_${i18n.language}`] || event.title_en,
-                                        })}
-                                    </h3>
-                                    <div className={styles.info}>
-                                        <div className={styles.location}>
-                                            <FaMapMarkerAlt/>{" "}
-                                            <span>
+                            </div>
+                            <div className={styles.contentBox}>
+                                <h3 className={styles.title}>
+                                    {t(`events.title_${i18n.language}`, {
+                                        defaultValue: event[`title_${i18n.language}`] || event.title_en,
+                                    })}
+                                </h3>
+                                <div className={styles.info}>
+                                    <div className={styles.location}>
+                                        <FaMapMarkerAlt/>{" "}
+                                        <span>
                                                 {t(`events.location_${i18n.language}`, {
                                                     defaultValue: event[`location_${i18n.language}`] || event.location_en,
                                                 })}
                                             </span>
-                                        </div>
-                                        <div className={styles.time}>
-                                            <FaClock/>{" "}
-                                            <span>{whenItBeginsDate.format("DD-MMMM, HH:mm")}</span>
-                                        </div>
+                                    </div>
+                                    <div className={styles.time}>
+                                        <FaClock/>{" "}
+                                        <span>{whenItBeginsDate.format("DD-MMMM, HH:mm")}</span>
                                     </div>
                                 </div>
                             </div>
-                        );
-                    }))
+                        </div>
+                    );
+                }))
                 }
             </div>
             <div className={classes.sidebar}>
@@ -79,33 +80,24 @@ const Timeline = () => {
                     {t("university")}
                 </h3>
                 <ul>
-                    <li onClick={() => navigate("/about")}>
-                        {t("universityAbout")}
-                    </li>
-                    <li onClick={() => navigate("/management")}>
-                        {t("management")}
-                    </li>
-                    <li onClick={() => navigate("/structure")}>
-                        {t("universityStructure")}
-                    </li>
-                    <li onClick={() => navigate("/cooperations/xalqaro-hamkorliklar")}>
-                        {t("internationalCooperation")}
-                    </li>
-                    <li onClick={() => navigate("/faculties")}>
-                        {t("faculties")}
-                    </li>
-                    <li className={classes.active} onClick={() => navigate("/anons")}>
-                        <span className={classes.icon}>
-                            ▶
-                        </span>
-                        {t("events")}
-                    </li>
-                    <li onClick={() => navigate("/statistics")} className={classes.dropdownToggle}>
-                        {t("statistics")}
-                    </li>
+                    {universities.map((item, index) => (
+                        (index === page_id_test ? (
+                            <li className={classes.active} onClick={() => navigate(item.path)}>
+                                <span className={classes.icon}>
+                                    ▶
+                                </span>
+                                {t(item.text)}
+                            </li>
+                        ) : (
+                            <li onClick={() => navigate(item.path)}>
+                                {t(item.text)}
+                            </li>
+                        ))
+                    ))}
                 </ul>
             </div>
-        </div>);
+        </div>)
+        ;
 };
 
 export default Timeline;

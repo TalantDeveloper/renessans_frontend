@@ -6,11 +6,13 @@ import flag from "./assets/imgs/main-logo.png";
 import {purposeData} from "./utils/purposeData";
 import {useTranslation} from "react-i18next";
 import classes from "./About.module.css";
+import {universities} from "../home/BaseData";
 
 export const About = () => {
     const {t} = useTranslation();
     const currentLang = localStorage.getItem("i18nextLng");
     const navigate = useNavigate();
+    const page_id_test = 0;
 
     return (
         <div className={classes["mainContainer"]}>
@@ -86,23 +88,20 @@ export const About = () => {
             <div className={classes.sidebar}>
                 <h3>{t("university")}</h3>
                 <ul>
-                    <li className={classes.active} onClick={() => navigate("/about")}>
-                        <span className={classes.icon}>▶</span>
-                        {t("about_university")}
-                    </li>
-                    <li onClick={() => navigate("/management")}>{t("management")}</li>
-                    <li onClick={() => navigate("/structure")}>{t("structure")}</li>
-                    <li onClick={() => navigate("/cooperations/xalqaro-hamkorliklar")}>
-                        {t("international_cooperation")}
-                    </li>
-                    <li onClick={() => navigate("/faculties")}>{t("faculties")}</li>
-                    <li onClick={() => navigate("/anons")}>{t("events")}</li>
-                    <li
-                        onClick={() => navigate("/statistics")}
-                        className={classes.dropdownToggle}
-                    >
-                        {t("statistics")}
-                    </li>
+                    {universities.map((item, index) => (
+                        (index === page_id_test ? (
+                            <li className={classes.active} onClick={() => navigate(item.path)}>
+                                <span className={classes.icon}>
+                                    ▶
+                                </span>
+                                {t(item.text)}
+                            </li>
+                        ) : (
+                            <li onClick={() => navigate(item.path)}>
+                                {t(item.text)}
+                            </li>
+                        ))
+                    ))}
                 </ul>
             </div>
         </div>

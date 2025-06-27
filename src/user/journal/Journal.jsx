@@ -13,7 +13,7 @@ import {
     FaCheckCircle,
     FaPhone,
 } from "react-icons/fa";
-import {BaseURL, testUrl} from "../home/BaseData";
+import { testUrl} from "../home/BaseData";
 import {Contacts} from "../contact/components/contact/Contact";
 import {useTranslation} from "react-i18next";
 

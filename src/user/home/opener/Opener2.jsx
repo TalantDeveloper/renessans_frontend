@@ -9,7 +9,7 @@ import {useNavigate} from "react-router-dom";
 import arrow from "./assets/icons/arrow.svg";
 import announcementImg from "./assets/imgs/bg-img.png";
 import classes from "./Opener2.module.css";
-import {BaseURL, testUrl} from "../BaseData";
+import {testUrl} from "../BaseData";
 
 export const Opener2 = () => {
     const {t, i18n} = useTranslation();
@@ -23,12 +23,12 @@ export const Opener2 = () => {
     useEffect(() => {
         const fetchNewsData = axios.get(
             testUrl + "/api/newsthree/"
-        ); 
-        
+        );
+
         Promise.all([fetchNewsData])
             .then(([newsResponse]) => {
                 const news_data = newsResponse.data;
-                
+
                 if (news_data) {
                     setNews(news_data || []);
                 } else {
@@ -37,15 +37,15 @@ export const Opener2 = () => {
             })
             .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
             .finally(() => setLoading(false));
-        
+
         const fetchAnnouncementsData = axios.get(
             testUrl + "/api/announcementsthree/"
         );
-        
+
         Promise.all([fetchAnnouncementsData])
             .then(([AnnouncementsResponse]) => {
                 const accouncement_data = AnnouncementsResponse.data;
-                
+
                 if (accouncement_data) {
                     setAnnouncements(accouncement_data || []);
                 } else {
@@ -54,7 +54,7 @@ export const Opener2 = () => {
             })
             .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
             .finally(() => setLoading(false));
-        
+
     }, [t]);
 
     useEffect(() => {
@@ -119,7 +119,7 @@ export const Opener2 = () => {
                     </h1>
                     <p className={classes.descr}>
                         {t("openerDescr")}
-                        </p>
+                    </p>
                     <div className={classes.flex}>
                         <a href="/contact">
                             <button className={classes.btn1}>
@@ -159,8 +159,8 @@ export const Opener2 = () => {
                                             {item[`title_${i18n.language}`] || item.title_uz}
                                         </h3>
                                         <div dangerouslySetInnerHTML={{
-                    __html: item[`full_news_${i18n.language}`],
-                }}/>
+                                            __html: item[`full_news_${i18n.language}`],
+                                        }}/>
                                     </div>
                                 ))}
                             </div>
@@ -190,9 +190,7 @@ export const Opener2 = () => {
                             ))}
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     );

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {useTranslation} from "react-i18next";
 import {FaLink} from "react-icons/fa"; // Importing Link icon
-import {BaseURL, testUrl} from "../BaseData";
+import { testUrl} from "../BaseData";
 
 // Import Swiper styles
 import "swiper/css";

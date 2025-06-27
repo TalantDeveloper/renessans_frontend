@@ -5,7 +5,7 @@ import {AiOutlineEye} from "react-icons/ai";
 import SocialMedias from "../../../shared/components/socialMedias/SocialMedias";
 import {FaLongArrowAltRight} from "react-icons/fa";
 import axios from "axios";
-import {BaseURL, testUrl} from "../BaseData";
+import {testUrl} from "../BaseData";
 
 // assets
 import classes from "./NewsSection.module.css";
@@ -22,12 +22,12 @@ export const NewsSection = () => {
     useEffect(() => {
         const fetchNewsData = axios.get(
             testUrl + "/api/newsfour/"
-        ); 
-        
+        );
+
         Promise.all([fetchNewsData])
             .then(([newsResponse]) => {
                 const news_data = newsResponse.data;
-                
+
                 if (news_data) {
                     setNews(news_data || []);
                 } else {
@@ -35,7 +35,7 @@ export const NewsSection = () => {
                 }
             })
             .catch(() => setError("Ma'lumotlarni yuklashda xatolik"))
-            .finally(() => setLoading(false)); 
+            .finally(() => setLoading(false));
     }, [t]);
 
     // Function to get the title based on the current language
@@ -52,7 +52,6 @@ export const NewsSection = () => {
                 return item.title_en; // Fallback to English if the language is unknown
         }
     };
-
     return (
         <section id="news_section" className={classes["containers"]}>
             <div className={classes["text-center"]}>

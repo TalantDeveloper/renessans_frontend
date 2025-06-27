@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 
 import classes from "./Statistic.module.css";
 import ParticlesConfig from "../../../shared/components/particles/particles-config";
-import {testUrl} from "../BaseData";
+import { testUrl } from "../BaseData";
 
 export const Statistic = () => {
     const {t} = useTranslation();

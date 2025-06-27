@@ -5,8 +5,8 @@ import EventCard from "./components/eventCard/EventCard"; // Assuming you have t
 import {EventModal} from "./components/eventModal/eventModal"; // Assuming you have this
 import ParticlesConfig from "../../../shared/components/particles/particles-config";
 import classes from "./Events2.module.css";
-import {BaseURL, testUrl} from "../BaseData";
-import { useNavigate } from "react-router-dom";
+import { testUrl} from "../BaseData";
+import {useNavigate} from "react-router-dom";
 
 const Events2 = () => {
     const {t, i18n} = useTranslation();

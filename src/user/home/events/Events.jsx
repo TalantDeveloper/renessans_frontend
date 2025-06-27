@@ -5,7 +5,7 @@ import EventCard from "./components/eventCard/EventCard"; // Assuming you have t
 import {EventModal} from "./components/eventModal/eventModal"; // Assuming you have this
 import ParticlesConfig from "../../../shared/components/particles/particles-config";
 import classes from "./Events.module.css";
-import {BaseURL, testUrl} from "../BaseData";
+import { testUrl} from "../BaseData";
 
 const Events = () => {
     const {t, i18n} = useTranslation();
