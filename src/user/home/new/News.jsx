@@ -17,8 +17,8 @@ const NewsPage = () => {
     const [pageApi, setPageApi] = useState(1);
     const navigate = useNavigate();
     const {t, i18n } = useTranslation();
-    const [news_data, setNews] = useState(null);
-    const [categories, setCategories] = useState(null);
+    const [news_data, setNews] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -27,11 +27,11 @@ const NewsPage = () => {
         setError(null);
 
         const fetchNewsData = axios.get(
-            testUrl + "/api/news"
+            testUrl + "/api/news/"
         );
         
         const fetchCategoriesData = axios.get(
-            testUrl + "/api/categories"
+            testUrl + "/api/categories/"
         );
         
         Promise.all([fetchNewsData, fetchCategoriesData])
@@ -50,12 +50,8 @@ const NewsPage = () => {
             .finally(() => setLoading(false));
         
     }, [ i18n.language]);
-    console.log(news_data);
-    console.log(news_data?.length || 0);
-    
-    const length = news_data?.length || 0;
-    console.log(length);
-  
+
+
 
     if (loading) return <p>Yuklanmoqda...</p>;
 
@@ -73,7 +69,7 @@ const NewsPage = () => {
                 </h1>
                 <div className={styles.facultyList}>
                     {currentNews.length > 0 ? (
-                        currentNews.map((new_data) => (
+                        currentNews.map((new_data, index) => (
                             <Link
                                 key={new_data.id}
                                 to={`/news/${new_data.id}`}
@@ -84,7 +80,7 @@ const NewsPage = () => {
                                         className={styles.facultyImage}/>
                                     <div className={styles.facultyInfo}>
                                         <h3>
-                                            {new_data?.title_uz}
+                                            {new_data[`title_${i18n.language}`] || new_data?.title_uz}
                                         </h3>
                                     </div>
                                     <div className={styles.newsMeta}>

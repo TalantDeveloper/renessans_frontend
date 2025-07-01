@@ -27,7 +27,6 @@ export const Advantage = () => {
             .finally(() => setLoading(false));
     }, [i18n.language]);
 
-    console.log(currentLang);
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
 

@@ -1,6 +1,6 @@
-export const BaseURL = "https://sayt.renessans-edu.uz/";
+export const BaseURL = "https://site.renessans-edu.uz/";
 export const LastSite = "https://renessans-edu.uz";
-export const testUrl = "http://site.renessans-edu.uz";
+export const testUrl = "https://site.renessans-edu.uz";
 
 
 export const universities = [

@@ -13,7 +13,7 @@ import {testUrl} from "../BaseData";
 
 export const Opener2 = () => {
     const {t, i18n} = useTranslation();
-    const [news, setNews] = useState([]);
+    const [newsData, setNews] = useState([]);
     const [announcements, setAnnouncements] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -27,10 +27,10 @@ export const Opener2 = () => {
 
         Promise.all([fetchNewsData])
             .then(([newsResponse]) => {
-                const news_data = newsResponse.data;
+                const news_data = newsResponse.data || [];
 
-                if (news_data) {
-                    setNews(news_data || []);
+                if (Array.isArray(news_data)) {
+                    setNews(news_data);
                 } else {
                     setError("Ma'lumotlar topilmadi");
                 }
@@ -44,10 +44,10 @@ export const Opener2 = () => {
 
         Promise.all([fetchAnnouncementsData])
             .then(([AnnouncementsResponse]) => {
-                const accouncement_data = AnnouncementsResponse.data;
+                const accouncement_data = AnnouncementsResponse?.data || [];
 
                 if (accouncement_data) {
-                    setAnnouncements(accouncement_data || []);
+                    setAnnouncements(accouncement_data);
                 } else {
                     setError("Ma'lumotlar topilmadi");
                 }
@@ -56,7 +56,6 @@ export const Opener2 = () => {
             .finally(() => setLoading(false));
 
     }, [t]);
-
     useEffect(() => {
         const startScroll = (section) => {
             if (!section) return;
@@ -150,7 +149,7 @@ export const Opener2 = () => {
                             <div
                                 onClick={() => navigate("/news")}
                                 className={classes.newsItems}>
-                                {news.map((item) => (
+                                {newsData.map((item) => (
                                     <div key={item.id} className={classes.newsItem}>
                                         <h3>
                                             <span className={classes.icon}>

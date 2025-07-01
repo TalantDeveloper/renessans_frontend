@@ -44,7 +44,7 @@ export const Partnership = () => {
                 const data = await response.json();
                 setPartners(data);
             } catch (error) {
-                console.error("Error fetching partner data:", error);
+                console.log("Error fetching partner data:");
             }
         };
         fetchPartners();

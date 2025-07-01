@@ -16,7 +16,7 @@ export const NewsSection = () => {
     const [news, setNews] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
-    console.log(news);
+
 
     // Fetch news data from the API
     useEffect(() => {
@@ -49,7 +49,7 @@ export const NewsSection = () => {
             case "ru":
                 return item.title_ru;
             default:
-                return item.title_en; // Fallback to English if the language is unknown
+                return item.title_uz; // Fallback to English if the language is unknown
         }
     };
     return (
