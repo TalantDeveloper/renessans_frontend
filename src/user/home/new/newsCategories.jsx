@@ -19,7 +19,7 @@ const NewsCategories = () => {
     const navigate = useNavigate();
     const {t, i18n } = useTranslation();
     const [news_data, setNews] = useState(null);
-    const [categories, setCategories] = useState(null);
+    const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -51,8 +51,7 @@ const NewsCategories = () => {
                 
                 if (news && categoris) {
                     setNews(news?.news || []);
-                    setCategories(categoris || []);
-                    console.log(news);
+                    setCategories(categoris);
                 } else {
                     setError("Ma'lumotlar topilmadi");
                 }
@@ -63,7 +62,8 @@ const NewsCategories = () => {
         
     }, [id, i18n.language]);
     
-    
+
+    const foundItem = categories.find(item => item.id === Number(id));
 
     if (loading) return <p>Yuklanmoqda...</p>;
     
@@ -73,7 +73,7 @@ const NewsCategories = () => {
             <div data-aos="fade-up" className={classes["newsSection"]}>
                 
                 <h1 className={classes["page-title"]}>
-                    {t("Yangiliklar")}
+                    {foundItem ? foundItem?.name_uz : "Yangiliklar"}
                 </h1>
                 
                     <div className={styles.facultyList}>
@@ -127,6 +127,17 @@ const NewsCategories = () => {
                     {t("categories")}
                 </h3>
                 <ul style={{listStyle: 'none', padding: 0}}>
+                            <li
+                                onClick={() => navigate("/news")}
+                                style={{marginBottom: '10px'}}
+                                >
+                                <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>1. </span>
+                                <span
+                                    style={{cursor: 'pointer', color: '#133654'}}
+                                >
+                                    {t("Barcha yangilkilar")}
+                                </span>
+                            </li>
                     {categories.length > 0 ? (
                         categories.map((category, index) => (
                             <li
@@ -134,7 +145,7 @@ const NewsCategories = () => {
                                 key={category.id}
                                 style={{marginBottom: '10px'}}
                                 >
-                                <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 1}.</span>
+                                <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>{index + 2}.</span>
                                 <span
                                     style={{cursor: 'pointer', color: '#133654'}}
                                 >

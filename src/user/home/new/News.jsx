@@ -117,6 +117,17 @@ const NewsPage = () => {
                     {t("categories")}
                 </h3>
                 <ul style={{listStyle: 'none', padding: 0}}>
+                            <li
+                                onClick={() => navigate("/news")}
+                                style={{marginBottom: '10px'}}
+                                >
+                                <span style={{marginRight: '8px', color: '#133654', fontWeight: 'bold'}}>1. </span>
+                                <span
+                                    style={{cursor: 'pointer', color: '#133654'}}
+                                >
+                                    {t("Barcha yangilkilar")}
+                                </span>
+                            </li>
                     {categories.length > 0 ? (
                         categories.map((category, index) => (
                             <li

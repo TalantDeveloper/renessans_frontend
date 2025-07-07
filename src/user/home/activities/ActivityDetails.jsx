@@ -66,11 +66,7 @@ const ActivityDetail = () => {
       </div>
       <div className={classes["article-content"]}>
       <h1 className={classes["article-title"]}>{data[`name_${currentLang}`]}</h1>
-        <img
-          src={data.image && data.image.startsWith('http') ? data.image : (data.image ? testUrl + data.image : '')}
-          alt={data[`name_${currentLang}`]}
-          className={classes["article-image"]}
-        />
+        
         <div className={classes["article-body"]} dangerouslySetInnerHTML={{ __html: data[`content_${currentLang}`] }} />
       </div>
     </div>

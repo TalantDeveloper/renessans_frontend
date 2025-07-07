@@ -24,14 +24,14 @@ const dropdownItems = {
     {
       text: "Ilmiy faoliyat",
       children: [
-        { path: "/newscategories/3", text: "Ilmiy jarayonlar" },
+        { path: "/newscategories/2", text: "Ilmiy jarayonlar" },
         { path: "https://conference.renessans-edu.uz/", text: "Ilmiy konferensiyalar" },
         { path: "/journal", text: "journal" },
         { path: "/activity/ilmiy-faoliyat/ilmiy-maktablar", text: "Ilmiy maktablar" },
-        { path: "/activity/ilmiy-faoliyat/ilmiy-kengash", text: "Ilmiy kengash" },
+        { path: "/dropdown/ilmiy-kengash", text: "Ilmiy kengash" },
         { path: "/activity/ilmiy-faoliyat/green-renessans", text: "Green Renessans" },
         { path: "/activity/ilmiy-faoliyat/oquv-va-labaratoriya-bazalari", text: "O‘quv va labaratoriya bazalari" },
-        { path: "/activity/ilmiy-faoliyat/axborotlashtirish-jarayonlari", text: "Axborotlashtirish jarayonlari" },
+        { path: "/dropdown/axborotlashtirish-jarayonlari", text: "Axborotlashtirish jarayonlari" },
         { path: "/activity/ilmiy-faoliyat/yosh-akademiklar", text: "Yosh akademiklar" },
         { path: "/activity/ilmiy-faoliyat/avtorefereat-dissertatsiya", text: "Avtoreferat va dissertatsiya" },
       ]
@@ -40,17 +40,17 @@ const dropdownItems = {
       text: "Madaniy-ma'rifiy faoliyat",
       children: [
         { path: "/activity/manaviy-marifiy-faoliyat/manaviyat-va-marifat-kengashi", text: "Ma’naviyat va ma’rifat Kengashi" },
-        { path: "/newscategories/4", text: "Fan va jamoat arboblari bilan muloqotlar" },
-        { path: "/activity/manaviy-marifiy-faoliyat/axborot-resurslar", text: "Axborot resurslar" },
-        { path: "/newscategories/5", text: "Ma’naviy-ma’rifiy tadbirlar" },
-        { path: "/newscategories/6", text: "Murabbiylar faoliyati" },
+        { path: "/newscategories/3", text: "Fan va jamoat arboblari bilan muloqotlar" },
+        { path: "/dropdown/axborot-resurslar", text: "Axborot resurslar" },
+        { path: "/newscategories/4", text: "Ma’naviy-ma’rifiy tadbirlar" },
+        { path: "/newscategories/5", text: "Murabbiylar faoliyati" },
         { path: "/activity/manaviy-marifiy-faoliyat/tanlovlar", text: "Tanlovlar" },
       ]
     },
     {
       text: "O'quv faoliyat",
       children: [
-        { path: "/newscategories/7", text: "Oʻquv jarayoni" },
+        { path: "/newscategories/6", text: "Oʻquv jarayoni" },
         { path: "/activity/oquv-faoliyat/talim-jarayoni-meyoriy-hujjatlari", text: "Ta'lim jarayoni me'yoriy hujjatlari" },
         { path: "/activity/oquv-faoliyat/video-maruzalar", text: "Elektron kontentlar" },
         { path: "/activity/oquv-faoliyat/amaliyot-shartnomalari", text: "Amaliyot shartnomalari" },
@@ -74,12 +74,12 @@ const dropdownItems = {
     { path: "/baseactivities/talabalar-hayoti/", text: "Talabalar hayoti" },
     { path: "/activity/talabalarga/karyera/", text: "Karyera" },
     { path: "/university-union", text: "universityUnion" },
-    { path: "/activity/talabalarga/talabalar-turar-joyi", text: "Talabalar turar joyi" },
+    { path: "/dropdown/talabalar-turar-joyi", text: "Talabalar turar joyi" },
     { path: "/activity/talabalarga/alochi-talabalar", text: "Iqtidorlilar va chempionlar" },
     { path: "/scholarship", text: "Stipendiantlar" },
   ],
   hamkorlik: [
-    { path: "/activity/hamkorlik/xalqaro-aloqalar", text: "Xalqaro aloqalar" },
+    { path: "/newscategories/7", text: "Xalqaro aloqalar" },
     { path: "/confession", text: "Xalqaro e'tirof" },
     { path: "/activity/hamkorlik/xorijda-talim", text: "Xorijda ta'lim" },
     { path: "/partners", text: "partners" },

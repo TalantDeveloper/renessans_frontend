@@ -47,24 +47,24 @@ const Navbar = () => {
   const staticItemsColumn1 = [
     // { path: "/journal", text: t("Ilmiy jurnal") },
     // { path: "https://conference.renessans-edu.uz/", text: t("Konferensiyalar") },
-    { path: "/newscategories/3", text: t("Ilmiy jarayonlar") },
+    { path: "/newscategories/2", text: t("Ilmiy jarayonlar") },
     { path: "https://conference.renessans-edu.uz/", text: t("Ilmiy konferensiyalar") },
     { path: "/journal", text: t("journal") },
     { path: "/activity/ilmiy-faoliyat/ilmiy-maktablar", text: t("Ilmiy maktablar") },
-    { path: "/activity/ilmiy-faoliyat/ilmiy-kengash", text: t("Ilmiy kengash") },
-    { path: "/activity/ilmiy-faoliyat/green-renessans", text: t("Green Renessans") },
+    { path: "/dropdown/ilmiy-kengash", text: t("Ilmiy kengash") },
+    { path: "/dropdown/green-renessans", text: t("Green Renessans") },
     { path: "/activity/ilmiy-faoliyat/oquv-va-labaratoriya-bazalari", text: t("O‘quv va labaratoriya bazalari") },
-    { path: "/activity/ilmiy-faoliyat/axborotlashtirish-jarayonlari", text: t("Axborotlashtirish jarayonlari") },
+    { path: "/dropdown/axborotlashtirish-jarayonlari", text: t("Axborotlashtirish jarayonlari") },
     { path: "/activity/ilmiy-faoliyat/yosh-akademiklar", text: t("Yosh akademiklar") },
     { path: "/activity/ilmiy-faoliyat/avtorefereat-dissertatsiya", text: t("Avtoreferat va dissertatsiya") },
   ];
 
   const staticItemsColumn2 = [
     { path: "/activity/manaviy-marifiy-faoliyat/manaviyat-va-marifat-kengashi", text: t("Ma’naviyat va ma’rifat Kengashi") },
-    { path: "/newscategories/4", text: t("Fan va jamoat arboblari bilan muloqotlar") },
-    { path: "/activity/manaviy-marifiy-faoliyat/axborot-resurslar", text: t("Axborot resurslar") },
-    { path: "/newscategories/5", text: t("Ma’naviy-ma’rifiy tadbirlar") },
-    { path: "/newscategories/6", text: t("Murabbiylar faoliyati") },
+    { path: "/newscategories/3", text: t("Fan va jamoat arboblari bilan muloqotlar") },
+    { path: "/dropdown/axborot-resurslar", text: t("Axborot resurslar") },
+    { path: "/newscategories/4", text: t("Ma’naviy-ma’rifiy tadbirlar") },
+    { path: "/newscategories/5", text: t("Murabbiylar faoliyati") },
     { path: "/activity/manaviy-marifiy-faoliyat/tanlovlar", text: t("Tanlovlar") },
     // { path: "/about-uni", text: t("Talabalar hayoti") },
     // { path: "/university-union", text: t("universityUnion") },
@@ -74,7 +74,7 @@ const Navbar = () => {
   ];
 
   const staticItemsColumn3 = [
-    { path: "/newscategories/7", text: t("Oʻquv jarayoni") },
+    { path: "/newscategories/6", text: t("Oʻquv jarayoni") },
     { path: "/activity/oquv-faoliyat/talim-jarayoni-meyoriy-hujjatlari", text: t("Ta'lim jarayoni me'yoriy hujjatlari") },
     { path: "/activity/oquv-faoliyat/video-maruzalar", text: t("Elektron kontentlar") },
     { path: "/activity/oquv-faoliyat/amaliyot-shartnomalari", text: t("Amaliyot shartnomalari") },
@@ -96,7 +96,7 @@ const Navbar = () => {
     { path: "/baseactivities/talabalar-hayoti/", text: t("Talabalar hayoti") },
     { path: "/activity/talabalarga/karyera/", text: t("Karyera") },
     { path: "/university-union", text: t("universityUnion") },
-    { path: "/activity/talabalarga/talabalar-turar-joyi", text: t("Talabalar turar joyi") },
+    { path: "/dropdown/talabalar-turar-joyi", text: t("Talabalar turar joyi") },
     { path: "/activity/talabalarga/alochi-talabalar", text: t("Iqtidorlilar va chempionlar") },
     { path: "/scholarship", text: t("Stipendiantlar") },
     // { path: "/dropdown/imtiyozlar", text:t("Imtiyozlar") },
@@ -113,7 +113,7 @@ const Navbar = () => {
 
   const xalqaro = [
     // { path: "/cooperations/mahalliy-hamkorliklar", text: t("Mahalliy hamkorlik") },
-    { path: "/activity/hamkorlik/xalqaro-aloqalar", text: t("Xalqaro aloqalar") },
+    { path: "/newscategories/7", text: t("Xalqaro aloqalar") },
     { path: "/confession", text: t("Xalqaro e'tirof") },
     { path: "/activity/hamkorlik/xorijda-talim", text: t("Xorijda ta'lim") },
     { path: "/partners", text: t("partners") },
@@ -177,7 +177,7 @@ const Navbar = () => {
   return (
     <div>
       <div className={classes["testRejim"]}>
-        <p>▴ Sayt test rejimida ishlamoqda ▴</p>
+        <p>▴ {t("Sayt test rejimida ishlamoqda")} ▴</p>
       </div>
       <div className={classes["aboweHeader"]}>
         <a href="https://student.renessans-edu.uz/dashboard/login">{t("hemis")}</a>

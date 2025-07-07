@@ -97,7 +97,7 @@ const NewsDetails = () => {
                 <h1 className={classes["page-title"]}>
                     {new_data[`title_${i18n.language}`]}
                 </h1>
-                <img src={testUrl + new_data?.image} alt="" />
+                {/* <img src={new_data?.image} alt="" /> */}
                 <div className={styles.newsMeta}>
                     <span className={styles.newsDate} style={{display: 'flex', alignItems: 'center', gap: '4px'}}>
                         <InlineIcon icon="mdi:view-grid" width="16" height="16" color="blue"/>

@@ -24,6 +24,7 @@
   background-color: #f9f9f9;
   padding: 20px;
   border-left: 1px solid #ddd;
+  margin-left: 50px;
   height: 100vh;
   display: flex;
   flex-direction: column;

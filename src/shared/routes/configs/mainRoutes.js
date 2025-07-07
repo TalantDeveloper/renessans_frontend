@@ -446,7 +446,7 @@ export const mainRoutes = [
         exact: true,
         visibleInNavbar: false,
         element: <DropdownDetails/>,
-    },                                                              // Ishlatilmayabdi Dropdown page
+    },                                                              // Ishlatilyabdi Dropdown page
     {
         text: "404",
         path: "*",
