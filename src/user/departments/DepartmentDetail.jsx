@@ -28,7 +28,7 @@ const DepartmentDetails = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [openDropdown, setOpenDropdown] = useState({});
-    console.log(departments);
+
 
 
     useEffect(() => {
@@ -264,6 +264,7 @@ const DepartmentDetails = () => {
                 ))
                 }
             </div>
+            
             <div className={classes.sidebar} style={{marginLeft: 0, marginRight: "40px"}}>
                 <h3>{t("center")}</h3>
                 <ul style={{listStyle: 'none', padding: 0}}>
