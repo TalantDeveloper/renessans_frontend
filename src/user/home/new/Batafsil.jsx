@@ -24,7 +24,6 @@ const NewsDetails = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [openDropdown, setOpenDropdown] = useState({});
-    console.log(categories);
 
 
     useEffect(() => {
@@ -52,7 +51,7 @@ const NewsDetails = () => {
             .finally(() => setLoading(false));
     }, [new_id  , i18n.language]);
 
-   
+
 
     // Get the first staff member
     const toggleDropdown = (id, type) => {
