@@ -39,17 +39,16 @@ const TelegramSubscribe = ({ onClose }) => (
         <div className="allCollected">
           <div className="imageCollected">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" // Replace with your own Telegram logo if needed
+              src="https://site.renessans-edu.uz/media/logo.jpg" // Replace with your own Telegram logo if needed
               alt="Telegram"
               className="telegram-logo"
             />
             <p>
-              Renessans ta'lim universiteti yangiliklarini rasmiy telegram
-              sahifalarimizda kuzatishni unitmang!!
+            Renessans ta'lim universitetining yangi web sayti test rejimida ishlamoqda
             </p>
           </div>
           <div className="collected">
-            <a
+            {/* <a
               href="https://t.me/renessansedu_uz"
               target="_blank"
               rel="noopener noreferrer"
@@ -57,7 +56,7 @@ const TelegramSubscribe = ({ onClose }) => (
             >
               A'zo bo'lish  
               <IoSendOutline />
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
@@ -114,9 +113,9 @@ const App = () => {
   return (
     <div id="zoom-root" className="App">
       {handleDisplayLayouts()}
-      {/* {!pathname.includes("admin") && showTelegramPrompt && (
+      {!pathname.includes("admin") && showTelegramPrompt && (
         <TelegramSubscribe onClose={handleCloseTelegramPrompt} />
-      )} */}
+      )}
     </div>
   );
 };

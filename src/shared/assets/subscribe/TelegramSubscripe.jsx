@@ -28,7 +28,7 @@ const TelegramSubscribe = ({ onClose }) => (
               rel="noopener noreferrer"
               className={styles.telegramLink}
             >
-              A'zo bo‘lish  
+              A'zo bo‘lish
               <IoSendOutline />
             </a>
           </div>

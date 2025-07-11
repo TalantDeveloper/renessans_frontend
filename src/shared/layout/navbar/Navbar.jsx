@@ -178,6 +178,8 @@ const Navbar = () => {
     <div>
       <div className={classes["testRejim"]}>
         <p>▴ {t("Sayt test rejimida ishlamoqda")} ▴</p>
+        <p>▴ {t("Sayt test rejimida ishlamoqda")} ▴</p>
+        <p>▴ {t("Sayt test rejimida ishlamoqda")} ▴</p>
       </div>
       <div className={classes["aboweHeader"]}>
         <a href="https://student.renessans-edu.uz/dashboard/login">{t("hemis")}</a>

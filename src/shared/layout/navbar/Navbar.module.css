@@ -6,9 +6,9 @@
 .testRejim {
   overflow: hidden;
   white-space: nowrap;
-  background: var(--primary-color);
+  background: #e5d6a0;
   position: fixed;
-  width: 100%;
+  /* width: 100%; */
   bottom: 0;
   left: 0;
   z-index: 999;
@@ -18,8 +18,9 @@
   display: inline-block;
   animation: scroll 30s linear infinite;
   width: 100%;
-  color: #eff2f7;
-  padding: 7px 0;
+  margin-right: 500px;
+  color: #030913;
+  padding: 3px 0;
   font-style: italic;
 }
 
