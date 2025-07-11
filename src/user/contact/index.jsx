@@ -5,6 +5,7 @@ import {Map} from "./components/map/Map";
 import {Form} from "./components/form/Form";
 import {Contacts} from "./components/contact/Contact";
 import Head from "../../shared/layout/head/Head";
+import { botUrl, botToken, chatId } from "../home/BaseData";
 
 import classes from "./index.module.css";
 

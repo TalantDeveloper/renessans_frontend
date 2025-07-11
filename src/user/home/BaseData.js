@@ -12,3 +12,8 @@ export const universities = [
     {"text": "internationalCooperation", "path": "/activity/hamkorlik/xalqaro-aloqalar"},
     {"text": "statistics", "path": "/statistics"},
 ]
+
+
+export const botUrl = "https://api.telegram.org/bot"
+export const botToken = "7443223152:AAHhNAB534F-i5sGUyKpR1AwBztad1tyduU";
+export const chatId = "-1002299355643";

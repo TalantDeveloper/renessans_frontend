@@ -4,6 +4,7 @@ import {useTranslation} from "react-i18next"; // Import the hook
 import styles from "./UniversityUnion.module.css";
 import DefaultImg4 from "./2023-07-13-14-11-45_6ab33211e536c0992de38e18309da348.jpeg";
 import { testUrl } from "../home/BaseData";
+import { botUrl, botToken, chatId } from "../home/BaseData";
 
 const UniversityUnion = () => {
     const {t, i18n} = useTranslation();
@@ -91,8 +92,7 @@ const UniversityUnion = () => {
     `;
 
         // Send the message to Telegram
-        const telegramApiUrl = `https://api.telegram.org/bot7443223152:AAHhNAB534F-i5sGUyKpR1AwBztad1tyduU/sendMessage`;
-        const chatId = "-1002381957849";
+        const telegramApiUrl = `${botUrl}${botToken}/sendMessage`;
 
         try {
             const response = await fetch(telegramApiUrl, {

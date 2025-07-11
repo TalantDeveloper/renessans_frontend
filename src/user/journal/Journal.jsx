@@ -16,6 +16,7 @@ import {
 import { testUrl} from "../home/BaseData";
 import {Contacts} from "../contact/components/contact/Contact";
 import {useTranslation} from "react-i18next";
+import { botUrl, botToken, chatId } from "../home/BaseData";
 
 const Journal = () => {
     const {t} = useTranslation();
@@ -40,8 +41,6 @@ const Journal = () => {
     // Handle form submission to Telegram
     const handleSubmit = (e) => {
         e.preventDefault();
-        const botToken = "7443223152:AAHhNAB534F-i5sGUyKpR1AwBztad1tyduU";
-        const chatId = "-1002384689140";
         const {fullName, phone, file} = formData;
 
         if (!chatId) {
@@ -59,7 +58,7 @@ const Journal = () => {
         );
         formDataObj.append("document", file);
 
-        fetch(`https://api.telegram.org/bot${botToken}/sendDocument`, {
+        fetch(`${botUrl}${botToken}/sendDocument`, {
             method: "POST",
             body: formDataObj,
         })

@@ -5,6 +5,7 @@ import axios from "axios";
 import {GenericModal} from "../../../../../shared/components/modal/Modal";
 import {GenericInput} from "../../../../../shared/components/input/Input";
 import {useStatusContext} from "../../../../../context/StatusContextProvider/StatusContextProvider";
+import { botUrl, botToken, chatId } from "../../../../../user/home/BaseData";
 
 export const EventModal = ({openModal, setOpenModal, selectedEvent}) => {
     const {t} = useTranslation();
@@ -28,9 +29,7 @@ export const EventModal = ({openModal, setOpenModal, selectedEvent}) => {
         event.preventDefault();
 
         try {
-            const chatId = "-1002252158044"; // Replace with your actual chat ID
-            const token = "7443223152:AAHhNAB534F-i5sGUyKpR1AwBztad1tyduU"; // Replace with your actual bot token
-            const url = `https://api.telegram.org/bot${token}/sendMessage`;
+            const url = `${botUrl}${botToken}/sendMessage`;
 
             // Sticker mapping based on selectedEvent
             const stickers = {

@@ -6,6 +6,7 @@ import classes from "./eventModal.module.css";
 import { GenericModal } from "../../../../shared/components/modal/Modal";
 import { GenericInput } from "../../../../shared/components/input/Input";
 import { useStatusContext } from "../../../../context/StatusContextProvider/StatusContextProvider";
+import { botUrl, botToken, chatId } from "../../../../home/BaseData";
 
 export const EventModal = ({ openModal, setOpenModal, selectedConference }) => {
   const { t, i18n } = useTranslation();
@@ -56,9 +57,6 @@ export const EventModal = ({ openModal, setOpenModal, selectedConference }) => {
     event.preventDefault();
     if (!validateFields()) return;
 
-    const token = "7650029553:AAE61XUJarEQ8WuABMgaKreJo56PpTK-1f4";
-  const chatId = "556841744";
-
     const { name, phone, email, reason, conferenceEventId, file } = inputText;
     const selectedEvent = filteredEvents.find(
       (event) => event.id === parseInt(conferenceEventId, 10)
@@ -80,7 +78,7 @@ export const EventModal = ({ openModal, setOpenModal, selectedConference }) => {
 
     try {
       const response = await fetch(
-        `https://api.telegram.org/bot${token}/sendDocument`,
+        `${botUrl}${botToken}/sendDocument`,
         {
           method: "POST",
           body: formDataObj,

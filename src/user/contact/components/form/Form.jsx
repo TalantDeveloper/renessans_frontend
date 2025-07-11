@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 
 import { useStatusContext } from "../../../../context/StatusContextProvider/StatusContextProvider";
+import { botUrl, botToken, chatId } from "../../../../user/home/BaseData";
 
 import classes from "./Form.module.css";
 
@@ -28,10 +29,7 @@ export const Form = () => {
     event.preventDefault();
 
     try {
-      const chatId = "-1002299355643"; // New chat ID
-      const token = "7443223152:AAHhNAB534F-i5sGUyKpR1AwBztad1tyduU"; // New bot token
-
-      const url = `https://api.telegram.org/bot${token}/sendMessage`;
+      const url = `${botUrl}${botToken}/sendMessage`;
 
       const message = `
         Ism: ${inputText?.name}

